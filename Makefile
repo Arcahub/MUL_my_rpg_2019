@@ -25,13 +25,13 @@ OBJ = $(addprefix $(BUILD_DIR), $(SRC:.c=.o))
 
 TEST_OBJ = $(addprefix $(BUILD_DIR), $(TEST_SRC:.c=.o))
 
-RMD_FILES = $(OBJ) vgcore.* lib/my_graph/*.o lib/my/*.o lib/*.a
+RMD_FILES = $(OBJ) vgcore.* lib/*.a
 
-NAME = my_defender
+NAME = binary
 
 CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
 
-LDFLAGS = -L./lib -lmy_game -lmy -lmy_graph $(CSFML)
+LDFLAGS = -L./lib
 
 LIBS = $(foreach LIB, $(LIBS_DIR), $(addprefix -l, $(LIB_NAME)))
 
@@ -57,7 +57,7 @@ debug:
 
 $(BUILD_DIR)%.o:%.c
 	@mkdir -p `dirname  $@`
-	@printf "$(GREEN)[$(WHITE)MY_DEFENDER$(GREEN)] — $(BLUE)%-70s" $@
+	@printf "$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — $(BLUE)%-70s" $@
 	@printf "$(GREEN)[$(WHITE)√$(GREEN)]\n$(WHITE)"
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
@@ -67,7 +67,7 @@ $(NAME) : make_lib start_compil $(OBJ)
 	@printf "$(BLUE) Binary :$(CYAN) $(NAME)\n\n$(WHITE)"
 
 start_compil:
-	@printf "\n$(GREEN)[$(WHITE)MY_DEFENDER$(GREEN)] — START BUILD\n\n"
+	@printf "\n$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — START BUILD\n\n"
 
 make_lib :
 	@printf "\n$(GREEN)[$(WHITE)LIB$(GREEN)] — $(YEL)BUILDING LIBS\n\n"
@@ -83,23 +83,23 @@ doc :
 
 clean :
 	@printf "$(REDDARK)\nCleaning build files of \
-	$(GREEN)[$(WHITE)MY_DEFENDER$(GREEN)]\n\n"
-	@printf "$(GREEN)[$(WHITE)MY_DEFENDER$(GREEN)] — $(RED)%-45s\n" $(OBJ)
+	$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)]\n\n"
+	@printf "$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — $(RED)%-45s\n" $(OBJ)
 	@printf "\n$(GREEN) → $(RED) Build clean.\n\n$(WHITE)"
 	@rm -f $(RMD_FILES)
 
 fclean :
 	@printf "$(REDDARK)\nCleaning Repository \
-	$(GREEN)[$(WHITE)MY_DEFENDER$(GREEN)] \n"
+	$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] \n"
 	@make -s clean
 	@rm -rf $(BUILD_DIR)
-	@printf "$(GREEN)[$(WHITE)MY_DEFENDER$(GREEN)] — $(RED)%-45s\n" $(BUILD_DIR)
+	@printf "$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — $(RED)%-45s\n" $(BUILD_DIR)
 	@rm -f $(NAME)
 	@$(foreach LIB, $(LIBS_DIR), \
 	rm -f $(addsuffix .a, $(addprefix lib/lib, $(LIB_NAME))) && \
-	printf "$(GREEN)[$(WHITE)MY_DEFENDER$(GREEN)] — $(RED)%-45s\n" \
+	printf "$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — $(RED)%-45s\n" \
 	$(addsuffix .a, $(addprefix lib/lib, $(LIB_NAME)));)
-	@printf "$(GREEN)[$(WHITE)MY_DEFENDER$(GREEN)] — $(RED)%-45s\n" $(NAME)
+	@printf "$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — $(RED)%-45s\n" $(NAME)
 	@printf "\n$(GREEN) → $(REDDARK) Repository clean.\n\n$(WHITE)"
 
 re : fclean all
