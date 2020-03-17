@@ -71,9 +71,9 @@ typedef struct game_object
     sfClock *delta_t;                                     /**< Local clock of the object*/
     bool (*update)(struct game_object *, struct scene *); /**< Update function of the object*/
     void (*callback)(struct game_object *, void *);       /**< Callback function of the object*/
-    void (*draw)(sfRenderWindow *, struct game_object *);
+    void (*draw)(sfRenderWindow *, struct game_object *); /**< Draw function of the object*/
     struct game_object *next;                             /**< Next object in the list*/
-    void *extend;
+    void *extend;                                         /**< extend other attributes*/
 } game_object_t;
 
 ////////////////////////////////////////////////////////////
