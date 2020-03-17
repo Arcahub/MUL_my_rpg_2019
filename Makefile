@@ -27,7 +27,7 @@ TEST_OBJ = $(addprefix $(BUILD_DIR), $(TEST_SRC:.c=.o))
 
 RMD_FILES = $(OBJ) vgcore.* lib/*.a
 
-NAME = binary
+NAME = my_rpg
 
 CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
 
@@ -64,7 +64,7 @@ $(BUILD_DIR)%.o:%.c
 $(NAME) : make_lib start_compil $(OBJ)
 	@$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
 	@printf "\n$(GREEN) → Successfully build.  "
-	@printf "$(BLUE) Binary :$(CYAN) $(NAME)\n\n$(WHITE)"
+	@printf "$(BLUE) MY_RPG :$(CYAN) $(NAME)\n\n$(WHITE)"
 
 start_compil:
 	@printf "\n$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — START BUILD\n\n"
@@ -109,4 +109,4 @@ tests_run: CFLAGS+= --coverage
 tests_run: make_lib start_compil $(TEST_OBJ)
 	@$(CC) -o unit_tests $(TEST_OBJ) $(CFLAGS)
 	@printf "\n$(GREEN) → Successfully build.  "
-	@printf "$(BLUE) Binary :$(CYAN) unit_tests\n\n$(WHITE)"
+	@printf "$(BLUE) MY_RPG :$(CYAN) unit_tests\n\n$(WHITE)"
