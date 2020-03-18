@@ -5,7 +5,7 @@
 ## deploy
 ##
 
-NAME='Arcahub/MYL_my_rpg_2019'
+NAME=$TRAVIS_REPO_SLUG
 REPO_NAME=$(echo -n $NAME | awk -F'/' '{print $2}')
 
 ssh-keyscan -H git.epitech.eu >> ~/.ssh/known_hosts
