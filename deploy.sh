@@ -6,8 +6,7 @@
 ##
 
 NAME=$TRAVIS_REPO_SLUG
-echo $TRAVIS_REPO_SLUG
-REPO_NAME=echo $NAME | awk -F'/' '{print $2}'
+REPO_NAME= $(echo $NAME | awk -F'/' '{print $2}')
 echo $REPO_NAME
 
 ssh-keyscan -H git.epitech.eu >> ~/.ssh/known_hosts
