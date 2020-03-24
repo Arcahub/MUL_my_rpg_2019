@@ -4,6 +4,10 @@
 
     git branch {branch_name}
 
+## View all branch
+
+    git branch -a
+
 ## Move to branch
 
     git checkout {branch_name}
