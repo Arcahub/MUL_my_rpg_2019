@@ -8,7 +8,7 @@
 
     git checkout {branch_name}
 
-### Warning before move you have to clean your current repository (commit) because it will be lost
+### Warning before move you have to clean your current repository (commit) because no commit change will be lost after checkout
 
 ## Create branch and move to it
 
