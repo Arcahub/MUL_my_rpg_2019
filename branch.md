@@ -1,3 +1,5 @@
+# Branch
+
 ## Create branch
 
     git branch {branch_name}
@@ -15,3 +17,5 @@
 ## Push branch
 
     git push origin {branch_name}
+
+### Important: if you don't push other people won't be able to acces to your work so push even if it's in dev and not working
