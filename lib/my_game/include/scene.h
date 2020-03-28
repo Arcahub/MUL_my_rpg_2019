@@ -44,4 +44,15 @@ void display_scene(scene_t *, sfRenderWindow *);
 ////////////////////////////////////////////////////////////
 void destroy_scene(scene_t *);
 
+////////////////////////////////////////////////////////////
+/// \brief Create an empty scene
+///
+/// Create and initialize a scene with no objects
+///
+/// \param sfRenderWindow the window of the scene
+///
+/// \return struct scene *scene
+////////////////////////////////////////////////////////////
+scene_t *create_empty_scene(sfRenderWindow *window);
+
 #endif /* !SCENE_H_ */
