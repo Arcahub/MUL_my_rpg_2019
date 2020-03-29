@@ -79,5 +79,6 @@ scene_t *create_empty_scene(sfRenderWindow *window)
     scene->objects_list = NULL;
     scene->window = window;
     scene->z_index_deepth = 0;
+    scene->update_scene = NULL;
     return (scene);
 }

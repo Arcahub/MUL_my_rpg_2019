@@ -17,6 +17,7 @@ typedef struct game_object game_object_t;
 ////////////////////////////////////////////////////////////
 typedef struct scene {
     void (*handle_event)(struct scene *, struct game *, sfRenderWindow *);      /**< Function that handle window event for this scene*/
+    void (*update_scene)(struct scene *, struct game *);                        /**< Function that update this scene*/
     game_object_t *objects_list;                                                /**< List of object of this scene*/
     sfColor background_color;                                                   /**< Color of the background of this scene*/
     int z_index_deepth;                                                         /**< Max deepth of z_index for objects display*/
@@ -54,5 +55,8 @@ void destroy_scene(scene_t *);
 /// \return struct scene *scene
 ////////////////////////////////////////////////////////////
 scene_t *create_empty_scene(sfRenderWindow *window);
+
+void close_scene(scene_t *scene, sfRenderWindow *window, sfClock *clock, \
+game_t *game);
 
 #endif /* !SCENE_H_ */
