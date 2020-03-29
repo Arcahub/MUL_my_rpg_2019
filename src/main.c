@@ -5,7 +5,9 @@
 ** main
 */
 
-int main(void)
+#include "my_rpg.h"
+
+int main(int argc, char **argv, char **env)
 {
-    return (84);
+    return (check_error(argc, argv, env));
 }
