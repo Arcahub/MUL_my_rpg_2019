@@ -19,7 +19,7 @@ bool rpg_galaxie_update_planet(game_object_t *object, scene_t *scene)
             break;
     }
     if (sfIntRect_intersects(&tmp->box, &object->box, NULL))
-        scene->display = VILLAGE_SCENE;
+        scene->display = NULL_SCENE;
     return (true);
 }
 

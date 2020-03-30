@@ -9,6 +9,7 @@
 #define SCENE_H_
 
 #include <SFML/Graphics.h>
+#include <stdbool.h>
 #include "event.h"
 
 typedef struct game_object game_object_t;
@@ -62,6 +63,7 @@ scene_t *create_empty_scene(sfRenderWindow *window);
 void disappear_scene(scene_t *scene, sfRenderWindow *window, sfClock *clock, \
 game_t *game);
 
-void handle_scene_event(scene_t *scene, game_t *game, sfRenderWindow *window);
+void update_scene(scene_t *scene, game_t *game);
+bool disappear_scene_objects(scene_t *scene);
 
 #endif /* !SCENE_H_ */

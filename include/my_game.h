@@ -10,9 +10,10 @@
 
 #include <SFML/Graphics.h>
 
-#include "game_object.h"
-#include "scene.h"
-#include "menu.h"
+#include "my_game/game_object.h"
+#include "my_game/scene.h"
+#include "my_game/menu.h"
+#include "my_game/handle_framerate.h"
 #include "my_graph.h"
 
 typedef struct game game_t;

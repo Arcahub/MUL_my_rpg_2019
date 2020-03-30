@@ -40,7 +40,6 @@ int my_rpg(int argc, char **argv)
     if (game == NULL)
         return (84);
     window  = game->window->window;
-    sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     while (sfRenderWindow_isOpen(window) && display >= 0)
         display = game->scene_loop[display](game, window);
     destroy_game(game);

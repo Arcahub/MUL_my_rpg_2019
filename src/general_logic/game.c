@@ -7,8 +7,6 @@
 
 #include "my_game.h"
 #include "my_rpg.h"
-#include "galaxie/galaxie.h"
-#include "main_menu/main_menu.h"
 #include <stdlib.h>
 #include <SFML/Audio.h>
 
@@ -23,6 +21,9 @@ game_t *init_game(void)
         return (NULL);
     game->scene_loop[MAIN_MENU_SCENE] = &rpg_main_menu_loop;
     game->scene_loop[GALAXIE_SCENE] = &rpg_galaxie_loop;
+    game->scene_loop[INFOS_SCENE] = &rpg_infos_menu_loop;
+    game->scene_loop[OPTION_SCENE] = &rpg_options_menu_loop;
+    game->scene_loop[END_SCENE] = &rpg_end_menu_loop;
     return (game);
 }
 

@@ -48,7 +48,8 @@ typedef enum
     BULLET,
     WAVE,
     TOWER_BOARD,
-    UPGRADE_BUTTON
+    UPGRADE_BUTTON,
+    SPACESHIP,
 } object_type;
 
 ////////////////////////////////////////////////////////////
@@ -197,17 +198,6 @@ void destroy_object_list(scene_t *scene);
 /// \param struct game_object object to destroy
 ////////////////////////////////////////////////////////////
 void destroy_game_object(scene_t *scene, game_object_t *object);
-
-////////////////////////////////////////////////////////////
-/// \brief Do click on object
-///
-/// Called on right click event, parse list of objects and if mouse pos is on one call his function callback if not NULL
-///
-/// \param struct scene scene who contains the objects list
-/// \param sfMouseButtonEvent button button of the souris clicked
-/// \param struct game game structure given as argument of function callback
-////////////////////////////////////////////////////////////
-void is_click_on_object(scene_t *scene, sfMouseButtonEvent button, game_t *game);
 
 ////////////////////////////////////////////////////////////
 /// \brief Initialize an appearing game_object

@@ -10,6 +10,8 @@
 
 #include "my_game.h"
 
-int rpg_main_menu_loop(game_t *, sfRenderWindow *);
+scene_t *rpg_main_menu_create_scene(game_t *game);
+void rpg_main_menu_draw_scene(scene_t *scene, game_t *game, sfRenderWindow *window);
+void rpg_main_menu_bind_event(scene_t *scene);
 
 #endif /* !MAIN_MENU_H_ */

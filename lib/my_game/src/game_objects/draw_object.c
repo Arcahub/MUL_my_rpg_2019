@@ -5,7 +5,7 @@
 ** draw_object
 */
 
-#include "game_object.h"
+#include "my_game/game_object.h"
 
 void draw_object(sfRenderWindow *window, game_object_t *object)
 {
