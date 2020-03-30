@@ -53,7 +53,7 @@ void rpg_main_menu_draw_scene(scene_t *scene, game_t *game, sfRenderWindow *wind
     display_scene(scene, window);
     sfRenderWindow_drawText(window, text, NULL);
     sfRenderWindow_display(window);
-    sfFont_destroy(sfText_getFont(text));
+    sfFont_destroy((sfFont *) sfText_getFont(text));
     sfText_destroy(text);
 }
 
