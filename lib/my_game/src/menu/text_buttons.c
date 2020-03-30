@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2019
-** MUL_my_defender_2019
+** MUL_my_rpg_2019
 ** File description:
 ** buttons
 */
@@ -9,38 +9,26 @@
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 
-static const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[] = {
-    &(sfIntRect){0, 396, 304, 36},
-    &(sfIntRect){0, 360, 304, 36},
-    &(sfIntRect){0, 324, 304, 36},
-    &(sfIntRect){0, 288, 304, 36},
-    &(sfIntRect){0, 252, 304, 36},
-    &(sfIntRect){0, 216, 304, 36},
-    &(sfIntRect){0, 180, 304, 36},
-    &(sfIntRect){0, 144, 304, 36},
-    &(sfIntRect){0, 108, 304, 36},
-    &(sfIntRect){0, 72, 304, 36},
-    &(sfIntRect){0, 36, 304, 36},
-    &(sfIntRect){0, 0, 304, 36},
-    NULL};
-
-static const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[] = {
-    &(sfIntRect){0, 0, 304, 36},
-    &(sfIntRect){0, 36, 304, 36},
-    &(sfIntRect){0, 72, 304, 36},
-    &(sfIntRect){0, 108, 304, 36},
-    &(sfIntRect){0, 144, 304, 36},
-    &(sfIntRect){0, 180, 304, 36},
-    &(sfIntRect){0, 216, 304, 36},
-    &(sfIntRect){0, 252, 304, 36},
-    &(sfIntRect){0, 288, 304, 36},
-    &(sfIntRect){0, 324, 304, 36},
-    &(sfIntRect){0, 360, 304, 36},
-    &(sfIntRect){0, 396, 304, 36},
+static const sfIntRect *BUTTON_FRAME_KEYS[] = {
+    &(sfIntRect){0, 0, 280, 163},
+    &(sfIntRect){290, 0, 280, 163},
+    &(sfIntRect){570, 0, 280, 163},
     NULL};
 
 static const char *BUTTON_SOUND_PATH = \
 "templates/sounds/ui_change_selection.ogg";
+
+void update_button_rect(game_object_t *game_object, int id)
+{
+    int state = game_object->state;
+    anim_t *anim = game_object->anim;
+
+    sfSprite_setTextureRect(game_object->sprite, \
+    *anim[state].frames_key[id]);
+    game_object->box = *anim[state].frames_key[id];
+    game_object->box.top = game_object->pos.y;
+    game_object->box.left = game_object->pos.x;
+}
 
 bool update_text_button(game_object_t *button, scene_t *scene)
 {
@@ -48,10 +36,10 @@ bool update_text_button(game_object_t *button, scene_t *scene)
 
     if (sfIntRect_contains(&button->box, pos.x, pos.y) && \
     button->state != SELECTED)
-        update_game_object_state(button, SELECTED);
+        update_button_rect(button, 0);
     else if (!sfIntRect_contains(&button->box, pos.x, pos.y) && \
     button->state != UNSELECTED)
-        update_game_object_state(button, UNSELECTED);
+        update_button_rect(button, 1);
     else
         update_game_object_frame(button);
     update_appearing_object(button, scene);
@@ -65,16 +53,16 @@ anim_t *create_text_button_anim(void)
     if (anims == NULL)
         return (NULL);
     anims[2].sound_buffer = NULL;
-    anims[UNSELECTED].frames_key = (sfIntRect **)BUTTON_UNSELECTED_FRAME_KEYS;
+    anims[UNSELECTED].frames_key = (sfIntRect **)BUTTON_FRAME_KEYS;
     anims[UNSELECTED].loop = true;
     anims[UNSELECTED].frame_id = 0;
-    anims[UNSELECTED].restart_id = 11;
+    anims[UNSELECTED].restart_id = 2;
     anims[UNSELECTED].sound_buffer = NULL;
     anims[UNSELECTED].sound_loop = false;
-    anims[SELECTED].frames_key = (sfIntRect **)BUTTON_SELECTED_FRAME_KEYS;
+    anims[SELECTED].frames_key = (sfIntRect **)BUTTON_FRAME_KEYS;
     anims[SELECTED].loop = true;
     anims[SELECTED].frame_id = 0;
-    anims[SELECTED].restart_id = 11;
+    anims[SELECTED].restart_id = 2;
     anims[SELECTED].sound_buffer = \
     sfSoundBuffer_createFromFile(BUTTON_SOUND_PATH);
     anims[SELECTED].sound_loop = false;

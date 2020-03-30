@@ -1,11 +1,11 @@
 /*
 ** EPITECH PROJECT, 2020
-** MUL_my_defender_2019
+** MUL_my_rpg_2019
 ** File description:
 ** draw_object
 */
 
-#include "my_game/game_object.h"
+#include "game_object.h"
 
 void draw_object(sfRenderWindow *window, game_object_t *object)
 {

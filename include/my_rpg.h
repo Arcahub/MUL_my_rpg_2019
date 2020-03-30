@@ -1,23 +1,53 @@
 /*
-** EPITECH PROJECT, 2020
-** MUL_my_rpg_2019
+** EPITECH PROJECT, 2019
+** bootstap_runner
 ** File description:
-** rpg
+** my_runner
 */
 
-#ifndef RPG_H_
-#define RPG_H_
+#ifndef MY_RUNNER_H_
+#define MY_RUNNER_H_
 
+#define ABS(x)  x = (x < 0) ? - x : x
+
+#include <SFML/Graphics.h>
+#include <stdbool.h>
+#include "player.h"
+#include "game_logic.h"
+#include "menu_runner.h"
+#include "scene_runner.h"
+#include "const.h"
+#include "my_graph.h"
 #include "my_game.h"
+#include "space.h"
+
+typedef struct game_object game_object_t;
 
 typedef enum {
-    MAIN_MENU_SCENE,
-    GALAXIE_SCENE,
-    VILLAGE_SCENE
-} scene_index;
+    JUMP_KEY = sfKeySpace,
+    RELEASED = sfEvtKeyReleased,
+    PRESSED = sfEvtKeyPressed,
+} event;
 
-int check_error(int, char **, char **);
-game_t *init_game(void);
+typedef struct score {
+    unsigned long long int score;
+    sfText *text;
+    char *score_text;
+} score_t;
+
+game_t *init_game();
+int game_loop(game_t *, sfRenderWindow *);
 void destroy_game(game_t *);
+void draw_game(scene_t *, game_t *, sfRenderWindow *);
+game_object_t *create_board(game_object_t *);
 
-#endif /* !RPG_H_ */
+void update_physics(game_object_t *, scene_t *);
+void increase_score(game_t *);
+void init_score(game_t *);
+void save_score(game_t *game);
+int check_error(int, char **, char **);
+void free_score(score_t *);
+bool update_parallax_position(game_object_t *object, scene_t *scene);
+void draw_info_menu(scene_t *scene, game_t *game, sfRenderWindow *window);
+
+#endif /* !MY_RUNNER_H_ */

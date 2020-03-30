@@ -15,7 +15,7 @@ SRC = $(FILES:./src/%=src/%)
 
 TEST_SRC = $(TEST_FILES:./src/%=src/%)
 
-LIBS_DIR = $(shell find ./lib/ -maxdepth 1 -type d -name "my*")
+LIBS_DIR = $(shell find ./lib/ -type d -name "my*")
 
 LIB_NAME = $(LIB:./lib/%=%)
 
@@ -25,13 +25,13 @@ OBJ = $(addprefix $(BUILD_DIR), $(SRC:.c=.o))
 
 TEST_OBJ = $(addprefix $(BUILD_DIR), $(TEST_SRC:.c=.o))
 
-RMD_FILES = $(OBJ) vgcore.* lib/*.a
+RMD_FILES = $(OBJ) vgcore.* lib/my_graph/*.o lib/my/*.o lib/*.a
 
 NAME = my_rpg
 
-CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
+CFLAGS = $(LDFLAGS) $(HEADER) -fsanitize=address -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
 
-LDFLAGS = -L./lib $(CSFML) $(LIBS)
+LDFLAGS = -L./lib -lm -lmy_game -lmy -lmy_graph $(CSFML)
 
 LIBS = $(foreach LIB, $(LIBS_DIR), $(addprefix -l, $(LIB_NAME)))
 
@@ -57,17 +57,17 @@ debug:
 
 $(BUILD_DIR)%.o:%.c
 	@mkdir -p `dirname  $@`
-	@printf "$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — $(BLUE)%-70s" $@
+	@printf "$(GREEN)[$(WHITE)MY_RPG$(GREEN)] — $(BLUE)%-70s" $@
 	@printf "$(GREEN)[$(WHITE)√$(GREEN)]\n$(WHITE)"
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME) : make_lib start_compil $(OBJ)
 	@$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
 	@printf "\n$(GREEN) → Successfully build.  "
-	@printf "$(BLUE) MY_RPG :$(CYAN) $(NAME)\n\n$(WHITE)"
+	@printf "$(BLUE) Binary :$(CYAN) $(NAME)\n\n$(WHITE)"
 
 start_compil:
-	@printf "\n$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — START BUILD\n\n"
+	@printf "\n$(GREEN)[$(WHITE)MY_RPG$(GREEN)] — START BUILD\n\n"
 
 make_lib :
 	@printf "\n$(GREEN)[$(WHITE)LIB$(GREEN)] — $(YEL)BUILDING LIBS\n\n"
@@ -83,23 +83,23 @@ doc :
 
 clean :
 	@printf "$(REDDARK)\nCleaning build files of \
-	$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)]\n\n"
-	@printf "$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — $(RED)%-45s\n" $(OBJ)
+	$(GREEN)[$(WHITE)MY_RPG$(GREEN)]\n\n"
+	@printf "$(GREEN)[$(WHITE)MY_RPG$(GREEN)] — $(RED)%-45s\n" $(OBJ)
 	@printf "\n$(GREEN) → $(RED) Build clean.\n\n$(WHITE)"
 	@rm -f $(RMD_FILES)
 
 fclean :
 	@printf "$(REDDARK)\nCleaning Repository \
-	$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] \n"
+	$(GREEN)[$(WHITE)MY_RPG$(GREEN)] \n"
 	@make -s clean
 	@rm -rf $(BUILD_DIR)
-	@printf "$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — $(RED)%-45s\n" $(BUILD_DIR)
+	@printf "$(GREEN)[$(WHITE)MY_RPG$(GREEN)] — $(RED)%-45s\n" $(BUILD_DIR)
 	@rm -f $(NAME)
 	@$(foreach LIB, $(LIBS_DIR), \
 	rm -f $(addsuffix .a, $(addprefix lib/lib, $(LIB_NAME))) && \
-	printf "$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — $(RED)%-45s\n" \
+	printf "$(GREEN)[$(WHITE)MY_RPG$(GREEN)] — $(RED)%-45s\n" \
 	$(addsuffix .a, $(addprefix lib/lib, $(LIB_NAME)));)
-	@printf "$(GREEN)[$(WHITE)PROJECT_NAME$(GREEN)] — $(RED)%-45s\n" $(NAME)
+	@printf "$(GREEN)[$(WHITE)MY_RPG$(GREEN)] — $(RED)%-45s\n" $(NAME)
 	@printf "\n$(GREEN) → $(REDDARK) Repository clean.\n\n$(WHITE)"
 
 re : fclean all
@@ -109,4 +109,4 @@ tests_run: CFLAGS+= --coverage
 tests_run: make_lib start_compil $(TEST_OBJ)
 	@$(CC) -o unit_tests $(TEST_OBJ) $(CFLAGS)
 	@printf "\n$(GREEN) → Successfully build.  "
-	@printf "$(BLUE) MY_RPG :$(CYAN) unit_tests\n\n$(WHITE)"
+	@printf "$(BLUE) Binary :$(CYAN) unit_tests\n\n$(WHITE)"

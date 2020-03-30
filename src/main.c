@@ -1,6 +1,6 @@
 /*
-** EPITECH PROJECT, 2020
-** minishell1
+** EPITECH PROJECT, 2019
+** bootstap_runner
 ** File description:
 ** main
 */

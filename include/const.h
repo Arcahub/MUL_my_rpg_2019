@@ -10,9 +10,11 @@
 #ifndef CONST_H
 #define CONST_H
 
-// BASE
+// SPACE
 
-extern const char *BASE_PATH;
+extern const int SIZE_Y_SPACE;
+extern const int SIZE_X_SPACE;
+extern const char *BACKGROUND_SPACE;
 
 // ENV
 
@@ -60,7 +62,9 @@ extern const unsigned short TITLE_UNDERLINE_X;
 extern const unsigned short TITLE_UNDERLINE_Y;
 extern const sfIntRect *TITLE_UNDERLINE_FRAME_KEYS[];
 
-extern const char *ARROW_PATH;
+extern const char *ARROW_RIGHT_PATH;
+extern const char *ARROW_LEFT_PATH;
+
 extern const char *BACKGROUND_INFO;
 extern const sfIntRect *ARROW_LEFT_FRAME_KEYS[];
 extern const sfIntRect *ARROW_RIGHT_FRAME_KEYS[];
@@ -81,6 +85,7 @@ extern const char *INFOS_BUTTON_PATH;
 extern const unsigned short EXIT_BUTTON_X;
 extern const unsigned short EXIT_BUTTON_Y;
 extern const char *EXIT_BUTTON_PATH;
+extern const char *SHIPS_PATH;
 
 extern const sfVector2i MAIN_MENU_COORDS[];
 
@@ -91,6 +96,7 @@ extern const char *IN_GAME_MENU_BACKGROUND;
 extern const unsigned short CONTINUE_BUTTON_X;
 extern const unsigned short CONTINUE_BUTTON_Y;
 extern const char *CONTINUE_BUTTON_PATH;
+extern const unsigned short OPTION_BUTTON_X_IN_GAME;
 extern const unsigned short OPTION_BUTTON_Y_IN_GAME;
 extern const unsigned short MAIN_MENU_BUTTON_X;
 extern const unsigned short MAIN_MENU_BUTTON_Y;

@@ -1,19 +1,18 @@
 /*
 ** EPITECH PROJECT, 2020
-** MUL_my_defender_2019
+** MUL_my_rpg_2019
 ** File description:
-** my_defender
+** my_rpg
 */
 
+
 #include "define.h"
-#include "my.h"
 #include "my_graph.h"
-#include "my_game.h"
 #include "my_rpg.h"
+#include "my.h"
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <unistd.h>
 
 window_t *init_window(void)
@@ -41,6 +40,7 @@ int my_rpg(int argc, char **argv)
     if (game == NULL)
         return (84);
     window  = game->window->window;
+    sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     while (sfRenderWindow_isOpen(window) && display >= 0)
         display = game->scene_loop[display](game, window);
     destroy_game(game);
