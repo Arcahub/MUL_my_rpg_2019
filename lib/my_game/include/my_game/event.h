@@ -1,0 +1,28 @@
+/*
+** EPITECH PROJECT, 2020
+** MUL_my_rpg_2019
+** File description:
+** event
+*/
+
+#ifndef EVENT_H_
+#define EVENT_H_
+
+#include <SFML/Window/Event.h>
+#include <SFML/Graphics/RenderWindow.h>
+
+typedef struct game game_t;
+typedef struct scene scene_t;
+
+typedef struct bind_event {
+    sfEventType id;
+    void (*bind)(sfEvent, game_t *, scene_t *, sfRenderWindow *);
+    struct bind_event *next;
+} bind_event_t;
+
+void bind_event(scene_t *, sfEventType, void (*)(sfEvent, game_t *, scene_t *, sfRenderWindow *));
+void destroy_binds_list(bind_event_t *);
+void destroy_bind(bind_event_t **, bind_event_t *);
+
+void close_scene(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window);
+#endif /* !EVENT_H_ */

@@ -18,9 +18,8 @@ game_t *init_game(void)
 
     if (game == NULL)
         return (NULL);
-    game->difficulty = 10;
     game->window = init_window();
-    if (game->window == NULL || game->score == NULL)
+    if (game->window == NULL)
         return (NULL);
     game->scene_loop[MAIN_MENU_SCENE] = &rpg_main_menu_loop;
     game->scene_loop[GALAXIE_SCENE] = &rpg_galaxie_loop;
@@ -29,7 +28,6 @@ game_t *init_game(void)
 
 void destroy_game(game_t *game)
 {
-    sfMusic_destroy(game->music);
     sfRenderWindow_destroy(game->window->window);
     free(game->window);
     free(game);

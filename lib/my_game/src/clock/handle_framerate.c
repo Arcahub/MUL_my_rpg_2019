@@ -6,7 +6,7 @@
 */
 
 #include "my_game.h"
-#include "framerate.h"
+#include "my_game/framerate.h"
 
 void handle_framerate(sfClock *clock, scene_t *scene, game_t *game)
 {

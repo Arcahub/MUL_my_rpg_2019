@@ -74,6 +74,7 @@ typedef struct game_object
     void (*draw)(sfRenderWindow *, struct game_object *); /**< Draw function of the object*/
     struct game_object *next;                             /**< Next object in the list*/
     void *extend;                                         /**< extend other attributes*/
+    void (*free_extend)(void *);
 } game_object_t;
 
 ////////////////////////////////////////////////////////////
@@ -251,6 +252,5 @@ game_object_t *create_animated_object(game_object_t *last, char *, sfVector2f po
 
 
 void draw_object(sfRenderWindow *, game_object_t *);
-void free_extend(void *);
 
 #endif /* !GAME_OBJECT_H_ */
