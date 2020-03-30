@@ -15,7 +15,7 @@ SRC = $(FILES:./src/%=src/%)
 
 TEST_SRC = $(TEST_FILES:./src/%=src/%)
 
-LIBS_DIR = $(shell find ./lib/ -type d -name "my*")
+LIBS_DIR = $(shell find ./lib/ -maxdepth 1 -type d -name "my*")
 
 LIB_NAME = $(LIB:./lib/%=%)
 
@@ -29,7 +29,7 @@ RMD_FILES = $(OBJ) vgcore.* lib/my_graph/*.o lib/my/*.o lib/*.a
 
 NAME = my_rpg
 
-CFLAGS = $(LDFLAGS) $(HEADER) -fsanitize=address -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
+CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
 
 LDFLAGS = -L./lib -lm -lmy_game -lmy -lmy_graph $(CSFML)
 
