@@ -15,7 +15,7 @@ SRC = $(FILES:./src/%=src/%)
 
 TEST_SRC = $(TEST_FILES:./src/%=src/%)
 
-LIBS_DIR = $(shell find ./lib/ -type d -name "my*")
+LIBS_DIR = $(shell find ./lib/ -maxdepth 1 -type d -name "my*")
 
 LIB_NAME = $(LIB:./lib/%=%)
 
