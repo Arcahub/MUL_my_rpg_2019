@@ -6,8 +6,6 @@
 */
 
 #include "my_game.h"
-#include "scene.h"
-#include "handle_framerate.h"
 #include "galaxie/galaxie.h"
 #include "my_rpg.h"
 
@@ -18,11 +16,11 @@ int rpg_galaxie_loop(game_t *game, sfRenderWindow *window)
     scene_index display = GALAXIE_SCENE;
 
     while (sfRenderWindow_isOpen(window) && scene->display == GALAXIE_SCENE) {
-        scene->handle_event(scene, game, window);
+        handle_scene_event(scene, game, window);
         handle_framerate(clock, scene, game);
         rpg_galaxie_draw_scene(scene, game, window);
     }
-    close_scene(scene, window, clock, game);
+    disappear_scene(scene, window, clock, game);
     sfClock_destroy(clock);
     display = scene->display;
     destroy_scene(scene);

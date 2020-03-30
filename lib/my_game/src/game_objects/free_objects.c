@@ -47,8 +47,8 @@ void destroy_game_object(scene_t *scene, game_object_t *object)
     if (object->delta_t != NULL)
         sfClock_destroy(object->delta_t);
     free_anim(object);
-    if (object->extend != NULL)
-        free_extend(object);
+    if (object->free_extend != NULL)
+        object->free_extend(object->extend);
     free(object);
 }
 

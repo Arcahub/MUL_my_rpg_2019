@@ -9,16 +9,19 @@
 #define SCENE_H_
 
 #include <SFML/Graphics.h>
+#include "event.h"
 
 typedef struct game_object game_object_t;
+typedef struct game game_t;
 
 ////////////////////////////////////////////////////////////
 /// \brief Struct scene used for to handle each scene
 ////////////////////////////////////////////////////////////
 typedef struct scene {
-    void (*handle_event)(struct scene *, struct game *, sfRenderWindow *);      /**< Function that handle window event for this scene*/
     void (*update_scene)(struct scene *, struct game *);                        /**< Function that update this scene*/
     game_object_t *objects_list;                                                /**< List of object of this scene*/
+    bind_event_t *binds_list;
+    sfView *scene_views;
     sfColor background_color;                                                   /**< Color of the background of this scene*/
     int z_index_deepth;                                                         /**< Max deepth of z_index for objects display*/
     int display;                                                                /**< The displayed scene used for switch between scene*/
@@ -56,7 +59,9 @@ void destroy_scene(scene_t *);
 ////////////////////////////////////////////////////////////
 scene_t *create_empty_scene(sfRenderWindow *window);
 
-void close_scene(scene_t *scene, sfRenderWindow *window, sfClock *clock, \
+void disappear_scene(scene_t *scene, sfRenderWindow *window, sfClock *clock, \
 game_t *game);
+
+void handle_scene_event(scene_t *scene, game_t *game, sfRenderWindow *window);
 
 #endif /* !SCENE_H_ */
