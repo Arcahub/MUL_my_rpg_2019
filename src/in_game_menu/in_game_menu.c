@@ -8,6 +8,7 @@
 #include "my_rpg.h"
 #include "my_game.h"
 #include "in_game_menu/in_game_menu.h"
+#include "my_game/framerate.h"
 #include <stdlib.h>
 
 game_object_t *rpg_in_game_menu_create_objects_list(void)

@@ -12,9 +12,13 @@ void free_extend(void *);
 
 void free_anim(game_object_t *object)
 {
-    if (object->anim != NULL && object->sound_effect != NULL)
-        for (int i = 0; object->anim[i].sound_buffer != NULL; i++)
+    int i = 0;
+
+    if (object->anim != NULL && object->sound_effect != NULL) {
+        for (; object->anim[i].sound_buffer != NULL; i++)
             sfSoundBuffer_destroy(object->anim[i].sound_buffer);
+        free(object->anim[i].sound_buffer);
+    }
     if (object->anim != NULL)
         free(object->anim);
 }
@@ -30,6 +34,7 @@ void free_sprite_and_texture(game_object_t *object)
 void destroy_game_object(scene_t *scene, game_object_t *object)
 {
     game_object_t *tmp = scene->objects_list;
+    static int i = 0;
 
     if (scene->objects_list == object)
         scene->objects_list = object->next;
@@ -39,6 +44,7 @@ void destroy_game_object(scene_t *scene, game_object_t *object)
             return;
         tmp->next = object->next;
     }
+    printf("%d\n", i++);
     free_sprite_and_texture(object);
     if (object->sound_effect != NULL) {
         sfSound_stop(object->sound_effect);

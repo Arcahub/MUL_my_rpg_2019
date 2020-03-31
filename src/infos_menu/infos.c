@@ -15,9 +15,10 @@ void rpg_infos_draw_scene(scene_t *scene, game_t *game, sfRenderWindow *window)
 
     sfText_setCharacterSize(text, 100);
     display_scene(scene, window);
-    draw_cursor(game->cursor, scene->window);
     sfRenderWindow_drawText(window, text, NULL);
     sfRenderWindow_display(window);
+    sfFont_destroy((sfFont *) sfText_getFont(text));
+    sfText_destroy(text);
 }
 
 game_object_t *rpg_infos_create_objects_list2(game_object_t *object)
@@ -26,11 +27,6 @@ game_object_t *rpg_infos_create_objects_list2(game_object_t *object)
     {0, 0}, DECOR);
     init_appearing_object(object);
     object->update = &rpg_main_menu_update_parallax_position;
-    object = create_animated_object(object, (char *)INFOS_CONTENT_PATH, \
-    (sfVector2f) {0, 0}, (sfIntRect **)INFOS_CONTENT_FRAME_KEYS);
-    init_appearing_object(object);
-    object->update = &update_appearing_object;
-    object->type = INFO;
     return (object);
 }
 

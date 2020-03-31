@@ -22,10 +22,11 @@ void rpg_options_draw_scene(scene_t *scene, game_t *game, sfRenderWindow *window
     display_scene(scene, window);
     sfRenderWindow_drawText(window, options, NULL);
     sfRenderWindow_drawText(window, text, NULL);
-    draw_cursor(game->cursor, scene->window);
     sfRenderWindow_display(window);
     sfFont_destroy((sfFont *) sfText_getFont(text));
     sfText_destroy(text);
+    sfFont_destroy((sfFont *) sfText_getFont(options));
+    sfText_destroy(options);
 }
 
 void rpg_options_bind_event(scene_t *scene)
@@ -43,6 +44,7 @@ scene_t *rpg_options_create_scene(game_t *game)
         return (NULL);
     scene->objects_list = rpg_options_create_object_list();
     scene->update_scene = &update_scene;
+    scene->display = OPTION_SCENE;
     rpg_options_bind_event(scene);
     return (scene);
 }
