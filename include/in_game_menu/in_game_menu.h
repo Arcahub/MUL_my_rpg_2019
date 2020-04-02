@@ -14,8 +14,8 @@ int rpg_in_game_menu_loop(game_t *game, sfRenderWindow *window, \
 scene_t *last_scene);
 scene_t *rpg_in_game_menu_create_scene(game_t *game);
 void rpg_in_game_menu_draw_pause_text(sfRenderWindow *window);
-void rpg_in_game_menu_close_scene(scene_t *scene, sfRenderWindow *window, scene_t *last, \
-game_t *game);
+void rpg_in_game_menu_close_scene(scene_t *scene, sfRenderWindow *window, \
+scene_t *last, game_t *game);
 int rpg_in_game_menu_launch(game_t *game, scene_t *scene);
 
 #endif /* !IN_GAME_MENU_H_ */

@@ -10,7 +10,8 @@
 
 #include "my_game.h"
 
-void return_to_main_menu(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window);
+void return_to_main_menu(sfEvent event, game_t *game, scene_t *scene, \
+sfRenderWindow *window);
 
 
 #endif /* !GENERAL_EVENT_H_ */

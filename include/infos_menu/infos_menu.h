@@ -11,6 +11,7 @@
 #include "my_game.h"
 
 scene_t *rpg_infos_create_scene(game_t *game);
-scene_t *rpg_infos_draw_scene(scene_t *scene, game_t *game, sfRenderWindow *window);
+scene_t *rpg_infos_draw_scene(scene_t *scene, game_t *game, \
+sfRenderWindow *window);
 
 #endif /* !INFOS_MENU_H_ */

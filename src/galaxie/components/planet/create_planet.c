@@ -23,7 +23,8 @@ bool rpg_galaxie_update_planet(game_object_t *object, scene_t *scene)
     return (true);
 }
 
-game_object_t *rpg_galaxie_create_planet(game_object_t *last, char *path, sfVector2f pos)
+game_object_t *rpg_galaxie_create_planet(game_object_t *last, \
+char *path, sfVector2f pos)
 {
     game_object_t *object = create_game_object(last, path, pos, PLANET);
 
