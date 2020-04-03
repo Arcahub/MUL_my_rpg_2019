@@ -44,7 +44,6 @@ void destroy_game_object(scene_t *scene, game_object_t *object)
             return;
         tmp->next = object->next;
     }
-    printf("%d\n", i++);
     free_sprite_and_texture(object);
     if (object->sound_effect != NULL) {
         sfSound_stop(object->sound_effect);
