@@ -5,35 +5,27 @@
 ## Makefile
 ##
 
-SRC	=	my_nbr_to_str.c	\
-		my_strdup.c	\
-		my_strlen.c	\
-		my_strcat.c	\
-		my_strcmp.c	\
-		my_getnbr.c \
-		my_str_to_word_array.c \
-		my_putstr.c	\
-		my_strndup.c
+FILES = $(shell find ./src/ -iname "*.c")
 
-MAIN = src/main.c
+SRC = $(FILES:./src/%=src/%)
 
-NAME = libmy.a
+NAME = libmy_json.a
 
 OBJ	=	$(SRC:.c=.o)
 
 LIB = -L./ -lmy
 
-CFLAGS += -Wextra -I./include
+CFLAGS += -Wextra -I./include -g3
 
 DEBUG += -W -Wall -Wextra -pedantic -g3
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	cp my.h ../../include/
-	ar rc libmy.a $(OBJ)
-	mv $(NAME) ../
+	ar rc $(NAME) $(OBJ)
 	rm -f $(OBJ)
+	mv $(NAME) ../
+	cp include/* ../../include
 
 clean :
 	rm -f src/*.gc*
