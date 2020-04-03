@@ -18,7 +18,7 @@ char *json_parse_get_string(char **buff)
     for (; (*buff)[i] != '"' && (*buff)[i] != '\0'; i++);
     if ((*buff)[i] == '\0')
         return (NULL);
-    str = strndup(*buff, i);
+    str = my_strndup(*buff, i);
     *buff += i + 1;
     return (str);
 }
