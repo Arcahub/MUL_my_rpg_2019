@@ -5,6 +5,8 @@
 ## deploy
 ##
 
+NAME=$TRAVIS_REPO_SLUG
+REPO_NAME=$(echo -n $NAME | awk -F'/' '{print $2}')
+
 ssh-keyscan -H git.epitech.eu >> ~/.ssh/known_hosts
-git remote add deploy git@git.epitech.eu:/thomas.marches@epitech.eu/MUL_my_rpg_2019
-git push deploy master
+git push git@git.epitech.eu:/guillaume.mailhol@epitech.eu/$REPO_NAME master
