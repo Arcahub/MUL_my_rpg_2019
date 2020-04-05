@@ -40,9 +40,8 @@ void destroy_game_object(scene_t *scene, game_object_t *object)
         scene->objects_list = object->next;
     else {
         for (; tmp && tmp->next != object; tmp = tmp->next);
-        if (!tmp)
-            return;
-        tmp->next = object->next;
+        if (tmp)
+            tmp->next = object->next;
     }
     free_sprite_and_texture(object);
     if (object->sound_effect != NULL) {

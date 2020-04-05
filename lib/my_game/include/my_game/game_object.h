@@ -31,24 +31,13 @@ typedef struct anim
 
 typedef enum
 {
-    TOWER,
     BUTTON,
     TEXT_BUTTON,
-    BAR,
+    SOUND_BAR,
+    SOUND_INDICATOR,
     DECOR,
     EFFECT,
-    FLEUR,
     INFO,
-    TOWER_MENU,
-    ENNEMY,
-    GROUND,
-    GRASS,
-    BASE,
-    ROCK,
-    BULLET,
-    WAVE,
-    TOWER_BOARD,
-    UPGRADE_BUTTON,
     SPACESHIP,
 } object_type;
 

@@ -65,6 +65,7 @@ game_t *game);
 
 void update_scene(scene_t *scene, game_t *game);
 bool disappear_scene_objects(scene_t *scene);
-scene_t *create_scene_from_file(char *, game_t *game);
+scene_t *create_scene_from_file(const char *, game_t *game);
+int scene_loop(game_t *, const char *);
 
 #endif /* !SCENE_H_ */
