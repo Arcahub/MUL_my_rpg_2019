@@ -74,6 +74,8 @@ sfVector2f pos)
 {
     game_object_t *object = create_game_object(last, path, pos, TEXT_BUTTON);
 
+    if (object == NULL)
+        return (NULL);
     object->anim = create_text_button_anim();
     object->sound_effect = sfSound_create();
     object->update = &update_text_button;

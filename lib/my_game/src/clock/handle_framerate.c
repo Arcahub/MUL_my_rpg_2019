@@ -20,7 +20,7 @@ void handle_framerate(sfClock *clock, scene_t *scene, game_t *game)
     accumulator += frame;
     while (accumulator >= DELAY_BETWEEN_UPDATE) {
         accumulator -= DELAY_BETWEEN_UPDATE;
-        if (scene->update_scene != NULL)
+        if (scene && scene->update_scene != NULL)
             scene->update_scene(scene, game);
     }
 }

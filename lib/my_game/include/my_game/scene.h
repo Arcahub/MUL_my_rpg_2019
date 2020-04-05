@@ -20,9 +20,9 @@ typedef struct game game_t;
 ////////////////////////////////////////////////////////////
 typedef struct scene {
     void (*update_scene)(struct scene *, struct game *);                        /**< Function that update this scene*/
+    void (*draw_scene)(struct scene *, struct game *, sfRenderWindow *);
     game_object_t *objects_list;                                                /**< List of object of this scene*/
     bind_event_t *binds_list;
-    sfView *scene_views;
     sfColor background_color;                                                   /**< Color of the background of this scene*/
     int z_index_deepth;                                                         /**< Max deepth of z_index for objects display*/
     int display;                                                                /**< The displayed scene used for switch between scene*/
@@ -65,5 +65,6 @@ game_t *game);
 
 void update_scene(scene_t *scene, game_t *game);
 bool disappear_scene_objects(scene_t *scene);
+scene_t *create_scene_from_file(char *, game_t *game);
 
 #endif /* !SCENE_H_ */
