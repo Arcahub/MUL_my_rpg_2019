@@ -7,7 +7,6 @@
 
 #include "my_rpg.h"
 #include "options_menu/options_menu.h"
-#include "general_event.h"
 #include <stdlib.h>
 
 void rpg_options_draw_scene(scene_t *scene, game_t *game, sfRenderWindow *window)
@@ -29,13 +28,6 @@ void rpg_options_draw_scene(scene_t *scene, game_t *game, sfRenderWindow *window
     sfText_destroy(options);
 }
 
-void rpg_options_bind_event(scene_t *scene)
-{
-    bind_event(scene, sfEvtClosed, &close_scene);
-    bind_event(scene, sfEvtMouseButtonPressed, &is_click_on_object);
-    bind_event(scene, sfEvtKeyPressed, &return_to_main_menu);
-}
-
 scene_t *rpg_options_create_scene(game_t *game)
 {
     scene_t *scene = create_empty_scene(game->window->window);
@@ -45,6 +37,5 @@ scene_t *rpg_options_create_scene(game_t *game)
     scene->objects_list = rpg_options_create_object_list();
     scene->update_scene = &update_scene;
     scene->display = OPTION_SCENE;
-    rpg_options_bind_event(scene);
     return (scene);
 }
