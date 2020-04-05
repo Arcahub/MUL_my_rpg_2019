@@ -8,7 +8,7 @@
 #include "my_game.h"
 #include "my_json.h"
 #include "my_rpg.h"
-#include "constructors/scene/scene_constructor.h"
+#include "components/scene/scene_constructor.h"
 
 game_object_t *load_scene_objects_list_from_config(json_object_t *js,  game_t *game, scene_t *scene)
 {

@@ -8,7 +8,7 @@
 #include "my_game.h"
 #include "my_json.h"
 #include "my_rpg.h"
-#include "constructors/scene/scene_constructor.h"
+#include "components/scene/scene_constructor.h"
 
 static scene_t *create_scene_from_json_object(json_object_t *js, \
 game_t *game)
@@ -34,9 +34,9 @@ game_t *game)
     return (scene);
 }
 
-scene_t *create_scene_from_file(char *path, game_t *game)
+scene_t *create_scene_from_file(const char *path, game_t *game)
 {
-    json_object_t *js = json_create_from_file(path);
+    json_object_t *js = json_create_from_file((char *) path);
     scene_t *scene = NULL;
 
     if (js == NULL)

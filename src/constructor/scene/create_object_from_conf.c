@@ -8,7 +8,7 @@
 #include "my_game.h"
 #include "my_json.h"
 #include "my_rpg.h"
-#include "constructors/constructors.h"
+#include "components/constructors.h"
 
 game_object_t *create_object_from_config(json_object_t *js, \
 game_object_t *next, game_t *game, scene_t *scene)

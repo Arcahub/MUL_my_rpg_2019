@@ -21,11 +21,11 @@ typedef struct game_object game_object_t;
 
 typedef enum {
     MAIN_MENU_SCENE,
-    GALAXIE_SCENE,
     OPTION_SCENE,
     INFOS_SCENE,
     END_SCENE,
     IN_GAME_MENU_SCENE,
+    GALAXIE_SCENE,
     NULL_SCENE,
 } scene_index;
 
@@ -38,7 +38,5 @@ int rpg_main_menu_loop(game_t *game, sfRenderWindow *window);
 game_t *init_game();
 void destroy_game(game_t *);
 int check_error(int, char **, char **);
-
-scene_t *create_scene_from_file(char *, game_t *game);
 
 #endif /* !MY_RUNNER_H_ */

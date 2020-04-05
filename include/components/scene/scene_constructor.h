@@ -11,8 +11,7 @@
 #include "my_game.h"
 #include "my_json.h"
 
-game_object_t *create_object_from_config(json_object_t *, game_object_t *, \
-game_t *, scene_t *);
+game_object_t *create_object_from_config(json_object_t *, game_object_t *, game_t *, scene_t *);
 game_object_t *load_scene_objects_list_from_config(json_object_t *, game_t *, scene_t *);
 int load_scene_id_from_config(json_object_t *);
 int load_scene_z_index_deepth_from_config(json_object_t *);

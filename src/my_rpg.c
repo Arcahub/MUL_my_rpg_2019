@@ -7,6 +7,7 @@
 
 
 #include "define.h"
+#include "conf_paths.h"
 #include "my_rpg.h"
 #include "my.h"
 #include <SFML/Graphics.h>
@@ -40,7 +41,7 @@ int my_rpg(int argc, char **argv)
         return (84);
     window  = game->window->window;
     while (sfRenderWindow_isOpen(window) && display >= 0)
-        display = game->scene_loop[display](game, window);
+        display = scene_loop(game, CONF_PATHS[display]);
     destroy_game(game);
     return (0);
 }

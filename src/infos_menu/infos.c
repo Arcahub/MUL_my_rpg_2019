@@ -6,7 +6,6 @@
 */
 
 #include "my_rpg.h"
-#include "general_event.h"
 #include <stdlib.h>
 
 void rpg_infos_draw_scene(scene_t *scene, game_t *game, sfRenderWindow *window)
@@ -21,15 +20,6 @@ void rpg_infos_draw_scene(scene_t *scene, game_t *game, sfRenderWindow *window)
     sfText_destroy(text);
 }
 
-game_object_t *rpg_infos_create_objects_list2(game_object_t *object)
-{
-    object = create_game_object(object, (char *)TITLE_PATH, (sfVector2f) \
-    {0, 0}, DECOR);
-    init_appearing_object(object);
-    object->update = &rpg_main_menu_update_parallax_position;
-    return (object);
-}
-
 game_object_t *rpg_infos_create_objects_list(void)
 {
     game_object_t *object = NULL;
@@ -40,17 +30,7 @@ game_object_t *rpg_infos_create_objects_list(void)
     object = create_game_object(object, (char *) ARROW_LEFT_PATH, (sfVector2f) \
     {INFOS_ARROW_LEFT_X, INFOS_ARROW_Y}, DECOR);
     object->callback = &infos_left_arrow_function;
-    object = create_text_button(object, (char *) \
-    RETURN_BUTTON_PATH, (sfVector2f) {RETURN_BUTTON_X, RETURN_BUTTON_Y + 75});
-    object->callback = &return_button_function;
-    return (rpg_infos_create_objects_list2(object));
-}
-
-void rpg_infos_bind_event(scene_t *scene)
-{
-    bind_event(scene, sfEvtClosed, &close_scene);
-    bind_event(scene, sfEvtMouseButtonPressed, &is_click_on_object);
-    bind_event(scene, sfEvtKeyPressed, &return_to_main_menu);
+    return (object);
 }
 
 scene_t *rpg_infos_create_scene(game_t *game)
@@ -60,6 +40,5 @@ scene_t *rpg_infos_create_scene(game_t *game)
     if (scene == NULL)
         return (NULL);
     scene->objects_list = rpg_infos_create_objects_list();
-    rpg_infos_bind_event(scene);
     return (scene);
 }

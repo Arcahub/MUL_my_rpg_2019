@@ -8,7 +8,7 @@
 #include "my_game.h"
 #include "my_json.h"
 #include "my_rpg.h"
-#include "constructors/scene/event_scene_fp.h"
+#include "components/scene/event_scene_fp.h"
 
 static void load_scene_event_get_index_and_event_type(json_array_t *array, \
 sfVector2i *bind)

@@ -8,9 +8,9 @@
 #include "my_json.h"
 #include "my_game.h"
 
-bool get_pos_from_conf(json_object_t *js, sfVector2f *pos)
+bool get_vector2f_from_conf(json_object_t *js, sfVector2f *pos, char *key)
 {
-    json_value_t *value = json_get_element_by_key(js, "pos");
+    json_value_t *value = json_get_element_by_key(js, key);
     json_array_t *array = NULL;
 
     if (!value || value->value_type != ARRAY)

@@ -11,7 +11,8 @@
 #include "my_game.h"
 #include "my_json.h"
 
-bool get_pos_from_conf(json_object_t *, sfVector2f *);
+bool get_vector2f_from_conf(json_object_t *, sfVector2f *, char *);
+bool get_intrect_from_conf(json_object_t *, sfIntRect *, char *);
 char *get_path_from_conf(json_object_t *);
 
 #endif /* !GET_FROM_CONFIG_H_ */

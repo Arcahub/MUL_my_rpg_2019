@@ -8,8 +8,8 @@
 #include "my_game.h"
 #include "my_json.h"
 #include "my_rpg.h"
-#include "constructors/scene/scene_constructor.h"
-#include "constructors/scene/draw_scene_fp.h"
+#include "components/scene/scene_constructor.h"
+#include "components/scene/draw_scene_fp.h"
 
 void load_scene_draw_from_config(json_object_t *js, scene_t *scene)
 {

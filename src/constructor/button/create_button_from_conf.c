@@ -7,10 +7,10 @@
 
 #include "my_json.h"
 #include "my_game.h"
-#include "constructors/button/callback_button.h"
-#include "constructors/get_from_config.h"
+#include "components/button/callback_button.h"
+#include "components/get_from_config.h"
 
-game_object_t *create_button_from_conf(game_object_t *last, json_object_t *js, game_t *game, scene_t *scene)
+game_object_t *rpg_create_button_from_conf(game_object_t *last, json_object_t *js, game_t *game, scene_t *scene)
 {
     char *path = get_path_from_conf(js);
     sfVector2f pos = {0, 0};
@@ -22,7 +22,7 @@ game_object_t *create_button_from_conf(game_object_t *last, json_object_t *js, g
     if (value && value->value_type == INT)
         callback_id = *((int *) value->value);
     if (callback_id < 0 || callback_id >= MAX_CALLBACK_ID_BUTTON || \
-    path == NULL || !get_pos_from_conf(js, &pos))
+    path == NULL || !get_vector2f_from_conf(js, &pos, "pos"))
         return (NULL);
     object = create_text_button(last, path, pos);
     object->callback = BUTTON_CALLBACK_PT[callback_id];

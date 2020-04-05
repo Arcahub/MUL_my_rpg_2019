@@ -8,7 +8,7 @@
 #include "my_game.h"
 #include "my_json.h"
 #include "my_rpg.h"
-#include "constructors/scene/update_scene_fp.h"
+#include "components/scene/update_scene_fp.h"
 
 void load_scene_update_from_config(json_object_t *js, scene_t *scene)
 {
