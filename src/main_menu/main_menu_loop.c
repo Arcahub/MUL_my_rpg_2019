@@ -12,9 +12,11 @@
 int rpg_main_menu_loop(game_t *game, sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
-    scene_t *scene = rpg_main_menu_create_scene(game);
+    scene_t *scene = create_scene_from_file("./config/main_menu.json", game);
     scene_index display = MAIN_MENU_SCENE;
 
+    if (scene == NULL)
+        return (-1);
     scene->window = window;
     while (sfRenderWindow_isOpen(window) && scene->display == MAIN_MENU_SCENE) {
         handle_scene_event(scene, game, window);

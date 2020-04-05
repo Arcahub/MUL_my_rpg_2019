@@ -61,9 +61,10 @@ int json_parse_check_next_chr(char **buff);
 
 json_value_t *json_get_element_by_key(json_object_t *js, char *key);
 
-//tmp
+//minilib
 int my_getnbr(char const *str);
 char *my_strndup(char *str, int n);
 char *my_strdup(char const *src);
+int my_strlen(const char *);
 
 #endif /* !JSON_H_ */

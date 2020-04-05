@@ -40,4 +40,6 @@ game_t *init_game();
 void destroy_game(game_t *);
 int check_error(int, char **, char **);
 
+scene_t *create_scene_from_file(char *, game_t *game);
+
 #endif /* !MY_RUNNER_H_ */

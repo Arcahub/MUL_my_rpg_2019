@@ -31,7 +31,7 @@ NAME = my_rpg
 
 CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
 
-LDFLAGS = -L./lib -lm -lmy_game -lmy -lmy_graph $(CSFML)
+LDFLAGS = -L./lib -lm -lmy_game -lmy -lmy_graph -lmy_json $(CSFML)
 
 LIBS = $(foreach LIB, $(LIBS_DIR), $(addprefix -l, $(LIB_NAME)))
 
