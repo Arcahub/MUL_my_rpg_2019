@@ -40,7 +40,7 @@
                 "pos": [0, 0]
             },
             {
-                "type": 0,
+                "type": 2,
                 "texture_path": "templates/menu/menu_bg_test_with_text.jpg",
                 "pos": [0, 0]
             }
