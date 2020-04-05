@@ -10,19 +10,6 @@
 #include "my_game.h"
 #include "my_rpg.h"
 
-bool rpg_galaxie_update_planet(game_object_t *object, scene_t *scene)
-{
-    game_object_t *tmp = scene->objects_list;
-
-    for (; tmp; tmp = tmp->next) {
-        if (tmp->type == (int) PLAYER)
-            break;
-    }
-    if (sfIntRect_intersects(&tmp->box, &object->box, NULL))
-        scene->display = MAIN_MENU_SCENE;
-    return (true);
-}
-
 game_object_t *rpg_galaxie_create_planet(game_object_t *last, char *path, sfVector2f pos)
 {
     game_object_t *object = create_game_object(last, path, pos, PLANET);
