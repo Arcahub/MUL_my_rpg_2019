@@ -25,13 +25,13 @@ OBJ = $(addprefix $(BUILD_DIR), $(SRC:.c=.o))
 
 TEST_OBJ = $(addprefix $(BUILD_DIR), $(TEST_SRC:.c=.o))
 
-RMD_FILES = $(OBJ) vgcore.* lib/my_graph/*.o lib/my/*.o lib/*.a
+RMD_FILES = $(OBJ) vgcore.* lib/*.a
 
 NAME = my_rpg
 
 CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
 
-LDFLAGS = -L./lib -lm -lmy_game -lmy -lmy_graph -lmy_json $(CSFML)
+LDFLAGS = -L./lib -lm -lmy_game -lmy -lmy_json $(CSFML)
 
 LIBS = $(foreach LIB, $(LIBS_DIR), $(addprefix -l, $(LIB_NAME)))
 

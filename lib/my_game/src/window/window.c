@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "my_graph.h"
+#include "my_game/window.h"
 
 sfRenderWindow *make_window(window_t *window, sfUint32 style)
 {

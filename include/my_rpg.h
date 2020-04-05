@@ -13,7 +13,6 @@
 #include <SFML/Graphics.h>
 #include <stdbool.h>
 #include "const.h"
-#include "my_graph.h"
 #include "my_game.h"
 #include "button_function.h"
 #include "tmp.h"

@@ -5,7 +5,7 @@
 ** cursor
 */
 
-#include "my_graph.h"
+#include "my_game/cursor.h"
 
 cursor_t init_cursor(char *path)
 {

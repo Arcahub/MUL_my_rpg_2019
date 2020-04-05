@@ -7,7 +7,6 @@
 
 
 #include "define.h"
-#include "my_graph.h"
 #include "my_rpg.h"
 #include "my.h"
 #include <SFML/Graphics.h>

@@ -22,6 +22,7 @@ all : $(OBJ)
 	rm -f $(OBJ)
 	mv $(NAME) ../
 	cp -r include/* ../../include
+	rm -rf $(OBJ)
 
 %.o : %.c
 	@$(CC) $(CFLAGS) -o $@ -c $<

@@ -5,7 +5,7 @@
 ** text
 */
 
-#include "my_graph.h"
+#include "my_game/text.h"
 #include <stdlib.h>
 
 void center_text(sfText *text, int window_width)
