@@ -13,14 +13,20 @@ void free_extend(void *);
 void free_anim(game_object_t *object)
 {
     int i = 0;
+    int j = 0;
 
-    if (object->anim != NULL && object->sound_effect != NULL) {
-        for (; object->anim[i].sound_buffer != NULL; i++)
-            sfSoundBuffer_destroy(object->anim[i].sound_buffer);
-        free(object->anim[i].sound_buffer);
+    if (object->anim == NULL)
+        return;
+    for (; object->anim[i].sound_buffer != NULL; i++) {
+        for (j = 0; object->anim[i].frames_key[j]; j++)
+            free(object->anim[i].frames_key[j]);
+        free(object->anim[i].frames_key[j]);
+        free(object->anim[i].frames_key);
+        sfSoundBuffer_destroy(object->anim[i].sound_buffer);
     }
-    if (object->anim != NULL)
-        free(object->anim);
+    if (object->anim[i].sound_buffer != NULL)
+        free(object->anim[i].sound_buffer);
+    free(object->anim);
 }
 
 void free_sprite_and_texture(game_object_t *object)
