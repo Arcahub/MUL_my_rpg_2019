@@ -68,7 +68,7 @@
 										<li><a href="#">PNJ</a></li>
 										<li><a href="#">Item</a></li>
 										<li><a href="#">Quest</a></li>
-										<li><a href="#">Text_handler</a></li>
+										<li><a href="text_handler.html">Text_handler</a></li>
 										<li><a href="#">Music</a></li>
 										<li><a href="#">Cursor</a></li>
 										<li><a href="#">Ennemy</a></li>
@@ -107,7 +107,7 @@
 					<header>
 						<h3>Create a callback function</h3>
 					</header>
-					<p>To use a callback function, you need to take care the arguments are the one needed. As we can see in the <a href="game_object.html">game_object </a>structure, the callback function take a game_object and void *pointer. In this exemple we initialize a  game_object_t *button, and we set it's callback function to &play_button_function.</p>
+					<p>To use a callback function, you need to take care the arguments are the one needed. As we can see in the <a href="game_object.html">game_object </a>structure, the callback function take a game_object and void *pointer. In this exemple we initialize a<a href="game_object.html"> game_object_t *</a>button, and we set its callback function to &play_button_function.</p>
 				<pre><code><font color="red">game_object_t *</font>rpg_in_game_menu_create_play_button(<font color="red">void</font>)
 {
 	<font color="red">game_object_t *</font>object = NULL;
@@ -116,14 +116,14 @@
 	object->callback = &play_button_function;
 	<font color="blue">return</font> (object);
 }</code ></pre>
-				<p>Now that we got a  game_object_t *button, we create the callback function play_button_function(). In this exemple, we will cast the void pointer to a scene_t pointer to switch scene.</p>
+				<p>Now that we got a <a href="game_object.html">game_object_t *</a>button, we create the callback function play_button_function(). In this exemple, we will cast the void pointer to a scene_t pointer to switch scene.</p>
 				<pre><code><font color="red">void</font> play_button_function(<font color="red">game_object_t *</font>object, <font color="red">void *</font>pt)
 {
 	<font color="red">scene_t *</font>scene = (<font color="red">scene_t *</font>)pt;
 
 	scene->display = GALAXIE_SCENE;
 }</code ></pre>
-				<p>So to conclude, when the user will click on the  game_object_t *button, the scene->display will be set to GALAXIE_SCENE, which means we switched the displaying scene of the game.</p>
+				<p>So to conclude, when the user will click on the <a href="game_object.html">game_object_t *</a>button, the scene->display will be set to GALAXIE_SCENE, which means we switched the displaying scene of the game.</p>
 				<h4>Argument of a callback function.</h4>
 				<div class="table-wrapper">
 					<table>
@@ -137,13 +137,13 @@
 						<tbody>
 							<tr>
 								<td>object</td>
-								<td>the  game_object_t * which we clicked on.</td>
-								<td> game_object_t *</td>
+								<td>the <a href="game_object.html">game_object_t *</a> which we clicked on.</td>
+								<td><font color="red">game_object_t *</td></font>
 							</tr>
 							<tr>
 								<td>pt</td>
 								<td>A void pointer to make the callback function as generic as possible.</td>
-								<td>void *</td>
+								<td><font color="red">void *</td></font>
 							</tr>
 						</tbody>
 					</table>

@@ -49,6 +49,14 @@
     left: auto;
 }
 
+	table a {
+		text-decoration: none;
+	}
+
+	table a:hover {
+		color: black;
+	}
+
 	a {
 		text-decoration: none;
 	}
