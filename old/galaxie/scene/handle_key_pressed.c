@@ -26,6 +26,7 @@ void rpg_galaxie_handle_key_pressed(sfEvent event, game_t *game, scene_t *scene,
     sfKeyCode key = event.key.code;
 
     if (key == sfKeyEscape)
-        scene->display = rpg_in_game_menu_launch(game, scene);
+        scene->display = scene_loop(game, (const char *)
+        "./config/in_game_menu.json");
     rpg_galaxie_handle_move_on_map(game, key, scene);
 }
