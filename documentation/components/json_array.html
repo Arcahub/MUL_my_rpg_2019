@@ -18,7 +18,7 @@
 						<a href="../download.html">Download</a>
 						<a href="../lore.html">History</a>
 						<a href="../components.html">Components</a>
-						<a href="../https://github.com/Arcahub/MUL_my_rpg_2019">Github</a>
+						<a href="https://github.com/Arcahub/MUL_my_rpg_2019">Github</a>
 					</nav>
 				</div>
 			</header>
@@ -49,10 +49,10 @@
 						<ul id="rolling-menu">
 							<li><a href="#" style="font-size:25px; color: #5385c1;">Json parser</a>
 								<ul>
-									<li><a href="json_value_type.html">&nbsp;&nbsp;&nbsp;&nbsp;json_value_type</a></li>
-									<li><a href="json_value.html">&nbsp;&nbsp;&nbsp;&nbsp;json_value</a></li>
-									<li><a href="json_object.html">&nbsp;&nbsp;&nbsp;&nbsp;json_object</a></li>
-									<li><a href="json_array.html">&nbsp;&nbsp;&nbsp;&nbsp;json_array</a></li>
+									<li><a href="json_value_type.html">json_value_type</a></li>
+									<li><a href="json_value.html">json_value</a></li>
+									<li><a href="json_object.html">json_object</a></li>
+									<li><a href="json_array.html">json_array</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -88,7 +88,7 @@
 					<header>
 						<h3>struct json_array_t</h3>
 					</header>
-					<p>The struct json_array contains two components. First of all, the number of element it contains and then, a table of <a href="json_value.html">json_value_t</a> with all the value of a file.</p>
+					<p>The struct json_array contains two components. First of all, the number of element it contains and then, a table of <a href="json_value.html">json_value_t</a> with all the value of a component.</p>
 					<pre><code>typedef struct {
     <font color="red">int</font> elem_count;
     <font color="red">json_value_t **</font>array;
@@ -97,6 +97,62 @@
 					<header>
 						<h3>Usage exemple</h3>
 					</header>
+					<p>Here you can see an exemple of a json_array_t inside a json configuration file.</p>
+					<pre><code>"scene": {
+	"id": 0,
+	"z_index_deepth": 0,
+	"draw_id": 0,
+	"update_id": 0,
+	"events_ids": [
+		[0, 0],
+		[1, 9]
+	],
+	"background_color": [0, 0, 0, 0]
+}</code></pre>
+					<p>In this exemple, the json_array values would be: <br>elem_count: 6</p>
+					<div class="table-wrapper">
+						<table>
+							<thead>
+								<tr>
+									<th>array number</th>
+									<th>json_value</th>
+									<th>json_value_type</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>0</td>
+									<td>0</td>
+									<td><font color="orange">INT</font></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>0</td>
+									<td><font color="orange">INT</font></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>0</td>
+									<td><font color="orange">INT</font></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>0</td>
+									<td><font color="orange">INT</font></td>
+								</tr>								
+								<tr>
+									<td>4</td>
+									<td>{0, 0}, {1, 9}</td>
+									<td><font color="orange">ARRAY</font></td>
+								</tr>								
+								<tr>
+									<td>5</td>
+									<td>{0, 0, 0, 0}</td>
+									<td><font color="orange">ARRAY</font></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 					<hr class="major">
 					<header>
 						<h3>Json_array_t function</h3>
