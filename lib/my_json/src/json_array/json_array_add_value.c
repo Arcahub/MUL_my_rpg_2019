@@ -10,7 +10,8 @@
 
 void json_array_add_value(json_array_t *array, json_value_t *value)
 {
-    json_value_t **new_array = malloc(sizeof (json_value_t) * (array->elem_count + 2));
+    json_value_t **new_array = malloc(sizeof(json_value_t) *
+    (array->elem_count + 2));
 
     if (new_array == NULL)
         return;

@@ -10,6 +10,15 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+static int my_strncmp(char const *s1, char const *s2, int n)
+{
+    for (int i = 0; s1[i] != '\0' || s2[i] != '\0' || i < n; i++) {
+        if (s1[i] - s2[i] != 0) {
+            return (s1[i] - s2[i]);
+        }
+        return (0);
+    }
+}
 static json_value_t json_parse_get_bool_value(char **buff)
 {
     json_value_t value = {NONE, NULL};
@@ -20,11 +29,11 @@ static json_value_t json_parse_get_bool_value(char **buff)
         return (value);
     value.value_type = BOOLEAN;
     val = value.value;
-    if (strncmp(*buff, "true", 4) == 0) {
+    if (my_strncmp(*buff, "true", 4) == 0) {
         *val = true;
         *buff += 4;
     }
-    if (strncmp(*buff, "false", 5) == 0) {
+    if (my_strncmp(*buff, "false", 5) == 0) {
         *val = false;
         *buff += 5;
     }
@@ -38,7 +47,7 @@ json_value_t json_parse_get_int_value(char **buff)
     json_value_t value = {INT, NULL};
     int i = 0;
 
-    if (strncmp(*buff, "true", 4) == 0 || strncmp(*buff, "false", 5) == 0)
+    if (my_strncmp(*buff, "true", 4) == 0 || my_strncmp(*buff, "false", 5) == 0)
         return (json_parse_get_bool_value(buff));
     for (; *(*buff + i) <= '9' && *(*buff +i) >= '0'; i++);
     val = malloc(sizeof(int));
