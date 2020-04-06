@@ -7,6 +7,7 @@
 
 #include "my_game.h"
 #include "my_rpg.h"
+#include "components/window/window_constructor.h"
 #include <stdlib.h>
 #include <SFML/Audio.h>
 
