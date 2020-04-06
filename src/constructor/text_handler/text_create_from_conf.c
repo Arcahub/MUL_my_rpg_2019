@@ -74,6 +74,7 @@ text_handler_t *rpg_create_text_extend(game_object_t *object, json_object_t *js)
     || text_style->value == 1 || text_style->value == 2 ||
     text_style->value == 4 || text_style->value == 8))
         sfText_setStyle(text->text, text_style->value);
+    set_color_from_conf(js, text);
     return (text);
 }
 
