@@ -45,7 +45,7 @@ sfIntRect **get_frame_keys_from_conf(json_object_t *js, char *key)
     if (frame_keys == NULL)
         return (NULL);
     for (int i = 0; array->array[i]; i++) {
-        if(!get_frame_key_from_conf(array->array[i]->value, frame_keys, i))
+        if (!get_frame_key_from_conf(array->array[i]->value, frame_keys, i))
             return (NULL);
     }
     frame_keys[array->elem_count] = NULL;

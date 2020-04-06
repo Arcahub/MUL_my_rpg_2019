@@ -10,8 +10,8 @@
 #include "components/get_from_config.h"
 #include "components/decor/decor_constructor.h"
 
-game_object_t *rpg_create_decor_from_conf(game_object_t *last, json_object_t *js,
-game_t *game, scene_t *scene)
+game_object_t *rpg_create_decor_from_conf(game_object_t *last,
+json_object_t *js, game_t *game, scene_t *scene)
 {
     char *path = get_str_from_conf(js, "texture_path");
     sfVector2f pos = {0, 0};

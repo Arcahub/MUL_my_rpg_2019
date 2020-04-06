@@ -8,7 +8,8 @@
 #include "my_game/scene.h"
 #include "my_game/game_object.h"
 
-void check_if_event_is_bind(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window)
+void check_if_event_is_bind(sfEvent event, game_t *game,
+scene_t *scene, sfRenderWindow *window)
 {
     for (bind_event_t *tmp = scene->binds_list; tmp; tmp = tmp->next) {
         if (tmp->id == event.type)

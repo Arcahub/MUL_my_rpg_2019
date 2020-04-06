@@ -10,7 +10,8 @@
 #include "my_rpg.h"
 #include "components/scene/scene_constructor.h"
 
-game_object_t *load_scene_objects_list_from_config(json_object_t *js,  game_t *game, scene_t *scene)
+game_object_t *load_scene_objects_list_from_config(json_object_t *js,
+game_t *game, scene_t *scene)
 {
     json_value_t *value = NULL;
     json_array_t *array = NULL;

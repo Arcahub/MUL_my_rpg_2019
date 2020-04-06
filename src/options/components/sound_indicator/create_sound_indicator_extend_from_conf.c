@@ -11,7 +11,7 @@
 bool rpg_options_sound_indicator_create_extend_from_conf(game_object_t *object,
 json_object_t *js)
 {
-    rpg_options_sound_indicator_t *indicator = 
+    rpg_options_sound_indicator_t *indicator =
     malloc(sizeof(rpg_options_sound_indicator_t));
     json_value_t *value = NULL;
 

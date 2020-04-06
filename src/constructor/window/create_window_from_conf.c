@@ -28,7 +28,6 @@ window_t *create_window_from_conf(char *path)
     || !get_int_from_conf(js, &window->height, "height") ||
     !get_int_from_conf(js, &window->bits, "bits_per_pixel") ||
     !get_int_from_conf(js, &window->framerate, "framerate")) {
-        printf("%s\n", window->name);
         free(window);
         return (NULL);
     }

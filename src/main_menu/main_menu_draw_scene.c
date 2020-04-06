@@ -8,7 +8,8 @@
 #include "my_game.h"
 #include "my_rpg.h"
 
-void rpg_main_menu_draw_scene(scene_t *scene, game_t *game, sfRenderWindow *window)
+void rpg_main_menu_draw_scene(scene_t *scene, game_t *game,
+sfRenderWindow *window)
 {
     sfText *text = init_text("Space My RPG !", 400, 100, (char *) FONT_PATH);
 

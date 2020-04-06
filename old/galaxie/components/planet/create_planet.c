@@ -10,7 +10,8 @@
 #include "my_game.h"
 #include "my_rpg.h"
 
-game_object_t *rpg_galaxie_create_planet(game_object_t *last, char *path, sfVector2f pos)
+game_object_t *rpg_galaxie_create_planet(game_object_t *last, char *path,
+sfVector2f pos)
 {
     game_object_t *object = create_game_object(last, path, pos, PLANET);
 
