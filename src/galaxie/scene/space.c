@@ -12,7 +12,7 @@ void draw_space_background(sfRenderWindow *window, game_object_t *object)
 {
     if (object->pos.x > -2880 && object->pos.x < 2880 && \
     object->pos.y > -1620 && object->pos.y < 1620)
-    sfRenderWindow_drawSprite(window, object->sprite, NULL);
+        sfRenderWindow_drawSprite(window, object->sprite, NULL);
 }
 
 game_object_t *rpg_galaxie_generate_space(void)
