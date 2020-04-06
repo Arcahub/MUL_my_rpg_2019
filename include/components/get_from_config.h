@@ -13,6 +13,8 @@
 
 bool get_vector2f_from_conf(json_object_t *, sfVector2f *, char *);
 bool get_intrect_from_conf(json_object_t *, sfIntRect *, char *);
-char *get_path_from_conf(json_object_t *);
+char *get_str_from_conf(json_object_t *, char *);
+bool get_int_from_conf(json_object_t *, int *, char *);
+sfIntRect **get_frame_keys_from_conf(json_object_t *, char *);
 
 #endif /* !GET_FROM_CONFIG_H_ */

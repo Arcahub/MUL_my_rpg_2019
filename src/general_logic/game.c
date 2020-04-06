@@ -16,7 +16,7 @@ game_t *init_game(void)
 
     if (game == NULL)
         return (NULL);
-    game->window = init_window();
+    game->window = create_window_from_conf("./config/window.json");
     if (game->window == NULL)
         return (NULL);
     return (game);

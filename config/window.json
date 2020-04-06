@@ -1,8 +1,8 @@
 {
-    "window_width": 1920,
-    "window_height": 1000,
-    "window_bits_per_pixel": 32,
-    "window_framerate": 60,
-    "window_name": "My RPG",
+    "width": 1920,
+    "height": 1000,
+    "bits_per_pixel": 32,
+    "framerate": 60,
+    "name": "My RPG",
     "icon_path": "templates/icon.png"
 }

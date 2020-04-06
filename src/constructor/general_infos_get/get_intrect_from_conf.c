@@ -13,6 +13,7 @@ bool get_intrect_from_conf(json_object_t *js, sfIntRect *rect, char *key)
     json_value_t *value = json_get_element_by_key(js, key);
     json_array_t *array = NULL;
 
+    *rect = (sfIntRect) {0, 0, 0, 0};
     if (!value || value->value_type != ARRAY)
         return (false);
     array = value->value;

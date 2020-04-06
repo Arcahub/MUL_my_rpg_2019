@@ -23,7 +23,7 @@ static void rpg_options_init_sound_bar(game_object_t *object, sfIntRect box)
 game_object_t *rpg_options_create_sound_bar_from_conf(game_object_t *last,
 json_object_t *js, game_t *game, scene_t *scene)
 {
-    char *path = get_path_from_conf(js);
+    char *path = get_str_from_conf(js, "texture_path");
     sfVector2f pos = {0, 0};
     sfIntRect box = {0, 0, 0, 0};
     game_object_t *object = NULL;
