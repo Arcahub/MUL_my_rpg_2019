@@ -90,10 +90,15 @@
 					<header>
 						<h3>struct json_value_t</h3>
 					</header>
+					<p>The struct json_value_t contains two things. First of all, a <a href="json_value_type.html">json_value_type</a> to know the type of the value you want to get. And a void pointer that will contain the value.</p>
 					<pre><code>typedef struct {
     <font color="red">json_value_type</font> value_type;
     <font color="red">void *</font>value;
 } <font color="red">json_value_t</font>;</code></pre>
+					<hr class="major">
+					<header>
+						<h3>Usage exemple</h3>
+					</header>
 					<hr class="major">
 					<header>
 						<h3>Json_value_t function</h3>

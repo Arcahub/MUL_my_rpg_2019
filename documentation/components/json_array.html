@@ -90,10 +90,15 @@
 					<header>
 						<h3>struct json_array_t</h3>
 					</header>
+					<p>The struct json_array contains two components. First of all, the number of element it contains and then, a table of <a href="json_value.html">json_value_t</a> with all the value of a file.</p>
 					<pre><code>typedef struct {
     <font color="red">int</font> elem_count;
     <font color="red">json_value_t **</font>array;
 } <font color="red">json_array_t</font>;</code></pre>
+					<hr class="major">
+					<header>
+						<h3>Usage exemple</h3>
+					</header>
 					<hr class="major">
 					<header>
 						<h3>Json_array_t function</h3>

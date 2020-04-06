@@ -90,11 +90,16 @@
 					<header>
 						<h3>struct json_object</h3>
 					</header>
+					<p>The json_object struct contains three components. First of all, then, a struct <a href="json_value.html">json_value</a> with the object's value, and to finish a pointer to the next json_object.</a></p>
 					<pre><code><font color="green">typedef</font> struct<font color="red"> json_object</font> {
     <font color="red">char</font> *key;
     <font color="red">json_value_t</font> value;
     <font color="red">struct json_object *</font>next;
 } <font color="red">json_object_t</font>;</code></pre>
+					<hr class="major">
+					<header>
+						<h3>Usage exemple</h3>
+					</header>
 					<hr class="major">
 					<header>
 						<h3>json_object function</h3>
