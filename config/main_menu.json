@@ -12,12 +12,11 @@
         "objects_list": [
             {
                 "type": 6,
-                "string": "Thomas le bg",
+                "string": "Space My RPG !",
                 "font": "templates/font/space.ttf",
-                "pos": [100, 100],
+                "pos": [400, 100],
                 "style": 0,
-                "size": 50,
-                "color": [255, 0, 0, 200]
+                "size": 100
             },
             {
                 "type": 2,
