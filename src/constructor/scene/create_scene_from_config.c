@@ -13,7 +13,7 @@
 static scene_t *create_scene_from_json_object(json_object_t *js, \
 game_t *game)
 {
-    scene_t *scene = create_empty_scene(game->window->window);
+    scene_t *scene = create_empty_scene(game);
 
     if (scene == NULL)
         return (NULL);

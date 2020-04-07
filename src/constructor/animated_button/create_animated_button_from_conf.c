@@ -12,23 +12,20 @@
 #include <stdlib.h>
 
 static bool rpg_create_animated_button_anim(game_object_t *object,
-sfIntRect **frame_keys, char *sound_path)
+sfIntRect **frame_keys, char *sound_path, json_object_t *js)
 {
     object->anim = malloc(sizeof(anim_t) * 3);
     if (object->anim == NULL)
         return (false);
-    object->anim[2].sound_buffer = NULL;
-    for (int i = 0; i < 2; i++) {
-        object->anim[i].frames_key = frame_keys;
-        object->anim[i].loop = true;
-        object->anim[i].frame_id = 0;
-        object->anim[i].restart_id = 2;
-        object->anim[i].sound_buffer = NULL;
-        object->anim[i].sound_loop = false;
-    }
+    object->anim[2] = (anim_t) {NULL, NULL, false, true, 0, 0};
+    for (int i = 0; i < 2; i++)
+        object->anim[i] = (anim_t) {frame_keys, NULL, false, true, 0, 2};
     object->anim[SELECTED].sound_buffer =
     sfSoundBuffer_createFromFile(sound_path);
-    if (object->anim[SELECTED].sound_buffer == NULL)
+    object->anim[SELECTED].frames_key =
+    get_frame_keys_from_conf(js, "frame_keys");
+    if (object->anim[SELECTED].sound_buffer == NULL ||
+    object->anim[SELECTED].frames_key == NULL)
         return (false);
     return (true);
 }
@@ -44,7 +41,7 @@ scene_t *scene)
         return (false);
     }
     object->state = UNSELECTED;
-    if (!rpg_create_animated_button_anim(object, frame_keys, sound_path)) {
+    if (!rpg_create_animated_button_anim(object, frame_keys, sound_path, js)) {
         destroy_game_object(scene, object);
         return (false);
     }

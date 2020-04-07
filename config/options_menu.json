@@ -29,6 +29,16 @@
                 "max_volume": 100
             },
             {
+                "type": 6,
+                "texture_path": "templates/menu/tmp_check.png",
+                "pos": [980, 500],
+                "box": [980, 500, 50, 50],
+                "frame_keys": [
+                    [0, 0, 50, 50],
+                    [50, 0, 50, 50]
+                ]
+            },
+            {
                 "type": 2,
                 "texture_path": "templates/menu/return2.png",
                 "pos": [820, 700],

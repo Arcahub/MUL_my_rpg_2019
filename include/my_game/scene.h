@@ -28,6 +28,7 @@ typedef struct scene {
     int display;                                                                /**< The displayed scene used for switch between scene*/
     int joystick_coord_id;                                                      /**< The coord to simulate the mouse for joystick*/
     sfRenderWindow *window;                                                     /**< sfRenderWindow used for display*/
+    game_t *game;
 } scene_t;
 
 ////////////////////////////////////////////////////////////
@@ -54,11 +55,11 @@ void destroy_scene(scene_t *);
 ///
 /// Create and initialize a scene with no objects
 ///
-/// \param sfRenderWindow the window of the scene
+/// \param game_t pointeur to the main struct of the game
 ///
 /// \return struct scene *scene
 ////////////////////////////////////////////////////////////
-scene_t *create_empty_scene(sfRenderWindow *window);
+scene_t *create_empty_scene(game_t *);
 
 void disappear_scene(scene_t *scene, sfRenderWindow *window, sfClock *clock, \
 game_t *game);
