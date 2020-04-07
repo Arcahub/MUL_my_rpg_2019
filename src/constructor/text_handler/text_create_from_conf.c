@@ -11,7 +11,7 @@
 #include "components/get_from_config.h"
 #include "components/decor/decor_constructor.h"
 
-void set_color_from_conf(json_object_t *js, text_handler_t *text)
+static void set_color_from_conf(json_object_t *js, text_handler_t *text)
 {
     json_value_t *value = json_get_element_by_key(js, "color");
     json_array_t *array = NULL;
@@ -32,7 +32,7 @@ void set_color_from_conf(json_object_t *js, text_handler_t *text)
     sfText_setColor(text->text, color);
 }
 
-char *set_string_from_conf(json_object_t *js, text_handler_t *text)
+static char *set_string_from_conf(json_object_t *js, text_handler_t *text)
 {
     json_value_t *value = json_get_element_by_key(js, "string");
     json_value_t *font = json_get_element_by_key(js, "font");
@@ -50,7 +50,7 @@ char *set_string_from_conf(json_object_t *js, text_handler_t *text)
     return (NULL);
 }
 
-void set_style_from_conf(json_value_t *text_style, text_handler_t *text)
+static void set_style_from_conf(json_value_t *text_style, text_handler_t *text)
 {
     sfTextStyle style = sfTextRegular;
 
@@ -65,7 +65,7 @@ void set_style_from_conf(json_value_t *text_style, text_handler_t *text)
     sfText_setStyle(text->text, style);
 }
 
-text_handler_t *rpg_create_text_extend(game_object_t *object, json_object_t *js)
+static text_handler_t *rpg_create_text_extend(game_object_t *object, json_object_t *js)
 {
     text_handler_t *text = malloc(sizeof(text_handler_t));
     json_value_t *character_size = json_get_element_by_key(js, "size");
