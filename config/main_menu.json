@@ -11,6 +11,15 @@
         "background_color": [0, 0, 0, 0],
         "objects_list": [
             {
+                "type": 6,
+                "string": "Thomas le bg",
+                "font": "templates/font/space.ttf",
+                "pos": [100, 100],
+                "style": 0,
+                "size": 50,
+                "color": [255, 0, 0, 200]
+            },
+            {
                 "type": 2,
                 "texture_path": "templates/menu/play2.png",
                 "pos": [820, 350],
@@ -67,7 +76,7 @@
                 "type": 3,
                 "texture_path": "templates/menu/menu_bg_test_with_text.jpg",
                 "pos": [0, 0]
-            }
+            },
         ]
     }
 }

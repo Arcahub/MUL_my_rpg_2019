@@ -32,27 +32,37 @@ void set_color_from_conf(json_object_t *js, text_handler_t *text)
     sfText_setColor(text->text, color);
 }
 
-void set_font_from_conf(json_object_t *js, text_handler_t *text)
-{
-    json_value_t *value = json_get_element_by_key(js, "font");
-    sfFont *font = NULL;
-
-    if (value && value->value_type == STRING) {
-        font = sfFont_createFromFile(value->value);
-        sfText_setFont(text->text, font);
-    }
-}
-
 char *set_string_from_conf(json_object_t *js, text_handler_t *text)
 {
     json_value_t *value = json_get_element_by_key(js, "string");
+    json_value_t *font = json_get_element_by_key(js, "font");
+    sfFont *font_style = NULL;
 
+    if (font && font->value_type == STRING) {
+        font_style = sfFont_createFromFile(font->value);
+        if (font_style != NULL)
+            sfText_setFont(text->text, font_style);
+    }
     if (value && value->value_type == STRING) {
         sfText_setString(text->text, value->value);
-        set_font_from_conf(js, text);
         return (value->value);
     }
     return (NULL);
+}
+
+void set_style_from_conf(json_value_t *text_style, text_handler_t *text)
+{
+    sfTextStyle style = sfTextRegular;
+
+    if (*((int *) text_style->value) == 1)
+        style = sfTextBold;
+    if (*((int *) text_style->value) == 2)
+        style = sfTextItalic;
+    if (*((int *) text_style->value) == 3)
+        style = sfTextUnderlined;
+    if (*((int *) text_style->value) == 4)
+        style = sfTextStrikeThrough;
+    sfText_setStyle(text->text, style);
 }
 
 text_handler_t *rpg_create_text_extend(game_object_t *object, json_object_t *js)
@@ -69,11 +79,9 @@ text_handler_t *rpg_create_text_extend(game_object_t *object, json_object_t *js)
         return (NULL);
     }
     if (character_size && character_size->value_type == INT)
-        sfText_setCharacterSize(text->text, character_size->value);
-    if (text_style && text_style->value_type == INT && (text_style->value == 0
-    || text_style->value == 1 || text_style->value == 2 ||
-    text_style->value == 4 || text_style->value == 8))
-        sfText_setStyle(text->text, text_style->value);
+        sfText_setCharacterSize(text->text, *((int *) character_size->value));
+    if (text_style && text_style->value_type == INT)
+        set_style_from_conf(text_style, text);
     set_color_from_conf(js, text);
     return (text);
 }
@@ -82,18 +90,21 @@ game_object_t *rpg_create_text_from_conf(game_object_t *last, json_object_t *js,
 game_t *game, scene_t *scene)
 {
     game_object_t *object = malloc(sizeof(game_object_t));
-    sfVector2f pos = {0, 0};
+    text_handler_t *text = NULL;
 
     if (object == NULL)
         return (NULL);
     init_game_object(object);
     if (!get_vector2f_from_conf(js, &object->pos, "pos"))
         return (NULL);
-    object->extend = rpg_create_text_extend(object, js);
-    if (object->extend == NULL) {
+    text = rpg_create_text_extend(object, js);
+    object->texture = sfTexture_create(1, 1);
+    if (text == NULL || object->texture == NULL) {
         free(object);
         return (NULL);
     }
+    object->type = TEXT;
+    object->extend = (void *) text;
     object->next = last;
     object->draw = &draw_text;
     return (object);
