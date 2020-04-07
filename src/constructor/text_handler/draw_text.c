@@ -11,12 +11,9 @@
 #include "components/get_from_config.h"
 #include "components/decor/decor_constructor.h"
 
-void draw_text(sfRenderWindow *window, game_object_t *object)
+void rpg_text_handler_draw(sfRenderWindow *window, game_object_t *object)
 {
     text_handler_t *text = (text_handler_t *) object->extend;
-    
-    if (text == NULL || text->text == NULL)
-        return;
-    sfText_setPosition(text->text, object->pos);
+
     sfRenderWindow_drawText(window, text->text, NULL);
 }
