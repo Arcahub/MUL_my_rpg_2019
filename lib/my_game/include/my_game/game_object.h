@@ -39,7 +39,7 @@ typedef enum
     EFFECT,
     INFO,
     SPACESHIP,
-    TEXT
+    TEXT_HANDLER
 } object_type;
 
 ////////////////////////////////////////////////////////////
