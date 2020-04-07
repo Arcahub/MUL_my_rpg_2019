@@ -11,6 +11,14 @@
         "background_color": [0, 0, 0, 0],
         "objects_list": [
             {
+                "type": 6,
+                "string": "Space My RPG !",
+                "font": "templates/font/space.ttf",
+                "pos": [400, 100],
+                "style": 0,
+                "size": 100
+            },
+            {
                 "type": 2,
                 "texture_path": "templates/menu/play2.png",
                 "pos": [820, 350],
