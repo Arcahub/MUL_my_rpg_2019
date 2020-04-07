@@ -23,7 +23,7 @@ window_t *create_window_from_conf(char *path)
 
     if (js == NULL)
         return (NULL);
-    window->name = (get_str_from_conf(js, "name"));
+    window->name = my_strdup(get_str_from_conf(js, "name"));
     if (window->name == NULL || !get_int_from_conf(js, &window->width, "width")
     || !get_int_from_conf(js, &window->height, "height") ||
     !get_int_from_conf(js, &window->bits, "bits_per_pixel") ||

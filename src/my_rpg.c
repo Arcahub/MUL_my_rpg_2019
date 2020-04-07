@@ -34,13 +34,11 @@ window_t *init_window(void)
 int my_rpg(int argc, char **argv)
 {
     game_t *game = init_game();
-    sfRenderWindow *window = NULL;
     int display = MAIN_MENU_SCENE;
 
     if (game == NULL)
         return (84);
-    window  = game->window->window;
-    while (sfRenderWindow_isOpen(window) && display >= 0)
+    while (sfRenderWindow_isOpen(game->window->window) && display >= 0)
         display = scene_loop(game, CONF_PATHS[display]);
     destroy_game(game);
     return (0);

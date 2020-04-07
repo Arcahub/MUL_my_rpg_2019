@@ -30,7 +30,7 @@
             },
             {
                 "type": 6,
-                "texture_path": "templates/menu/tmp_check.png",
+                "texture_path": "templates/menu/check.png",
                 "pos": [980, 500],
                 "box": [980, 500, 50, 50],
                 "frame_keys": [

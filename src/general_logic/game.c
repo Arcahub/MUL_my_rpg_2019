@@ -26,6 +26,7 @@ game_t *init_game(void)
 void destroy_game(game_t *game)
 {
     sfRenderWindow_destroy(game->window->window);
+    free(game->window->name);
     free(game->window);
     free(game);
 }
