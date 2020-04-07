@@ -7,6 +7,7 @@
 
 #include "options_menu/check_box.h"
 #include "components/get_from_config.h"
+#include <stdlib.h>
 
 static bool rpg_create_check_box_frame_keys(json_object_t *js,
 game_object_t *object)

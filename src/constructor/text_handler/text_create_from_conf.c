@@ -24,7 +24,8 @@ json_object_t *js, game_t *game, scene_t *scene)
     init_game_object(object);
     object->type = TEXT_HANDLER;
     object->extend = (void *)
-    rpg_text_handler_create_extend_from_conf(object, js);
+    rpg_text_handler_create_extend_from_conf(object, js, pos);
+    object->pos = pos;
     object->next = last;
     object->draw = &rpg_text_handler_draw;
     object->free_extend = &rpg_text_handler_destroy;
