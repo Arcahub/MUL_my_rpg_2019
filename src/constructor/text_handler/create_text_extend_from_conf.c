@@ -24,7 +24,6 @@ static void rpg_load_text_handler_character_size_from_conf(json_object_t *js,
 text_handler_t *text)
 {
     int size = text->character_size;
-
     if (!get_int_from_conf(js, &size, "size")) {
         sfText_setCharacterSize(text->text, text->character_size);
         return;
