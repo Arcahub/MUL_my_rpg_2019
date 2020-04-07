@@ -57,7 +57,7 @@ debug:
 
 $(BUILD_DIR)%.o:%.c
 	@mkdir -p `dirname  $@`
-	@printf "$(GREEN)[$(WHITE)MY_RPG$(GREEN)] — $(BLUE)%-70s" $@
+	@printf "$(GREEN)[$(WHITE)MY_RPG$(GREEN)] — $(BLUE)%-90s" $@
 	@printf "$(GREEN)[$(WHITE)√$(GREEN)]\n$(WHITE)"
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
@@ -72,7 +72,7 @@ start_compil:
 make_lib :
 	@printf "\n$(GREEN)[$(WHITE)LIB$(GREEN)] — $(YEL)BUILDING LIBS\n\n"
 	@$(foreach LIB, $(LIBS_DIR), \
-	printf "$(GREEN)[$(WHITE)LIB$(GREEN)] — $(YEL)BUILDING %-67s" $(LIB_NAME) \
+	printf "$(GREEN)[$(WHITE)LIB$(GREEN)] — $(YEL)BUILDING %-84s" $(LIB_NAME) \
 	&& make -sC $(LIB) \
 	&& printf "$(YEL)[$(WHITE)√$(YEL)]\n$(WHITE)";)
 	@printf "\n"
