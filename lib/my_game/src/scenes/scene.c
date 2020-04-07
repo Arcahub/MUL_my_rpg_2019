@@ -25,7 +25,7 @@ void display_scene(scene_t *scene, sfRenderWindow *window)
     draw_objects(scene->objects_list, window, scene->z_index_deepth);
 }
 
-scene_t *create_empty_scene(sfRenderWindow *window)
+scene_t *create_empty_scene(game_t *game)
 {
     scene_t *scene = malloc(sizeof(scene_t));
 
@@ -33,12 +33,13 @@ scene_t *create_empty_scene(sfRenderWindow *window)
         return (NULL);
     scene->background_color = sfBlack;
     scene->display = 0;
-    scene->scene_views = NULL;
     scene->binds_list = NULL;
     scene->joystick_coord_id = 0;
     scene->objects_list = NULL;
-    scene->window = window;
+    scene->window = game->window->window;
     scene->z_index_deepth = 0;
     scene->update_scene = NULL;
+    scene->draw_scene = NULL;
+    scene->game = game;
     return (scene);
 }

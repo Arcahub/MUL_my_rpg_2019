@@ -31,14 +31,14 @@ typedef struct anim
 
 typedef enum
 {
-    TOWER,
     BUTTON,
     TEXT_BUTTON,
-    BAR,
+    SOUND_BAR,
+    SOUND_INDICATOR,
     DECOR,
     EFFECT,
-    FLEUR,
     INFO,
+<<<<<<< HEAD
     SHOP,
     ENNEMY,
     GROUND,
@@ -46,7 +46,10 @@ typedef enum
     PNJ,
     ROCK,
     UPGRADE_BUTTON,
+=======
+>>>>>>> 87bea8a9ce4bdbc33bc985023a2723c9f23381a0
     SPACESHIP,
+    TEXT_HANDLER
 } object_type;
 
 ////////////////////////////////////////////////////////////
@@ -239,5 +242,6 @@ game_object_t *create_animated_object(game_object_t *last, char *, sfVector2f po
 
 
 void draw_object(sfRenderWindow *, game_object_t *);
+void draw_text(sfRenderWindow *, game_object_t *);
 
 #endif /* !GAME_OBJECT_H_ */

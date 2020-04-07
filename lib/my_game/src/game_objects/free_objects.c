@@ -8,19 +8,24 @@
 #include "my_game.h"
 #include <stdlib.h>
 
-void free_extend(void *);
-
 void free_anim(game_object_t *object)
 {
     int i = 0;
+    int j = 0;
 
-    if (object->anim != NULL && object->sound_effect != NULL) {
-        for (; object->anim[i].sound_buffer != NULL; i++)
+    if (object->anim == NULL)
+        return;
+    for (; object->anim[i].frames_key != NULL; i++) {
+        for (j = 0; object->anim[i].frames_key[j]; j++)
+            free(object->anim[i].frames_key[j]);
+        free(object->anim[i].frames_key[j]);
+        free(object->anim[i].frames_key);
+        if (object->anim[i].sound_buffer)
             sfSoundBuffer_destroy(object->anim[i].sound_buffer);
-        free(object->anim[i].sound_buffer);
     }
-    if (object->anim != NULL)
-        free(object->anim);
+    if (object->anim[i].sound_buffer != NULL)
+        free(object->anim[i].sound_buffer);
+    free(object->anim);
 }
 
 void free_sprite_and_texture(game_object_t *object)
@@ -31,20 +36,24 @@ void free_sprite_and_texture(game_object_t *object)
         sfTexture_destroy(object->texture);
 }
 
-void destroy_game_object(scene_t *scene, game_object_t *object)
+void isolate_in_list(scene_t *scene, game_object_t *object)
 {
     game_object_t *tmp = scene->objects_list;
-    static int i = 0;
 
     if (scene->objects_list == object)
         scene->objects_list = object->next;
     else {
         for (; tmp && tmp->next != object; tmp = tmp->next);
-        if (!tmp)
-            return;
-        tmp->next = object->next;
+        if (tmp)
+            tmp->next = object->next;
     }
-    printf("%d\n", i++);
+}
+
+void destroy_game_object(scene_t *scene, game_object_t *object)
+{
+    if (object == NULL)
+        return (NULL);
+    isolate_in_list(scene, object);
     free_sprite_and_texture(object);
     if (object->sound_effect != NULL) {
         sfSound_stop(object->sound_effect);

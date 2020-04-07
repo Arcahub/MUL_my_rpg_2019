@@ -25,13 +25,13 @@ OBJ = $(addprefix $(BUILD_DIR), $(SRC:.c=.o))
 
 TEST_OBJ = $(addprefix $(BUILD_DIR), $(TEST_SRC:.c=.o))
 
-RMD_FILES = $(OBJ) vgcore.* lib/my_graph/*.o lib/my/*.o lib/*.a
+RMD_FILES = $(OBJ) vgcore.* lib/*.a
 
 NAME = my_rpg
 
 CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
 
-LDFLAGS = -L./lib -lm -lmy_game -lmy -lmy_graph $(CSFML)
+LDFLAGS = -L./lib -lm -lmy_game -lmy -lmy_json $(CSFML)
 
 LIBS = $(foreach LIB, $(LIBS_DIR), $(addprefix -l, $(LIB_NAME)))
 
@@ -57,7 +57,7 @@ debug:
 
 $(BUILD_DIR)%.o:%.c
 	@mkdir -p `dirname  $@`
-	@printf "$(GREEN)[$(WHITE)MY_RPG$(GREEN)] — $(BLUE)%-70s" $@
+	@printf "$(GREEN)[$(WHITE)MY_RPG$(GREEN)] — $(BLUE)%-90s" $@
 	@printf "$(GREEN)[$(WHITE)√$(GREEN)]\n$(WHITE)"
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
@@ -72,7 +72,7 @@ start_compil:
 make_lib :
 	@printf "\n$(GREEN)[$(WHITE)LIB$(GREEN)] — $(YEL)BUILDING LIBS\n\n"
 	@$(foreach LIB, $(LIBS_DIR), \
-	printf "$(GREEN)[$(WHITE)LIB$(GREEN)] — $(YEL)BUILDING %-67s" $(LIB_NAME) \
+	printf "$(GREEN)[$(WHITE)LIB$(GREEN)] — $(YEL)BUILDING %-84s" $(LIB_NAME) \
 	&& make -sC $(LIB) \
 	&& printf "$(YEL)[$(WHITE)√$(YEL)]\n$(WHITE)";)
 	@printf "\n"

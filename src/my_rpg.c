@@ -7,7 +7,7 @@
 
 
 #include "define.h"
-#include "my_graph.h"
+#include "conf_paths.h"
 #include "my_rpg.h"
 #include "my.h"
 #include <SFML/Graphics.h>
@@ -34,14 +34,12 @@ window_t *init_window(void)
 int my_rpg(int argc, char **argv)
 {
     game_t *game = init_game();
-    sfRenderWindow *window = NULL;
     int display = MAIN_MENU_SCENE;
 
     if (game == NULL)
         return (84);
-    window  = game->window->window;
-    while (sfRenderWindow_isOpen(window) && display >= 0)
-        display = game->scene_loop[display](game, window);
+    while (sfRenderWindow_isOpen(game->window->window) && display >= 0)
+        display = scene_loop(game, CONF_PATHS[display]);
     destroy_game(game);
     return (0);
 }

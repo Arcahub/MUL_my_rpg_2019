@@ -10,6 +10,5 @@
 
 #include "my_game.h"
 
-bool rpg_main_menu_update_parallax_position(game_object_t *object, scene_t *scene);
 
 #endif /* !TMP_H_ */

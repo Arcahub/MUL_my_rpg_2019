@@ -11,4 +11,6 @@
 static const int PLANET_WIDTH = 50;
 static const int PLANET_HEIGHT = 50;
 
+bool rpg_galaxie_update_planet(game_object_t *, scene_t *);
+
 #endif /* !PLANET_H_ */

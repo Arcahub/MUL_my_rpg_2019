@@ -14,7 +14,9 @@
 #include "my_game/scene.h"
 #include "my_game/menu.h"
 #include "my_game/handle_framerate.h"
-#include "my_graph.h"
+#include "my_game/cursor.h"
+#include "my_game/window.h"
+#include "my_game/text.h"
 
 typedef struct game game_t;
 typedef struct score score_t;

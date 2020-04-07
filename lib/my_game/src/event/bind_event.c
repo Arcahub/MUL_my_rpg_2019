@@ -31,7 +31,8 @@ void destroy_binds_list(bind_event_t *list)
         destroy_bind(&list, list);
 }
 
-void bind_event(scene_t *scene, sfEventType id, void (*bind)(sfEvent, game_t *, scene_t *, sfRenderWindow *))
+void bind_event(scene_t *scene, sfEventType id, void (*bind)(sfEvent,
+game_t *, scene_t *, sfRenderWindow *))
 {
     bind_event_t *node = malloc(sizeof(bind_event_t));
 

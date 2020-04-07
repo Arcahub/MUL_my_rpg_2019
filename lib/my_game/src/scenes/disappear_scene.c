@@ -15,8 +15,6 @@ bool disappear_scene_objects(scene_t *scene)
     bool all_disappear = true;
 
     while (object) {
-        if (object->type == FLEUR || object->type == BUTTON)
-            update_game_object_frame_reversed(object);
         if (object->sprite_color.a != 0) {
             update_disappearing_object(object);
             all_disappear = false;

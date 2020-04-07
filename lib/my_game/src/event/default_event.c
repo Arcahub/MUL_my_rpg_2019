@@ -8,12 +8,14 @@
 #include "my_game/event.h"
 #include "my_game.h"
 
-void close_scene(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window)
+void close_scene(sfEvent event, game_t *game, scene_t *scene,
+sfRenderWindow *window)
 {
     sfRenderWindow_close(window);
 }
 
-void is_click_on_object(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window)
+void is_click_on_object(sfEvent event, game_t *game, scene_t *scene,
+sfRenderWindow *window)
 {
     game_object_t *object = scene->objects_list;
     sfMouseButtonEvent mouse_button = event.mouseButton;
