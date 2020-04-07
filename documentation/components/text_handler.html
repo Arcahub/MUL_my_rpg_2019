@@ -49,10 +49,10 @@
 						<ul id="rolling-menu">
 							<li><a href="#" style="font-size:25px; color: #5385c1;">Json parser</a>
 								<ul>
-									<li><a href="json_value_type.html">&nbsp;&nbsp;&nbsp;&nbsp;json_value_type</a></li>
-									<li><a href="json_value.html">&nbsp;&nbsp;&nbsp;&nbsp;json_value</a></li>
-									<li><a href="json_object.html">&nbsp;&nbsp;&nbsp;&nbsp;json_object</a></li>
-									<li><a href="json_array.html">&nbsp;&nbsp;&nbsp;&nbsp;json_array</a></li>
+									<li><a href="json_value_type.html">json_value_type</a></li>
+									<li><a href="json_value.html">json_value</a></li>
+									<li><a href="json_object.html">json_object</a></li>
+									<li><a href="json_array.html">json_array</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -88,11 +88,22 @@
 				<header>
 					<h3>What is a text_handler ?</h3>
 				</header>
-				<p>A text_handler is a component that allow you to draw a modulable text thanks to a json configuration file. </p>
+				<p>A text_handler is a component that allow you to draw a modulable text on your CSFML window thanks to a json configuration file. </p>
 				<hr class="major">
 				<header>
 					<h3>What can contain a text_handler json configuration file ?</h3>
 				</header>
+				<p>Here is an exemple of a way to draw a text on a scene thanks to a json file. Just add the proper infos inside the scene's objects_list and it will draw it on its own.</p>
+				<pre><code>"<font color="orange">objects_list</font>": [
+	{
+		"<font color="purple">type</font>": 6,
+		"<font color="purple">string</font>": "Space My RPG !",
+		"<font color="purple">font</font>": "templates/font/space.ttf",
+		"<font color="purple">pos</font>": [400, 100],
+		"<font color="purple">style</font>": 1,
+		"<font color="purple">size</font>": 100,
+		"<font color="purple">color</font>": [0, 0, 0, 0]
+	},</code></pre>
 				<p>On this table, you can see the value's name in the json file, its usage, and the type of the value. Those are the values you can put inside your json file to create a text.</p>
 				<div class="table-wrapper">
 					<table>
@@ -105,8 +116,18 @@
 						</thead>
 						<tbody>
 							<tr>
+								<td>type</td>
+								<td>Always put 6 for a text.</td>
+								<td><font color="red">int</td></font>
+							</tr>
+							<tr>
 								<td>string</td>
-								<td>The characters of your text</td>
+								<td>The characters of your text.</td>
+								<td><font color="red">char *</td></font>
+							</tr>
+							<tr>
+								<td>font</td>
+								<td>Filepath to the font style of your text.</td>
 								<td><font color="red">char *</td></font>
 							</tr>
 							<tr>
@@ -115,19 +136,19 @@
 								<td><font color="red">sfVector2f</td></font>
 							</tr>
 							<tr>
-								<td>color</td>
-								<td>Drawing color of your text.</td>
-								<td><font color="red">sfColor</td></font>
-							</tr>
-							<tr>
-								<td>font</td>
-								<td>Filepath to the font style of your text.</td>
-								<td><font color="red">char *</td></font>
+								<td>style</td>
+								<td>0 for regular, 1 for bold, 2 for italic, 3 for underlined, 4 for StrikeTrough.</td>
+								<td><font color="red">int</td></font>
 							</tr>
 							<tr>
 								<td>size</td>
 								<td>Drawing size of your text's character.</td>
 								<td><font color="red">int</td></font>
+							</tr>
+							<tr>
+								<td>color</td>
+								<td>Drawing color of your text in with RGBA values.</td>
+								<td><font color="red">sfColor ( RGBA )</td></font>
 							</tr>
 						</tbody>
 					</table>
