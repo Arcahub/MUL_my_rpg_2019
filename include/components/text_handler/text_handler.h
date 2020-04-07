@@ -20,7 +20,8 @@ typedef struct text_handler {
 } text_handler_t;
 
 void rpg_text_handler_draw(sfRenderWindow *window, game_object_t *object);
-text_handler_t *rpg_text_handler_create_extend_from_conf(game_object_t *object, json_object_t *js);
+text_handler_t *rpg_text_handler_create_extend_from_conf(game_object_t *object,
+json_object_t *js, sfVector2f pos);
 void rpg_text_handler_destroy(void *);
 
 #endif /* !TEXT_HANDLER_H_H */

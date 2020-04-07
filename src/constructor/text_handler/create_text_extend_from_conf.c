@@ -66,7 +66,7 @@ text_handler_t *text)
 }
 
 text_handler_t *rpg_text_handler_create_extend_from_conf(game_object_t *object,
-json_object_t *js)
+json_object_t *js, sfVector2f pos)
 {
     text_handler_t *text = malloc(sizeof(text_handler_t));
 
@@ -79,6 +79,7 @@ json_object_t *js)
         rpg_text_handler_destroy((void *) text);
         return (NULL);
     }
+    sfText_setPosition(text->text, pos);
     rpg_load_text_handler_character_size_from_conf(js, text);
     rpg_load_text_handler_style_from_conf(js, text);
     rpg_load_text_handler_color_from_conf(js, text);
