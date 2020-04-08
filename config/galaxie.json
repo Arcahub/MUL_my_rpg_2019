@@ -1,0 +1,27 @@
+{
+    "scene": {
+        "id": 5,
+        "z_index_deepth": 0,
+        "draw_id": 0,
+        "update_id": 0,
+        "events_ids": [
+            [0, 0],
+            [1, 9],
+            [3, 5],
+            [4, 5]
+        ],
+        "background_color": [0, 0, 0, 0],
+        "objects_list": [
+            {
+                "type": 9,
+                "texture_path": "templates/menu/ship1.png",
+                "pos": [890, 399]
+            },
+            {
+                "type": 0,
+                "texture_path": "templates/menu/menu_bg_test_with_text.jpg",
+                "pos": [0, 0]
+            }
+        ]
+    }
+}

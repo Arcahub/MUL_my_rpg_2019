@@ -22,6 +22,5 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->free_extend = &free;
     object->update = &view_handler_update;
     object->draw = NULL;
-    printf("salut\n");
     return (object);
 }

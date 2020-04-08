@@ -39,7 +39,8 @@ typedef enum
     EFFECT,
     INFO,
     SPACESHIP,
-    TEXT_HANDLER
+    TEXT_HANDLER,
+    PLAYER
 } object_type;
 
 ////////////////////////////////////////////////////////////

@@ -14,15 +14,23 @@ enum {
     CLOSE_SCENE_EVENT_ID,
     CLICK_ON_EVENT_ID,
     RETURN_TO_MAIN_MENU_EVENT_ID,
+    MOVE_EVENT_ID,
+    TRIGGER_IN_GAME_MENU_EVENT_ID,
     MAX_SCENE_EVENT_ID
 };
 
 void return_to_main_menu(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window);
+void move_event(sfEvent event, game_t *game, scene_t *scene,
+sfRenderWindow *window);
+void trigger_in_game_menu(sfEvent event, game_t *game,
+scene_t *scene, sfRenderWindow *window);
 
 static void (*EVENT_SCENE_FP[]) (sfEvent, game_t *, scene_t *, sfRenderWindow *) = {
     &close_scene,
     &is_click_on_object,
     &return_to_main_menu,
+    &move_event,
+    &trigger_in_game_menu
 };
 
 #endif /* !EVENT_SCENE_FP_H_ */

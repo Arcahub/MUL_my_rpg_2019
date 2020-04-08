@@ -9,7 +9,7 @@
 
 bool view_handler_update(game_object_t *object, scene_t *scene)
 {
-    sfView *view = sfRenderWindow_getView(scene->window);
+    sfView *view = (sfView *) sfRenderWindow_getView(scene->window);
     sfFloatRect view_port = {0, 0, 0, 0};
     view_handler_t *view_default = object->extend;
     sfVector2u size = sfRenderWindow_getSize(scene->window);

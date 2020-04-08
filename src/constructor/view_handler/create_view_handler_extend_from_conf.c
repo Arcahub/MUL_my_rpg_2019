@@ -7,6 +7,7 @@
 
 #include "components/view_handler/view_handler.h"
 #include "components/get_from_config.h"
+#include <stdlib.h>
 
 view_handler_t *create_view_handler_extend_from_conf(json_object_t *js)
 {
