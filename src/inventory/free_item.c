@@ -9,6 +9,7 @@
 #include "components/get_from_config.h"
 #include "my_game.h"
 #include "item/inventory.h"
+#include <stdlib.h>
 
 void free_item(inventory_t *item)
 {
@@ -21,6 +22,11 @@ void free_item(inventory_t *item)
     if (!item->sprite && !item->texture) {
         sfSprite_destroy(item->sprite);
         sfTexture_destroy(item->texture);
+    }
+    if (!item->text[0] && !item->text[1] && item->text[2]) {
+        sfText_destroy(item->text[0]);
+        sfText_destroy(item->text[1]);
+        sfText_destroy(item->text[2]);
     }
     if (!item)
         free(item);

@@ -7,6 +7,7 @@
 
 #include "item/shop.h"
 #include "my_game.h"
+#include <stdlib.h>
 
 shop_t *rpg_init_shop(char *path)
 {

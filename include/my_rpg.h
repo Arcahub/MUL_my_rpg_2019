@@ -15,6 +15,7 @@
 #include "const.h"
 #include "my_game.h"
 #include "button_function.h"
+#include "item/inventory.h"
 #include "tmp.h"
 
 typedef struct game_object game_object_t;
