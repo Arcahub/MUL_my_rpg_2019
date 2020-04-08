@@ -52,7 +52,7 @@ void isolate_in_list(scene_t *scene, game_object_t *object)
 void destroy_game_object(scene_t *scene, game_object_t *object)
 {
     if (object == NULL)
-        return (NULL);
+        return;
     isolate_in_list(scene, object);
     free_sprite_and_texture(object);
     if (object->sound_effect != NULL) {
