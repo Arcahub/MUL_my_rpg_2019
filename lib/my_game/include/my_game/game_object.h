@@ -38,7 +38,6 @@ typedef enum
     DECOR,
     EFFECT,
     INFO,
-<<<<<<< HEAD
     SHOP,
     ENNEMY,
     GROUND,
@@ -46,10 +45,9 @@ typedef enum
     PNJ,
     ROCK,
     UPGRADE_BUTTON,
-=======
->>>>>>> 87bea8a9ce4bdbc33bc985023a2723c9f23381a0
     SPACESHIP,
-    TEXT_HANDLER
+    TEXT_HANDLER,
+    INVENTORY
 } object_type;
 
 ////////////////////////////////////////////////////////////

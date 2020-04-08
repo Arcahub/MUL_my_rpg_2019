@@ -1,0 +1,8 @@
+{
+    "item_id": 1,
+    "item_type": 0,
+    "name": "Laser Canoon",
+    "description": "A heavy laser canon that deals a lot of damage ! ",
+    "path": "templates/icon.png",
+    "damage": 50
+}

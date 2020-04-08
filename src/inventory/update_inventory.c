@@ -8,7 +8,7 @@
 #include "my_game.h"
 #include "item/inventory.h"
 
-inventory_t *rpg_update_inventory(game_object_t *object, char *path)
+inventory_t *rpg_update_inventory(game_object_t *object)
 {
     if (object == NULL || (inventory_t *) object->extend == NULL)
         return (NULL);
