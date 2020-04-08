@@ -15,7 +15,7 @@ static void rpg_toggle_window_mode(scene_t *scene, int state)
     if (state == ON)
         game->window->window = make_window(game->window, sfFullscreen);
     else
-        game->window->window = make_window(game->window, sfClose);
+        game->window->window = make_window(game->window, sfDefaultStyle);
     scene->window = game->window->window;
 }
 

@@ -19,7 +19,7 @@ typedef struct window_s {
     sfRenderWindow *window;
 } window_t;
 
-sfRenderWindow *make_window(window_t *, sfUint32);
+sfRenderWindow *make_window(window_t *, int);
 window_t *init_window(void);
 void set_window_icon(sfRenderWindow *, char *);
 

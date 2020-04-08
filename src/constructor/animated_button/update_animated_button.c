@@ -21,7 +21,7 @@ static void rpg_update_animated_button_rect(game_object_t *game_object, int id)
 
 bool rpg_update_animated_button(game_object_t *button, scene_t *scene)
 {
-    sfVector2i pos = sfMouse_getPositionRenderWindow(scene->window);
+    sfVector2f pos = get_mouse_exact_pos(scene->window);
 
     if (sfIntRect_contains(&button->box, pos.x, pos.y) && \
     button->state != SELECTED)

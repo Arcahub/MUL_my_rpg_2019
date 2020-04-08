@@ -8,7 +8,7 @@
 #include <SFML/Graphics.h>
 #include "my_game/window.h"
 
-sfRenderWindow *make_window(window_t *window, sfUint32 style)
+sfRenderWindow *make_window(window_t *window, int style)
 {
     sfVideoMode mode = {window->width, window->height, window->bits};
     sfRenderWindow *window_render = NULL;

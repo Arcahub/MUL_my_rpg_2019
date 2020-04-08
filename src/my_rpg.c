@@ -26,7 +26,7 @@ window_t *init_window(void)
     window->bits = WINDOW_BITS_PER_PIXEL;
     window->framerate = WINDOW_FRAMERATE;
     window->name = (char *)WINDOW_NAME;
-    window->window = make_window(window, sfClose);
+    window->window = make_window(window, 7);
     set_window_icon(window->window, (char *) ICON_PATH);
     return (window);
 }

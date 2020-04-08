@@ -31,7 +31,7 @@ window_t *create_window_from_conf(char *path)
         free(window);
         return (NULL);
     }
-    window->window = make_window(window, sfClose);
+    window->window = make_window(window, sfDefaultStyle);
     if (window->window == NULL) {
         free(window);
         return (NULL);

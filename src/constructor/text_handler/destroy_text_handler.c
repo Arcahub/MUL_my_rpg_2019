@@ -14,9 +14,9 @@ void rpg_text_handler_destroy(void *pt)
 
     if (!text)
         return;
-    if (!text->font)
+    if (text->font)
         sfFont_destroy(text->font);
-    if (!text->text)
+    if (text->text)
         sfText_destroy(text->text);
     free(text);
 }
