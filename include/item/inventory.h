@@ -36,10 +36,11 @@ typedef struct inventory {
 
 void free_item(inventory_t *item);
 void rpg_inventory_remove_item(inventory_t *item, item_id id, int number);
-inventory_t *rpg_inventory_add_item(inventory_t *last, char *path, int number, \
-item_id id);
+inventory_t *rpg_inventory_add_item(inventory_t *, char *, int , item_id);
 bool rpg_update_inventory(game_object_t *object, scene_t *scene);
 void rpg_inventory_get_click_on_item(game_object_t *object, void *pt);
 void rpg_inventory_draw(sfRenderWindow *window, game_object_t *object);
+void rpg_inventory_destroy(void *pt);
+bool rpg_is_item_in_inventory(game_object_t *object, item_id id, int number);
 
 #endif /* !INVENTORY_H_ */

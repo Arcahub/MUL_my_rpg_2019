@@ -12,12 +12,12 @@
 
 bool rpg_update_inventory(game_object_t *object, scene_t *scene)
 {
-    inventory_t *tmp = NULL;
+    inventory_t *tmp = tmp = (inventory_t *) object->extend;
     sfVector2f tmp2 = {275, 250};
-    int x = 0;
-    int y = 0;
 
-    for (tmp = (inventory_t *) object->extend; tmp; tmp = tmp->next, x++) {
+    if (object->state == 0)
+        return (true);
+    for (int x = 0, y = 0; tmp; tmp = tmp->next, x++) {
         if (x == 11) {
             x = 0;
             y++;
@@ -67,18 +67,6 @@ void rpg_inventory_draw(sfRenderWindow *window, game_object_t *object)
             sfRenderWindow_drawSprite(window, tmp->sprite, NULL);
 }
 
-void rpg_inventory_destroy(void *pt)
-{
-    inventory_t *item = pt;
-
-    if (!item)
-        return;
-    for (; item; item = item->next) {
-        if (item != NULL)
-            free_item(item);
-    }
-}
-
 game_object_t *rpg_inventory_create_from_conf(game_object_t *last, \
 json_object_t *js, game_t *game, scene_t *scene)
 {
@@ -97,8 +85,8 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->extend = (void *) rpg_inventory_add_item(NULL, "config/item/basic_canon.json", 4, 0);
     object->extend = (void *) rpg_inventory_add_item((inventory_t *) object->extend, "config/item/laser_canon.json", 4, 1);
     if (object == NULL || object->extend == NULL) {
-        destroy_game_object(scene, object);
         rpg_inventory_destroy(object->extend);
+        destroy_game_object(scene, object);
         return (NULL);
     }
     return (object);

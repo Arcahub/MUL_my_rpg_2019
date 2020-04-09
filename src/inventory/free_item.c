@@ -11,6 +11,18 @@
 #include "item/inventory.h"
 #include <stdlib.h>
 
+void rpg_inventory_destroy(void *pt)
+{
+    inventory_t *item = pt;
+
+    if (!item)
+        return;
+    for (; item; item = item->next) {
+        if (item != NULL)
+            free_item(item);
+    }
+}
+
 void free_item(inventory_t *item)
 {
     if (item == NULL)
