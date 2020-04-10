@@ -22,6 +22,7 @@ enum {
     TEXT_HANDLER_CONSTRUCTOR,
     VIEW_HANDLER_CONSTRUCTOR,
     GALAXIE_SPACESHIP_CONSTRUCTOR,
+    GALAXIE_MINIMAP_CONSTRUCTOR,
     CONSTRUCTORS_MAX_ID
 };
 
@@ -37,6 +38,8 @@ game_object_t *create_view_handler_from_conf(game_object_t *last,
 json_object_t *js, game_t *game, scene_t *scene);
 game_object_t *create_galaxie_spaceship_from_conf(game_object_t *last,
 json_object_t *js, game_t *game, scene_t *scene);
+game_object_t *create_galaxie_mini_map(game_object_t *last,
+json_object_t *js, game_t *game, scene_t *scene);
 
 static game_object_t *(*CONSTRUCTORS[])(game_object_t *, json_object_t *, game_t *, scene_t *) = {
     &rpg_create_decor_from_conf,
@@ -48,7 +51,8 @@ static game_object_t *(*CONSTRUCTORS[])(game_object_t *, json_object_t *, game_t
     &rpg_options_create_check_box_from_conf,
     &rpg_create_text_handler_from_conf,
     &create_view_handler_from_conf,
-    &create_galaxie_spaceship_from_conf
+    &create_galaxie_spaceship_from_conf,
+    &create_galaxie_mini_map
 };
 
 #endif /* !CONSTRUCTORS_H_ */

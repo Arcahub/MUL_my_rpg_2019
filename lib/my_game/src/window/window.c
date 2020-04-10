@@ -20,6 +20,7 @@ sfRenderWindow *make_window(window_t *window, int style)
     if (window_render == NULL)
         return (NULL);
     sfRenderWindow_setFramerateLimit(window_render, window->framerate);
+    window->style = style;
     return (window_render);
 }
 

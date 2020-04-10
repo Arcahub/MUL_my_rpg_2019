@@ -16,6 +16,7 @@ typedef struct window_s {
     int bits;
     int framerate;
     char *name;
+    int style;
     sfRenderWindow *window;
 } window_t;
 
