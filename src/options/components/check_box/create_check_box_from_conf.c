@@ -43,6 +43,7 @@ json_object_t *js, game_t *game, scene_t *scene)
         destroy_game_object(scene, object);
         return (NULL);
     }
+    object->state = game->window->style == sfFullscreen;
     object->callback = &rpg_check_box_callback;
     object->update = &rpg_check_box_update;
     sfSprite_setTextureRect(object->sprite,

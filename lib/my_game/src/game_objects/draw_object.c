@@ -19,14 +19,15 @@ int z_index_max)
 
     if (object == NULL)
         return;
-    for (int i = z_index_max; i >= 0;) {
+    for (int i = 0; i <= z_index_max;) {
         if (object->z_index == i && object->draw \
-        != NULL)
+        != NULL) {
             object->draw(window, object);
+        }
         object = object->next;
         if (object == NULL) {
             object = tmp;
-            i--;
+            i++;
         }
     }
 }

@@ -40,7 +40,8 @@ typedef enum
     INFO,
     SPACESHIP,
     TEXT_HANDLER,
-    PLAYER
+    PLAYER,
+    GALAXIE_BACKGROUND
 } object_type;
 
 ////////////////////////////////////////////////////////////

@@ -17,12 +17,12 @@ game_t *game)
 
     if (scene == NULL)
         return (NULL);
-    scene->objects_list = \
-    load_scene_objects_list_from_config(js, game, scene);
-    scene->display = load_scene_id_from_config(js);
     scene->z_index_deepth = load_scene_z_index_deepth_from_config(js);
+    scene->display = load_scene_id_from_config(js);
     load_scene_draw_from_config(js, scene);
     load_scene_update_from_config(js, scene);
+    scene->objects_list = \
+    load_scene_objects_list_from_config(js, game, scene);
     if (scene->display < 0 || scene->z_index_deepth < 0 || \
     scene->objects_list == NULL || scene->draw_scene == NULL || \
     scene->update_scene == NULL || \
@@ -38,10 +38,13 @@ scene_t *create_scene_from_file(const char *path, game_t *game)
 {
     json_object_t *js = json_create_from_file((char *) path);
     scene_t *scene = NULL;
+    const sfView *view = sfRenderWindow_getDefaultView(game->window->window);
 
     if (js == NULL)
         return (NULL);
     scene = create_scene_from_json_object(js, game);
     json_object_destroy(js);
+    if (view)
+        sfRenderWindow_setView(scene->window, view);
     return (scene);
 }
