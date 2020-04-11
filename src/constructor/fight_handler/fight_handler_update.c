@@ -6,19 +6,35 @@
 */
 
 #include "my_game.h"
+#include "my_rpg.h"
 #include "my_json.h"
 #include "components/fight_handler/fight_handler.h"
 #include "spaceship/ship.h"
 #include <stdlib.h>
 
+
+static void rpg_fight_handler_player_lose(game_object_t *object, \
+scene_t *scene)
+{
+    scene->display = GALAXIE_SCENE;
+}
+
+static void rpg_fight_handler_player_win(game_object_t *object, \
+scene_t *scene)
+{
+    scene->display = GALAXIE_SCENE;
+}
+
 bool rpg_fight_handler_update(game_object_t *object, scene_t *scene)
 {
-    fight_handler_t *handler = NULL;
+    fight_handler_t *handler = (fight_handler_t *) object->extend;;
+    ennemy_t *ennemy = rpg_ennemy_get_extend(scene);
+    space_ship_t *ship = rpg_spaceship_get_extend(scene);
 
-    if (object == NULL)
-        return (false);
-    if (object->extend != NULL)
-        handler = (fight_handler_t *) object->extend;
+    if (ennemy->hp == 0)
+        rpg_fight_handler_player_win(object, scene);
+    if (ship->hp == 0)
+        rpg_fight_handler_player_lose(object, scene);
     if (handler->in_fight == 0)
         return (true);
     handler->action_number = rpg_spaceship_get_equip_size(object, scene);

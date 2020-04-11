@@ -21,12 +21,12 @@ json_object_t *js)
         free(item);
         return (NULL);
     }
-    if (item->type == WEAPON && !get_int_from_conf(js, \
+    if (item->type == WEAPON_ITEM && !get_int_from_conf(js, \
     &item->damage, "damage")) {
         free(item);
         return (NULL);   
     }
-    if (item->type == REPAIR && !get_int_from_conf(js, \
+    if (item->type == REPAIR_ITEM && !get_int_from_conf(js, \
     &item->repair_value, "repair_value")) {
         free(item);
         return (NULL);   

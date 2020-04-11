@@ -14,7 +14,7 @@ typedef enum {
     PLASMA_CANON,
     BASIC_ROCKET,
     PLASMA_ROCKET,
-    REPAIR_ITEM,
+    REPAIRING_ITEM,
 } item_id;
 
 #endif /* !ITEM_ID_H */

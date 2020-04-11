@@ -12,9 +12,9 @@
 #include "item_id.h"
 
 typedef enum {
-    WEAPON,
-    REPAIR,
-    QUEST
+    WEAPON_ITEM,
+    REPAIR_ITEM,
+    QUEST_ITEM
 } item_type;
 
 typedef struct inventory {
