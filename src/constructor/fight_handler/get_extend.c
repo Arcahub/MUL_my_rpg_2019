@@ -20,6 +20,8 @@ ennemy_t *rpg_ennemy_get_extend(scene_t *scene)
         return (NULL);
     for (tmp = scene->objects_list; tmp && tmp->type != ENNEMY; \
     tmp = tmp->next);
+    if (tmp == NULL)
+        return (NULL);
     if (tmp->type != ENNEMY)
         return (NULL);
     ennemy = (ennemy_t *) tmp->extend;
@@ -37,6 +39,8 @@ space_ship_t *rpg_spaceship_get_extend(scene_t *scene)
         return (NULL);
     for (tmp = scene->objects_list; tmp && tmp->type != SPACESHIP; \
     tmp = tmp->next);
+    if (tmp == NULL)
+        return (NULL);
     if (tmp->type != SPACESHIP)
         return (NULL);
     ship = (space_ship_t *) tmp->extend;

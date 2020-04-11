@@ -21,8 +21,13 @@ static space_ship_t *rpg_space_ship_init_text(space_ship_t *ship)
 
     tmp1 = my_strcat("Your life: ", my_nbr_to_str(ship->hp));
     tmp2 = my_strcat("Your shield: ", my_nbr_to_str(ship->shield));
-    if (tmp1 == NULL || tmp2 == NULL)
+    if (tmp1 == NULL || tmp2 == NULL) {
+        if (!tmp1)
+            free(tmp1);
+        if (!tmp2)
+            free(tmp2);
         return (NULL);
+    }
     ship->hp_text = init_text(tmp1, 400, 600, (char *) FONT_PATH);
     ship->shield_text = init_text(tmp2, 400, 700, (char *) FONT_PATH);
     return (ship);
@@ -72,8 +77,12 @@ bool rpg_spaceship_update(game_object_t *object, scene_t *scene)
     if (space_ship->in_fight == 1) {
         tmp1 = my_strcat("Your life: ", my_nbr_to_str(space_ship->hp));
         tmp2 = my_strcat("Your shield: ", my_nbr_to_str(space_ship->shield));
+        if (tmp1 == NULL || tmp2 == NULL)
+            return (false);
         sfText_setString(space_ship->hp_text, tmp1);
         sfText_setString(space_ship->shield_text, tmp2);
+        free(tmp1);
+        free(tmp2);
     }
     return (true);
 }

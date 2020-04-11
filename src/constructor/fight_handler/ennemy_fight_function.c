@@ -41,7 +41,7 @@ scene_t *scene)
     ennemy_t *ennemy = rpg_ennemy_get_extend(scene);
     int damage = rpg_spaceship_get_damage(object, scene);
 
-    if (ennemy == NULL)
+    if (ennemy == NULL || damage == 0)
         return;
     if (rpg_fight_handle_dodge_handle(ennemy->dodge_value) == 1)
         return;

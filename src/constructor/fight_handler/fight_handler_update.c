@@ -13,10 +13,12 @@
 
 bool rpg_fight_handler_update(game_object_t *object, scene_t *scene)
 {
-    fight_handler_t *handler = (fight_handler_t *) object->extend;
+    fight_handler_t *handler = NULL;
 
-    if (object == NULL || handler == NULL)
+    if (object == NULL)
         return (false);
+    if (object->extend != NULL)
+        handler = (fight_handler_t *) object->extend;
     if (handler->in_fight == 0)
         return (true);
     handler->action_number = rpg_spaceship_get_equip_size(object, scene);

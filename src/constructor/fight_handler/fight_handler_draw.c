@@ -13,9 +13,13 @@
 
 void rpg_fight_handler_draw(sfRenderWindow *window, game_object_t *object)
 {
-    fight_handler_t *handler = (fight_handler_t *) object->extend;
-    game_object_t *tmp = handler->button;
+    fight_handler_t *handler = NULL;
+    game_object_t *tmp = NULL;
 
+    if (object != NULL)
+        handler = (fight_handler_t *) object->extend;
+    if (handler->button != NULL)
+        tmp = handler->button;
     for (; tmp; tmp = tmp->next)
         sfRenderWindow_drawSprite(window, tmp->sprite, NULL);
 }

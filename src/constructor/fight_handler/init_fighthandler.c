@@ -15,6 +15,8 @@ static sfIntRect rpg_fight_handler_button_init_box(game_object_t *object)
 {
     sfIntRect box = {0, 0, 0, 0};
 
+    if (object == NULL)
+        return (box);
     box.left = object->pos.x;
     box.top = object->pos.y;
     box.height = 100;
@@ -60,8 +62,6 @@ static fight_handler_t *rpg_fight_handler_init_extend(game_object_t *object, sce
     for (int x = 0; x != handler->action_number; x++)
         handler->id[x] = EMPTY;
     handler = rpg_fight_handler_init_button(handler, scene);
-    if (handler == NULL)
-        return (NULL);
     return (handler);
 }
 

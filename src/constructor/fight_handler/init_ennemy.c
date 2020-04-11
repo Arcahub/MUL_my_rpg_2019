@@ -21,10 +21,17 @@ static ennemy_t *rpg_ennemy_create_text(ennemy_t *ennemy)
     char *tmp1 = NULL;
     char *tmp2 = NULL;
 
+    if (ennemy == NULL)
+        return (NULL);
     tmp1 = my_strcat("Ennemy's life: ", my_nbr_to_str(ennemy->hp));
     tmp2 = my_strcat("Ennemy's shield: ", my_nbr_to_str(ennemy->shield));
-    if (tmp1 == NULL || tmp2 == NULL)
+    if (tmp1 == NULL || tmp2 == NULL) {
+        if (!tmp1)
+            free(tmp1);
+        if (!tmp2)
+            free(tmp2);
         return (NULL);
+    }
     ennemy->hp_text = init_text(tmp1, 900, 600, (char *) FONT_PATH);
     ennemy->shield_text = init_text(tmp2, 900, 700, (char *) FONT_PATH);
     free(tmp1);
@@ -82,8 +89,12 @@ bool rpg_ennemy_update(game_object_t *object, scene_t *scene)
     if (ennemy->in_fight == 1) {
         tmp1 = my_strcat("Ennemy's life: ", my_nbr_to_str(ennemy->hp));
         tmp2 = my_strcat("Ennemy's shield: ", my_nbr_to_str(ennemy->shield));
+        if (tmp1 == NULL || tmp2 == NULL)
+            return (false);
         sfText_setString(ennemy->hp_text, tmp1);
         sfText_setString(ennemy->shield_text, tmp2);
+        free(tmp1);
+        free(tmp2);
     }
     return (true);
 }
