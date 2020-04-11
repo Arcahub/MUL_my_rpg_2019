@@ -6,6 +6,7 @@
 */
 
 #include "my_game.h"
+#include "player.h"
 
 void try_move_left(sfEvent event, game_t *game, scene_t *scene,
 sfRenderWindow *window)
@@ -66,9 +67,15 @@ sfRenderWindow *window)
 void move_event(sfEvent event, game_t *game, scene_t *scene,
 sfRenderWindow *window)
 {
-    try_move_left(event, game, scene, window);
-    try_move_right(event, game, scene, window);
-    try_move_top(event, game, scene, window);
-    try_move_down(event, game, scene, window);
+    game_object_t *tmp = NULL;
+    sfVector2f pos = sfRenderWindow_mapPixelToCoords(window,
+    sfMouse_getPositionRenderWindow(window), sfRenderWindow_getView(window));
+    player_t *player_s = NULL;
 
+    for (tmp = scene->objects_list; tmp && tmp->type != PLAYER;
+    tmp = tmp->next);
+    if (!tmp)
+        return;
+    player_s = tmp->extend;
+    player_s->galaxie_dest = pos;
 }

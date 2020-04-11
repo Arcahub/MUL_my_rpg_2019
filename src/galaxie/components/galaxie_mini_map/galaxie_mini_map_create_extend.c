@@ -19,8 +19,8 @@ game_t *game, scene_t *scene)
     if (map == NULL || background_path == NULL || view == NULL)
         return (NULL);
     sfView_setViewport(view, (sfFloatRect) {0.75f, 0.f, 0.25f, 0.25f});
-    sfView_setSize(view, (sfVector2f) {game->window->width * 5,
-    game->window->height * 5});
+    sfView_setSize(view, (sfVector2f) {game->window->width * 2,
+    game->window->height * 2});
     map->view = view;
     map->scene = scene;
     map->background_path = background_path;

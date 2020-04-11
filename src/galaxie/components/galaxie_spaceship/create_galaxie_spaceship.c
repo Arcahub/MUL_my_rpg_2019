@@ -24,5 +24,6 @@ json_object_t *js, game_t *game, scene_t *scene)
         return (NULL);
     object->box = box;
     object->update = &galaxie_spaceship_update;
+    object->extend = game->player;
     return (object);
 }
