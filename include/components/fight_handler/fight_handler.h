@@ -60,8 +60,9 @@ int rpg_fight_handler_spaceship_get_repair_statue(scene_t *scene);
 int rpg_ennemy_get_dodge_value(game_object_t *object, scene_t *scene);
 space_ship_t *rpg_spaceship_get_extend(scene_t *scene);
 struct ennemy *rpg_ennemy_get_extend(scene_t *scene);
-int rpg_fight_handle_dodge_handle(int number);
+int rpg_fight_handler_dodge_handle(int number);
 fight_handler_t *rpg_fight_handler_get_extend(scene_t *scene);
 int rpg_get_left_actions(scene_t *scene);
+void rpg_ennemy_destroy(void *ptr);
 
 #endif /* !FIGHT_HANDLER_H_ */

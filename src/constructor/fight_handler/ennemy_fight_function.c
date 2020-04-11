@@ -43,7 +43,7 @@ scene_t *scene)
 
     if (ennemy == NULL || damage == 0)
         return;
-    if (rpg_fight_handle_dodge_handle(ennemy->dodge_value) == 1)
+    if (rpg_fight_handler_dodge_handle(ennemy->dodge_value) == 1)
         return;
     if (ennemy->shield + ennemy->hp <= damage) {
         ennemy->hp = 0;

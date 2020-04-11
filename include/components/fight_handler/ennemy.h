@@ -28,4 +28,7 @@ typedef struct ennemy {
     sfText *shield_text;
 } ennemy_t;
 
+void rpg_ennemy_draw(sfRenderWindow *window, game_object_t *object);
+bool rpg_ennemy_update(game_object_t *object, scene_t *scene);
+
 #endif /* !ENNEMY_H_ */

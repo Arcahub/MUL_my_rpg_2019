@@ -53,7 +53,7 @@ scene_t *scene)
 
     if (ship == NULL)
         return;
-    if (rpg_fight_handle_dodge_handle(ship->dodge_value) == 1)
+    if (rpg_fight_handler_dodge_handle(ship->dodge_value) == 1)
         return;
     if (ship->shield + ship->hp <= damage) {
         ship->hp = 0;

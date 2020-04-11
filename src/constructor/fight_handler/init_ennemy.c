@@ -14,8 +14,6 @@
 #include "components/fight_handler/fight_handler.h"
 #include <stdlib.h>
 
-void rpg_ennemy_destroy(void *ptr);
-
 static ennemy_t *rpg_ennemy_create_text(ennemy_t *ennemy)
 {
     char *tmp1 = NULL;
@@ -39,6 +37,25 @@ static ennemy_t *rpg_ennemy_create_text(ennemy_t *ennemy)
     return (ennemy);
 }
 
+static ennemy_t *rpg_ennemy_extend_init(ennemy_t *ennemy)
+{
+    ennemy->action_number = 0;
+    ennemy->id = NULL;
+    ennemy->name = NULL;
+    ennemy->equiped_weapon = 0;
+    ennemy->in_fight = 1;
+    ennemy->repair_statue = 3;
+    ennemy->dodge_value = 0;
+    ennemy->damage = 0;
+    ennemy->hp = 0;
+    ennemy->shield = 0;
+    ennemy->repair_value = 0;
+    ennemy->repair_statue = 0;
+    ennemy->hp_text = NULL;
+    ennemy->shield_text = NULL;
+    return (ennemy);
+}
+
 static ennemy_t *rpg_ennemy_extend_create_from_conf(game_object_t *object, \
 json_object_t *js)
 {
@@ -46,6 +63,7 @@ json_object_t *js)
 
     if (ennemy == NULL)
         return (NULL);
+    ennemy = rpg_ennemy_extend_init(ennemy);
     if (!get_int_from_conf(js, &ennemy->equiped_weapon, "weapon_id") ||
     !get_int_from_conf(js, &ennemy->damage, "damage") || 
     !get_int_from_conf(js, &ennemy->hp, "hp") ||
@@ -54,8 +72,6 @@ json_object_t *js)
     !get_int_from_conf(js, &ennemy->shield, "shield") ||
     (ennemy->name = get_str_from_conf(js, "name")) == NULL)
         return (NULL);
-    ennemy->in_fight = 1;
-    ennemy->repair_statue = 3;
     ennemy->id = malloc(sizeof(action_id) * ennemy->action_number);
     if (ennemy->id == NULL)
         return (NULL);
@@ -63,40 +79,6 @@ json_object_t *js)
         ennemy->id[x] = EMPTY;
     ennemy = rpg_ennemy_create_text(ennemy);
     return (ennemy);
-}
-
-void rpg_ennemy_draw(sfRenderWindow *window, game_object_t *object)
-{
-    ennemy_t *ennemy = (ennemy_t *) object->extend;
-
-    if (ennemy == NULL)
-        return;
-    sfRenderWindow_drawSprite(window, object->sprite, NULL);
-    if (ennemy->in_fight == 1) {
-        sfRenderWindow_drawText(window, ennemy->hp_text, NULL);
-        sfRenderWindow_drawText(window, ennemy->shield_text, NULL);
-    }
-}
-
-bool rpg_ennemy_update(game_object_t *object, scene_t *scene)
-{
-    ennemy_t *ennemy = (ennemy_t *) object->extend;
-    char *tmp1 = NULL;
-    char *tmp2 = NULL;
-
-    if (ennemy == NULL)
-        return (false);
-    if (ennemy->in_fight == 1) {
-        tmp1 = my_strcat("Ennemy's life: ", my_nbr_to_str(ennemy->hp));
-        tmp2 = my_strcat("Ennemy's shield: ", my_nbr_to_str(ennemy->shield));
-        if (tmp1 == NULL || tmp2 == NULL)
-            return (false);
-        sfText_setString(ennemy->hp_text, tmp1);
-        sfText_setString(ennemy->shield_text, tmp2);
-        free(tmp1);
-        free(tmp2);
-    }
-    return (true);
 }
 
 game_object_t *rpg_ennemy_create_from_conf(game_object_t *last, \
