@@ -10,16 +10,13 @@
 game_object_t *init_galaxie_background(game_object_t *object)
 {
     galaxie_mini_map_t *map = object->extend;
-    game_t *game = map->scene->game;
     sfVector2f pos = sfView_getCenter(sfRenderWindow_getView(
     map->scene->window));
     game_object_t *tmp = NULL;
 
-    pos.y -= game->window->height * 2.5;
-    for (int i = 0; i < 5; i++) {
-        tmp = galaxie_background_generate_line(object, map, pos, 3);
-        object = (tmp) ? tmp : object;
-        pos.y += game->window->height;
-    }
+    pos.x -= 1920 * 3.5;
+    pos.y -= 1000 * 3.5;
+    tmp = create_galaxie_background(object, map, pos);
+    object = (tmp) ? tmp : object;
     return (object);
 }

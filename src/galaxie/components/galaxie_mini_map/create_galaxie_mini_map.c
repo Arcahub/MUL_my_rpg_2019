@@ -18,7 +18,6 @@ json_object_t *js, game_t *game, scene_t *scene)
     init_game_object(object);
     object->z_index = scene->z_index_deepth;
     object->draw = &draw_mini_map;
-    object->update = &galaxie_mini_map_update;
     object->extend = galaxie_minimap_create_extend(js, game, scene);
     if (object->extend == NULL) {
         destroy_game_object(scene, object);
