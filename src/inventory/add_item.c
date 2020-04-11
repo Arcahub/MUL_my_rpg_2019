@@ -88,10 +88,10 @@ char *path, int number)
     return (item);
 }
 
-inventory_t *rpg_inventory_add_item(inventory_t *last, char *path, \
-int number, item_id id)
+inventory_t *rpg_inventory_add_item(inventory_t *last, int number, item_id id)
 {
     inventory_t *tmp = NULL;
+    char *path = ITEM_PATHS[id];
 
     for (tmp = last; tmp; tmp = tmp->next) {
         if (tmp->id == id) {

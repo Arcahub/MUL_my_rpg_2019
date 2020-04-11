@@ -36,7 +36,7 @@ typedef struct inventory {
 
 void free_item(inventory_t *item);
 void rpg_inventory_remove_item(inventory_t *item, item_id id, int number);
-inventory_t *rpg_inventory_add_item(inventory_t *, char *, int , item_id);
+inventory_t *rpg_inventory_add_item(inventory_t *, int, item_id);
 bool rpg_update_inventory(game_object_t *object, scene_t *scene);
 void rpg_inventory_get_click_on_item(game_object_t *object, void *pt);
 void rpg_inventory_draw(sfRenderWindow *window, game_object_t *object);

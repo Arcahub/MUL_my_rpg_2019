@@ -8,6 +8,11 @@
 #ifndef ITEM_ID_H
 #define ITEM_ID_H
 
+static const char *ITEM_PATHS[] = {
+    "./config/item/basic_canon.json",
+    "./config/item/laser_canon.json"
+};
+
 typedef enum {
     BASIC_CANON,
     LASER_CANON,

@@ -82,8 +82,8 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->box.width = 600;
     object->box.left = 250;
     object->box.top = 215;
-    object->extend = (void *) rpg_inventory_add_item(NULL, "config/item/basic_canon.json", 4, 0);
-    object->extend = (void *) rpg_inventory_add_item((inventory_t *) object->extend, "config/item/laser_canon.json", 4, 1);
+    object->extend = (void *) rpg_inventory_add_item(NULL, 4, 0);
+    object->extend = (void *) rpg_inventory_add_item((inventory_t *) object->extend, 4, 1);
     if (object == NULL || object->extend == NULL) {
         rpg_inventory_destroy(object->extend);
         destroy_game_object(scene, object);
