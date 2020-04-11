@@ -1,18 +1,19 @@
 {
     "scene": {
-        "id": 0,
+        "id": 7,
         "z_index_deepth": 0,
         "draw_id": 0,
         "update_id": 0,
         "events_ids": [
             [0, 0],
-            [1, 9]
+            [1, 9],
+            [2, 5]
         ],
         "background_color": [0, 0, 0, 0],
-        "objects_list": [
+        "objects_list": [            
             {
                 "type": 7,
-                "string": "Space My RPG !",
+                "string": "Fight in pause !",
                 "font": "templates/font/space.ttf",
                 "pos": [400, 100],
                 "style": 0,
@@ -20,7 +21,7 @@
             },
             {
                 "type": 2,
-                "texture_path": "templates/menu/play2.png",
+                "texture_path": "templates/menu/continue2.png",
                 "pos": [820, 350],
                 "callback_id": 0,
                 "sound_path": "templates/sounds/ui_change_selection.ogg",
@@ -56,20 +57,15 @@
             },
             {
                 "type": 2,
-                "texture_path": "templates/menu/exit2.png",
+                "texture_path": "templates/menu/give_up.png",
                 "pos": [820, 690],
-                "callback_id": 3,
+                "callback_id": 5,
                 "sound_path": "templates/sounds/ui_change_selection.ogg",
                 "frame_keys": [
                     [0, 0, 280, 163],
                     [290, 0, 280, 163],
                     [570, 0, 280, 163]
                 ]
-            },
-            {
-                "type": 0,
-                "texture_path": "templates/menu/Ships.png",
-                "pos": [0, 0]
             },
             {
                 "type": 3,

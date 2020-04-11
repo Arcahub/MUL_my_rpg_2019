@@ -5,17 +5,19 @@
 ** init_ennemy.c
 */
 
-#include "my_game.h"
-#include "my_json.h"
 #include "components/fight_handler/ennemy.h"
-#include "components/fight_handler/fight_handler.h"
+#include <stdlib.h>
 
-void rpg_ennemy_destroy(ennemy_t *ennemy)
+void rpg_ennemy_destroy(void *ptr)
 {
+    ennemy_t *ennemy = (ennemy_t *) ptr;
+
     if (ennemy == NULL)
         return;
     if (!ennemy->name)
         free(ennemy->name);
+    if (!ennemy->id)
+        free(ennemy->id);
     if (!ennemy)
         free(ennemy);
 }

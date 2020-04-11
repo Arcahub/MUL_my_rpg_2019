@@ -7,32 +7,75 @@
 
 #include "my_game.h"
 #include "my_json.h"
+#include "my.h"
+#include "const.h"
+#include "components/get_from_config.h"
 #include "spaceship/ship.h"
 #include "components/fight_handler/fight_handler.h"
+#include <stdlib.h>
 
-void rpg_space_ship_destroy(space_ship_t *ship)
+static space_ship_t *rpg_space_ship_init_text(space_ship_t *ship)
 {
-    if (ship != NULL)
-        free(ship);
+    char *tmp1 = NULL;
+    char *tmp2 = NULL;
+
+    tmp1 = my_strcat("Your life: ", my_nbr_to_str(ship->hp));
+    tmp2 = my_strcat("Your shield: ", my_nbr_to_str(ship->shield));
+    if (tmp1 == NULL || tmp2 == NULL)
+        return (NULL);
+    ship->hp_text = init_text(tmp1, 400, 600, (char *) FONT_PATH);
+    ship->shield_text = init_text(tmp2, 400, 700, (char *) FONT_PATH);
+    return (ship);
 }
 
-space_ship_t *rpg_space_ship_extend_create_from_conf(game_object_t *object, \
-json_object_t *js)
+static space_ship_t *rpg_space_ship_extend_create_from_conf(game_object_t *object, \
+json_object_t *js, scene_t *scene)
 {
     space_ship_t *space_ship = malloc(sizeof(space_ship_t));
 
     if (space_ship == NULL)
         return (NULL);
-    space_ship->repair_statue = 0;
-    space_ship->skill_statue = 0;
-    space_ship->repair_value = 0;
-    space_ship->member_in_ship = 1;
+    space_ship->repair_statue = 3;
+    space_ship->in_fight = 1;
+    space_ship->member_in_ship = 3;
     if (!get_int_from_conf(js, &space_ship->equiped_weapon, "weapon_id") ||
     !get_int_from_conf(js, &space_ship->damage, "damage") || 
     !get_int_from_conf(js, &space_ship->hp, "hp") || 
+    !get_int_from_conf(js, &space_ship->repair_value, "repair_value") || 
     !get_int_from_conf(js, &space_ship->shield, "shield"))
         return (NULL);
+    space_ship = rpg_space_ship_init_text(space_ship);
     return (space_ship);
+}
+
+void rpg_space_ship_draw(sfRenderWindow *window, game_object_t *object)
+{
+    space_ship_t *ship = (space_ship_t *) object->extend;
+    
+    if (ship == NULL)
+        return;
+    sfRenderWindow_drawSprite(window, object->sprite, NULL);
+    if (ship->in_fight == 1) {
+        sfRenderWindow_drawText(window, ship->hp_text, NULL);
+        sfRenderWindow_drawText(window, ship->shield_text, NULL);
+    }
+}
+
+bool rpg_spaceship_update(game_object_t *object, scene_t *scene)
+{
+    space_ship_t *space_ship = (space_ship_t *) object->extend;
+    char *tmp1 = NULL;
+    char *tmp2 = NULL;
+
+    if (space_ship == NULL)
+        return (false);
+    if (space_ship->in_fight == 1) {
+        tmp1 = my_strcat("Your life: ", my_nbr_to_str(space_ship->hp));
+        tmp2 = my_strcat("Your shield: ", my_nbr_to_str(space_ship->shield));
+        sfText_setString(space_ship->hp_text, tmp1);
+        sfText_setString(space_ship->shield_text, tmp2);
+    }
+    return (true);
 }
 
 game_object_t *rpg_space_ship_create_from_conf(game_object_t *last, \
@@ -47,7 +90,11 @@ json_object_t *js, game_t *game, scene_t *scene)
     if (!get_vector2f_from_conf(js, &pos, "pos"))
         return (NULL);
     object->pos = pos;
-    object->extend = (void *) rpg_space_ship_extend_create_from_conf(object, js);
+    sfSprite_setPosition(object->sprite, object->pos);
+    object->draw = &rpg_space_ship_draw;
+    object->update = &rpg_spaceship_update;
+    object->extend = (void *) \
+    rpg_space_ship_extend_create_from_conf(object, js, scene);
     if (object == NULL || object->extend == NULL) {
         rpg_space_ship_destroy((space_ship_t *) object->extend);
         destroy_game_object(scene, object);

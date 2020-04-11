@@ -47,6 +47,9 @@ typedef enum
     UPGRADE_BUTTON,
     SPACESHIP,
     TEXT_HANDLER,
+    ATTACK_BUTTON,
+    REPAIR_BUTTON,
+    DODGE_BUTTON,
     INVENTORY
 } object_type;
 

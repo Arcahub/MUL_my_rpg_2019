@@ -27,6 +27,8 @@ typedef enum {
     END_SCENE,
     IN_GAME_MENU_SCENE,
     GALAXIE_SCENE,
+    FIGHT_SCENE,
+    FIGHT_PAUSE_SCENE,
     NULL_SCENE,
 } scene_index;
 

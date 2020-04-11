@@ -9,45 +9,107 @@
 #include "my_json.h"
 #include "components/fight_handler/fight_handler.h"
 #include "spaceship/ship.h"
+#include <stdlib.h>
 
-void rpg_fight_handler_update(game_object_t *object, scene_t *scene)
+static sfIntRect rpg_fight_handler_button_init_box(game_object_t *object)
 {
-    fight_handler_t *handler = (fight_handler_t *) object->extend;
+    sfIntRect box = {0, 0, 0, 0};
 
-    if (handler->in_fight == 0)
-        return;
-    if (handler->player_turn == 1) {
-        rpg_fight_handler_get_player_action(object, scene);
-        rpg_fight_handler_make_player_actions(object, scene);
-    } else {
-        rpg_fight_handler_make_ennemy_play(object, scene);
-    }
+    box.left = object->pos.x;
+    box.top = object->pos.y;
+    box.height = 100;
+    box.width = 200;
+    return (box);
 }
 
-fight_handler_t *rpg_init_fight_handler_extend(game_object_t *object)
+static fight_handler_t *rpg_fight_handler_init_button(fight_handler_t *handler, scene_t *scene)
+{
+    game_object_t *button = create_game_object(NULL, "templates/attack.png", \
+    (sfVector2f) {100, 400}, ATTACK_BUTTON);
+
+    if (button == NULL)
+        return (NULL);
+    button->box = rpg_fight_handler_button_init_box(button);
+    button = create_game_object(button, "templates/repair.png", \
+    (sfVector2f) {100, 600}, REPAIR_BUTTON);
+    if (button == NULL)
+        return (NULL);
+    button->box = rpg_fight_handler_button_init_box(button);
+    button = create_game_object(button, "templates/dodge.png", \
+    (sfVector2f) {100, 800}, DODGE_BUTTON);
+    if (button == NULL)
+        return (NULL);
+    button->box = rpg_fight_handler_button_init_box(button);
+    handler->button = button;
+    return (handler);
+}
+
+static fight_handler_t *rpg_fight_handler_init_extend(game_object_t *object, scene_t *scene)
 {
     fight_handler_t *handler = malloc(sizeof(fight_handler_t));
 
-    if (handler == NULL)
+    if (handler == NULL || object == NULL)
         return (NULL);
-    handler->in_fight = 0;
+    handler->in_fight = 1;
     handler->player_turn = 1;
-    handler->action_number = rpg_spaceship_get_equiped_weapon(object);
+    handler->done = 0;
+    handler->action_number = 3;
     handler->id = malloc(sizeof(action_id) * handler->action_number);
     if (handler->id == NULL)
+        return (NULL);
+    for (int x = 0; x != handler->action_number; x++)
+        handler->id[x] = EMPTY;
+    handler = rpg_fight_handler_init_button(handler, scene);
+    if (handler == NULL)
         return (NULL);
     return (handler);
 }
 
-game_object_t *rpg_fight_handler_create(game_object_t *last)
+void rpg_fight_handler_callback(game_object_t *object, void *pt)
 {
-    game_object_t *object = malloc(sizeof(game_object_t));
+    scene_t *scene = (scene_t *) pt;
+    sfVector2i pos = sfMouse_getPositionRenderWindow(scene->window);
+    fight_handler_t *handler = (fight_handler_t *) object->extend;
+
+    if (handler->done == handler->action_number || handler->in_fight == 0)
+        return;
+    for (game_object_t *tmp = handler->button; tmp; tmp = tmp->next) {
+        if (sfIntRect_contains(&tmp->box, pos.x, pos.y) && \
+        tmp->type == ATTACK_BUTTON)
+            handler->id[handler->done] = ATTACK;
+        if (sfIntRect_contains(&tmp->box, pos.x, pos.y) && \
+        tmp->type == REPAIR_BUTTON && \
+        rpg_fight_handler_spaceship_get_repair_statue(scene) >= 3)
+            handler->id[handler->done] = REPAIR;
+        if (sfIntRect_contains(&tmp->box, pos.x, pos.y) && \
+        tmp->type == DODGE_BUTTON)
+            handler->id[handler->done] = DODGE;
+    }
+    if (handler->id[handler->done] == EMPTY)
+        return;
+    handler->done++;
+}
+
+game_object_t *rpg_fight_handler_create_from_conf(game_object_t *last, \
+json_object_t *js, game_t *game, scene_t *scene)
+{
+    game_object_t *object = create_game_object(last, \
+    "templates/fight_handler.png", (sfVector2f) {0, 0}, DECOR);
 
     if (object == NULL)
         return (NULL);
-    init_game_object(object);
-    object->extend = (void *) rpg_init_fight_handler_extend(object);
     object->update = &rpg_fight_handler_update;
-    object->next = last;
+    object->draw = &rpg_fight_handler_draw;
+    object->callback = &rpg_fight_handler_callback;
+    object->box.left = object->pos.x;
+    object->box.top = object->pos.y;
+    object->box.height = 1920;
+    object->box.width = 1080;
+    object->extend = (void *) rpg_fight_handler_init_extend(object, scene);
+    if (object == NULL || object->extend == NULL) {
+        rpg_fight_handler_free_extend((fight_handler_t *) object->extend);
+        destroy_game_object(scene, object);
+        return (NULL);
+    }
     return (object);
 }
