@@ -13,6 +13,10 @@
         "background_color": [0, 0, 0, 0],
         "objects_list": [
             {
+                "type": 8,
+                "texture_path": "templates/inv.png"
+            },
+            {
                 "type": 9,
                 "name": "Test",
                 "pos": [900, 100],

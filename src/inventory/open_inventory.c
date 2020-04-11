@@ -16,6 +16,8 @@ void open_inventory(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow 
 
     if (sfKeyboard_isKeyPressed(sfKeyI)) {
         for (; tmp && tmp->type != INVENTORY; tmp = tmp->next);
+        if (tmp == NULL)
+            return;
         if (tmp->type == INVENTORY && tmp->state == 0)
             tmp->state = 1;
         else if (tmp->type == INVENTORY)
