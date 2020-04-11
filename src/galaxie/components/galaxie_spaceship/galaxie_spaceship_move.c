@@ -31,10 +31,8 @@ static void galaxie_spaceship_scale_move_vector(game_object_t *object)
 {
     float tmp = 0;
 
-    if (ABS(object->move.x) <= 10 && ABS(object->move.y) <= 10) {
-        printf("salut\n");
+    if (ABS(object->move.x) <= 10 && ABS(object->move.y) <= 10)
         return;
-    }
     if (ABS(object->move.x) > ABS(object->move.y)) {
         tmp = object->move.x;
         object->move.x = (object->move.x > 0) ? 10 : - 10;

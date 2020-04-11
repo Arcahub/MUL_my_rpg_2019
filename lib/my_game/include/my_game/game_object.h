@@ -41,7 +41,8 @@ typedef enum
     SPACESHIP,
     TEXT_HANDLER,
     PLAYER,
-    GALAXIE_BACKGROUND
+    GALAXIE_BACKGROUND,
+    PLANET
 } object_type;
 
 ////////////////////////////////////////////////////////////
