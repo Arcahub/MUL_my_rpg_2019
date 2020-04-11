@@ -22,8 +22,10 @@ typedef struct ship {
     int repair_statue;
     int dodge_value;
     int member_in_ship;
+    int done_actions;
     sfText *hp_text;
     sfText *shield_text;
+    sfText *action_left;
 } space_ship_t;
 
 #endif /* !SHIP_H_ */

@@ -48,3 +48,22 @@ space_ship_t *rpg_spaceship_get_extend(scene_t *scene)
         return (NULL);
     return (ship);
 }
+
+fight_handler_t *rpg_fight_handler_get_extend(scene_t *scene)
+{
+    game_object_t *tmp = NULL;
+    fight_handler_t *handler = NULL;
+
+    if (scene->objects_list == NULL)
+        return (NULL);
+    for (tmp = scene->objects_list; tmp && tmp->type != FIGHT_HANDLER; \
+    tmp = tmp->next);
+    if (tmp == NULL)
+        return (NULL);
+    if (tmp->type != FIGHT_HANDLER)
+        return (NULL);
+    handler = (fight_handler_t *) tmp->extend;
+    if (handler == NULL)
+        return (NULL);
+    return (handler);
+}

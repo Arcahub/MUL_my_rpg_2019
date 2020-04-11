@@ -14,12 +14,9 @@
 int rpg_fight_handler_make_player_actions(game_object_t *object, \
 scene_t *scene)
 {
-    fight_handler_t *handler = NULL;
+    fight_handler_t *handler = (fight_handler_t *) object->extend;
     int dodge = 0;
 
-    if (object == NULL || object->extend == NULL)
-        return (0);
-    handler = (fight_handler_t *) object->extend;
     if (handler->done != handler->action_number)
         return (0);
     for (int x = 0; x != handler->action_number; x++) {

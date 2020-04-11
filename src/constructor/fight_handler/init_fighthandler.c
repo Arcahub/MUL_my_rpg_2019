@@ -94,7 +94,7 @@ game_object_t *rpg_fight_handler_create_from_conf(game_object_t *last, \
 json_object_t *js, game_t *game, scene_t *scene)
 {
     game_object_t *object = create_game_object(last, \
-    "templates/fight_handler.png", (sfVector2f) {0, 0}, DECOR);
+    "templates/fight_handler.png", (sfVector2f) {0, 0}, FIGHT_HANDLER);
 
     if (object == NULL)
         return (NULL);

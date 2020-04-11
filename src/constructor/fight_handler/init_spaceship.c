@@ -16,20 +16,22 @@
 
 static space_ship_t *rpg_space_ship_init_text(space_ship_t *ship)
 {
-    char *tmp1 = NULL;
-    char *tmp2 = NULL;
+    char *tmp1 = my_strcat("Your life: ", my_nbr_to_str(ship->hp));
+    char *tmp2 = my_strcat("Your shield: ", my_nbr_to_str(ship->shield));
+    char *tmp3 = my_strcat("Action left: ", my_nbr_to_str(ship->member_in_ship));
 
-    tmp1 = my_strcat("Your life: ", my_nbr_to_str(ship->hp));
-    tmp2 = my_strcat("Your shield: ", my_nbr_to_str(ship->shield));
-    if (tmp1 == NULL || tmp2 == NULL) {
+    if (tmp1 == NULL || tmp2 == NULL || tmp3 == NULL) {
         if (!tmp1)
             free(tmp1);
         if (!tmp2)
             free(tmp2);
+        if (!tmp3)
+            free(tmp3);
         return (NULL);
     }
     ship->hp_text = init_text(tmp1, 400, 600, (char *) FONT_PATH);
     ship->shield_text = init_text(tmp2, 400, 700, (char *) FONT_PATH);
+    ship->action_left = init_text(tmp3, 400, 500, (char *) FONT_PATH);
     return (ship);
 }
 
@@ -63,6 +65,7 @@ void rpg_space_ship_draw(sfRenderWindow *window, game_object_t *object)
     if (ship->in_fight == 1) {
         sfRenderWindow_drawText(window, ship->hp_text, NULL);
         sfRenderWindow_drawText(window, ship->shield_text, NULL);
+        sfRenderWindow_drawText(window, ship->action_left, NULL);
     }
 }
 
@@ -71,18 +74,21 @@ bool rpg_spaceship_update(game_object_t *object, scene_t *scene)
     space_ship_t *space_ship = (space_ship_t *) object->extend;
     char *tmp1 = NULL;
     char *tmp2 = NULL;
+    char *tmp3 = NULL;
 
-    if (space_ship == NULL)
-        return (false);
     if (space_ship->in_fight == 1) {
         tmp1 = my_strcat("Your life: ", my_nbr_to_str(space_ship->hp));
         tmp2 = my_strcat("Your shield: ", my_nbr_to_str(space_ship->shield));
-        if (tmp1 == NULL || tmp2 == NULL)
+        tmp3 = my_strcat("Action left: ", \
+        my_nbr_to_str(rpg_get_left_actions(scene)));
+        if (tmp1 == NULL || tmp2 == NULL || tmp3 == NULL)
             return (false);
         sfText_setString(space_ship->hp_text, tmp1);
         sfText_setString(space_ship->shield_text, tmp2);
+        sfText_setString(space_ship->action_left, tmp3);
         free(tmp1);
         free(tmp2);
+        free(tmp3);
     }
     return (true);
 }

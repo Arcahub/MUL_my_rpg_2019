@@ -50,7 +50,8 @@ typedef enum
     ATTACK_BUTTON,
     REPAIR_BUTTON,
     DODGE_BUTTON,
-    INVENTORY
+    INVENTORY,
+    FIGHT_HANDLER
 } object_type;
 
 ////////////////////////////////////////////////////////////
