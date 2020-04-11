@@ -31,7 +31,7 @@ typedef struct game {
     int difficulty;
     sfMusic *music;
     int (*scene_loop[5]) (game_t *, sfRenderWindow *);      /**< Array of function for all scene*/
-    game_object_t *player;                                  /**< Struct game_object reference to the main object of the game*/
+    void *player;                                           /**< Struct game_object reference to the main object of the game*/
     score_t *score;                                         /**< Struct that handle the text variable for the score*/
     score_t *highscore;                                     /**< Struct that handle the text variable for the highscore*/
     cursor_t cursor;                                        /**< Struct cursor to handle cursor image and pos*/
