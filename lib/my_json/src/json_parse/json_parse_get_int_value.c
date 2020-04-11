@@ -51,7 +51,7 @@ static json_value_t json_parse_get_float_value(char **buff, int i)
         return (value);
     first_part = my_getnbr(*buff);
     second_part = my_getnbr(*buff + i + 1);
-    *val += second_part;
+    *val += (first_part < 0) ? - second_part : second_part;
     for (; *val > 1;*val /= 10, i++);
     *val += first_part;
     *buff += i + 1;
@@ -68,6 +68,8 @@ json_value_t json_parse_get_int_value(char **buff)
 
     if (my_strncmp(*buff, "true", 4) == 0 || my_strncmp(*buff, "false", 5) == 0)
         return (json_parse_get_bool_value(buff));
+    else if (**buff == '-')
+        i += 1;
     for (; *(*buff + i) <= '9' && *(*buff +i) >= '0'; i++);
     if (*(*buff + i) == '.')
         return (json_parse_get_float_value(buff, i));
