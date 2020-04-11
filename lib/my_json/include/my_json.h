@@ -12,6 +12,7 @@ typedef enum {
     NONE,
     BOOLEAN,
     INT,
+    FLOAT,
     STRING,
     OBJECT,
     ARRAY
