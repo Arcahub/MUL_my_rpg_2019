@@ -27,12 +27,14 @@
 //     object->move = (sfVector2f) {0, 0};
 // }
 
-static void galaxie_spaceship_compute_move_vector(game_object_t *object)
+static void galaxie_spaceship_scale_move_vector(game_object_t *object)
 {
     float tmp = 0;
 
-    if (ABS(object->move.x) <= 10 && ABS(object->move.x) <= 10)
+    if (ABS(object->move.x) <= 10 && ABS(object->move.y) <= 10) {
+        printf("salut\n");
         return;
+    }
     if (ABS(object->move.x) > ABS(object->move.y)) {
         tmp = object->move.x;
         object->move.x = (object->move.x > 0) ? 10 : - 10;
@@ -58,7 +60,8 @@ static void galaxie_spaceship_compute_move_vector(game_object_t *object)
     center.y += object->box.height / 2;
     object->move.x = player->galaxie_dest.x - center.x;
     object->move.y = player->galaxie_dest.y - center.y;
-    galaxie_spaceship_scale_vector(object);
+    printf("previous ! %f : %f\n", object->move.x, object->move.y);
+    galaxie_spaceship_scale_move_vector(object);
 }
 
 void galaxie_spaceship_move(game_object_t *object, scene_t *scene)
@@ -69,7 +72,7 @@ void galaxie_spaceship_move(game_object_t *object, scene_t *scene)
     if (view == NULL)
         return;
     galaxie_spaceship_compute_move_vector(object);
-    printf("%f : %f\n", object->move.x, object->move.y);
+    printf("after ! %f : %f\n", object->move.x, object->move.y);
     move_object(object);
     pos.x = object->pos.x + object->box.width / 2;
     pos.y = object->pos.y + object->box.height / 2;
