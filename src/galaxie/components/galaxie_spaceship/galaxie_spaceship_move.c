@@ -9,24 +9,6 @@
 #include "player.h"
 #define ABS(X) ((X<0)?(-X):(X))
 
-
-// void galaxie_spaceship_move(game_object_t *object, scene_t *scene)
-// {
-//     sfView *view = (sfView *) sfRenderWindow_getView(scene->window);
-//     sfVector2f pos = {0, 0};
-// 
-//     if (view == NULL)
-//         return;
-//     object->move.x *= 15;
-//     object->move.y *= 15;
-//     move_object(object);
-//     pos.x = object->pos.x + object->box.width / 2;
-//     pos.y = object->pos.y + object->box.height / 2;
-//     sfView_setCenter(view, pos);
-//     sfRenderWindow_setView(scene->window, view);
-//     object->move = (sfVector2f) {0, 0};
-// }
-
 static void galaxie_spaceship_scale_move_vector(game_object_t *object)
 {
     float tmp = 0;
@@ -54,8 +36,6 @@ static void galaxie_spaceship_compute_move_vector(game_object_t *object)
     player_t *player = object->extend;
     sfVector2f center = object->pos;
 
-    center.x += object->box.width / 2;
-    center.y += object->box.height / 2;
     object->move.x = player->galaxie_dest.x - center.x;
     object->move.y = player->galaxie_dest.y - center.y;
     galaxie_spaceship_scale_move_vector(object);
@@ -70,8 +50,8 @@ void galaxie_spaceship_move(game_object_t *object, scene_t *scene)
         return;
     galaxie_spaceship_compute_move_vector(object);
     move_object(object);
-    pos.x = object->pos.x + object->box.width / 2;
-    pos.y = object->pos.y + object->box.height / 2;
+    pos.x = object->pos.x;
+    pos.y = object->pos.y;
     sfView_setCenter(view, pos);
     sfRenderWindow_setView(scene->window, view);
 }

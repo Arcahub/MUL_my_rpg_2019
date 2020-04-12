@@ -20,7 +20,7 @@ game_t *init_game(void)
     if (game == NULL || player == NULL)
         return (NULL);
     game->player = player;
-    player->galaxie_dest = (sfVector2f) {960, 540};
+    player->galaxie_dest = (sfVector2f) {890, 399};
     game->window = create_window_from_conf("./config/window.json");
     if (game->window == NULL)
         return (NULL);
@@ -32,5 +32,6 @@ void destroy_game(game_t *game)
     sfRenderWindow_destroy(game->window->window);
     free(game->window->name);
     free(game->window);
+    free(game->player);
     free(game);
 }

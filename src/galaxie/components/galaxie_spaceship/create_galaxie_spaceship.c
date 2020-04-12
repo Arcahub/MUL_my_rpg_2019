@@ -25,5 +25,8 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->box = box;
     object->update = &galaxie_spaceship_update;
     object->extend = game->player;
+    sfSprite_setOrigin(object->sprite, (sfVector2f) {object->box.width / 2,
+    object->box.height / 2});
+    object->move = (sfVector2f) {0, 0};
     return (object);
 }
