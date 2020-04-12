@@ -24,6 +24,7 @@ typedef struct ship {
     int member_in_ship;
     int done_actions;
     sfText *hp_text;
+    sfText *repair_turn_left;
     sfText *shield_text;
     sfText *action_left;
 } space_ship_t;
