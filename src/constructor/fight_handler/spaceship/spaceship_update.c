@@ -13,8 +13,8 @@
 
 static int rpg_spaceship_update_text(space_ship_t *space_ship, scene_t *scene)
 {
-    char *tmp1 = my_strcat("Your life: ", my_nbr_to_str(space_ship->hp));;
-    char *tmp2 = my_strcat("Your shield: ", my_nbr_to_str(space_ship->shield));;
+    char *tmp1 = my_strcat("Your life: ", my_nbr_to_str(space_ship->hp));
+    char *tmp2 = my_strcat("Your shield: ", my_nbr_to_str(space_ship->shield));
     char *tmp3 = my_strcat("Actions left: ", \
     my_nbr_to_str(rpg_get_left_actions(scene)));
 
@@ -26,7 +26,7 @@ static int rpg_spaceship_update_text(space_ship_t *space_ship, scene_t *scene)
     free(tmp1);
     free(tmp2);
     free(tmp3);
-    if (space_ship->repair_statue >= 3 && space_ship->hp < 100)
+    if (space_ship->repair_statue >= 3 && space_ship->hp < space_ship->max_hp)
         sfText_setString(space_ship->repair_turn_left, "Repair statue: Able");
     return (1);
 }

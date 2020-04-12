@@ -15,6 +15,7 @@
 typedef struct ship {
     bool in_fight;
     int hp;
+    int max_hp;
     int shield;
     item_id equiped_weapon;
     int damage;

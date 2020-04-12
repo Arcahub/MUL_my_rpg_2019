@@ -27,8 +27,8 @@ void rpg_fight_handler_repair_ennemy(game_object_t *object, scene_t *scene)
 
     if (ennemy == NULL)
         return;
-    if (ennemy->repair_value + ennemy->hp > 100)
-        ennemy->hp = 100;
+    if (ennemy->repair_value + ennemy->hp > ennemy->max_hp)
+        ennemy->hp = ennemy->max_hp;
     else
         ennemy->hp += ennemy->repair_value;
     ennemy->repair_statue = 0;    

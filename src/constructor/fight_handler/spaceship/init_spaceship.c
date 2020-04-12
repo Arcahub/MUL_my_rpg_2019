@@ -30,11 +30,11 @@ static space_ship_t *rpg_space_ship_init_text(space_ship_t *ship)
             free(tmp3);
         return (NULL);
     }
-    ship->hp_text = init_text(tmp1, 400, 600, (char *) FONT_PATH);
-    ship->shield_text = init_text(tmp2, 400, 700, (char *) FONT_PATH);
-    ship->action_left = init_text(tmp3, 400, 400, (char *) FONT_PATH);
+    ship->action_left = init_text(tmp3, 400, 600, (char *) FONT_PATH);
     ship->repair_turn_left = init_text("Repair statue: Unable", \
-    400, 500, (char *) FONT_PATH);
+    400, 700, (char *) FONT_PATH);
+    ship->hp_text = init_text(tmp1, 400, 800, (char *) FONT_PATH);
+    ship->shield_text = init_text(tmp2, 400, 900, (char *) FONT_PATH);
     return (ship);
 }
 
@@ -54,6 +54,7 @@ json_object_t *js, scene_t *scene)
     !get_int_from_conf(js, &space_ship->repair_value, "repair_value") || 
     !get_int_from_conf(js, &space_ship->shield, "shield"))
         return (NULL);
+    space_ship->max_hp = space_ship->hp;
     space_ship = rpg_space_ship_init_text(space_ship);
     return (space_ship);
 }

@@ -15,6 +15,7 @@
 typedef struct ennemy {
     char *name;
     int hp;
+    int max_hp;
     int shield;
     int action_number;
     int dodge_value;

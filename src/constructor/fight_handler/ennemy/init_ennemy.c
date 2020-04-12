@@ -31,9 +31,9 @@ static ennemy_t *rpg_ennemy_create_text(ennemy_t *ennemy)
             free(tmp2);
         return (NULL);
     }
-    ennemy->hp_text = init_text(tmp1, 1100, 600, (char *) FONT_PATH);
-    ennemy->shield_text = init_text(tmp2, 1100, 700, (char *) FONT_PATH);
-    ennemy->name_text = init_text(ennemy->name, 1100, 500, (char *) FONT_PATH);
+    ennemy->name_text = init_text(ennemy->name, 1100, 700, (char *) FONT_PATH);
+    ennemy->hp_text = init_text(tmp1, 1100, 800, (char *) FONT_PATH);
+    ennemy->shield_text = init_text(tmp2, 1100, 900, (char *) FONT_PATH);
     free(tmp1);
     free(tmp2);
     return (ennemy);
@@ -43,6 +43,7 @@ static ennemy_t *rpg_ennemy_extend_init(ennemy_t *ennemy)
 {
     ennemy->action_number = 0;
     ennemy->id = NULL;
+    ennemy->max_hp = 0;
     ennemy->name = NULL;
     ennemy->equiped_weapon = 0;
     ennemy->in_fight = 1;
@@ -72,11 +73,10 @@ json_object_t *js)
     !get_int_from_conf(js, &ennemy->action_number, "action_number") ||
     !get_int_from_conf(js, &ennemy->repair_value, "repair_value") ||
     !get_int_from_conf(js, &ennemy->shield, "shield") ||
-    (ennemy->name = get_str_from_conf(js, "name")) == NULL)
+    (ennemy->name = get_str_from_conf(js, "name")) == NULL ||
+    (ennemy->id = malloc(sizeof(action_id) * ennemy->action_number)) == NULL)
         return (NULL);
-    ennemy->id = malloc(sizeof(action_id) * ennemy->action_number);
-    if (ennemy->id == NULL)
-        return (NULL);
+    ennemy->max_hp = ennemy->hp;
     for (int x = 0; x != ennemy->action_number; x++)
         ennemy->id[x] = EMPTY;
     ennemy = rpg_ennemy_create_text(ennemy);

@@ -27,8 +27,8 @@ void rpg_fight_handler_repair_spaceship(game_object_t *object, scene_t *scene)
     if (ship == NULL)
         return;
     sfText_setString(ship->repair_turn_left, "Repair statue; Unable");
-    if (ship->repair_value + ship->hp > 100)
-        ship->hp = 100;
+    if (ship->repair_value + ship->hp > ship->max_hp)
+        ship->hp = ship->max_hp;
     else
         ship->hp += ship->repair_value;
     ship->repair_statue = 0;    

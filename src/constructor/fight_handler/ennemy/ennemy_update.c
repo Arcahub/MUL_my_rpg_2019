@@ -11,23 +11,26 @@
 #include "components/fight_handler/ennemy.h"
 #include <stdlib.h>
 
+static int rpg_ennemy_update_text(ennemy_t *ennemy, scene_t *scene)
+{
+    char *tmp1 = my_strcat("Ennemy's life: ", my_nbr_to_str(ennemy->hp));
+    char *tmp2 = my_strcat("Ennemy's shield: ", my_nbr_to_str(ennemy->shield));
+
+    if (tmp1 == NULL || tmp2 == NULL)
+        return (0);
+    sfText_setString(ennemy->hp_text, tmp1);
+    sfText_setString(ennemy->shield_text, tmp2);
+    free(tmp1);
+    free(tmp2);
+    return (1);
+}
+
 bool rpg_ennemy_update(game_object_t *object, scene_t *scene)
 {
     ennemy_t *ennemy = (ennemy_t *) object->extend;
-    char *tmp1 = NULL;
-    char *tmp2 = NULL;
 
-    if (ennemy == NULL)
-        return (false);
-    if (ennemy->in_fight == 1) {
-        tmp1 = my_strcat("Ennemy's life: ", my_nbr_to_str(ennemy->hp));
-        tmp2 = my_strcat("Ennemy's shield: ", my_nbr_to_str(ennemy->shield));
-        if (tmp1 == NULL || tmp2 == NULL)
+    if (ennemy->in_fight == 1)
+        if (rpg_ennemy_update_text(ennemy, scene) == 0)
             return (false);
-        sfText_setString(ennemy->hp_text, tmp1);
-        sfText_setString(ennemy->shield_text, tmp2);
-        free(tmp1);
-        free(tmp2);
-    }
     return (true);
 }
