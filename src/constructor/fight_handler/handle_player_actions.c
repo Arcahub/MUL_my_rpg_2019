@@ -6,10 +6,7 @@
 */
 
 #include "my_game.h"
-#include "my_json.h"
 #include "components/fight_handler/fight_handler.h"
-#include "spaceship/ship.h"
-#include "components/fight_handler/ennemy.h"
 
 int rpg_fight_handler_make_player_actions(game_object_t *object, \
 scene_t *scene)

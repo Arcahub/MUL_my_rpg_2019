@@ -7,7 +7,6 @@
 
 #include "my_game.h"
 #include "components/fight_handler/ennemy.h"
-#include "components/fight_handler/fight_handler.h"
 
 void rpg_ennemy_draw(sfRenderWindow *window, game_object_t *object)
 {
@@ -19,5 +18,6 @@ void rpg_ennemy_draw(sfRenderWindow *window, game_object_t *object)
     if (ennemy->in_fight == 1) {
         sfRenderWindow_drawText(window, ennemy->hp_text, NULL);
         sfRenderWindow_drawText(window, ennemy->shield_text, NULL);
+        sfRenderWindow_drawText(window, ennemy->name_text, NULL);
     }
 }

@@ -30,8 +30,9 @@ static ennemy_t *rpg_ennemy_create_text(ennemy_t *ennemy)
             free(tmp2);
         return (NULL);
     }
-    ennemy->hp_text = init_text(tmp1, 900, 600, (char *) FONT_PATH);
-    ennemy->shield_text = init_text(tmp2, 900, 700, (char *) FONT_PATH);
+    ennemy->hp_text = init_text(tmp1, 1100, 600, (char *) FONT_PATH);
+    ennemy->shield_text = init_text(tmp2, 1100, 700, (char *) FONT_PATH);
+    ennemy->name_text = init_text(ennemy->name, 1100, 500, (char *) FONT_PATH);
     free(tmp1);
     free(tmp2);
     return (ennemy);
@@ -94,6 +95,7 @@ json_object_t *js, game_t *game, scene_t *scene)
         return (NULL);
     object->pos = pos;
     sfSprite_setPosition(object->sprite, object->pos);
+    sfSprite_setRotation(object->sprite, 270);
     object->draw = &rpg_ennemy_draw;
     object->update = &rpg_ennemy_update;
     object->free_extend = &rpg_ennemy_destroy;

@@ -6,10 +6,8 @@
 */
 
 #include "my_game.h"
-#include "my_json.h"
 #include "components/fight_handler/fight_handler.h"
 #include "spaceship/ship.h"
-#include "components/fight_handler/ennemy.h"
 
 void rpg_fight_handler_handle_dodge_spaceship(game_object_t *object, int dodge, \
 scene_t *scene)
@@ -48,7 +46,6 @@ void rpg_fight_handler_remove_spaceship_life(game_object_t *object, \
 scene_t *scene)
 {
     space_ship_t *ship = rpg_spaceship_get_extend(scene);
-    ennemy_t *ennemy = rpg_ennemy_get_extend(scene);
     int damage = rpg_ennemy_get_damage(object, scene);
 
     if (ship == NULL)

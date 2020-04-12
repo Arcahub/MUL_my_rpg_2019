@@ -18,8 +18,8 @@
             },
             {
                 "type": 9,
-                "name": "Test",
-                "pos": [900, 100],
+                "name": "Dark Vador",
+                "pos": [1100, 300],
                 "weapon_id": 0,
                 "texture_path": "templates/ship2.png",
                 "hp" : 100,
@@ -30,7 +30,7 @@
             },
             {
                 "type": 10,
-                "pos": [500, 100],
+                "pos": [700, 100],
                 "weapon_id": 0,
                 "texture_path": "templates/ship1.png",
                 "hp" : 100,
@@ -41,7 +41,12 @@
             },
             {
                 "type": 11
-            }
+            },
+            {
+                "type": 3,
+                "texture_path": "templates/menu/menu_bg_test_with_text.jpg",
+                "pos": [0, 0]
+            }                                                                            
         ]
     }
 }

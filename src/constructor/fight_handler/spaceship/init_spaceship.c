@@ -106,6 +106,7 @@ json_object_t *js, game_t *game, scene_t *scene)
         return (NULL);
     object->pos = pos;
     sfSprite_setPosition(object->sprite, object->pos);
+    sfSprite_setRotation(object->sprite, 90);
     object->draw = &rpg_space_ship_draw;
     object->update = &rpg_spaceship_update;
     object->extend = (void *) \

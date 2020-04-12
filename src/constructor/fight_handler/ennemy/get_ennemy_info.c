@@ -5,11 +5,8 @@
 ** init_ennemy.c
 */
 
-#include "my_game.h"
-#include "my_json.h"
 #include "components/fight_handler/ennemy.h"
 #include "components/fight_handler/fight_handler.h"
-#include "spaceship/ship.h"
 
 item_id rpg_ennemy_get_equiped_weapon(game_object_t *object, scene_t *scene)
 {

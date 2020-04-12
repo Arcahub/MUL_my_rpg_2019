@@ -6,9 +6,7 @@
 */
 
 #include "my_game.h"
-#include "my_json.h"
 #include "components/fight_handler/fight_handler.h"
-#include "spaceship/ship.h"
 #include "components/fight_handler/ennemy.h"
 
 int rpg_ennemy_get_dodge_value(game_object_t *object, scene_t *scene)

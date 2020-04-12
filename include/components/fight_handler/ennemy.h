@@ -24,6 +24,7 @@ typedef struct ennemy {
     bool in_fight;
     action_id *id;
     int repair_statue;
+    sfText *name_text;
     sfText *hp_text;
     sfText *shield_text;
 } ennemy_t;

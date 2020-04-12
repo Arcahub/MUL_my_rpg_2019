@@ -29,6 +29,7 @@ typedef struct fight_handler {
     int done;
 } fight_handler_t;
 
+void rpg_fight_handler_callback(game_object_t *object, void *pt);
 item_id rpg_spaceship_get_equiped_weapon(game_object_t *object, \
 scene_t *scene);
 int rpg_spaceship_get_equip_size(game_object_t *object, scene_t *scene);

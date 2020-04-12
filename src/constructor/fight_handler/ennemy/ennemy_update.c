@@ -6,12 +6,9 @@
 */
 
 #include "my_game.h"
-#include "my_json.h"
 #include "my.h"
 #include "const.h"
 #include "components/fight_handler/ennemy.h"
-#include "components/get_from_config.h"
-#include "components/fight_handler/fight_handler.h"
 #include <stdlib.h>
 
 bool rpg_ennemy_update(game_object_t *object, scene_t *scene)

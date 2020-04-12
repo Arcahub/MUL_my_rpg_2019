@@ -6,13 +6,8 @@
 */
 
 #include "my_game.h"
-#include "my_json.h"
-#include "my.h"
-#include "const.h"
-#include "components/get_from_config.h"
 #include "spaceship/ship.h"
 #include "components/fight_handler/fight_handler.h"
-#include <stdlib.h>
 
 int rpg_get_left_actions(scene_t *scene)
 {

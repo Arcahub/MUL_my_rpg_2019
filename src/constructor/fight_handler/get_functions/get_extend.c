@@ -6,7 +6,6 @@
 */
 
 #include "my_game.h"
-#include "my_json.h"
 #include "components/fight_handler/fight_handler.h"
 #include "spaceship/ship.h"
 #include "components/fight_handler/ennemy.h"
