@@ -6,7 +6,8 @@
 */
 
 #include "my_game.h"
-#include "unistd.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 int rpg_fight_handler_dodge_handle(int number)
 {

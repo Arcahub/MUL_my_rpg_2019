@@ -13,6 +13,7 @@
 #include "components/get_from_config.h"
 #include "components/fight_handler/fight_handler.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 static ennemy_t *rpg_ennemy_create_text(ennemy_t *ennemy)
 {
@@ -65,7 +66,7 @@ json_object_t *js)
     if (ennemy == NULL)
         return (NULL);
     ennemy = rpg_ennemy_extend_init(ennemy);
-    if (!get_int_from_conf(js, &ennemy->equiped_weapon, "weapon_id") ||
+    if (!get_int_from_conf(js, (int *) &ennemy->equiped_weapon, "weapon_id") ||
     !get_int_from_conf(js, &ennemy->damage, "damage") || 
     !get_int_from_conf(js, &ennemy->hp, "hp") ||
     !get_int_from_conf(js, &ennemy->action_number, "action_number") ||

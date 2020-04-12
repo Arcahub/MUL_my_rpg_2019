@@ -8,6 +8,7 @@
 #include "my_game.h"
 #include "components/fight_handler/fight_handler.h"
 #include "components/fight_handler/ennemy.h"
+#include <stdlib.h>
 
 int rpg_ennemy_get_dodge_value(game_object_t *object, scene_t *scene)
 {

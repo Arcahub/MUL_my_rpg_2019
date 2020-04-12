@@ -17,7 +17,7 @@
 static inventory_t *rpg_inventory_set_item_type(inventory_t *item, \
 json_object_t *js)
 {
-    if (!get_int_from_conf(js, &item->type, "item_type")) {
+    if (!get_int_from_conf(js, (int *) &item->type, "item_type")) {
         free(item);
         return (NULL);
     }
@@ -59,7 +59,7 @@ json_object_t *js, int number)
     item->item_description = my_strdup(get_str_from_conf(js, "description"));
     item->item_number = number;
     item->selected = 0;
-    if (!get_int_from_conf(js, &item->id, "item_id")) {
+    if (!get_int_from_conf(js, (int *) &item->id, "item_id")) {
         free(item);
         return (NULL);
     }
@@ -91,8 +91,10 @@ char *path, int number)
 inventory_t *rpg_inventory_add_item(inventory_t *last, int number, item_id id)
 {
     inventory_t *tmp = NULL;
-    char *path = ITEM_PATHS[id];
+    char *path = NULL;
 
+    if (ITEM_PATHS[id] != NULL)
+        path = (char *) ITEM_PATHS[id];
     for (tmp = last; tmp; tmp = tmp->next) {
         if (tmp->id == id) {
             tmp->item_number += number;
