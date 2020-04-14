@@ -62,7 +62,6 @@ space_ship_t *rpg_spaceship_get_extend(scene_t *scene);
 void rpg_space_ship_draw(sfRenderWindow *window, game_object_t *object);
 bool rpg_spaceship_update(game_object_t *object, scene_t *scene);
 
-
 //FIGHT HANDLER
 
 
@@ -87,19 +86,8 @@ scene_t *scene);
 int rpg_ennemy_get_damage(game_object_t *object, scene_t *scene);
 item_id rpg_ennemy_get_equiped_weapon(game_object_t *object, scene_t *scene);
 void rpg_fight_handler_repair_ennemy(game_object_t *object, scene_t *scene);
-void rpg_fight_handler_remove_ennemy_life(game_object_t *object, \
-scene_t *scene);
 void rpg_fight_handler_make_ennemy_play(game_object_t *object, scene_t *scene);
 int rpg_ennemy_get_dodge_value(game_object_t *object, scene_t *scene);
-<<<<<<< HEAD:include/fight_scene/fight_handler.h
-space_ship_t *rpg_spaceship_get_extend(scene_t *scene);
-ennemy_t *rpg_ennemy_get_extend(scene_t *scene);
-int rpg_fight_handler_dodge_handle(int number);
-fight_handler_t *rpg_fight_handler_get_extend(scene_t *scene);
-int rpg_get_left_actions(scene_t *scene);
-=======
 struct ennemy *rpg_ennemy_get_extend(scene_t *scene);
->>>>>>> ed14859a0585d7e03ce6fa2f7a83ad4664ecc315:include/components/fight_handler/fight_handler.h
-void rpg_ennemy_destroy(void *ptr);
 
 #endif /* !FIGHT_HANDLER_H_ */

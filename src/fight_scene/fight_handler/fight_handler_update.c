@@ -27,7 +27,7 @@ scene_t *scene)
 
 bool rpg_fight_handler_update(game_object_t *object, scene_t *scene)
 {
-    fight_handler_t *handler = (fight_handler_t *) object->extend;;
+    fight_handler_t *handler = (fight_handler_t *) object->extend;
     ennemy_t *ennemy = rpg_ennemy_get_extend(scene);
     space_ship_t *ship = rpg_spaceship_get_extend(scene);
 

@@ -5,7 +5,6 @@
 ** init_fighthandler.c
 */
 
-#include "my_game.h"
 #include "fight_scene/fight_handler.h"
 
 void rpg_fight_handler_draw(sfRenderWindow *window, game_object_t *object)
@@ -20,5 +19,4 @@ void rpg_fight_handler_draw(sfRenderWindow *window, game_object_t *object)
         sfRenderWindow_drawSprite(window, tmp->sprite, NULL);
     for (int i = 0; i < 5; i++)
         sfRenderWindow_drawText(window, handler->fight_log[i], NULL);
-    
 }

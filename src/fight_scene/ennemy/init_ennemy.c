@@ -64,7 +64,7 @@ json_object_t *js)
         return (NULL);
     ennemy = rpg_ennemy_extend_init(ennemy);
     if (!get_int_from_conf(js, (int *) &ennemy->equiped_weapon, "weapon_id") ||
-    !get_int_from_conf(js, &ennemy->damage, "damage") || 
+    !get_int_from_conf(js, &ennemy->damage, "damage") ||
     !get_int_from_conf(js, &ennemy->hp, "hp") ||
     !get_int_from_conf(js, &ennemy->action_number, "action_number") ||
     !get_int_from_conf(js, &ennemy->repair_value, "repair_value") ||

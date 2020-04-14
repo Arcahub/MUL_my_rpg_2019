@@ -5,9 +5,7 @@
 ** init_fight_log.c
 */
 
-#include "my_game.h"
-#include "const.h"
-#include "components/fight_handler/fight_handler.h"
+#include "fight_scene/fight_handler.h"
 #include "my.h"
 #include <stdlib.h>
 
@@ -25,7 +23,7 @@ int number)
         return;
     for (int x = 4, i = 0; x > 0 && i < 5; x--, i++)
         save[i] = (char *) sfText_getString(handler->fight_log[x]);
-    for (int x = 3, i = 0; x >= 0; x--, i++)  
+    for (int x = 3, i = 0; x >= 0; x--, i++)
         sfText_setString(handler->fight_log[x], save[i]);
     sfText_setString(handler->fight_log[4], tmp);
     free(tmp);

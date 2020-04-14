@@ -7,7 +7,7 @@
 
 #include "my_game.h"
 #include "const.h"
-#include "components/fight_handler/fight_handler.h"
+#include "fight_scene/fight_handler.h"
 
 static const char *FONT_PATH_LOG = "templates/font/Roboto-LightItalic.ttf";
 

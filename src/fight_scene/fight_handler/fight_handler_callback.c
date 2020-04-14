@@ -5,7 +5,6 @@
 ** fight_handler_callback.c
 */
 
-#include "my_game.h"
 #include "fight_scene/fight_handler.h"
 
 void rpg_fight_handler_callback(game_object_t *object, void *pt)

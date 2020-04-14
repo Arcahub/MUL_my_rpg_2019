@@ -33,5 +33,6 @@ typedef struct ennemy {
 
 void rpg_ennemy_draw(sfRenderWindow *window, game_object_t *object);
 bool rpg_ennemy_update(game_object_t *object, scene_t *scene);
+void rpg_ennemy_destroy(void *ptr);
 
 #endif /* !ENNEMY_H_ */

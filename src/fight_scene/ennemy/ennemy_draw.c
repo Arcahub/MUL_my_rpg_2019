@@ -5,7 +5,6 @@
 ** ennemy_draw.c
 */
 
-#include "my_game.h"
 #include "fight_scene/ennemy.h"
 
 void rpg_ennemy_draw(sfRenderWindow *window, game_object_t *object)

@@ -11,7 +11,7 @@
 void rpg_space_ship_draw(sfRenderWindow *window, game_object_t *object)
 {
     space_ship_t *ship = (space_ship_t *) object->extend;
-    
+
     if (ship == NULL)
         return;
     sfRenderWindow_drawSprite(window, object->sprite, NULL);

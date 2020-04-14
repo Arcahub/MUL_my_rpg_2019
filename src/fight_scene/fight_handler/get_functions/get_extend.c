@@ -5,7 +5,6 @@
 ** init_fighthandler.c
 */
 
-#include "my_game.h"
 #include "fight_scene/fight_handler.h"
 #include "fight_scene/ship.h"
 #include "fight_scene/ennemy.h"

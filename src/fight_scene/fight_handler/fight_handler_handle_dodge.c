@@ -8,7 +8,7 @@
 #include "my_game.h"
 #include <unistd.h>
 #include <stdlib.h>
-#include "components/fight_handler/fight_handler.h"
+#include "fight_scene/fight_handler.h"
 
 int rpg_fight_handler_dodge_handle(scene_t *scene, int number, int x)
 {
