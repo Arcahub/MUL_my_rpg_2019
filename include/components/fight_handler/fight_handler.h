@@ -27,8 +27,12 @@ typedef struct fight_handler {
     action_id *id;
     game_object_t *button;
     int done;
+    sfText *fight_log[5];
 } fight_handler_t;
 
+void rpg_fight_log_destroy(fight_handler_t *handler);
+void rpg_fight_log_push_text(fight_handler_t *handler, char *string, int number);
+int rpg_fight_log_init(fight_handler_t *handler);
 void rpg_fight_handler_callback(game_object_t *object, void *pt);
 item_id rpg_spaceship_get_equiped_weapon(game_object_t *object, \
 scene_t *scene);
@@ -61,7 +65,7 @@ int rpg_fight_handler_spaceship_get_repair_statue(scene_t *scene);
 int rpg_ennemy_get_dodge_value(game_object_t *object, scene_t *scene);
 space_ship_t *rpg_spaceship_get_extend(scene_t *scene);
 struct ennemy *rpg_ennemy_get_extend(scene_t *scene);
-int rpg_fight_handler_dodge_handle(int number);
+int rpg_fight_handler_dodge_handle(scene_t *scene, int number, int player);
 fight_handler_t *rpg_fight_handler_get_extend(scene_t *scene);
 int rpg_get_left_actions(scene_t *scene);
 void rpg_ennemy_destroy(void *ptr);

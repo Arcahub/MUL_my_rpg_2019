@@ -96,6 +96,7 @@ extern const unsigned short INDICATOR_X;
 extern const unsigned short INDICATOR_Y;
 
 extern const char *FONT_PATH;
+extern const char *FONT_PATH_LOG;
 extern const char *CURSOR_PATH;
 
 // INFOS

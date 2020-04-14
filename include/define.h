@@ -40,6 +40,7 @@ const char *WINDOW_NAME = "My RPG";
 const char *ICON_PATH = "templates/icon.png";
 
 const char *FONT_PATH = "templates/font/space.ttf";
+const char *FONT_PATH_LOG = "templates/font/Roboto-LightItalic.ttf";
 
 const char *CURSOR_PATH = "templates/menu/Cursor.png";
 

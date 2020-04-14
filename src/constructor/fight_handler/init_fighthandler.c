@@ -26,18 +26,18 @@ static sfIntRect rpg_fight_handler_button_init_box(game_object_t *object)
 static fight_handler_t *rpg_fight_handler_init_button(fight_handler_t *handler, scene_t *scene)
 {
     game_object_t *button = create_game_object(NULL, "templates/attack.png", \
-    (sfVector2f) {100, 550}, ATTACK_BUTTON);
+    (sfVector2f) {25, 700}, ATTACK_BUTTON);
 
     if (button == NULL)
         return (NULL);
     button->box = rpg_fight_handler_button_init_box(button);
     button = create_game_object(button, "templates/repair.png", \
-    (sfVector2f) {100, 700}, REPAIR_BUTTON);
+    (sfVector2f) {25, 800}, REPAIR_BUTTON);
     if (button == NULL)
         return (NULL);
     button->box = rpg_fight_handler_button_init_box(button);
     button = create_game_object(button, "templates/dodge.png", \
-    (sfVector2f) {100, 850}, DODGE_BUTTON);
+    (sfVector2f) {25, 900}, DODGE_BUTTON);
     if (button == NULL)
         return (NULL);
     button->box = rpg_fight_handler_button_init_box(button);
@@ -61,6 +61,8 @@ static fight_handler_t *rpg_fight_handler_init_extend(game_object_t *object, sce
     for (int x = 0; x != handler->action_number; x++)
         handler->id[x] = EMPTY;
     handler = rpg_fight_handler_init_button(handler, scene);
+    if (rpg_fight_log_init(handler) == 0)
+        return (NULL);
     return (handler);
 }
 
