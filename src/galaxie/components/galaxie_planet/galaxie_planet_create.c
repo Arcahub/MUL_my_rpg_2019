@@ -44,4 +44,3 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->free_extend = &my_free;
     return (object);
 }
-
