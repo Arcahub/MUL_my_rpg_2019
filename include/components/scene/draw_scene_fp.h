@@ -15,7 +15,8 @@ enum {
     MAX_DRAW_SCENE_ID
 };
 
-void rpg_main_menu_draw_scene(scene_t *scene, game_t *game, sfRenderWindow *window);
+void rpg_main_menu_draw_scene(scene_t *scene, game_t *game, sfRenderWindow
+*window);
 
 static void (*DRAW_SCENE_FP[])(scene_t *, game_t *, sfRenderWindow *) = {
     &rpg_main_menu_draw_scene

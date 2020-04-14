@@ -13,6 +13,6 @@
 
 #include "galaxie/galaxie_minimap.h"
 
-
+bool galaxie_background_update(game_object_t *object, scene_t *scene);
 
 #endif /* !GALAXIE_BACKGROUND_H_ */

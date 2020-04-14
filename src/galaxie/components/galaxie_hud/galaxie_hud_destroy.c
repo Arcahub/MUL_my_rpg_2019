@@ -10,8 +10,7 @@
 
 void galaxie_hud_destroy(void *pt)
 {
-    game_object_t *object = pt;
-    galaxie_hud_t *hud = object->extend;
+    galaxie_hud_t *hud = pt;
 
     destroy_game_object(hud->scene, hud->button);
     destroy_game_object(hud->scene, hud->planet_name);

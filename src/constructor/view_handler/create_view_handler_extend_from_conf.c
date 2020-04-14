@@ -23,7 +23,7 @@ view_handler_t *create_view_handler_extend_from_conf(json_object_t *js)
     if (view == NULL)
         return (NULL);
     view->size = size;
-    view->view_port= (sfFloatRect) {view_port.left, view_port.top,
+    view->view_port = (sfFloatRect) {view_port.left, view_port.top,
     view_port.width, view_port.height};
     view->angle = 0.0;
     if (get_vector2f_from_conf(js, &angle, "angle"))

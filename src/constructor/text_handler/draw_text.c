@@ -17,9 +17,3 @@ void rpg_text_handler_draw(sfRenderWindow *window, game_object_t *object)
 
     sfRenderWindow_drawText(window, text->text, NULL);
 }
-
-
-game_object_t *map_generator()
-{
-    return (NULL);
-}

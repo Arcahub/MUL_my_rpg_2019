@@ -8,6 +8,16 @@
 #include "galaxie/galaxie_hud.h"
 #include <stdlib.h>
 
+static void galaxie_hud_init(game_object_t *object, game_object_t *last)
+{
+    init_game_object(object);
+    object->draw = &galaxie_hud_draw;
+    object->update = &galaxie_hud_update;
+    object->free_extend = &galaxie_hud_destroy;
+    object->next = last;
+    object->type = GALAXIE_HUD;
+}
+
 game_object_t *galaxie_hud_create(game_object_t *last, json_object_t *js,
 game_t *game, scene_t *scene)
 {
@@ -17,17 +27,19 @@ game_t *game, scene_t *scene)
 
     if (object == NULL || hud == NULL)
         return (NULL);
-    init_appearing_object(object);
+    galaxie_hud_init(object, last);
     *hud = (galaxie_hud_t) {NULL, NULL, NULL, scene};
     value = json_get_element_by_key(js, "button");
     hud->button = (value && value->value_type == OBJECT) ?
-    rpg_create_animated_button_from_conf(NULL, value->value, game, scene) : NULL;
+    rpg_create_animated_button_from_conf(NULL, value->value, game, scene) :
+    NULL;
+    value = json_get_element_by_key(js, "text");
     hud->planet_name = (value && value->value_type == OBJECT) ?
     rpg_create_text_handler_from_conf(NULL, value->value, game, scene) : NULL;
     hud->village_conf_path = NULL;
     hud->scene = scene;
+    if (hud->planet_name == NULL || hud->button == NULL)
+        return (NULL);
     object->extend = hud;
-    object->draw = &galaxie_hud_draw;
-    object->free_extend = &galaxie_hud_destroy;
     return (object);
 }

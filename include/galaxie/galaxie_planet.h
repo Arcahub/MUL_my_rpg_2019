@@ -11,4 +11,6 @@
 #include "my_game.h"
 #include "my_json.h"
 
+bool galaxie_planet_update(game_object_t *object, scene_t * scene);
+
 #endif /* !GALAXIE_PLANET_H_ */

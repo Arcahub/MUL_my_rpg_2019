@@ -13,7 +13,8 @@ galaxie_mini_map_t *galaxie_minimap_create_extend(json_object_t *js,
 game_t *game, scene_t *scene)
 {
     galaxie_mini_map_t *map = malloc(sizeof(galaxie_mini_map_t));
-    char *background_path = my_strdup(get_str_from_conf(js, "background_texture"));
+    char *background_path = my_strdup(get_str_from_conf(js,
+    "background_texture"));
     sfView *view = sfView_create();
 
     if (map == NULL || background_path == NULL || view == NULL)

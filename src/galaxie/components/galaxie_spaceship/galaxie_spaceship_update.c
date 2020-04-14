@@ -6,7 +6,29 @@
 */
 
 #include "galaxie/galaxie_spaceship.h"
+#include "galaxie/galaxie_hud.h"
 #include <math.h>
+
+static void galaxie_planet_test_collide_with_planet(game_object_t *object,
+scene_t *scene)
+{
+    game_object_t *hud = scene->objects_list;
+    sfFloatRect box = sfSprite_getGlobalBounds(object->sprite);
+    sfFloatRect planet_box = {0, 0, 0, 0};
+
+    for (; hud && hud->type != GALAXIE_HUD; hud = hud->next);
+    if (!hud)
+        return;
+    hud->state = 0;
+    for (game_object_t *tmp = scene->objects_list; tmp; tmp = tmp->next) {
+        if (tmp->type == PLANET) {
+            planet_box = sfSprite_getGlobalBounds(tmp->sprite);
+            hud->state = (sfFloatRect_intersects(&box, &planet_box, NULL)) ?
+            1 : hud->state;
+            galaxie_hud_move(hud, tmp);
+        }
+    }
+}
 
 bool galaxie_spaceship_update(game_object_t *object, scene_t *scene)
 {
@@ -17,5 +39,6 @@ bool galaxie_spaceship_update(game_object_t *object, scene_t *scene)
         return (true);
     angle = atan2(object->move.y, object->move.x) * (180.0 / M_PI) + 90;
     sfSprite_setRotation(object->sprite, angle);
+    galaxie_planet_test_collide_with_planet(object, scene);
     return (true);
 }

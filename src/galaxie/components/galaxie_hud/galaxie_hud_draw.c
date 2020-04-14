@@ -11,8 +11,8 @@ void galaxie_hud_draw(sfRenderWindow *window, game_object_t *object)
 {
     galaxie_hud_t *hud = object->extend;
 
-    if (object->state == 0) {
-        draw_object(window, hud->button);
-        draw_object(window, hud->planet_name);
+    if (object->state == 1) {
+        if (hud->button)
+            hud->button->draw(window, hud->button);
     }
 }

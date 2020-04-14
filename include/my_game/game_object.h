@@ -42,7 +42,8 @@ typedef enum
     TEXT_HANDLER,
     PLAYER,
     GALAXIE_BACKGROUND,
-    PLANET
+    PLANET,
+    GALAXIE_HUD
 } object_type;
 
 ////////////////////////////////////////////////////////////
