@@ -1,7 +1,7 @@
 {
     "scene": {
         "id": 5,
-        "z_index_deepth": 1,
+        "z_index_deepth": 2,
         "draw_id": 0,
         "update_id": 0,
         "events_ids": [
