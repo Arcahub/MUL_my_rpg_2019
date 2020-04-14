@@ -64,7 +64,8 @@ scene_t *scene)
     }
 }
 
-static void rpg_fight_handler_ennemy_clear_actions(ennemy_t *ennemy, scene_t *scene)
+static void rpg_fight_handler_ennemy_clear_actions(ennemy_t *ennemy, \
+scene_t *scene)
 {
     for (int x = 0; x != ennemy->action_number; x++)
         ennemy->id[x] = EMPTY;

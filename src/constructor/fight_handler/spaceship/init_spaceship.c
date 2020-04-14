@@ -38,8 +38,8 @@ static space_ship_t *rpg_space_ship_init_text(space_ship_t *ship)
     return (ship);
 }
 
-static space_ship_t *rpg_space_ship_extend_create_from_conf(game_object_t *object, \
-json_object_t *js, scene_t *scene)
+static space_ship_t *rpg_space_ship_extend_create_from_conf(game_object_t \
+*object, json_object_t *js, scene_t *scene)
 {
     space_ship_t *space_ship = malloc(sizeof(space_ship_t));
 
@@ -48,10 +48,10 @@ json_object_t *js, scene_t *scene)
     space_ship->repair_statue = 0;
     space_ship->in_fight = 1;
     space_ship->member_in_ship = 3;
-    if (!get_int_from_conf(js, (int *) &space_ship->equiped_weapon, "weapon_id") ||
-    !get_int_from_conf(js, &space_ship->damage, "damage") || 
-    !get_int_from_conf(js, &space_ship->hp, "hp") || 
-    !get_int_from_conf(js, &space_ship->repair_value, "repair_value") || 
+    if (!get_int_from_conf(js, (int *) &space_ship->equiped_weapon, \
+    "weapon_id") || !get_int_from_conf(js, &space_ship->damage, "damage") ||
+    !get_int_from_conf(js, &space_ship->hp, "hp") ||
+    !get_int_from_conf(js, &space_ship->repair_value, "repair_value") ||
     !get_int_from_conf(js, &space_ship->shield, "shield"))
         return (NULL);
     space_ship->max_hp = space_ship->hp;
@@ -62,15 +62,13 @@ json_object_t *js, scene_t *scene)
 game_object_t *rpg_space_ship_create_from_conf(game_object_t *last, \
 json_object_t *js, game_t *game, scene_t *scene)
 {
-    sfVector2f pos = {0, 0};
     game_object_t *object = create_game_object(last, get_str_from_conf(js, \
-    "texture_path"), pos, SPACESHIP);
+    "texture_path"), (sfVector2f) {0, 0}, SPACESHIP);
 
     if (object == NULL)
         return (NULL);
-    if (!get_vector2f_from_conf(js, &pos, "pos"))
+    if (!get_vector2f_from_conf(js, &object->pos, "pos"))
         return (NULL);
-    object->pos = pos;
     sfSprite_setPosition(object->sprite, object->pos);
     sfSprite_setRotation(object->sprite, 90);
     object->draw = &rpg_space_ship_draw;

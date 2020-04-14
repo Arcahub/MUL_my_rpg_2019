@@ -23,7 +23,8 @@ static sfIntRect rpg_fight_handler_button_init_box(game_object_t *object)
     return (box);
 }
 
-static fight_handler_t *rpg_fight_handler_init_button(fight_handler_t *handler, scene_t *scene)
+static fight_handler_t *rpg_fight_handler_init_button(fight_handler_t \
+*handler, scene_t *scene)
 {
     game_object_t *button = create_game_object(NULL, "templates/attack.png", \
     (sfVector2f) {25, 700}, ATTACK_BUTTON);
@@ -45,7 +46,8 @@ static fight_handler_t *rpg_fight_handler_init_button(fight_handler_t *handler, 
     return (handler);
 }
 
-static fight_handler_t *rpg_fight_handler_init_extend(game_object_t *object, scene_t *scene)
+static fight_handler_t *rpg_fight_handler_init_extend(game_object_t *object, \
+scene_t *scene)
 {
     fight_handler_t *handler = malloc(sizeof(fight_handler_t));
 

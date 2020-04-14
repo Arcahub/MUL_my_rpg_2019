@@ -11,7 +11,8 @@
 #include "my.h"
 #include <stdlib.h>
 
-void rpg_fight_log_push_text(fight_handler_t *handler, char *string, int number)
+void rpg_fight_log_push_text(fight_handler_t *handler, char *string, \
+int number)
 {
     char *tmp = NULL;
     char *save[4];
