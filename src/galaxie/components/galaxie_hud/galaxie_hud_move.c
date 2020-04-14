@@ -7,7 +7,7 @@
 
 #include "galaxie/galaxie_hud.h"
 
-void galaxie_hud_move(game_object_t *object, game_object_t *planet)
+int galaxie_hud_move(game_object_t *object, game_object_t *planet)
 {
     galaxie_hud_t *hud = object->extend;
     sfFloatRect box = sfSprite_getGlobalBounds(planet->sprite);
@@ -19,4 +19,5 @@ void galaxie_hud_move(game_object_t *object, game_object_t *planet)
     hud->button->pos = pos;
     hud->button->box.left = pos.x;
     hud->button->box.top = pos.y;
+    return (1);
 }

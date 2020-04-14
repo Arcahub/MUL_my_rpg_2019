@@ -25,5 +25,5 @@ json_object_t *js, game_t *game, scene_t *scene);
 void galaxie_hud_destroy(void *pt);
 void galaxie_hud_draw(sfRenderWindow *window, game_object_t *object);
 bool galaxie_hud_update(game_object_t *object, scene_t *scene);
-void galaxie_hud_move(game_object_t *object, game_object_t *planet);
+int galaxie_hud_move(game_object_t *object, game_object_t *planet);
 #endif /* !GALAXIE_HUD_H_ */

@@ -24,8 +24,7 @@ scene_t *scene)
         if (tmp->type == PLANET) {
             planet_box = sfSprite_getGlobalBounds(tmp->sprite);
             hud->state = (sfFloatRect_intersects(&box, &planet_box, NULL)) ?
-            1 : hud->state;
-            galaxie_hud_move(hud, tmp);
+            galaxie_hud_move(hud, tmp) : hud->state;
         }
     }
 }
