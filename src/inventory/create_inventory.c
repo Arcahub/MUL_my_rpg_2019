@@ -45,7 +45,7 @@ void rpg_inventory_get_click_on_item(game_object_t *object, void *pt)
         if (sfIntRect_contains(&tmp->box, x, y)) {
             tmp->selected = 1;
         } else
-            tmp->selected = 0;        
+            tmp->selected = 0;
     }
 }
 
@@ -83,7 +83,8 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->box.left = 250;
     object->box.top = 215;
     object->extend = (void *) rpg_inventory_add_item(NULL, 4, 0);
-    object->extend = (void *) rpg_inventory_add_item((inventory_t *) object->extend, 4, 1);
+    object->extend = (void *) rpg_inventory_add_item((inventory_t *)
+    object->extend, 4, 1);
     if (object == NULL || object->extend == NULL) {
         rpg_inventory_destroy(object->extend);
         destroy_game_object(scene, object);

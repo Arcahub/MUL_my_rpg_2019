@@ -9,7 +9,8 @@
 #define INVENTORY_H_
 
 #include "my_game.h"
-#include "item_id.h"
+#include "my_json.h"
+#include "item/item_id.h"
 
 typedef enum {
     WEAPON_ITEM,

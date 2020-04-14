@@ -10,7 +10,8 @@
 #include "my_game.h"
 #include "item/inventory.h"
 
-void open_inventory(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window)
+void open_inventory(sfEvent event, game_t *game, scene_t *scene,
+sfRenderWindow *window)
 {
     game_object_t *tmp = scene->objects_list;
 
