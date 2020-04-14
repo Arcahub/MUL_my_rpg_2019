@@ -47,7 +47,7 @@ static ennemy_t *rpg_ennemy_extend_init(ennemy_t *ennemy)
     ennemy->name = NULL;
     ennemy->equiped_weapon = 0;
     ennemy->in_fight = 1;
-    ennemy->repair_statue = 3;
+    ennemy->repair_statue = 0;
     ennemy->dodge_value = 0;
     ennemy->damage = 0;
     ennemy->hp = 0;

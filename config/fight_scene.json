@@ -25,7 +25,7 @@
                 "hp" : 100,
                 "shield": 100,
                 "repair_value": 10,
-                "action_number": 1,
+                "action_number": 3,
                 "damage": 10
             },
             {

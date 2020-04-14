@@ -45,7 +45,7 @@ json_object_t *js, scene_t *scene)
 
     if (space_ship == NULL)
         return (NULL);
-    space_ship->repair_statue = 3;
+    space_ship->repair_statue = 0;
     space_ship->in_fight = 1;
     space_ship->member_in_ship = 3;
     if (!get_int_from_conf(js, (int *) &space_ship->equiped_weapon, "weapon_id") ||
