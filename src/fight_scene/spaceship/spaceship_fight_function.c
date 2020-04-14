@@ -9,8 +9,8 @@
 #include "fight_scene/fight_handler.h"
 #include "fight_scene/ship.h"
 
-void rpg_fight_handler_handle_dodge_spaceship(game_object_t *object, int dodge, \
-scene_t *scene)
+void rpg_fight_handler_handle_dodge_spaceship(game_object_t *object, \
+int dodge, scene_t *scene)
 {
     space_ship_t *ship = rpg_spaceship_get_extend(scene);
 
@@ -27,10 +27,15 @@ void rpg_fight_handler_repair_spaceship(game_object_t *object, scene_t *scene)
     if (ship == NULL)
         return;
     sfText_setString(ship->repair_turn_left, "Repair statue; Unable");
-    if (ship->repair_value + ship->hp > ship->max_hp)
+    if (ship->repair_value + ship->hp > ship->max_hp) {
+        rpg_fight_log_push_text(rpg_fight_handler_get_extend(scene), \
+        "You repaired your ship of ", ship->max_hp - ship->hp);
         ship->hp = ship->max_hp;
-    else
+    } else {
+        rpg_fight_log_push_text(rpg_fight_handler_get_extend(scene), \
+        "You repaired your ship of ", ship->repair_value);
         ship->hp += ship->repair_value;
+    }
     ship->repair_statue = 0;    
 }
 
@@ -51,8 +56,10 @@ scene_t *scene)
 
     if (ship == NULL)
         return;
-    if (rpg_fight_handler_dodge_handle(ship->dodge_value) == 1)
+    if (rpg_fight_handler_dodge_handle(scene, ship->dodge_value, 1) == 1)
         return;
+    rpg_fight_log_push_text(rpg_fight_handler_get_extend(scene), \
+    "Your ennemy attacked you for ", damage);
     if (ship->shield + ship->hp <= damage) {
         ship->hp = 0;
         return;

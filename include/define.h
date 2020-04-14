@@ -39,6 +39,8 @@ const unsigned char WINDOW_FRAMERATE = 60;
 const char *WINDOW_NAME = "My RPG";
 const char *ICON_PATH = "templates/icon.png";
 
+const char *FONT_PATH = "templates/font/space.ttf";
+
 const char *CURSOR_PATH = "templates/menu/Cursor.png";
 
 #endif /* !DEFINE_H_ */
