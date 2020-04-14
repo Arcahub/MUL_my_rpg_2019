@@ -8,8 +8,21 @@
 #include "spaceship/ship.h"
 #include <stdlib.h>
 
-void rpg_space_ship_destroy(space_ship_t *ship)
+void rpg_space_ship_destroy(void *ptr)
 {
-    if (ship != NULL)
-        free(ship);
+    space_ship_t *space_ship = NULL;
+
+    if (ptr == NULL)
+        return;
+    space_ship = (space_ship_t *) ptr;
+    if (!space_ship->hp_text)
+        sfText_destroy(space_ship->hp_text);
+    if (!space_ship->shield_text)
+        sfText_destroy(space_ship->shield_text);
+    if (!space_ship->repair_turn_left)
+        sfText_destroy(space_ship->repair_turn_left);
+    if (!space_ship->action_left)
+        sfText_destroy(space_ship->action_left);
+    if (!space_ship)
+        free(space_ship);
 }

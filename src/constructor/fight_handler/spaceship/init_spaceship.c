@@ -14,6 +14,16 @@
 #include "components/fight_handler/fight_handler.h"
 #include <stdlib.h>
 
+void rpg_space_ship_destroy_tmp_text(char *tmp1, char *tmp2, char *tmp3)
+{
+    if (!tmp1)
+        free(tmp1);
+    if (!tmp2)
+        free(tmp2);
+    if (!tmp3)
+        free(tmp3);
+}
+
 static space_ship_t *rpg_space_ship_init_text(space_ship_t *ship)
 {
     char *tmp1 = my_strcat("Your life: ", my_nbr_to_str(ship->hp));
@@ -22,12 +32,7 @@ static space_ship_t *rpg_space_ship_init_text(space_ship_t *ship)
     my_nbr_to_str(ship->member_in_ship));
 
     if (tmp1 == NULL || tmp2 == NULL || tmp3 == NULL) {
-        if (!tmp1)
-            free(tmp1);
-        if (!tmp2)
-            free(tmp2);
-        if (!tmp3)
-            free(tmp3);
+        rpg_space_ship_destroy_tmp_text(tmp1, tmp2, tmp3);
         return (NULL);
     }
     ship->action_left = init_text(tmp3, 275, 750, (char *) FONT_PATH);
@@ -35,6 +40,7 @@ static space_ship_t *rpg_space_ship_init_text(space_ship_t *ship)
     275, 800, (char *) FONT_PATH);
     ship->hp_text = init_text(tmp1, 275, 850, (char *) FONT_PATH);
     ship->shield_text = init_text(tmp2, 275, 900, (char *) FONT_PATH);
+    rpg_space_ship_destroy_tmp_text(tmp1, tmp2, tmp3);
     return (ship);
 }
 
@@ -75,6 +81,7 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->update = &rpg_spaceship_update;
     object->extend = (void *) \
     rpg_space_ship_extend_create_from_conf(object, js, scene);
+    object->free_extend = &rpg_space_ship_destroy;
     if (object == NULL || object->extend == NULL) {
         rpg_space_ship_destroy((space_ship_t *) object->extend);
         destroy_game_object(scene, object);

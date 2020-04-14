@@ -84,6 +84,7 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->box.height = 1920;
     object->box.width = 1080;
     object->extend = (void *) rpg_fight_handler_init_extend(object, scene);
+    object->free_extend = &rpg_fight_handler_free_extend;
     if (object == NULL || object->extend == NULL) {
         rpg_fight_handler_free_extend((fight_handler_t *) object->extend);
         destroy_game_object(scene, object);

@@ -18,14 +18,14 @@ static int rpg_spaceship_update_text(space_ship_t *space_ship, scene_t *scene)
     char *tmp3 = my_strcat("Actions left: ", \
     my_nbr_to_str(rpg_get_left_actions(scene)));
 
-    if (tmp1 == NULL || tmp2 == NULL || tmp3 == NULL)
+    if (tmp1 == NULL || tmp2 == NULL || tmp3 == NULL) {
+        rpg_space_ship_destroy_tmp_text(tmp1, tmp2, tmp3);
         return (0);
+    }
     sfText_setString(space_ship->hp_text, tmp1);
     sfText_setString(space_ship->shield_text, tmp2);
     sfText_setString(space_ship->action_left, tmp3);
-    free(tmp1);
-    free(tmp2);
-    free(tmp3);
+    rpg_space_ship_destroy_tmp_text(tmp1, tmp2, tmp3);
     if (space_ship->repair_statue >= 3 && space_ship->hp < space_ship->max_hp)
         sfText_setString(space_ship->repair_turn_left, "Repair statue: Able");
     return (1);

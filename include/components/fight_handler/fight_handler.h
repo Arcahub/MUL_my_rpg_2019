@@ -43,7 +43,7 @@ int rpg_fight_log_init(fight_handler_t *handler);
 
 //SPACESHIP
 
-
+void rpg_space_ship_destroy_tmp_text(char *tmp1, char *tmp2, char *tmp3);
 item_id rpg_spaceship_get_equiped_weapon(game_object_t *object, \
 scene_t *scene);
 int rpg_spaceship_get_equip_size(game_object_t *object, scene_t *scene);
@@ -52,7 +52,7 @@ void rpg_fight_handler_remove_spaceship_life(game_object_t *object, \
 scene_t *scene);
 int rpg_spaceship_get_repair_value(game_object_t *object, scene_t *scene);
 int rpg_spaceship_get_dodge_value(game_object_t *object, scene_t *scene);
-void rpg_space_ship_destroy(space_ship_t *ship);
+void rpg_space_ship_destroy(void *ptr);
 void rpg_fight_handler_handle_dodge_spaceship(game_object_t \
 *object, int dodge, scene_t *scene);
 void rpg_fight_handler_repair_spaceship(game_object_t *object, scene_t *scene);
@@ -70,7 +70,7 @@ int rpg_fight_handler_get_player_action(game_object_t *object, \
 scene_t *scene, int done);
 int rpg_fight_handler_make_player_actions(game_object_t *object, \
 scene_t *scene);
-void rpg_fight_handler_free_extend(fight_handler_t *handler);
+void rpg_fight_handler_free_extend(void *ptr);
 void rpg_fight_handler_draw(sfRenderWindow *window, game_object_t *object);
 bool rpg_fight_handler_update(game_object_t *object, scene_t *scene);
 int rpg_fight_handler_dodge_handle(scene_t *scene, int number, int player);
