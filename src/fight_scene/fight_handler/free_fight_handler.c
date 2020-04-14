@@ -5,7 +5,7 @@
 ** init_fighthandler.c
 */
 
-#include "components/fight_handler/fight_handler.h"
+#include "fight_scene/fight_handler.h"
 #include <stdlib.h>
 
 void rpg_fight_handler_free_extend(fight_handler_t *fight_handler)

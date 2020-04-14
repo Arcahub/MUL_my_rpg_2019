@@ -6,7 +6,7 @@
 */
 
 #include "my_game.h"
-#include "components/fight_handler/fight_handler.h"
+#include "fight_scene/fight_handler.h"
 
 void rpg_fight_handler_draw(sfRenderWindow *window, game_object_t *object)
 {

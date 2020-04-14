@@ -6,8 +6,8 @@
 */
 
 #include "my_game.h"
-#include "spaceship/ship.h"
-#include "components/fight_handler/fight_handler.h"
+#include "fight_scene/ship.h"
+#include "fight_scene/fight_handler.h"
 
 int rpg_get_left_actions(scene_t *scene)
 {

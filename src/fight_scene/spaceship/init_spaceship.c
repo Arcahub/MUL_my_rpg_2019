@@ -5,13 +5,11 @@
 ** init_space_ship.c
 */
 
-#include "my_game.h"
-#include "my_json.h"
 #include "my.h"
-#include "const.h"
 #include "components/get_from_config.h"
-#include "spaceship/ship.h"
-#include "components/fight_handler/fight_handler.h"
+#include "fight_scene/ship.h"
+#include "fight_scene/fight_handler.h"
+#include "tmp_font.h"
 #include <stdlib.h>
 
 static space_ship_t *rpg_space_ship_init_text(space_ship_t *ship)

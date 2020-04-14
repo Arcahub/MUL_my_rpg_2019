@@ -5,8 +5,8 @@
 ** init_ennemy.c
 */
 
-#include "components/fight_handler/ennemy.h"
-#include "components/fight_handler/fight_handler.h"
+#include "fight_scene/ennemy.h"
+#include "fight_scene/fight_handler.h"
 
 item_id rpg_ennemy_get_equiped_weapon(game_object_t *object, scene_t *scene)
 {

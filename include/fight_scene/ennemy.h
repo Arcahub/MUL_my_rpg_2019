@@ -9,8 +9,9 @@
 #ifndef ENNEMY_H_
 #define ENNEMY_H_
 
+#include "my_game.h"
 #include "item/item_id.h"
-#include "components/fight_handler/fight_handler.h"
+#include "fight_scene/fight_handler.h"
 
 typedef struct ennemy {
     char *name;

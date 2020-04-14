@@ -7,8 +7,8 @@
 
 #include "my_game.h"
 #include "my.h"
-#include "spaceship/ship.h"
-#include "components/fight_handler/fight_handler.h"
+#include "fight_scene/ship.h"
+#include "fight_scene/fight_handler.h"
 #include <stdlib.h>
 
 static int rpg_spaceship_update_text(space_ship_t *space_ship, scene_t *scene)

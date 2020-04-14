@@ -5,15 +5,11 @@
 ** init_ennemy.c
 */
 
-#include "my_game.h"
-#include "my_json.h"
 #include "my.h"
-#include "const.h"
-#include "components/fight_handler/ennemy.h"
+#include "fight_scene/ennemy.h"
 #include "components/get_from_config.h"
-#include "components/fight_handler/fight_handler.h"
+#include "tmp_font.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 static ennemy_t *rpg_ennemy_create_text(ennemy_t *ennemy)
 {

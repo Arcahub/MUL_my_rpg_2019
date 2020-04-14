@@ -5,13 +5,14 @@
 ** parallax
 */
 
-#include "item/item_id.h"
-#include "spaceship/ship.h"
-#include "my_game.h"
-#include "components/fight_handler/ennemy.h"
-
 #ifndef FIGHT_HANDLER_H_
 #define FIGHT_HANDLER_H_
+
+#include "my_game.h"
+#include "item/item_id.h"
+#include "fight_scene/ship.h"
+
+typedef struct ennemy ennemy_t;
 
 typedef enum {
     ATTACK,
@@ -60,7 +61,7 @@ bool rpg_fight_handler_update(game_object_t *object, scene_t *scene);
 int rpg_fight_handler_spaceship_get_repair_statue(scene_t *scene);
 int rpg_ennemy_get_dodge_value(game_object_t *object, scene_t *scene);
 space_ship_t *rpg_spaceship_get_extend(scene_t *scene);
-struct ennemy *rpg_ennemy_get_extend(scene_t *scene);
+ennemy_t *rpg_ennemy_get_extend(scene_t *scene);
 int rpg_fight_handler_dodge_handle(int number);
 fight_handler_t *rpg_fight_handler_get_extend(scene_t *scene);
 int rpg_get_left_actions(scene_t *scene);

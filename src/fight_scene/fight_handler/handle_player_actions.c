@@ -6,7 +6,7 @@
 */
 
 #include "my_game.h"
-#include "components/fight_handler/fight_handler.h"
+#include "fight_scene/fight_handler.h"
 
 int rpg_fight_handler_make_player_actions(game_object_t *object, \
 scene_t *scene)

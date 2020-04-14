@@ -6,7 +6,7 @@
 */
 
 #include "my_game.h"
-#include "spaceship/ship.h"
+#include "fight_scene/ship.h"
 
 void rpg_space_ship_draw(sfRenderWindow *window, game_object_t *object)
 {

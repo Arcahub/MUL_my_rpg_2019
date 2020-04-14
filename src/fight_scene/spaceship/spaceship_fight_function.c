@@ -6,8 +6,8 @@
 */
 
 #include "my_game.h"
-#include "components/fight_handler/fight_handler.h"
-#include "spaceship/ship.h"
+#include "fight_scene/fight_handler.h"
+#include "fight_scene/ship.h"
 
 void rpg_fight_handler_handle_dodge_spaceship(game_object_t *object, int dodge, \
 scene_t *scene)

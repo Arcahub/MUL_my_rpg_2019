@@ -8,7 +8,7 @@
 #include "my_game.h"
 #include "my.h"
 #include "const.h"
-#include "components/fight_handler/ennemy.h"
+#include "fight_scene/ennemy.h"
 #include <stdlib.h>
 
 static int rpg_ennemy_update_text(ennemy_t *ennemy, scene_t *scene)

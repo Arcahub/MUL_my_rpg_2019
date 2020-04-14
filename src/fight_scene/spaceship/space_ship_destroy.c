@@ -5,7 +5,7 @@
 ** init_space_ship.c
 */
 
-#include "spaceship/ship.h"
+#include "fight_scene/ship.h"
 #include <stdlib.h>
 
 void rpg_space_ship_destroy(space_ship_t *ship)

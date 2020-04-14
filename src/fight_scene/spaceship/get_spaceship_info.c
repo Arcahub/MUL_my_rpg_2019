@@ -6,8 +6,8 @@
 */
 
 #include "my_game.h"
-#include "components/fight_handler/fight_handler.h"
-#include "spaceship/ship.h"
+#include "fight_scene/fight_handler.h"
+#include "fight_scene/ship.h"
 
 item_id rpg_spaceship_get_equiped_weapon(game_object_t *object, scene_t *scene)
 {

@@ -6,9 +6,9 @@
 */
 
 #include "my_game.h"
-#include "components/fight_handler/fight_handler.h"
-#include "spaceship/ship.h"
-#include "components/fight_handler/ennemy.h"
+#include "fight_scene/fight_handler.h"
+#include "fight_scene/ship.h"
+#include "fight_scene/ennemy.h"
 
 ennemy_t *rpg_ennemy_get_extend(scene_t *scene)
 {

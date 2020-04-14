@@ -5,12 +5,11 @@
 ** button_function
 */
 
-#include "item/item_id.h"
-#include "stdbool.h"
-#include "SFML/Graphics/Text.h"
-
 #ifndef SHIP_H_
 #define SHIP_H_
+
+#include "my_game.h"
+#include "item/item_id.h"
 
 typedef struct ship {
     bool in_fight;
