@@ -176,6 +176,13 @@
             {
                 "type": 10,
                 "background_texture": "templates/galaxie/galaxie_background.png"
+            },
+            {
+                "type": 13,
+                "texture_path": "templates/player_sheet.png",
+                "frame_keys": [
+                    [0, 0, 100, 100]
+                ]
             }
         ]
     }

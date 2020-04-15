@@ -25,6 +25,7 @@ enum {
     GALAXIE_MINIMAP_CONSTRUCTOR,
     GALAXIE_PLANET_CONSTRUCTOR,
     GALAXIE_HUD_CONSTRUCTOR,
+    PLAYER_CONSTRUCTOR,
     CONSTRUCTORS_MAX_ID
 };
 
@@ -69,7 +70,7 @@ game_t *, scene_t *) = {
     &create_galaxie_spaceship_from_conf,
     &create_galaxie_mini_map,
     &galaxie_planet_create_from_conf,
-    &galaxie_hud_create
+    &galaxie_hud_create,
 };
 
 #endif /* !CONSTRUCTORS_H_ */
