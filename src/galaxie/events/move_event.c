@@ -21,5 +21,6 @@ sfRenderWindow *window)
     if (!tmp)
         return;
     player_s = tmp->extend;
-    player_s->galaxie_dest = pos;
+    if (player_s != NULL)
+        player_s->galaxie_dest = pos;
 }
