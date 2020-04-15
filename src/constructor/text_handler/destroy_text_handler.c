@@ -10,13 +10,14 @@
 
 void rpg_text_handler_destroy(void *pt)
 {
-    text_handler_t *text = pt;
+    text_handler_t *text = NULL;
 
-    if (!text)
+    if (pt == NULL)
         return;
-    if (!text->font)
+    text = (text_handler_t *) pt;
+    if (text->font != NULL)
         sfFont_destroy(text->font);
-    if (!text->text)
+    if (text->text != NULL)
         sfText_destroy(text->text);
     free(text);
 }

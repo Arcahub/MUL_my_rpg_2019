@@ -10,18 +10,20 @@
 
 void rpg_ennemy_destroy(void *ptr)
 {
-    ennemy_t *ennemy = ptr;
+    ennemy_t *ennemy = NULL;
 
-    if (!ennemy->name)
+    if (ptr == NULL)
+        return;
+    ennemy = (ennemy_t *) ptr;
+    if (ennemy->name != NULL)
         free(ennemy->name);
-    if (!ennemy->id)
+    if (ennemy->id != NULL)
         free(ennemy->id);
-    if (!ennemy->name_text)
+    if (ennemy->name_text != NULL)
         sfText_destroy(ennemy->name_text);
-    if (!ennemy->hp_text)
+    if (ennemy->hp_text != NULL)
         sfText_destroy(ennemy->hp_text);
-    if (!ennemy->shield_text)
+    if (ennemy->shield_text != NULL)
         sfText_destroy(ennemy->shield_text);
-    if (!ennemy)
-        free(ennemy);
+    free(ennemy);
 }

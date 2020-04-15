@@ -18,7 +18,7 @@ void rpg_fight_handler_free_extend(void *ptr)
         return;
     fight_handler = (fight_handler_t *) ptr;
     rpg_fight_log_destroy(fight_handler);
-    if (!fight_handler->id)
+    if (fight_handler->id != NULL)
         free(fight_handler->id);
     for (tmp = fight_handler->button; tmp;) {
         sfSprite_destroy(tmp->sprite);
@@ -27,6 +27,5 @@ void rpg_fight_handler_free_extend(void *ptr)
         tmp = tmp->next;
         free(tmp2);
     }
-    if (!fight_handler)
-        free(fight_handler);
+    free(fight_handler);
 }

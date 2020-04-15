@@ -10,16 +10,18 @@
 
 void rpg_space_ship_destroy(void *ptr)
 {
-    space_ship_t *space_ship = ptr;
+    space_ship_t *space_ship = NULL;
 
-    if (!space_ship->hp_text)
+    if (ptr == NULL)
+        return;
+    space_ship = (space_ship_t *) ptr;
+    if (space_ship->hp_text != NULL)
         sfText_destroy(space_ship->hp_text);
-    if (!space_ship->shield_text)
+    if (space_ship->shield_text != NULL)
         sfText_destroy(space_ship->shield_text);
-    if (!space_ship->repair_turn_left)
+    if (space_ship->repair_turn_left != NULL)
         sfText_destroy(space_ship->repair_turn_left);
-    if (!space_ship->action_left)
+    if (space_ship->action_left != NULL)
         sfText_destroy(space_ship->action_left);
-    if (!space_ship)
-        free(space_ship);
+    free(space_ship);
 }
