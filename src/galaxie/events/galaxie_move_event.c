@@ -8,7 +8,7 @@
 #include "my_game.h"
 #include "player.h"
 
-void move_event(sfEvent event, game_t *game, scene_t *scene,
+void galaxie_move_event(sfEvent event, game_t *game, scene_t *scene,
 sfRenderWindow *window)
 {
     game_object_t *tmp = NULL;

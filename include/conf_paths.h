@@ -14,7 +14,7 @@ static const char *CONF_PATHS[] = {
     "./config/infos_menu.json",
     "./config/end_menu.json",
     "./config/in_game_menu.json",
-    "./config/galaxie.json"
+    "./config/village.json"
 };
 
 #endif /* !CONF_PATHS_H_ */
