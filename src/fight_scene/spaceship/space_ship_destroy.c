@@ -10,11 +10,8 @@
 
 void rpg_space_ship_destroy(void *ptr)
 {
-    space_ship_t *space_ship = NULL;
+    space_ship_t *space_ship = ptr;
 
-    if (ptr == NULL)
-        return;
-    space_ship = (space_ship_t *) ptr;
     if (!space_ship->hp_text)
         sfText_destroy(space_ship->hp_text);
     if (!space_ship->shield_text)
