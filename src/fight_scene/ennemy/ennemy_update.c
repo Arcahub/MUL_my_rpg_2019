@@ -13,8 +13,8 @@
 
 static int rpg_ennemy_update_text(ennemy_t *ennemy, scene_t *scene)
 {
-    char *tmp1 = my_strcat("Ennemy's life: ", my_nbr_to_str(ennemy->hp));
-    char *tmp2 = my_strcat("Ennemy's shield: ", my_nbr_to_str(ennemy->shield));
+    char *tmp1 = my_strcat_nbr("Ennemy's life: ", ennemy->hp);
+    char *tmp2 = my_strcat_nbr("Ennemy's shield: ", ennemy->shield);
 
     if (tmp1 == NULL || tmp2 == NULL)
         return (0);

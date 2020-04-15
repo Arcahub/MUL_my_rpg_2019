@@ -15,15 +15,19 @@ void rpg_ennemy_destroy(void *ptr)
     if (ptr == NULL)
         return;
     ennemy = (ennemy_t *) ptr;
-    if (ennemy->name != NULL)
-        free(ennemy->name);
     if (ennemy->id != NULL)
         free(ennemy->id);
-    if (ennemy->name_text != NULL)
+    if (ennemy->name_text != NULL) {
+        sfFont_destroy((sfFont *) sfText_getFont(ennemy->name_text));
         sfText_destroy(ennemy->name_text);
-    if (ennemy->hp_text != NULL)
+    }
+    if (ennemy->hp_text != NULL) {
+        sfFont_destroy((sfFont *) sfText_getFont(ennemy->hp_text));
         sfText_destroy(ennemy->hp_text);
-    if (ennemy->shield_text != NULL)
+    }
+    if (ennemy->shield_text != NULL) {
+        sfFont_destroy((sfFont *) sfText_getFont(ennemy->shield_text));
         sfText_destroy(ennemy->shield_text);
+    }
     free(ennemy);
 }

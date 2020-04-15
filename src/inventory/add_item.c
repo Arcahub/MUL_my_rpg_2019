@@ -35,7 +35,7 @@ json_object_t *js)
 static inventory_t *rpg_inventory_create_text(inventory_t *item)
 {
     char *name = my_strcat("Name: ", item->item_name);
-    char *number = my_strcat("Number: ", my_nbr_to_str(item->item_number));
+    char *number = my_strcat_nbr("Number: ", item->item_number);
 
     if (item == NULL || name == NULL || number == NULL)
         return (NULL);
@@ -83,6 +83,7 @@ char *path, int number)
     sfSprite_setTexture(item->sprite, item->texture, sfTrue);
     item = rpg_inventory_set_item_type(item, js);
     item = rpg_inventory_create_text(item);
+    json_object_destroy(js);
     return (item);
 }
 

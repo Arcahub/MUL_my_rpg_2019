@@ -5,21 +5,20 @@
 ** create_inventory.c
 */
 
-#include "my_json.h"
 #include "components/get_from_config.h"
-#include "my_game.h"
 #include "item/inventory.h"
 #include <stdlib.h>
 
 void rpg_inventory_destroy(void *pt)
 {
     inventory_t *item = pt;
+    inventory_t *tmp = NULL;
 
     if (!item)
         return;
-    for (; item; item = item->next) {
-        if (item != NULL)
-            free_item(item);
+    for (; item; item = tmp) {
+        tmp = item->next;
+        free_item(item);
     }
 }
 
@@ -27,19 +26,21 @@ void free_item(inventory_t *item)
 {
     if (item == NULL)
         return;
-    if (!item->item_name && !item->item_description) {
+    if (item->item_name && item->item_description) {
         free(item->item_name);
         free(item->item_description);
     }
-    if (!item->sprite && !item->texture) {
+    if (item->sprite && item->texture) {
         sfSprite_destroy(item->sprite);
         sfTexture_destroy(item->texture);
     }
-    if (!item->text[0] && !item->text[1] && item->text[2]) {
+    if (item->text[0] && item->text[1] && item->text[2]) {
+        sfFont_destroy((sfFont *) sfText_getFont(item->text[0]));
+        sfFont_destroy((sfFont *) sfText_getFont(item->text[1]));
+        sfFont_destroy((sfFont *) sfText_getFont(item->text[2]));
         sfText_destroy(item->text[0]);
         sfText_destroy(item->text[1]);
         sfText_destroy(item->text[2]);
     }
-    if (!item)
-        free(item);
+    free(item);
 }

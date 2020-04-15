@@ -14,20 +14,19 @@
 
 void rpg_space_ship_destroy_tmp_text(char *tmp1, char *tmp2, char *tmp3)
 {
-    if (!tmp1)
+    if (tmp1)
         free(tmp1);
-    if (!tmp2)
+    if (tmp2)
         free(tmp2);
-    if (!tmp3)
+    if (tmp3)
         free(tmp3);
 }
 
 static space_ship_t *rpg_space_ship_init_text(space_ship_t *ship)
 {
-    char *tmp1 = my_strcat("Your life: ", my_nbr_to_str(ship->hp));
-    char *tmp2 = my_strcat("Your shield: ", my_nbr_to_str(ship->shield));
-    char *tmp3 = my_strcat("Actions left: ", \
-    my_nbr_to_str(ship->member_in_ship));
+    char *tmp1 = my_strcat_nbr("Your life: ", ship->hp);
+    char *tmp2 = my_strcat_nbr("Your shield: ", ship->shield);
+    char *tmp3 = my_strcat_nbr("Actions left: ", ship->member_in_ship);
 
     if (tmp1 == NULL || tmp2 == NULL || tmp3 == NULL) {
         rpg_space_ship_destroy_tmp_text(tmp1, tmp2, tmp3);

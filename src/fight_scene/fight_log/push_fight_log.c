@@ -18,7 +18,7 @@ int number)
     if (number == 0)
         tmp = my_strcat(string, " ");
     else
-        tmp = my_strcat(string, my_nbr_to_str(number));
+        tmp = my_strcat_nbr(string, number);
     if (tmp == NULL)
         return;
     for (int x = 4, i = 0; x > 0 && i < 5; x--, i++)

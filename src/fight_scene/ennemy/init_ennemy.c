@@ -18,8 +18,8 @@ static ennemy_t *rpg_ennemy_create_text(ennemy_t *ennemy)
 
     if (ennemy == NULL)
         return (NULL);
-    tmp1 = my_strcat("Ennemy's life: ", my_nbr_to_str(ennemy->hp));
-    tmp2 = my_strcat("Ennemy's shield: ", my_nbr_to_str(ennemy->shield));
+    tmp1 = my_strcat_nbr("Ennemy's life: ", ennemy->hp);
+    tmp2 = my_strcat_nbr("Ennemy's shield: ", ennemy->shield);
     if (tmp1 == NULL || tmp2 == NULL) {
         if (!tmp1)
             free(tmp1);
