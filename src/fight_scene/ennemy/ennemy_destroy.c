@@ -10,10 +10,9 @@
 
 void rpg_ennemy_destroy(void *ptr)
 {
-    ennemy_t *ennemy = ptr;
+    ennemy_t *ennemy = NULL;
 
     if (ptr == NULL)
-    if (ennemy == NULL)
         return;
     ennemy = (ennemy_t *) ptr;
     if (!ennemy->name)

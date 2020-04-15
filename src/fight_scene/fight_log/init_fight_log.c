@@ -24,7 +24,7 @@ int rpg_fight_log_init(fight_handler_t *handler)
 {
     if (handler == NULL)
         return (0);
-    for (int i = 0, y = 720; i < 6; i++, y += 50) {
+    for (int i = 0, y = 720; i < 5; i++, y += 50) {
         handler->fight_log[i] = init_text(" ", 1425, y, (char *)FONT_PATH_LOG);
         if (handler->fight_log[i] == NULL) {
             rpg_fight_log_destroy(handler);
