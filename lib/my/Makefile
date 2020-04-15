@@ -13,7 +13,8 @@ SRC	=	my_nbr_to_str.c	\
 		my_getnbr.c \
 		my_str_to_word_array.c \
 		my_putstr.c	\
-		my_strndup.c
+		my_strndup.c	\
+		my_strcat_nbr.c
 
 MAIN = src/main.c
 
