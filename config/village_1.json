@@ -1,0 +1,10 @@
+{
+    "village": {
+        "object_list": {
+            "type": 10,
+            "texture_list": {
+                "1": "texture/grass.png"
+            }
+        }
+    }
+}
