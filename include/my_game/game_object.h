@@ -43,7 +43,8 @@ typedef enum
     PLAYER,
     GALAXIE_BACKGROUND,
     PLANET,
-    GALAXIE_HUD
+    GALAXIE_HUD,
+    QUEST_BOARD
 } object_type;
 
 ////////////////////////////////////////////////////////////

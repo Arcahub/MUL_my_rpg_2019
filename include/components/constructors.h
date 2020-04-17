@@ -25,6 +25,7 @@ enum {
     GALAXIE_MINIMAP_CONSTRUCTOR,
     GALAXIE_PLANET_CONSTRUCTOR,
     GALAXIE_HUD_CONSTRUCTOR,
+    QUEST_BOARD_CONSTRUCTOR,
     CONSTRUCTORS_MAX_ID
 };
 
@@ -54,6 +55,8 @@ game_object_t *galaxie_planet_create_from_conf(game_object_t *last,
 json_object_t *js, game_t *game, scene_t *scene);
 game_object_t *galaxie_hud_create(game_object_t *last, json_object_t *js,
 game_t *game, scene_t *scene);
+game_object_t *rpg_quest_board_create_from_conf(game_object_t *last, json_object_t *js,
+game_t *game, scene_t *scene);
 
 static game_object_t *(*CONSTRUCTORS[])(game_object_t *, json_object_t *,
 game_t *, scene_t *) = {
@@ -69,7 +72,8 @@ game_t *, scene_t *) = {
     &create_galaxie_spaceship_from_conf,
     &create_galaxie_mini_map,
     &galaxie_planet_create_from_conf,
-    &galaxie_hud_create
+    &galaxie_hud_create,
+    &rpg_quest_board_create_from_conf
 };
 
 #endif /* !CONSTRUCTORS_H_ */
