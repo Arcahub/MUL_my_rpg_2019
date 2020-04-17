@@ -17,6 +17,7 @@
                 "step_number": 2,
                 "description": "Fight (ENNNEMY) and see if he has any paper on his body !",
                 "pos": [1000, 2000],
+                "fight_scene_path": "config/fight_scene.json"
             }
         ]
     }

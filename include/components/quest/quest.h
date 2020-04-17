@@ -40,4 +40,6 @@ typedef struct quest {
     step_t *step;
 } quest_t;
 
+step_t *rpg_quest_load_step_from_conf(json_object_t *js, game_t *game, scene_t *scene);
+
 #endif /* !QUEST_HANDLER_H_ */
