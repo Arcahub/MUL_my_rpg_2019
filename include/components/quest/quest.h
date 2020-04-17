@@ -28,7 +28,8 @@ typedef struct step {
     int step_number;
     bool validated;
     char *description;
-    step_t *next;
+    char *fight_scene;
+    struct step *next;
 } step_t;
 
 typedef struct quest {
@@ -37,9 +38,14 @@ typedef struct quest {
     int number_of_step;
     int reward;
     int actual_step;
-    step_t *step;
+    struct step *step;
 } quest_t;
 
-step_t *rpg_quest_load_step_from_conf(json_object_t *js, game_t *game, scene_t *scene);
+step_t *rpg_quest_load_step_from_conf(json_object_t *js, game_t *game, \
+scene_t *scene);
+void validate_step(game_t *game, scene_t *scene, quest_t *quest);
+void validate_quest(game_t *game, scene_t *scene, quest_t *quest);
+void rpg_destroy_quest(quest_t *quest);
+quest_t *rpg_quest_get_from_conf(char *path, game_t *game, scene_t *scene);
 
 #endif /* !QUEST_HANDLER_H_ */
