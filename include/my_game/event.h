@@ -23,7 +23,6 @@ typedef struct bind_event {
 void bind_event(scene_t *, sfEventType, void (*)(sfEvent, game_t *, scene_t *, sfRenderWindow *));
 void destroy_binds_list(bind_event_t *);
 void destroy_bind(bind_event_t **, bind_event_t *);
-
 void handle_scene_event(scene_t *scene, game_t *game, sfRenderWindow *window);
 void close_scene(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window);
 void is_click_on_object(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window);

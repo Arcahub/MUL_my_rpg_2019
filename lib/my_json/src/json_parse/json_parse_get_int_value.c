@@ -18,7 +18,9 @@ static int my_strncmp(char const *s1, char const *s2, int n)
         }
         return (0);
     }
+    return (0);
 }
+
 static json_value_t json_parse_get_bool_value(char **buff)
 {
     json_value_t value = {NONE, NULL};

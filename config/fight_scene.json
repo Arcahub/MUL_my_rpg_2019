@@ -1,0 +1,52 @@
+{
+    "scene": {
+        "id": 6,
+        "z_index_deepth": 0,
+        "draw_id": 0,
+        "update_id": 0,
+        "events_ids": [
+            [0, 0],
+            [1, 9],
+            [5, 5],
+            [6, 5]
+        ],
+        "background_color": [0, 0, 0, 0],
+        "objects_list": [
+            {
+                "type": 12,
+                "texture_path": "templates/inv.png"
+            },
+            {
+                "type": 13,
+                "name": "Dark Vador",
+                "pos": [1100, 300],
+                "weapon_id": 0,
+                "texture_path": "templates/ship2.png",
+                "hp" : 100,
+                "shield": 100,
+                "repair_value": 10,
+                "action_number": 3,
+                "damage": 10
+            },
+            {
+                "type": 14,
+                "pos": [700, 100],
+                "weapon_id": 0,
+                "texture_path": "templates/ship1.png",
+                "hp" : 100,
+                "shield": 100,
+                "repair_value": 100,
+                "action_number": 3,
+                "damage": 10
+            },
+            {
+                "type": 15
+            },
+            {
+                "type": 3,
+                "texture_path": "templates/menu/menu_bg_test_with_text.jpg",
+                "pos": [0, 0]
+            }
+        ]
+    }
+}

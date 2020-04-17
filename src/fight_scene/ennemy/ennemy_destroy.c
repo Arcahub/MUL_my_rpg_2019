@@ -1,0 +1,33 @@
+/*
+** EPITECH PROJECT, 2019
+** MUL_my_rpg_2019
+** File description:
+** init_ennemy.c
+*/
+
+#include "fight_scene/ennemy.h"
+#include <stdlib.h>
+
+void rpg_ennemy_destroy(void *ptr)
+{
+    ennemy_t *ennemy = NULL;
+
+    if (ptr == NULL)
+        return;
+    ennemy = (ennemy_t *) ptr;
+    if (ennemy->id != NULL)
+        free(ennemy->id);
+    if (ennemy->name_text != NULL) {
+        sfFont_destroy((sfFont *) sfText_getFont(ennemy->name_text));
+        sfText_destroy(ennemy->name_text);
+    }
+    if (ennemy->hp_text != NULL) {
+        sfFont_destroy((sfFont *) sfText_getFont(ennemy->hp_text));
+        sfText_destroy(ennemy->hp_text);
+    }
+    if (ennemy->shield_text != NULL) {
+        sfFont_destroy((sfFont *) sfText_getFont(ennemy->shield_text));
+        sfText_destroy(ennemy->shield_text);
+    }
+    free(ennemy);
+}

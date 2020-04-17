@@ -14,8 +14,6 @@
 #include <stdbool.h>
 #include "const.h"
 #include "my_game.h"
-#include "button_function.h"
-#include "tmp.h"
 
 typedef struct game_object game_object_t;
 
@@ -26,14 +24,10 @@ typedef enum {
     END_SCENE,
     IN_GAME_MENU_SCENE,
     GALAXIE_SCENE,
+    FIGHT_SCENE,
+    FIGHT_PAUSE_SCENE,
     NULL_SCENE,
 } scene_index;
-
-int rpg_galaxie_loop(game_t *game, sfRenderWindow *window);
-int rpg_end_menu_loop(game_t *game, sfRenderWindow *window);
-int rpg_options_menu_loop(game_t *game, sfRenderWindow *window);
-int rpg_infos_menu_loop(game_t *game, sfRenderWindow *window);
-int rpg_main_menu_loop(game_t *game, sfRenderWindow *window);
 
 game_t *init_game();
 void destroy_game(game_t *);

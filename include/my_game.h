@@ -28,11 +28,11 @@ typedef struct cursor cursor_t;
 typedef struct game {
     window_t *window;                                       /**< Struct window, from my_graph lib, used to handle the variable of the window*/
     char *map;                                              /**< String representing the map of the game*/
-    int difficulty;
     sfMusic *music;
     int (*scene_loop[5]) (game_t *, sfRenderWindow *);      /**< Array of function for all scene*/
     void *player;                                           /**< Struct game_object reference to the main object of the game*/
     score_t *score;                                         /**< Struct that handle the text variable for the score*/
+    score_t *money;                                         /**< Struct that handle the text variable for the score*/
     score_t *highscore;                                     /**< Struct that handle the text variable for the highscore*/
     cursor_t cursor;                                        /**< Struct cursor to handle cursor image and pos*/
 }game_t;

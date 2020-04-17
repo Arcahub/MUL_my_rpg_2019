@@ -13,7 +13,7 @@
         "background_color": [0, 0, 0, 0],
         "objects_list": [
             {
-                "type": 12,
+                "type": 11,
                 "button": {
                     "type": 2,
                     "texture_path": "templates/menu/play2.png",
@@ -36,13 +36,13 @@
                 }
             },
             {
-                "type": 9,
+                "type": 8,
                 "texture_path": "templates/menu/ship1.png",
                 "pos": [890, 399],
                 "box": [890, 399, 200, 202]
             },
             {
-                "type": 11,
+                "type": 10,
                 "name": "truc4",
                 "texture_path": "templates/ezgif.com-gif-maker.png",
                 "pos": [-330, -330],
@@ -75,7 +75,7 @@
                 ]
             },
             {
-                "type": 11,
+                "type": 10,
                 "name": "truc3",
                 "texture_path": "templates/ezgif.com-gif-maker (1).png",
                 "pos": [2330, 730],
@@ -108,7 +108,7 @@
                 ]
             },
             {
-                "type": 11,
+                "type": 10,
                 "name": "truc2",
                 "texture_path": "templates/ezgif.com-gif-maker(1).png",
                 "pos": [-5330, 4730],
@@ -141,7 +141,7 @@
                 ]
             },
             {
-                "type": 11,
+                "type": 10,
                 "name": "truc1",
                 "texture_path": "templates/ezgif.com-gif-maker(3).png",
                 "pos": [5330, -7730],
@@ -174,7 +174,7 @@
                 ]
             },
             {
-                "type": 10,
+                "type": 9,
                 "background_texture": "templates/galaxie/galaxie_background.png"
             }
         ]
