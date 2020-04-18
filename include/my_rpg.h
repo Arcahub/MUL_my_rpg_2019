@@ -26,6 +26,7 @@ typedef enum {
     GALAXIE_SCENE,
     FIGHT_SCENE,
     FIGHT_PAUSE_SCENE,
+    INVENTORY_SCENE,
     NULL_SCENE,
 } scene_index;
 

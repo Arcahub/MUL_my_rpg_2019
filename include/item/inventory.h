@@ -26,12 +26,14 @@ typedef struct inventory {
     item_type type;
     int item_number;
     bool selected;
+    bool equiped;
     sfIntRect box;
     sfSprite *sprite;
     sfTexture *texture;
     int price;
     int damage;
     int repair_value;
+    game_object_t *equip_button;
     struct inventory *next;
 } inventory_t;
 
@@ -43,5 +45,6 @@ void rpg_inventory_get_click_on_item(game_object_t *object, void *pt);
 void rpg_inventory_draw(sfRenderWindow *window, game_object_t *object);
 void rpg_inventory_destroy(void *pt);
 bool rpg_is_item_in_inventory(game_object_t *object, item_id id, int number);
-
+void rpg_item_equip_weapon(scene_t *scene, inventory_t *item, \
+inventory_t *list);
 #endif /* !INVENTORY_H_ */
