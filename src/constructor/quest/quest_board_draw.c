@@ -16,6 +16,9 @@ void rpg_quest_board_draw(sfRenderWindow *window, game_object_t *object)
         return;
     sfRenderWindow_drawSprite(window, object->sprite, NULL);
     sfRenderWindow_drawText(window, board->title, NULL);
+    sfRenderWindow_drawText(window, board->name, NULL);
+    sfRenderWindow_drawText(window, board->money_reward, NULL);
+    sfRenderWindow_drawText(window, board->item_reward, NULL);
     if (board->actual_step != NULL)
         sfRenderWindow_drawText(window, board->actual_step, NULL);
     for (int x = 0; x < board->step_to_draw; x++)

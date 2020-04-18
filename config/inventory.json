@@ -18,7 +18,7 @@
             },
             {
                 "type": 16,
-                "texture_path": "templates/quest.png"
+                "texture_path": "templates/Window.png"
             }
         ]
     }

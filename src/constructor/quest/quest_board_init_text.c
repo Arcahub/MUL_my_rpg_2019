@@ -12,17 +12,19 @@
 #include <stdio.h>
 #include "my.h"
 #include "const.h"
+#include "item/item_id.h"
 #include "components/get_from_config.h"
 #include "components/quest/board.h"
 
 static const char *FONT_PATH_LOG = "templates/font/Roboto-LightItalic.ttf";
+static const char *FONT_PATH = "templates/font/space.ttf";
 
 static quest_board_t *rpg_quest_board_init_actual_step(step_t *tmp, int x, \
 quest_board_t *board, char *tmp2)
 {
     if (tmp != NULL && tmp->validated == 0) {
         tmp2 = my_strcat("Actual step: ", tmp->description);
-        board->actual_step = init_text(tmp2, 75, 300 + (x * 50), \
+        board->actual_step = init_text(tmp2, 75, 350 + (x * 50), \
         (char *) FONT_PATH_LOG);
         if (board->actual_step == NULL)
             return (NULL);
@@ -32,7 +34,25 @@ quest_board_t *board, char *tmp2)
     return (board);
 }
 
-quest_board_t *rpg_quest_board_init_text(step_t *tmp, \
+quest_board_t *rpg_quest_board_init_text(game_t *game, step_t *tmp, \
+quest_board_t *board)
+{
+    char *tmp2 = my_strcat_nbr("Money reward: ", game->quest->reward_money);
+    char *tmp3 = my_strcat("Item reward: ", \
+    (char *) ITEM_NAME[game->quest->reward_item]);
+
+    if (tmp2 == NULL || tmp3 == NULL)
+        return (NULL);
+    board->money_reward = init_text(tmp2, 1300, 900, (char *) FONT_PATH);
+    board->item_reward = init_text(tmp3, 75, 900, (char *) FONT_PATH);
+    if (board->money_reward == NULL || board->item_reward == NULL)
+        return (NULL);
+    free(tmp2);
+    free(tmp3);
+    return (board);
+}
+
+quest_board_t *rpg_quest_board_init_text_step(step_t *tmp, \
 quest_board_t *board)
 {
     int x = 0;

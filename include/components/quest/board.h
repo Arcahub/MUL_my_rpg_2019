@@ -12,10 +12,15 @@
 
 typedef struct quest_board {
     sfText *title;
+    sfText *name;
     sfText **steps;
+    sfText *money_reward;
+    sfText *item_reward;
     sfText *actual_step;
     int number_of_step;
     int step_to_draw;
 } quest_board_t;
+
+void free_text(sfText *text);
 
 #endif /* !BOARD_H_ */

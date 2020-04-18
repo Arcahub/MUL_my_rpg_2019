@@ -20,15 +20,10 @@ void rpg_quest_board_destroy(void *pt)
 
     if (board == NULL)
         return;
-    if (board->title && board->actual_step) {
-        sfText_destroy(board->title);
-        sfText_destroy(board->actual_step);    
-        sfFont_destroy((sfFont *) sfText_getFont(board->title));
-        sfFont_destroy((sfFont *) sfText_getFont(board->actual_step));
-    }
+    free_text(board->title);
+    free_text(board->actual_step);    
     for (int x = 0; x < board->number_of_step; x++)
-        if (board->steps[x])
-            sfText_destroy(board->steps[x]);
+        free_text(board->steps[x]);
 }
 
 game_object_t *rpg_quest_board_create_from_conf(game_object_t *last, \

@@ -59,6 +59,8 @@ quest_t *rpg_quest_get_from_conf(char *path, game_t *game);
 void rpg_quest_board_draw(sfRenderWindow *window, game_object_t *object);
 quest_board_t *rpg_quest_board_create_extend(game_object_t *last, \
 json_object_t *js, game_t *game, scene_t *scene);
-quest_board_t *rpg_quest_board_init_text(step_t *tmp, \
+quest_board_t *rpg_quest_board_init_text_step(step_t *tmp, \
+quest_board_t *board);
+quest_board_t *rpg_quest_board_init_text(game_t *game, step_t *tmp, \
 quest_board_t *board);
 #endif /* !QUEST_HANDLER_H_ */

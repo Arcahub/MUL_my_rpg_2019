@@ -29,4 +29,6 @@ typedef struct ship {
     sfText *action_left;
 } space_ship_t;
 
+void free_text(sfText *text);
+
 #endif /* !SHIP_H_ */

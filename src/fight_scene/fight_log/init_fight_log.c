@@ -16,10 +16,7 @@ void rpg_fight_log_destroy(fight_handler_t *handler)
     if (handler == NULL)
         return;
     for (int i = 0; i < 5; i++)
-        if (handler->fight_log[i]) {
-            sfFont_destroy((sfFont *) sfText_getFont(handler->fight_log[i]));
-            sfText_destroy(handler->fight_log[i]);
-        }
+        free_text(handler->fight_log[i]);
 }
 
 int rpg_fight_log_init(fight_handler_t *handler)

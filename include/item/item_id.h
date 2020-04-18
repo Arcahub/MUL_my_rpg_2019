@@ -8,6 +8,14 @@
 #ifndef ITEM_ID_H
 #define ITEM_ID_H
 
+static const char *ITEM_NAME[] = {
+    "Basic Canoon",
+    "Laser Canoon",
+    "Plasma Canoon",
+    "Basic Rocket",
+    "Plasma Rocket"
+};
+
 typedef enum {
     BASIC_CANON,
     LASER_CANON,
