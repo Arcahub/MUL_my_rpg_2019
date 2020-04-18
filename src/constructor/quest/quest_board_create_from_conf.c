@@ -9,22 +9,10 @@
 #include "my_json.h"
 #include "components/quest/quest.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include "const.h"
 #include "components/get_from_config.h"
 #include "components/quest/board.h"
-
-static const char *FONT_PATH = "templates/font/space.ttf";
-
-static quest_board_t *rpg_quest_board_create_extend(game_object_t *last, \
-json_object_t *js, game_t *game, scene_t *scene)
-{
-    quest_board_t *board = malloc(sizeof(quest_board_t));
-
-    if (board == NULL)
-        return (NULL);
-    board->title = init_text("Quest board !", 500, 100, (char *) FONT_PATH);
-    return (board);
-}
 
 game_object_t *rpg_quest_board_create_from_conf(game_object_t *last, \
 json_object_t *js, game_t *game, scene_t *scene)
@@ -34,7 +22,10 @@ json_object_t *js, game_t *game, scene_t *scene)
 
     if (object == NULL)
         return (NULL);
-    object->extend = (void *) rpg_quest_board_create_extend(last, js, game, scene);
+    object->state = 0;
+    object->draw = &rpg_quest_board_draw;
+    object->extend = (void *) rpg_quest_board_create_extend(last, \
+    js, game, scene);
     if (object->extend == NULL)
         return (NULL);
     return (object);

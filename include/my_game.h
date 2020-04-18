@@ -22,6 +22,7 @@
 typedef struct game game_t;
 typedef struct score score_t;
 typedef struct cursor cursor_t;
+typedef struct quest quest_t;
 
 ////////////////////////////////////////////////////////////
 /// \brief Structure containing global variable of the game
@@ -36,6 +37,7 @@ typedef struct game {
     score_t *money;                                         /**< Struct that handle the text variable for the score*/
     score_t *highscore;                                     /**< Struct that handle the text variable for the highscore*/
     cursor_t cursor;                                        /**< Struct cursor to handle cursor image and pos*/
+    quest_t *quest;
 }game_t;
 
 #endif /* !MY_GAME_H_ */

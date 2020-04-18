@@ -7,6 +7,7 @@
 
 #include "my_json.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include "components/get_from_config.h"
 #include "components/quest/quest.h"
 
@@ -39,7 +40,7 @@ void rpg_destroy_quest(quest_t *quest)
     free(quest);
 }
 
-quest_t *rpg_quest_get_from_conf(char *path, game_t *game, scene_t *scene)
+quest_t *rpg_quest_get_from_conf(char *path, game_t *game)
 {
     quest_t *quest = malloc(sizeof(quest_t));
     json_object_t *js = json_create_from_file((char *) path);
@@ -51,12 +52,12 @@ quest_t *rpg_quest_get_from_conf(char *path, game_t *game, scene_t *scene)
     if (!get_int_from_conf(js, (int *) &quest->reward_item, "reward_item") ||
     !get_int_from_conf(js, &quest->reward_money, "reward_money") ||
     !get_int_from_conf(js, (int *) &quest->id, "id") ||
+    !get_int_from_conf(js, &quest->number_of_step, "number_of_step") ||
     !get_int_from_conf(js, &quest->reward_item_number, "reward_item_number") ||
     (quest->name = get_str_from_conf(js, "name")) == NULL) {
         rpg_destroy_quest(quest);
         return (NULL);
     }   
-    rpg_quest_load_step_from_conf(js, game, scene);
-    json_object_destroy(js);
+    quest->step = rpg_quest_load_step_from_conf(js, game);
     return (quest);
 }

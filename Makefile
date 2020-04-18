@@ -29,7 +29,7 @@ RMD_FILES = $(OBJ) vgcore.* lib/*.a
 
 NAME = my_rpg
 
-CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wextra -pedantic -Wno-newline-eof -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
+CFLAGS = $(LDFLAGS) $(HEADER) -fsanitize=address -W -Wall -Wextra -pedantic -Wno-newline-eof -Wno-unused-parameter -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
 
 LDFLAGS = -L./lib -lm -lmy_game -lmy -lmy_json $(CSFML)
 

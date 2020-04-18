@@ -18,6 +18,7 @@ enum {
     TRIGGER_IN_GAME_MENU_EVENT_ID,
     OPEN_INVENTORY_ID,
     FIGHT_PAUSE_ID,
+    OPEN_QUEST_BOARD_ID,
     MAX_SCENE_EVENT_ID
 };
 
@@ -30,6 +31,7 @@ scene_t *scene, sfRenderWindow *window);
 
 void return_to_main_menu(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window);
 void open_inventory(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window);
+void open_quest_board(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window);
 void pause_fight(sfEvent event, game_t *game, scene_t *scene, sfRenderWindow *window);
 
 static void (*EVENT_SCENE_FP[]) (sfEvent, game_t *, scene_t *,
@@ -40,7 +42,8 @@ sfRenderWindow *) = {
     &move_event,
     &trigger_in_game_menu,
     &open_inventory,
-    &pause_fight
+    &pause_fight,
+    &open_quest_board
 };
 
 #endif /* !EVENT_SCENE_FP_H_ */

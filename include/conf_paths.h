@@ -16,7 +16,8 @@ static const char *CONF_PATHS[] = {
     "./config/in_game_menu.json",
     "./config/galaxie.json",
     "./config/fight_scene.json",
-    "./config/fight_pause.json"
+    "./config/fight_pause.json",
+    "./config/inventory.json"
 };
 
 #endif /* !CONF_PATHS_H_ */

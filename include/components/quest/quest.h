@@ -7,6 +7,7 @@
 
 #include "my_game.h"
 #include "item/item_id.h"
+#include "components/quest/board.h"
 
 #ifndef QUEST_HANDLER_H_
 #define QUEST_HANDLER_H_
@@ -50,11 +51,14 @@ typedef struct quest {
     quest_id id;
 } quest_t;
 
-step_t *rpg_quest_load_step_from_conf(json_object_t *js, game_t *game, \
-scene_t *scene);
+step_t *rpg_quest_load_step_from_conf(json_object_t *js, game_t *game);
 void validate_step(game_t *game, scene_t *scene, quest_t *quest);
 void validate_quest(game_t *game, scene_t *scene, quest_t *quest);
 void rpg_destroy_quest(quest_t *quest);
-quest_t *rpg_quest_get_from_conf(char *path, game_t *game, scene_t *scene);
-
+quest_t *rpg_quest_get_from_conf(char *path, game_t *game);
+void rpg_quest_board_draw(sfRenderWindow *window, game_object_t *object);
+quest_board_t *rpg_quest_board_create_extend(game_object_t *last, \
+json_object_t *js, game_t *game, scene_t *scene);
+quest_board_t *rpg_quest_board_init_text(step_t *tmp, \
+quest_board_t *board);
 #endif /* !QUEST_HANDLER_H_ */
