@@ -4,6 +4,7 @@
         "name": "Quete d'introduction",
         "number_of_step": 3,
         "reward_item": 1,
+        "reward_item_number": 1,
         "reward_money": 100,
         "step_list": [
             {
@@ -15,9 +16,15 @@
             {
                 "type": 1,
                 "step_number": 2,
-                "description": "Fight (ENNNEMY) and see if he has any paper on his body !",
+                "description": "Fight with (ENNNEMY) and see if he has any paper on his body !",
                 "pos": [1000, 2000],
                 "fight_scene": "config/fight_scene.json"
+            },
+            {
+                "type": 0,
+                "step_number": 3,
+                "description": "Speak back with Dark Vador and show him what you've found on (ENNEMY)",
+                "pos": [1000, 3000]
             }
         ]
     }

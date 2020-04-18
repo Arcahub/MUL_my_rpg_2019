@@ -5,10 +5,16 @@
 ** quest_handler
 */
 
+#include "my_game.h"
+#include "item/item_id.h"
+
 #ifndef QUEST_HANDLER_H_
 #define QUEST_HANDLER_H_
 
-#include "my_game.h"
+typedef enum {
+    INTRODUCTION_QUEST,
+    DARK_VADOR
+} quest_id;
 
 typedef enum {
     UNTAKEN,
@@ -36,9 +42,12 @@ typedef struct quest {
     quest_state state;
     char *name;
     int number_of_step;
-    int reward;
+    int reward_money;
     int actual_step;
+    item_id reward_item;
+    int reward_item_number;
     struct step *step;
+    quest_id id;
 } quest_t;
 
 step_t *rpg_quest_load_step_from_conf(json_object_t *js, game_t *game, \
