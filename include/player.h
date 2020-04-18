@@ -15,4 +15,10 @@ typedef struct {
     sfVector2f galaxie_dest;
 } player_t;
 
+player_t *player_create(void);
+player_t *player_load_from_save_path(char *path);
+player_t *player_load_from_save_fd(int fd);
+void player_save(void *pt);
+void player_destroy(player_t *player);
+
 #endif /* !PLAYER_H_ */

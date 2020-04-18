@@ -12,6 +12,14 @@
         "background_color": [0, 0, 0, 0],
         "objects_list": [
             {
+                "type": 7,
+                "string": "Options",
+                "font": "templates/font/space.ttf",
+                "pos": [400, 100],
+                "style": 0,
+                "size": 100
+            },
+            {
                 "type": 4,
                 "texture_path": "templates/menu/scrollbar_fleur_new.png",
                 "pos": [1010, 375],

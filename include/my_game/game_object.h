@@ -38,13 +38,25 @@ typedef enum
     DECOR,
     EFFECT,
     INFO,
+    SHOP,
+    ENNEMY,
+    GROUND,
+    GRASS,
+    PNJ,
+    ROCK,
+    UPGRADE_BUTTON,
     SPACESHIP,
     TEXT_HANDLER,
     PLAYER,
     GALAXIE_BACKGROUND,
     PLANET,
     GALAXIE_HUD,
-    QUEST_BOARD
+    QUEST_BOARD,
+    ATTACK_BUTTON,
+    REPAIR_BUTTON,
+    DODGE_BUTTON,
+    INVENTORY,
+    FIGHT_HANDLER
 } object_type;
 
 ////////////////////////////////////////////////////////////

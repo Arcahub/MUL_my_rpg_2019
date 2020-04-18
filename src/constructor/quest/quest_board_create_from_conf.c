@@ -13,6 +13,8 @@
 #include "components/get_from_config.h"
 #include "components/quest/board.h"
 
+static const char *FONT_PATH = "templates/font/space.ttf";
+
 static quest_board_t *rpg_quest_board_create_extend(game_object_t *last, \
 json_object_t *js, game_t *game, scene_t *scene)
 {
