@@ -8,7 +8,7 @@
 #include "my_json.h"
 #include "my_game.h"
 #include "components/get_from_config.h"
-#include "player_macro.h"
+#include "village/village_player.h"
 #include "stdlib.h"
 
 static void get_anim_from_frames(game_object_t *object, json_object_t *js)
@@ -29,16 +29,12 @@ static bool player_init_anim(game_object_t *object, json_object_t *js)
     if (object->anim == NULL) {
         return (false);
     }
+    for (int i = 0; i != 5; i++)
+        object->anim[i] = (anim_t) {NULL, NULL, false, true, 0, 0};
     get_anim_from_frames(object, js);
     for (int i = 0; i != 4; i++)
         if (object->anim[i].frames_key == NULL)
             return (false);
-    for (int i = 0; i != 4; i++) {
-        object->anim[i].loop = true;
-        object->anim[i].frame_id = 0;
-        object->anim[i].restart_id = 0;
-    }
-    object->anim[4].frames_key = NULL;
     return (true);
 }
 
@@ -52,11 +48,12 @@ json_object_t *js, game_t *game, scene_t *scene)
     if (path == NULL || !get_vector2f_from_conf(js, &pos, "pos"))
         return (NULL);
     object = create_game_object(last, path, pos, PLAYER);
-    object->state = PLAYER_DOWN;
     if (object == NULL || !player_init_anim(object, js)) {
         destroy_game_object(scene, object);
         return (NULL);
     }
+    object->move = (sfVector2f) {0, 0};
+    object->state = PLAYER_DOWN;
     update_game_object_frame(object);
     object->update = &update_player;
     return (object);

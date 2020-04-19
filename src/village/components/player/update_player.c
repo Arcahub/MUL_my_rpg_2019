@@ -8,7 +8,7 @@
 #include "my_json.h"
 #include "my_game.h"
 #include "components/get_from_config.h"
-#include "player_macro.h"
+#include "village/village_player.h"
 
 static int get_state_by_move(game_object_t *object)
 {
@@ -33,11 +33,8 @@ static void update_state(game_object_t *object)
 
     if (next_state == -1)
         return;
-    if (object->state != next_state) {
-        object->anim[object->state].frame_id = 0;
-        object->state = next_state;
-        update_game_object_frame(object);
-    }
+    if (object->state != next_state)
+        update_game_object_state(object, next_state);
     else {
         move_object(object);
         update_game_object_frame(object);

@@ -6,14 +6,13 @@
 */
 
 #include "my_game.h"
-#include "player_macro.h"
+#include "village/village_player.h"
 
 static sfVector2f get_move_from_key(int key)
 {
-    sfVector2f new_move;
+    sfVector2f new_move = {0, 0};
 
-    switch (key)
-    {
+    switch (key) {
     case sfKeyDown:
         new_move.y = SPEED;
         break;
