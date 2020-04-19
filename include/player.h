@@ -8,7 +8,6 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
-#include "my_game.h"
 #include "my_json.h"
 
 typedef struct {
