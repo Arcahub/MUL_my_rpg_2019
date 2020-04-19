@@ -1,6 +1,6 @@
 {
     "scene": {
-        "id": 5,
+        "id": 8,
         "z_index_deepth": 2,
         "draw_id": 0,
         "update_id": 0,
@@ -13,7 +13,7 @@
         "background_color": [0, 0, 0, 0],
         "objects_list": [
             {
-                "type": 13,
+                "type": 16,
                 "texture_path": "templates/player_sheet.png",
                 "pos": [400, 500],
                 "frame_keys_down": [

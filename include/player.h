@@ -9,6 +9,7 @@
 #define PLAYER_H_
 
 #include "my_json.h"
+#include "my_game.h"
 
 typedef struct {
     sfVector2f galaxie_dest;

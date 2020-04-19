@@ -44,6 +44,8 @@ scene_t *create_scene_from_file(const char *path, game_t *game)
         return (NULL);
     scene = create_scene_from_json_object(js, game);
     json_object_destroy(js);
+    if (!scene)
+        return (NULL);
     if (view)
         sfRenderWindow_setView(scene->window, view);
     return (scene);
