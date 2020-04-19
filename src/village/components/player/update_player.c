@@ -42,7 +42,7 @@ static void update_state(game_object_t *object)
     }
 }
 
-static bool update_player(game_object_t *object, scene_t *scene)
+bool update_player(game_object_t *object, scene_t *scene)
 {
     sfVector2f reset = {0, 0};
 
