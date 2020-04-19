@@ -7,23 +7,27 @@
 
 #include "my_json.h"
 #include "my_game.h"
-#include "components/get_from_config.h"
+#include "game_object.h"
+#include "get_from_config.h"
+#include "village_decor_constructor.h"
 
-
-game_object_t *generate_tile(game_object_t *last, int id)
+game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
 {
-    switch (id) {
-        case '1' : 
-    }
+    game_object_t *tile = NULL;
+
+    tile = create_game_object(last, TILE_PATH[id],
+    (sfVector2f) {x , y}, TILE_MAP);
 }
 
-game_object_t *generate_map_line(game_object_t *last, json_array_t *arr)
+game_object_t *generate_map_line(game_object_t *last, json_array_t *arr,
+int height, int width)
 {
     game_object_t *tmp = NULL;
 
     for (int i = 0; i < arr->elem_count; i++) {
         if (arr->array[i]->value_type == INT) {
-            tmp = generate_tile(last, *((int *) arr->array[i]->value));
+            tmp = generate_tile(last, *((int *) arr->array[i]->value),
+            height, width + i);
             last = (tmp) ? tmp : last;
         }
     }
@@ -47,7 +51,8 @@ game_t *game, scene_t *scene)
     arr = value->value;
     for (int i = 0; i < arr->elem_count; i++) {
         if (arr->array[i]->value_type == ARRAY)
-            generate_map_line(last, arr->array[i]->value);
+            generate_map_line(last, arr->array[i]->value,
+            tile_height * i, tile_width);
     }
     return (NULL);
 }
