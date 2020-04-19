@@ -29,6 +29,7 @@ enum {
     SPACESHIP_CONSTRUCTOR,
     FIGHT_HANDLER_CONSTRUCTOR,
     PLAYER_CONSTRUCTOR,
+    VILLAGE_CONSTRUCTOR,
     CONSTRUCTORS_MAX_ID
 };
 
@@ -64,6 +65,8 @@ game_object_t *rpg_space_ship_create_from_conf(game_object_t *, json_object_t *,
 game_object_t *rpg_fight_handler_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
 game_object_t *rpg_create_player_from_conf(game_object_t *last,
 json_object_t *js, game_t *game, scene_t *scene);
+game_object_t *create_village(game_object_t *, json_object_t *,
+game_t *, scene_t *);
 
 static game_object_t *(*CONSTRUCTORS[])(game_object_t *, json_object_t *,
 game_t *, scene_t *) = {
@@ -83,7 +86,8 @@ game_t *, scene_t *) = {
     &rpg_ennemy_create_from_conf,
     &rpg_space_ship_create_from_conf,
     &rpg_fight_handler_create_from_conf,
-    &rpg_create_player_from_conf
+    &rpg_create_player_from_conf,
+    &create_village
 };
 
 #endif /* !CONSTRUCTORS_H_ */

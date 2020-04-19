@@ -14,8 +14,9 @@ game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
 {
     game_object_t *tile = NULL;
 
-    tile = create_game_object(last, TILE_PATH[id],
+    tile = create_game_object(last, (char *) TILE_PATH[id],
     (sfVector2f) {x , y}, TILE_MAP);
+    return (tile);
 }
 
 game_object_t *generate_map_line(game_object_t *last, json_array_t *arr,
@@ -38,6 +39,7 @@ game_t *game, scene_t *scene)
 {
     json_value_t *value = NULL;
     json_array_t *arr = NULL;
+    game_object_t *tmp = NULL;
     int tile_height = 0;
     int tile_width = 0;
 
@@ -49,9 +51,11 @@ game_t *game, scene_t *scene)
         return (NULL);
     arr = value->value;
     for (int i = 0; i < arr->elem_count; i++) {
-        if (arr->array[i]->value_type == ARRAY)
-            generate_map_line(last, arr->array[i]->value,
+        if (arr->array[i]->value_type == ARRAY) {
+            tmp = generate_map_line(last, arr->array[i]->value,
             tile_height * i, tile_width);
+            last = (tmp) ? tmp : last;
+        }
     }
-    return (NULL);
+    return (last);
 }
