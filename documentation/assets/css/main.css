@@ -53,6 +53,14 @@
 		text-decoration: none;
 	}
 
+	li a {
+		text-decoration: none;
+	}
+
+	li a:hover {
+		color: black;
+	}
+
 	table a:hover {
 		color: black;
 	}
