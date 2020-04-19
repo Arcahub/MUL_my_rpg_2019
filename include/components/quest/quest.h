@@ -8,6 +8,7 @@
 #include "my_game.h"
 #include "item/item_id.h"
 #include "components/quest/board.h"
+#include "my_rpg.h"
 
 #ifndef QUEST_HANDLER_H_
 #define QUEST_HANDLER_H_
@@ -36,6 +37,7 @@ typedef struct step {
     bool validated;
     char *description;
     char *fight_scene;
+    scene_index scene;
     struct step *next;
 } step_t;
 
@@ -63,4 +65,5 @@ quest_board_t *rpg_quest_board_init_text_step(step_t *tmp, \
 quest_board_t *board);
 quest_board_t *rpg_quest_board_init_text(game_t *game, step_t *tmp, \
 quest_board_t *board);
+
 #endif /* !QUEST_HANDLER_H_ */

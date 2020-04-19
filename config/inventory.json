@@ -13,13 +13,16 @@
         "background_color": [0, 0, 0, 0],
         "objects_list": [
             {
+                "type": 17
+            },
+            {
                 "type": 12,
                 "texture_path": "templates/inv.png"
             },
             {
                 "type": 16,
                 "texture_path": "templates/Window.png"
-            }
+            },
         ]
     }
 }

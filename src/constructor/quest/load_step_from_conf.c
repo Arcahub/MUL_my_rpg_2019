@@ -26,7 +26,12 @@ static step_t *create_step_from_conf(json_object_t *js, step_t *next, game_t *ga
     if (step->step_type == FIGHT && (step->fight_scene = \
     get_str_from_conf(js, "fight_scene")) == NULL)
         return (NULL);
-    step->validated = 0;
+    if (step->step_type == REACH && 
+    !get_int_from_conf(js, (int *) &step->scene, "scene"))
+        return (NULL);
+    step->validated = 1;
+    if (step->step_number == 5)
+        step->validated = 0;
     step->next = next;
     return (step);
 }

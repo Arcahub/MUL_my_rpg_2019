@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_rpg_2019
 ** File description:
-** validate_quest.c
+** validate_quest->c
 */
 
 #include "my_game.h"

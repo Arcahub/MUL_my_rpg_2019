@@ -24,7 +24,7 @@ quest_board_t *board, char *tmp2)
 {
     if (tmp != NULL && tmp->validated == 0) {
         tmp2 = my_strcat("Actual step: ", tmp->description);
-        board->actual_step = init_text(tmp2, 75, 350 + (x * 50), \
+        board->actual_step = init_text(tmp2, 75, 450 + (x * 50), \
         (char *) FONT_PATH_LOG);
         if (board->actual_step == NULL)
             return (NULL);
@@ -61,7 +61,7 @@ quest_board_t *board)
     for (; tmp && tmp->validated == 1 && x < board->number_of_step; \
     tmp = tmp->next, x++) {
         tmp2 = my_strcat(tmp->description, " (COMPLETED)");
-        board->steps[x] = init_text(tmp2, 75, 200 + (x * 50), \
+        board->steps[x] = init_text(tmp2, 75, 350 + (x * 50), \
         (char *) FONT_PATH_LOG);
         if (board->steps[x] == NULL)
             return (NULL);

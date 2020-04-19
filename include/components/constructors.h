@@ -29,6 +29,7 @@ enum {
     SPACESHIP_CONSTRUCTOR,
     FIGHT_HANDLER_CONSTRUCTOR,
     QUEST_BOARD_CONSTRUCTOR,
+    QUEST_HANDLER_CONSTRUCTOR,
     CONSTRUCTORS_MAX_ID
 };
 
@@ -46,24 +47,30 @@ game_object_t *rpg_options_create_sound_bar_from_conf(game_object_t *,
 json_object_t *, game_t *, scene_t *);
 game_object_t *rpg_options_create_check_box_from_conf(game_object_t *,
 json_object_t *, game_t *, scene_t *);
-game_object_t *rpg_create_text_handler_from_conf(game_object_t *last,
-json_object_t *js, game_t *game, scene_t *scene);
-game_object_t *create_view_handler_from_conf(game_object_t *last,
-json_object_t *js, game_t *game, scene_t *scene);
-game_object_t *create_galaxie_spaceship_from_conf(game_object_t *last,
-json_object_t *js, game_t *game, scene_t *scene);
-game_object_t *create_galaxie_mini_map(game_object_t *last,
-json_object_t *js, game_t *game, scene_t *scene);
-game_object_t *galaxie_planet_create_from_conf(game_object_t *last,
-json_object_t *js, game_t *game, scene_t *scene);
-game_object_t *galaxie_hud_create(game_object_t *last, json_object_t *js,
-game_t *game, scene_t *scene);
-game_object_t *rpg_quest_board_create_from_conf(game_object_t *last,
-json_object_t *js, game_t *game, scene_t *scene);
-game_object_t *rpg_inventory_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
-game_object_t *rpg_ennemy_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
-game_object_t *rpg_space_ship_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
-game_object_t *rpg_fight_handler_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_create_text_handler_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *create_view_handler_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *create_galaxie_spaceship_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *create_galaxie_mini_map(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *galaxie_planet_create_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *galaxie_hud_create(game_object_t *, json_object_t *,
+game_t *, scene_t *);
+game_object_t *rpg_quest_board_create_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_inventory_create_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_ennemy_create_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_space_ship_create_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_fight_handler_create_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_quest_handler_init_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
 
 static game_object_t *(*CONSTRUCTORS[])(game_object_t *, json_object_t *,
 game_t *, scene_t *) = {
@@ -83,7 +90,8 @@ game_t *, scene_t *) = {
     &rpg_ennemy_create_from_conf,
     &rpg_space_ship_create_from_conf,
     &rpg_fight_handler_create_from_conf,
-    &rpg_quest_board_create_from_conf
+    &rpg_quest_board_create_from_conf,
+    &rpg_quest_handler_init_from_conf
 };
 
 #endif /* !CONSTRUCTORS_H_ */
