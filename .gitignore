@@ -1,2 +1,3 @@
 .vscode
 valgrind.supp
+save/*
