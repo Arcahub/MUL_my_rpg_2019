@@ -31,6 +31,8 @@ static void update_state(game_object_t *object)
 {
     int next_state = get_state_by_move(object);
 
+    if (next_state == -1)
+        return;
     if (object->state != next_state) {
         object->anim[object->state].frame_id = 0;
         object->state = next_state;
