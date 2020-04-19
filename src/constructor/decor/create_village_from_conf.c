@@ -9,6 +9,14 @@
 #include "my_game.h"
 #include "components/get_from_config.h"
 
+
+game_object_t *generate_tile(game_object_t *last, int id)
+{
+    switch (id) {
+        case '1' : 
+    }
+}
+
 game_object_t *generate_map_line(game_object_t *last, json_array_t *arr)
 {
     game_object_t *tmp = NULL;
