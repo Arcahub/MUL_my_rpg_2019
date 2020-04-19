@@ -7,9 +7,8 @@
 
 #include "my_json.h"
 #include "my_game.h"
-#include "game_object.h"
-#include "get_from_config.h"
-#include "village_decor_constructor.h"
+#include "components/get_from_config.h"
+#include "village/village_decor_constructor.h"
 
 game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
 {
