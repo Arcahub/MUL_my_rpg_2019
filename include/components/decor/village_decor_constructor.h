@@ -21,4 +21,11 @@ enum {
     PNJ2,
 };
 
+static const char *TILE_PATH[] = {
+    "/assets_runner/spaceship01.png"
+};
+
+game_object_t *create_village(game_object_t *, json_object_t *,
+game_t *, scene_t *);
+
 #endif /* !VILLAGE_DECOR_CONSTRUCTOR_H_ */
