@@ -13,7 +13,9 @@
 game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
 {
     game_object_t *tile = NULL;
+    static int i = 0;
 
+    printf("%d: %d/%d\n", i++, x, y);
     tile = create_game_object(last, (char *) TILE_PATH[id],
     (sfVector2f) {x , y}, TILE_MAP);
     return (tile);
@@ -27,7 +29,7 @@ int height, int width)
     for (int i = 0; i < arr->elem_count; i++) {
         if (arr->array[i]->value_type == INT) {
             tmp = generate_tile(last, *((int *) arr->array[i]->value),
-            height, width + i);
+            width * i, height);
             last = (tmp) ? tmp : last;
         }
     }
