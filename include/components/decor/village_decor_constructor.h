@@ -19,7 +19,6 @@ enum {
     WATER,
     PNJ1,
     PNJ2,
-    PNJ3,
 };
 
 #endif /* !VILLAGE_DECOR_CONSTRUCTOR_H_ */
