@@ -40,7 +40,8 @@
                 "texture_path": "templates/menu/ship1.png",
                 "pos": [890, 399],
                 "box": [890, 399, 200, 202]
-            },
+            }
+/*            },
             {
                 "type": 11,
                 "name": "truc4",
@@ -179,4 +180,4 @@
             }
         ]
     }
-}
+} */
