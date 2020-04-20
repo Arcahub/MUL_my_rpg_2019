@@ -19,7 +19,7 @@ typedef enum {
 } item_type;
 
 typedef struct inventory {
-    sfText *text[3];
+    sfText *text[4];
     char *item_name;
     char *item_description;
     item_id id;
@@ -47,4 +47,5 @@ void rpg_inventory_destroy(void *pt);
 bool rpg_is_item_in_inventory(game_object_t *object, item_id id, int number);
 void rpg_item_equip_weapon(scene_t *scene, inventory_t *item, \
 inventory_t *list);
+
 #endif /* !INVENTORY_H_ */

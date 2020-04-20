@@ -71,6 +71,7 @@ void rpg_inventory_draw(sfRenderWindow *window, game_object_t *object)
             sfRenderWindow_drawText(window, tmp->text[0], NULL);
             sfRenderWindow_drawText(window, tmp->text[1], NULL);
             sfRenderWindow_drawText(window, tmp->text[2], NULL);
+            sfRenderWindow_drawText(window, tmp->text[3], NULL);
         } else if (tmp->texture != NULL && tmp->sprite != NULL)
             sfRenderWindow_drawSprite(window, tmp->sprite, NULL);
     }
