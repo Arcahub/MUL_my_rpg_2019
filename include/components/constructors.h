@@ -28,6 +28,7 @@ enum {
     ENNEMY_CONSTRUCTOR,
     SPACESHIP_CONSTRUCTOR,
     FIGHT_HANDLER_CONSTRUCTOR,
+    MUSIC_HANDLER_CONSTRUCTOR,
     CONSTRUCTORS_MAX_ID
 };
 
@@ -61,6 +62,7 @@ game_object_t *rpg_inventory_create_from_conf(game_object_t *, json_object_t *, 
 game_object_t *rpg_ennemy_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
 game_object_t *rpg_space_ship_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
 game_object_t *rpg_fight_handler_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_music_handler_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
 
 static game_object_t *(*CONSTRUCTORS[])(game_object_t *, json_object_t *,
 game_t *, scene_t *) = {
@@ -79,7 +81,8 @@ game_t *, scene_t *) = {
     &rpg_inventory_create_from_conf,
     &rpg_ennemy_create_from_conf,
     &rpg_space_ship_create_from_conf,
-    &rpg_fight_handler_create_from_conf
+    &rpg_fight_handler_create_from_conf,
+    &rpg_music_handler_create_from_conf
 };
 
 #endif /* !CONSTRUCTORS_H_ */
