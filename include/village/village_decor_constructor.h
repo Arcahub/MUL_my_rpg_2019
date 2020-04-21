@@ -19,7 +19,9 @@ enum {
     SHIP,
     TREE,
     WEAPON,
-    WATER,
+    HOUSE,
+    CASCADE,
+    ROCK,
     PNJ1,
     PNJ2,
 };
@@ -34,7 +36,10 @@ static const char *TILE_PATH[] = {
     "./sprites_village/forest3.png",
     "./sprites_village/ship.png",
     "./sprites_village/tree.png",
-    "./sprites_village/weapon.png"
+    "./sprites_village/weapon.png",
+    "./sprites_village/house.png",
+    "./sprites_village/cascade.png",
+    "./sprites_village/rock.png"
 };
 
 #endif /* !VILLAGE_DECOR_CONSTRUCTOR_H_ */
