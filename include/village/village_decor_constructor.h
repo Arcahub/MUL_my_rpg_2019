@@ -9,12 +9,15 @@
 #define VILLAGE_DECOR_CONSTRUCTOR_H_
 
 enum {
-    SHIP,
     GRASS,
     PATH,
-    TREE,
     TAVERN,
     ARMOR,
+    FOREST1,
+    FOREST2,
+    FOREST3,
+    SHIP,
+    TREE,
     WEAPON,
     WATER,
     PNJ1,
@@ -22,7 +25,16 @@ enum {
 };
 
 static const char *TILE_PATH[] = {
-    "templates/ship1.png"
+    "./sprites_village/grass-tile.png",
+    "./sprites_village/path.png",
+    "./sprites_village/tavern.png",
+    "./sprites_village/armor.png",
+    "./sprites_village/forest.png",
+    "./sprites_village/forest2.png",
+    "./sprites_village/forest3.png",
+    "./sprites_village/ship.png",
+    "./sprites_village/tree.png",
+    "./sprites_village/weapon.png"
 };
 
 #endif /* !VILLAGE_DECOR_CONSTRUCTOR_H_ */
