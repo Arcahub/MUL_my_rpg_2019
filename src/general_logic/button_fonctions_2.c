@@ -7,16 +7,18 @@
 
 #include "my_rpg.h"
 
-void main_menu_button_function(game_object_t *object, void *pt)
+bool main_menu_button_function(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *)pt;
 
     scene->display = MAIN_MENU_SCENE;
+    return (false);
 }
 
-void restart_button_function(game_object_t *object, void *pt)
+bool restart_button_function(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *)pt;
 
     scene->display = GALAXIE_SCENE;
+    return (false);
 }

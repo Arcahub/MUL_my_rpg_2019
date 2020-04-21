@@ -7,38 +7,43 @@
 
 #include "my_rpg.h"
 
-void play_button_function(game_object_t *object, void *pt)
+bool play_button_function(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *)pt;
 
     scene->display = GALAXIE_SCENE;
+    return (true);
 }
 
-void options_button_function(game_object_t *object, void *pt)
+bool options_button_function(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *)pt;
 
     scene->display = OPTION_SCENE;
+    return (true);
 }
 
-void infos_button_function(game_object_t *object, void *pt)
+bool infos_button_function(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *)pt;
 
     scene->display = INFOS_SCENE;
+    return (true);
 }
 
-void exit_button_function(game_object_t *object, void *pt)
+bool exit_button_function(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *)pt;
 
     scene->display = -1;
+    return (true);
     sfRenderWindow_close(scene->window);
 }
 
-void return_button_function(game_object_t *object, void *pt)
+bool return_button_function(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *)pt;
 
     scene->display = MAIN_MENU_SCENE;
+    return (true);
 }

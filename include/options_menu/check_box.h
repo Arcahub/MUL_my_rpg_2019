@@ -17,6 +17,6 @@ enum {
 };
 
 bool rpg_check_box_update(game_object_t *, scene_t *);
-void rpg_check_box_callback(game_object_t *, void *);
+bool rpg_check_box_callback(game_object_t *, void *);
 
 #endif /* !CHECK_BOX_H_ */

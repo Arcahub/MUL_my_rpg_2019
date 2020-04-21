@@ -7,7 +7,8 @@
 
 #include "options_menu/check_box.h"
 
-void rpg_check_box_callback(game_object_t *object, void *pt)
+bool rpg_check_box_callback(game_object_t *object, void *pt)
 {
     object->state = !object->state;
+    return (false);
 }

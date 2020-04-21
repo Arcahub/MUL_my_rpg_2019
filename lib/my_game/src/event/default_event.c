@@ -32,12 +32,13 @@ sfRenderWindow *window)
     sfVector2f pos = get_mouse_exact_pos(game->window->window);
     int x = pos.x;
     int y = pos.y;
+    bool stop = false;
 
     if (mouse_button.button != sfMouseLeft)
         return;
-    for (; object; object = object->next) {
+    for (; object && !stop; object = object->next) {
         if (object->callback != NULL && sfIntRect_contains(&object->box, x, y))
-            object->callback(object, scene);
+            stop = object->callback(object, scene);
     }
 }
 

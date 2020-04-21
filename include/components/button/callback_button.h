@@ -21,16 +21,16 @@ enum {
 };
 
 
-void play_button_function(game_object_t *, void *);
-void options_button_function(game_object_t *, void *);
-void exit_button_function(game_object_t *, void *);
-void infos_button_function(game_object_t *, void *);
-void return_button_function(game_object_t *, void *);
-void infos_right_arrow_function(game_object_t *, void *);
-void infos_left_arrow_function(game_object_t *, void *);
-void main_menu_button_function(game_object_t *, void *);
+bool play_button_function(game_object_t *, void *);
+bool options_button_function(game_object_t *, void *);
+bool exit_button_function(game_object_t *, void *);
+bool infos_button_function(game_object_t *, void *);
+bool return_button_function(game_object_t *, void *);
+bool infos_right_arrow_function(game_object_t *, void *);
+bool infos_left_arrow_function(game_object_t *, void *);
+bool main_menu_button_function(game_object_t *, void *);
 
-static void (*BUTTON_CALLBACK_PT[]) (game_object_t *, void *) = {
+static bool (*BUTTON_CALLBACK_PT[]) (game_object_t *, void *) = {
     &play_button_function,
     &options_button_function,
     &infos_button_function,

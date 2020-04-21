@@ -11,7 +11,11 @@ void draw_mini_map(sfRenderWindow *window, game_object_t *object)
 {
     galaxie_mini_map_t *map = object->extend;
     const sfView *tmp_view = sfView_copy(sfRenderWindow_getView(window));
+    game_object_t *tmp = map->scene->objects_list;
 
+    for (; tmp && tmp->type != INVENTORY; tmp = tmp->next);
+    if (tmp && tmp->state == 1)
+        return;
     sfView_setCenter(map->view, sfView_getCenter(tmp_view));
     sfRenderWindow_setView(window, map->view);
     draw_objects(map->scene->objects_list, window,

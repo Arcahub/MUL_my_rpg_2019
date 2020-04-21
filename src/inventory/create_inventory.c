@@ -12,31 +12,34 @@
 
 bool rpg_update_inventory(game_object_t *object, scene_t *scene)
 {
-    inventory_t *tmp = tmp = (inventory_t *) object->extend;
+    inventory_t *tmp = (inventory_t *) object->extend;
     sfVector2f tmp2 = {275, 250};
+    sfVector2f pos = sfView_getCenter(sfRenderWindow_getView(scene->window));
 
+    pos = (sfVector2f) {pos.x - 1920 / 2, pos.y - 1080 / 2};
+    sfSprite_setPosition(object->sprite, (sfVector2f) {pos.x, pos.y});
+    object->box.left = pos.x + 250;
+    object->box.top = pos.y + 215;
     if (object->state == 0)
         return (true);
     for (int x = 0, y = 0; tmp; tmp = tmp->next, x++) {
-        if (x == 11) {
-            x = 0;
-            y++;
-        }
-        tmp2.x = 275 + (x * 60);
-        tmp2.y = 250 + (y * 60) - 50;
-        tmp->box.height = 50;
-        tmp->box.width = 50;
-        tmp->box.left = tmp2.x;
-        tmp->box.top = tmp2.y;
+        x = (x == 11) ? 0 : x;
+        y = (x == 0) ? y + 1 : y;
+        tmp2 = (sfVector2f) {275 + (x * 60) + pos.x, 190 + (y * 60) + pos.y};
+        tmp->box = (sfIntRect) {tmp2.x, tmp2.y, 50, 50};
         sfSprite_setPosition(tmp->sprite, tmp2);
+        tmp2.x = 1240 + pos.x;
+        sfText_setPosition(tmp->text[0], (sfVector2f) {tmp2.x, 120 + pos.y});
+        sfText_setPosition(tmp->text[1], (sfVector2f) {tmp2.x, 300 + pos.y});
+        sfText_setPosition(tmp->text[2], (sfVector2f) {tmp2.x, 550 + pos.y});
     }
     return (true);
 }
 
-void rpg_inventory_get_click_on_item(game_object_t *object, void *pt)
+bool rpg_inventory_get_click_on_item(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *) pt;
-    sfVector2i pos = sfMouse_getPositionRenderWindow(scene->window);
+    sfVector2f pos = get_mouse_exact_pos(scene->window);
     inventory_t *tmp = NULL;
     int x = pos.x;
     int y = pos.y;
@@ -47,6 +50,7 @@ void rpg_inventory_get_click_on_item(game_object_t *object, void *pt)
         } else
             tmp->selected = 0;
     }
+    return (true);
 }
 
 void rpg_inventory_draw(sfRenderWindow *window, game_object_t *object)
@@ -78,10 +82,8 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->draw = &rpg_inventory_draw;
     object->callback = &rpg_inventory_get_click_on_item;
     object->update = &rpg_update_inventory;
-    object->box.height = 600;
-    object->box.width = 600;
-    object->box.left = 250;
-    object->box.top = 215;
+    object->box = (sfIntRect) {600, 600, 250, 215};
+    object->z_index = 1;
     object->extend = (void *) rpg_inventory_add_item(NULL, 4, 0);
     object->extend = (void *) rpg_inventory_add_item((inventory_t *)
     object->extend, 4, 1);

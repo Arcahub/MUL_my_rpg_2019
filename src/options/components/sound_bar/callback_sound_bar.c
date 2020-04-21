@@ -7,7 +7,8 @@
 
 #include "my_game.h"
 
-void rpg_options_sound_bar_callback(game_object_t *object, void *pt)
+bool rpg_options_sound_bar_callback(game_object_t *object, void *pt)
 {
     object->state = SELECTED;
+    return (false);
 }

@@ -8,13 +8,15 @@
 #include "player.h"
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdio.h>
 
 void player_save(void *pt)
 {
     player_t *player = pt;
-    int fd = open("save/save", O_CREAT | O_WRONLY, 0666);
+    FILE *fd = fopen("save/save", "wb");
 
-    if (fd < 0)
+    if (fd == NULL)
         return;
-    write(fd, player, sizeof(player_t));
+    fwrite(player, sizeof(player_t), 1, fd);
+    fclose(fd);
 }

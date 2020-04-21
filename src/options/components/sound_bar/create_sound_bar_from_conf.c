@@ -11,13 +11,14 @@
 #include "components/get_from_config.h"
 #include <stdlib.h>
 
-static void rpg_options_init_sound_bar(game_object_t *object, sfIntRect box)
+static bool rpg_options_init_sound_bar(game_object_t *object, sfIntRect box)
 {
     object->state = UNSELECTED;
     object->callback = &rpg_options_sound_bar_callback;
     object->update = &rpg_options_sound_bar_update;
     object->box = box;
     init_appearing_object(object);
+    return (false);
 }
 
 game_object_t *rpg_options_create_sound_bar_from_conf(game_object_t *last,

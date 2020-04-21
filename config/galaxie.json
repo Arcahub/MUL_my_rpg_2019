@@ -8,7 +8,8 @@
             [0, 0],
             [1, 9],
             [3, 9],
-            [4, 5]
+            [4, 5],
+            [5, 5]
         ],
         "background_color": [0, 0, 0, 0],
         "objects_list": [
@@ -176,6 +177,10 @@
             {
                 "type": 9,
                 "background_texture": "templates/galaxie/galaxie_background.png"
+            },
+            {
+                "type": 12,
+                "texture_path": "templates/inv.png"
             }
         ]
     }

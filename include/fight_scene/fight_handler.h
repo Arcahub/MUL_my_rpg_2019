@@ -65,7 +65,7 @@ bool rpg_spaceship_update(game_object_t *object, scene_t *scene);
 //FIGHT HANDLER
 
 
-void rpg_fight_handler_callback(game_object_t *object, void *pt);
+bool rpg_fight_handler_callback(game_object_t *object, void *pt);
 int rpg_fight_handler_get_player_action(game_object_t *object, \
 scene_t *scene, int done);
 int rpg_fight_handler_make_player_actions(game_object_t *object, \

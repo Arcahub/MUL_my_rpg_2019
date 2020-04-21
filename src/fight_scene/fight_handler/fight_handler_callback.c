@@ -7,14 +7,14 @@
 
 #include "fight_scene/fight_handler.h"
 
-void rpg_fight_handler_callback(game_object_t *object, void *pt)
+bool rpg_fight_handler_callback(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *) pt;
     sfVector2i pos = sfMouse_getPositionRenderWindow(scene->window);
     fight_handler_t *handler = (fight_handler_t *) object->extend;
 
     if (handler->done == handler->action_number || handler->in_fight == 0)
-        return;
+        return (false);
     for (game_object_t *tmp = handler->button; tmp; tmp = tmp->next) {
         if (sfIntRect_contains(&tmp->box, pos.x, pos.y) && \
         tmp->type == ATTACK_BUTTON)
@@ -28,6 +28,7 @@ void rpg_fight_handler_callback(game_object_t *object, void *pt)
             handler->id[handler->done] = DODGE;
     }
     if (handler->id[handler->done] == EMPTY)
-        return;
+        return (false);
     handler->done++;
+    return (false);
 }

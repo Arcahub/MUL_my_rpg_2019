@@ -19,7 +19,7 @@ typedef struct {
 } rpg_options_sound_bar_t;
 
 bool rpg_options_sound_bar_update(game_object_t *, scene_t *);
-void rpg_options_sound_bar_callback(game_object_t *, void *);
+bool rpg_options_sound_bar_callback(game_object_t *, void *);
 bool rpg_options_sound_bar_create_extend_from_conf(game_object_t *,
 json_object_t *);
 
