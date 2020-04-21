@@ -14,8 +14,8 @@ game_object_t *set_hitbox(game_object_t *last, int width, int height)
 {
     last->box.height = height;
     last->box.width = width;
-    last->box.left = height / 3;
-    last->box.top = 0;
+    last->box.left = 0;
+    last->box.top = height - (height / 3);
 }
 
 game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
