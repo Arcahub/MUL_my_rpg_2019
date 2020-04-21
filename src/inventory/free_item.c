@@ -14,7 +14,7 @@ void rpg_inventory_destroy(void *pt)
     inventory_t *item = pt;
     inventory_t *tmp = NULL;
 
-    if (!item)
+    if (item == NULL)
         return;
     for (; item; item = tmp) {
         tmp = item->next;

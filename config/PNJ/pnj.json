@@ -1,0 +1,33 @@
+{
+    "pnj": {
+        "id": 0,
+        "type": 0,
+        "name": "Dark Vador",
+        "quest": 0,
+        "dialog": [
+            {
+                "type": 0,
+                "speaker": 0,
+                "message": "Okay i will check this, thank you !"
+            },
+            {
+                "type": 0,
+                "speaker": 1,
+                "message": "Hello, yes i've heard people saw your friend getting into a ship going at (FIGHT 1)"
+            },
+            {
+                "type": 0,
+                "speaker": 0,
+                "message": "Hello, did you hear anything about the disapear of (MATE) ? "
+            },
+            {
+                "type": 1,
+                "message": "Speak with Dark Vador to get more informations about the disappearing of your mate."
+            },  
+            {
+                "type": 2,
+                "message": "Head to (PLANET) and go at 1000, 3000"
+            }
+        ]
+    }
+}

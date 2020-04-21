@@ -21,7 +21,6 @@ game_t *init_game(void)
     if (game == NULL)
         return (NULL);
     player = (player) ? player : player_create();
-    game->quest = rpg_quest_get_from_conf("./config/quest.json", game);
     if (player == NULL)
         return (NULL);
     game->player = player;

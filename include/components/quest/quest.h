@@ -9,13 +9,18 @@
 #include "item/item_id.h"
 #include "components/quest/board.h"
 #include "my_rpg.h"
+#include "my_json.h"
 
 #ifndef QUEST_HANDLER_H_
 #define QUEST_HANDLER_H_
 
+static const char *QUEST_CONF[] = {
+    "./config/quest.json"
+};
+
 typedef enum {
     INTRODUCTION_QUEST,
-    DARK_VADOR
+    MAX_QUEST_ID
 } quest_id;
 
 typedef enum {

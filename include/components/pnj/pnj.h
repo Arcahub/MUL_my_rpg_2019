@@ -1,0 +1,62 @@
+/*
+** EPITECH PROJECT, 2020
+** MUL_my_rpg_2019
+** File description:
+** quest_handler
+*/
+
+#include "components/quest/quest.h"
+#include "my_game.h"
+#include "my_json.h"
+
+#ifndef PNJ_H_
+#define PNJ_H_
+
+typedef enum {
+    GET_QUEST,
+    GIVE_BACK_QUEST,
+    DOING_QUEST,
+    NORMAL_STEP,
+} dialog_statue;
+
+typedef enum {
+    INTRODUCTION_PNJ,
+    MAX_PNJ_ID
+} pnj_id;
+
+typedef enum {
+    QUEST_PNJ,
+    DIALOG_PNJ,
+    SHOP_PNJ
+} pnj_type;
+
+typedef struct dialog {
+    char *text;
+    int speaker;
+    dialog_statue dialog_statue;
+    int dialog_step;
+    struct dialog *next;
+} dialog_t;
+
+typedef struct pnj {
+    char *json_path;
+    char *name;
+    int dialog_step;
+    quest_id quest_id;
+    bool draw_text;
+    pnj_id pnj_id;
+    pnj_type pnj_type;
+    dialog_t *dialog;
+    game_object_t *button;
+    sfText *dialog_text;
+} pnj_t;
+
+void free_text(sfText *text);
+void rpg_pnj_destroy(void *pt);
+pnj_t *rpg_pnj_init_extend_from_conf(game_object_t *object,
+json_object_t *js, game_t *game, scene_t *scene);
+void rpg_pnj_callback(game_object_t *object, void *pt);
+bool rpg_pnj_update(game_object_t *object, scene_t *scene);
+void rpg_pnj_button_callback(pnj_t *pnj, scene_t *scene);
+
+#endif /* !PNJ_H_ */
