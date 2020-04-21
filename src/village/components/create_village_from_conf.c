@@ -10,6 +10,14 @@
 #include "components/get_from_config.h"
 #include "village/village_decor_constructor.h"
 
+game_object_t *set_hitbox(game_object_t *last, int width, int height)
+{
+    last->box.height = height;
+    last->box.width = width;
+    last->box.left = height / 3;
+    last->box.top = 0;
+}
+
 game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
 {
     game_object_t *tile = NULL;
@@ -59,5 +67,5 @@ game_t *game, scene_t *scene)
             last = (tmp) ? tmp : last;
         }
     }
-    return (last);
+    return (set_hitbox(last, tile_width, tile_height));
 }
