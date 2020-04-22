@@ -9,6 +9,7 @@
 #include "my_game.h"
 #include "components/get_from_config.h"
 #include "village/village_decor_constructor.h"
+#include "village/village_tile_constructors.h"
 
 game_object_t *set_hitbox(game_object_t *last, int width, int height)
 {
@@ -19,26 +20,33 @@ game_object_t *set_hitbox(game_object_t *last, int width, int height)
     return (last);
 }
 
-game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
+game_object_t *generate_tile(game_object_t *last, sfVector2f pos, int id,
+int z_index)
 {
     game_object_t *tile = NULL;
 
     tile = create_game_object(last, (char *) TILE_PATH[id],
-    (sfVector2f) {x , y}, TILE_MAP);
+    pos, TILE_MAP);
     if (id != GRASS || id != PATH)
         tile->state = 1;
     return (tile);
 }
 
 game_object_t *generate_map_line(game_object_t *last, json_array_t *arr,
-int height, int width)
+sfVector2f size, scene_t *scene)
 {
     game_object_t *tmp = NULL;
+    static int z_index = 0;
+    json_value_t *value = NULL;
 
+    z_index += 1;
+    scene->z_index_deepth = z_index;
     for (int i = 0; i < arr->elem_count; i++) {
-        if (arr->array[i]->value_type == INT) {
-            tmp = generate_tile(last, *((int *) arr->array[i]->value),
-            width * i, height);
+        value = arr->array[i];
+        if (value->value_type == INT && *((int *) value->value) < MAX_TILE_ID
+        && *((int *) value->value) >= 0) {
+            tmp = TILE_GENERATORS[*((int *) value->value)](last, (sfVector2f)
+            {size.x * i, size.y}, *((int *) value->value), z_index);
             last = (tmp) ? tmp : last;
         }
     }
@@ -64,7 +72,7 @@ game_t *game, scene_t *scene)
     for (int i = 0; i < arr->elem_count; i++) {
         if (arr->array[i]->value_type == ARRAY) {
             tmp = generate_map_line(last, arr->array[i]->value,
-            tile_height * i, tile_width);
+            (sfVector2f) {tile_width, tile_height * i}, scene);
             last = (tmp) ? tmp : last;
         }
     }

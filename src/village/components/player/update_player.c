@@ -48,6 +48,7 @@ bool update_player(game_object_t *object, scene_t *scene)
     if (object->move.y != 0 || object->move.x != 0) {
         update_state(object);
         object->move = reset;
+        object->z_index = object->pos.y / 48;
     }
     return (true);
 }

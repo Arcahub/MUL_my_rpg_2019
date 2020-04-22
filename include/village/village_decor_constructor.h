@@ -24,6 +24,7 @@ enum {
     ROCK,
     PNJ1,
     PNJ2,
+    MAX_TILE_ID
 };
 
 static const char *TILE_PATH[] = {
