@@ -9,15 +9,12 @@
 #include "my_json.h"
 #include "components/quest/quest.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include "my.h"
 #include "const.h"
 #include "item/item_id.h"
 #include "components/get_from_config.h"
 #include "components/quest/board.h"
-
-static const char *FONT_PATH_LOG = "templates/font/Roboto-LightItalic.ttf";
-static const char *FONT_PATH = "templates/font/space.ttf";
+#include "tmp_font.h"
 
 static quest_board_t *rpg_quest_board_init_actual_step(step_t *tmp, int x, \
 quest_board_t *board, char *tmp2)
@@ -58,6 +55,7 @@ quest_board_t *board)
     int x = 0;
     char *tmp2 = NULL;
 
+    board->step_to_draw = 0;
     for (; tmp && tmp->validated == 1 && x < board->number_of_step; \
     tmp = tmp->next, x++) {
         tmp2 = my_strcat(tmp->description, " (COMPLETED)");

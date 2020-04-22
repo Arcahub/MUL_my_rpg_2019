@@ -20,6 +20,7 @@ game_t *init_game(void)
 
     if (game == NULL)
         return (NULL);
+    game->quest = rpg_init_quest(game);
     player = (player) ? player : player_create();
     if (player == NULL)
         return (NULL);

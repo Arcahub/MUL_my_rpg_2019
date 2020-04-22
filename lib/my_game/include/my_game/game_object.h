@@ -56,6 +56,7 @@ typedef enum
     REPAIR_BUTTON,
     DODGE_BUTTON,
     INVENTORY,
+    DIALOG_BUTTON,
     FIGHT_HANDLER
 } object_type;
 

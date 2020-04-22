@@ -8,25 +8,32 @@
             {
                 "type": 0,
                 "speaker": 0,
-                "message": "Okay i will check this, thank you !"
+                "message": " : Okay i will check this, thank you ! (4)"
             },
             {
                 "type": 0,
                 "speaker": 1,
-                "message": "Hello, yes i've heard people saw your friend getting into a ship going at (FIGHT 1)"
+                "message": " : Hello, yes i've heard people saw your friend getting into a ship going at (FIGHT 1) (3)"
             },
             {
                 "type": 0,
                 "speaker": 0,
-                "message": "Hello, did you hear anything about the disapear of (MATE) ? "
+                "message": " : Hello, did you hear anything about the disapear of (MATE) ? (2)"
+            },
+            {
+                "type": 0,
+                "speaker": 1,
+                "message": " : Hello, what can i do for you ? (1)"
             },
             {
                 "type": 1,
-                "message": "Speak with Dark Vador to get more informations about the disappearing of your mate."
+                "speaker": 1,
+                "message": " : QUEST_OVER, GG BRO"
             },  
             {
                 "type": 2,
-                "message": "Head to (PLANET) and go at 1000, 3000"
+                "speaker": 1,
+                "message": " : DOING QUEST"
             }
         ]
     }

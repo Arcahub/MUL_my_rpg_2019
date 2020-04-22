@@ -23,6 +23,12 @@
                 "type": 16,
                 "texture_path": "templates/Window.png"
             },
+            {
+                "type": 18,
+                "json_path": "config/PNJ/pnj.json",
+                "texture_path": "templates/item.png",
+                "pos": [500, 500]
+            }
         ]
     }
 }

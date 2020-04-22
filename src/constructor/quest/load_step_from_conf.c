@@ -8,7 +8,6 @@
 #include "my_game.h"
 #include "my_json.h"
 #include "components/quest/quest.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include "components/get_from_config.h"
 
@@ -29,7 +28,7 @@ static step_t *create_step_from_conf(json_object_t *js, step_t *next, game_t *ga
     if (step->step_type == REACH && 
     !get_int_from_conf(js, (int *) &step->scene, "scene"))
         return (NULL);
-    step->validated = 1;
+    step->validated = 0;
     if (step->step_number == 5)
         step->validated = 0;
     step->next = next;

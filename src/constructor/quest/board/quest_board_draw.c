@@ -7,6 +7,7 @@
 
 #include "my_game.h"
 #include "components/quest/board.h"
+#include "stdio.h"
 
 void rpg_quest_board_draw(sfRenderWindow *window, game_object_t *object)
 {
@@ -16,6 +17,8 @@ void rpg_quest_board_draw(sfRenderWindow *window, game_object_t *object)
         return;
     sfRenderWindow_drawSprite(window, object->sprite, NULL);
     sfRenderWindow_drawText(window, board->title, NULL);
+    if (board->draw_infos == 0)
+        return;
     sfRenderWindow_drawText(window, board->name, NULL);
     sfRenderWindow_drawText(window, board->money_reward, NULL);
     sfRenderWindow_drawText(window, board->item_reward, NULL);

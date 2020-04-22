@@ -44,10 +44,10 @@ typedef struct pnj {
     int dialog_step;
     quest_id quest_id;
     bool draw_text;
+    dialog_statue quest_statue;
     pnj_id pnj_id;
     pnj_type pnj_type;
     dialog_t *dialog;
-    game_object_t *button;
     sfText *dialog_text;
 } pnj_t;
 
@@ -57,6 +57,12 @@ pnj_t *rpg_pnj_init_extend_from_conf(game_object_t *object,
 json_object_t *js, game_t *game, scene_t *scene);
 void rpg_pnj_callback(game_object_t *object, void *pt);
 bool rpg_pnj_update(game_object_t *object, scene_t *scene);
-void rpg_pnj_button_callback(pnj_t *pnj, scene_t *scene);
+void rpg_pnj_button_callback(game_object_t *object, void *pt);
+void rpg_dialog_set_text(pnj_t *pnj, scene_t *scene, dialog_t *dialog);
+void rpg_dialog_advance_step(pnj_t *pnj, scene_t *scene, dialog_t *dialog);
+bool rpg_pnj_update(game_object_t *object, scene_t *scene);
+void rpg_pnj_open_dialog_give_quest(pnj_t *pnj, scene_t *scene);
+void rpg_pnj_open_dialog_quest_over(pnj_t *pnj, scene_t *scene);
+void rpg_pnj_open_dialog_doing_quest(pnj_t *pnj, scene_t *scene);
 
 #endif /* !PNJ_H_ */

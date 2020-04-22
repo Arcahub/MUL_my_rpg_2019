@@ -12,15 +12,17 @@
 #include "my.h"
 #include <stdlib.h>
 
-static const char *path = "templates/pnjbutton.png";
-
-static dialog_t *create_dialog_from_conf(json_object_t *js, dialog_t *next, game_t *game)
+static dialog_t *create_dialog_from_conf(json_object_t *js, dialog_t *next, \
+game_t *game)
 {
     dialog_t *dialog = malloc(sizeof(dialog_t));
 
     if (dialog == NULL)
         return (NULL);
     dialog->next = next;
+    dialog->dialog_step = 0;
+    if (next != NULL)
+        dialog->dialog_step = next->dialog_step + 1;
     if (!get_int_from_conf(js, (int *) &dialog->dialog_statue, "type") ||
     !get_int_from_conf(js, &dialog->speaker, "speaker"))
         return (NULL);
@@ -28,7 +30,8 @@ static dialog_t *create_dialog_from_conf(json_object_t *js, dialog_t *next, game
     return (dialog);
 }
 
-static dialog_t *rpg_pnj_init_dialog(pnj_t *pnj, json_object_t *js, game_t *game)
+static dialog_t *rpg_pnj_init_dialog(pnj_t *pnj, json_object_t *js, \
+game_t *game)
 {
     json_value_t *value = NULL;
     json_array_t *array = NULL;
@@ -51,21 +54,6 @@ static dialog_t *rpg_pnj_init_dialog(pnj_t *pnj, json_object_t *js, game_t *game
     return (list);
 }
 
-static pnj_t *rpg_pnj_init_button(pnj_t *pnj)
-{
-    sfVector2f pos = {1500, 800};
-
-    if (pnj->pnj_type == SHOP)
-        return (pnj);
-    pnj->button = create_game_object(NULL, path, pos, BUTTON);
-    if (pnj->button == NULL)
-        return (NULL);
-    pnj->button->box.height = 150;
-    pnj->button->box.width = 200;
-    pnj->button->box.top = pos.x;
-    pnj->button->box.left = pos.y;
-}
-
 pnj_t *rpg_pnj_init_extend_from_conf(game_object_t *object,
 json_object_t *js, game_t *game, scene_t *scene)
 {
@@ -80,12 +68,13 @@ json_object_t *js, game_t *game, scene_t *scene)
     pnj->json_path = my_strdup(get_str_from_conf(js, "json_path"));
     pnj_js = json_create_from_file(pnj->json_path);
     pnj->name = my_strdup(get_str_from_conf(pnj_js, "name"));
-    if ((!get_int_from_conf(pnj_js, (int *) &pnj->pnj_id, "id") || \
-    !get_int_from_conf(pnj_js, (int *) &pnj->pnj_type, "type")) && \
-    (pnj->pnj_type == QUEST_PNJ && !get_int_from_conf(pnj_js, (int *) \
-    &pnj->quest_id, "quest")) && (pnj->pnj_type != SHOP && (pnj->dialog = \
-    rpg_pnj_init_dialog(pnj, pnj_js, game)) == NULL))
+    if (!get_int_from_conf(pnj_js, (int *) &pnj->pnj_id, "id") || \
+    !get_int_from_conf(pnj_js, (int *) &pnj->pnj_type, "type")) 
         return (NULL);
-    pnj = rpg_pnj_init_button(pnj);
+    if (pnj->pnj_type == QUEST_PNJ && !get_int_from_conf(pnj_js, (int *) \
+    &pnj->quest_id, "quest"))
+        return (NULL);
+    if ((pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game)) == NULL)
+        return (NULL);
     return (pnj);
 }

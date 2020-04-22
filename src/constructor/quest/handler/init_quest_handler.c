@@ -13,18 +13,20 @@
 
 bool rpg_quest_handler_update(game_object_t *object, scene_t *scene)
 {
-    step_t *tmp = scene->game->quest->step;
+    step_t *tmp = NULL;
     game_object_t *tmp2 = scene->objects_list;
 
-    if (tmp == NULL || tmp2 == NULL)
+    if (scene->game->quest->step == NULL || \
+    scene->game->quest->state == UNTAKEN)
         return (true);
+    tmp = scene->game->quest->step;
     for (; tmp && tmp->step_number != scene->game->quest->actual_step; \
     tmp = tmp->next);
     if (tmp == NULL || tmp->step_number != scene->game->quest->actual_step || \
     tmp->step_type != REACH)
         return (true);
     for (; tmp2 && tmp2->type != PLAYER; tmp2 = tmp2->next);
-    if (tmp2->type != PLAYER)
+    if (tmp2 == NULL || tmp2->type != PLAYER)
         return (true);
     if (scene->display == (int) tmp->scene && sfIntRect_contains(&tmp2->box,
     tmp->pos.x, tmp->pos.y))

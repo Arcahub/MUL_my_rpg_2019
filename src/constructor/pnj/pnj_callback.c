@@ -7,9 +7,27 @@
 
 #include "components/pnj/pnj.h"
 #include "my_game.h"
+#include "my.h"
+#include "tmp_font.h"
+#include <stdlib.h>
 
 void rpg_pnj_callback(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *) pt;
     pnj_t *pnj = (pnj_t *) object->extend;
+
+    if (pnj->draw_text == 1)
+        return;
+    if (scene->game->quest->state == UNTAKEN ||
+    scene->game->quest->state == RESET) {
+        rpg_pnj_open_dialog_give_quest(pnj, scene);
+        return;
+    } else if (scene->game->quest->state == TAKEN && \
+    scene->game->quest->id == pnj->quest_id) {
+        rpg_pnj_open_dialog_doing_quest(pnj, scene);
+        return;
+    }
+    if (scene->game->quest->state == ACHIEVED  && \
+    scene->game->quest->id == pnj->quest_id)
+        rpg_pnj_open_dialog_quest_over(pnj, scene);
 }

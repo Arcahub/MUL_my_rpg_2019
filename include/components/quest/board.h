@@ -19,6 +19,7 @@ typedef struct quest_board {
     sfText *actual_step;
     int number_of_step;
     int step_to_draw;
+    int draw_infos;
 } quest_board_t;
 
 void free_text(sfText *text);
