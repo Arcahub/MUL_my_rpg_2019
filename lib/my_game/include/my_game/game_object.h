@@ -40,11 +40,7 @@ typedef enum
     INFO,
     SHOP,
     ENNEMY,
-    GROUND,
-    GRASS,
     PNJ,
-    ROCK,
-    UPGRADE_BUTTON,
     SPACESHIP,
     TEXT_HANDLER,
     PLAYER,
@@ -57,6 +53,7 @@ typedef enum
     INVENTORY,
     FIGHT_HANDLER,
     MUSIC
+    TILE_MAP
 } object_type;
 
 ////////////////////////////////////////////////////////////
