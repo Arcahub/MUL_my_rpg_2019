@@ -55,7 +55,8 @@ typedef enum
     REPAIR_BUTTON,
     DODGE_BUTTON,
     INVENTORY,
-    FIGHT_HANDLER
+    FIGHT_HANDLER,
+    MUSIC
 } object_type;
 
 ////////////////////////////////////////////////////////////

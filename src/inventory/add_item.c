@@ -42,9 +42,11 @@ static inventory_t *rpg_inventory_create_text(inventory_t *item)
     if (item->type == WEAPON_ITEM) {
         tmp = my_strcat_nbr("Damage: ", item->damage);
         item->text[3] = init_text(tmp, 1240, 600, (char *) FONT_PATH_LOG);
+        free(tmp);
     } else if (item->type == REPAIRING_ITEM) {
         tmp = my_strcat_nbr("Repair value: ", item->repair_value);
         item->text[3] = init_text(tmp, 1240, 600, (char *) FONT_PATH_LOG);
+        free(tmp);
     }
     item->text[0] = init_text(name, 1240, 70, (char *) FONT_PATH);
     item->text[1] = init_text(item->item_description, 1240, 250, (char *) \

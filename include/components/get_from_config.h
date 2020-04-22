@@ -17,6 +17,7 @@ char *get_str_from_conf(json_object_t *, char *);
 bool get_int_from_conf(json_object_t *, int *, char *);
 sfIntRect **get_frame_keys_from_conf(json_object_t *, char *);
 bool get_color_from_conf(json_object_t *, sfColor *, char *);
+bool get_bool_from_conf(json_object_t *js, bool *var, char *key);
 
 
 #endif /* !GET_FROM_CONFIG_H_ */
