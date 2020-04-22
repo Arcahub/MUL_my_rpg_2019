@@ -5,10 +5,6 @@
 Welcome to my my_rpg,
 Welcome to my my_rpg, you can can head to the doc.md file to see different informations about what the game contains.
 
-### Windows Installer
-
-Use [this](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-web-community-8.0.18.0.msi) install
-
 ### Linux Installer
 
 Clone the repository:
@@ -17,12 +13,6 @@ Clone the repository:
     git clone https://github.com/Nolann-epi/my_rpg.git
     git clone https://github.com/Ulysse-qd/my_rpg.git
     git clone https://github.com/ThomasMarchres/my_rpg.git
-
-Download the version of your distrib on [this link](https://dev.mysql.com/downloads/repo/yum/)
-
-Then install it with:
-
-    sudo yum localinstall mysql80-community-release-{distrib version}-{version-number}.noarch.rpm
 
 Install CSFML
 
