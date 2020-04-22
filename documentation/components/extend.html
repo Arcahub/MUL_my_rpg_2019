@@ -67,11 +67,11 @@
 									<li><a href="#">Player_village</a></li>
 									<li><a href="#">Player_fight</a></li>
 									<li><a href="#">Shop</a></li>
-									<li><a href="#">PNJ</a></li>
+									<li><a href="npc.html">NPC</a></li>
 									<li><a href="item.html">Item</a></li>
 									<li><a href="quest.html">Quest</a></li>
 									<li><a href="text_handler.html">Text_handler</a></li>
-									<li><a href="#">Music</a></li>
+									<li><a href="music_handler.html">Music</a></li>
 									<li><a href="#">Cursor</a></li>
 									<li><a href="ennemy.html">Ennemy</a></li>
 									<li><a href="#">Planet</a></li>
@@ -90,7 +90,7 @@
 					<header>
 						<h3>What is an extend ?</h3>
 					</header>
-					<p>As you can see on the struct <a href="game_object.html">game_object </a>, there is a <font color="red">void *</font>extend and a <font color="red">void</font> (*free_extend)(<font color="red">void *</font>). The extend is a void pointer. Its used to link any kind of struct to our game_object to make it as generic as possible. Different kind of objects can need things that we didnt put in the struct to make it smoother. For exemple a spaceship would need hp, a PNJ would need a name, etc, etc... The free_extend is simply a function that we call to free the extend of the object.</p>
+					<p>As you can see on the struct <a href="game_object.html">game_object </a>, there is a <font color="red">void *</font>extend and a <font color="red">void</font> (*free_extend)(<font color="red">void *</font>). The extend is a void pointer. Its used to link any kind of struct to our game_object to make it as generic as possible. Different kind of objects can need things that we didnt put in the struct to make it smoother. For exemple a spaceship would need hp, a npc would need a name, etc, etc... The free_extend is simply a function that we call to free the extend of the object.</p>
 					<header>
 						<h3>Exemple of extend</h3>
 					</header>	

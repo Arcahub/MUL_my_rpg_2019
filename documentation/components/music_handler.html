@@ -82,89 +82,64 @@
 				</div><br>
 				<center>
 					<header>
-						<h2>Item</h2>
-						<p>On this page, we will explain how works the item handler of our project.</p>
+						<h2>Music_handler</h2>
+						<p>On this page, we will explain how works music_handler component.</p>
 						<hr class="major">
 					</header>
 				</center>
-					<header>
-						<h3>How to create an item</h3>
-					</header>
-						<p>To create an item, you will need to create and json configuration file in the folder config/item and then to link the file path of the json file inside Include/item/item_path.h. Finally you'll need to add its id to the item_id.h file, here is an exemple.</p>
-					<header>
-						<h3>Json configuration file</h3>
-					</header>
-						<pre><code>{
-<font color="purple">item_id"</font>: 0,
-<font color="purple">item_type"</font>: 0,
-<font color="purple">damage"</font>: 50,
-<font color="purple">name"</font>: "Basic Canoon",
-<font color="purple">description"</font>: "A basic but heavy canoon !",
-<font color="purple">path"</font>: "templates/item.png"
-}</code></pre>
-					<p></p>
-				
-				<div class="table-wrapper">
+				<header>
+					<h3>What is a music_handler ?</h3>
+				</header>
+				<p>A music_handler is a component that allow you to play a music on each scene thanks to a json configuration file.<br>I suggest you to go read <a href="json_constructors.html">constructor's documentation</a> if you want really want to understand how the music is being initialized thanks ton the json file. </p>
+				<hr class="major">
+				<header>
+					<h3>What can contain an object inside a scene json_configuration file to create a music ?</h3>
+				</header>
+				<p>Here is an exemple of a way to create a music on a scene thanks to a json file. Just add the proper infos inside the scene's objects_list and it will play the music on its own. </p>
+				<pre><code>"<font color="orange">objects_list</font>": [
+	{
+		"<font color="purple">type</font>": 15,
+		"<font color="purple">loop</font>": 1,
+		"<font color="purple">volume</font>": 100,
+		"<font color="purple">file_path</font>": "templates/sounds/exemple.ogg"
+	},</code></pre>
+				<p>On this table, you can see the value's name in the json file, its usage, and the type of the value. Those are the values you can put inside your json file to create a text.</p>
+				<div class="table-wrapper">	
 					<table>
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>Description</th>
+								<th>Value's key</th>
+								<th>Usage</th>
 								<th>Type</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>item_id</td>
-								<td>Id of your item</td>
-								<td><font color="red">item_id</td></font>
+								<td>type</td>
+								<td>Always put 15 for a music.</td>
+								<td><font color="red">int</td></font>
 							</tr>
 							<tr>
-								<td>item_type</td>
-								<td>Type of the item</td>
-								<td><font color="red">item_type</td></font>
+								<td>loop</td>
+								<td>Put 1 if you want the music to loop, 0 if not.</td>
+								<td><font color="red">int</td></font>
 							</tr>
 							<tr>
-								<td>name</td>
-								<td>Name of the item</td>
-								<td><font color="red">char *</td></font>
+								<td>volume</td>
+								<td>Volume from 0 to 100.</td>
+								<td><font color="red">int</td></font>
 							</tr>
 							<tr>
-								<td>description</td>
-								<td>Description of the item</td>
-								<td><font color="red">char *</td></font>
-							</tr>
-							<tr>
-								<td>Path</td>
-								<td>Sprite_path to the item 50x50px image</td>
+								<td>file_path</td>
+								<td>Filepath to the music file.</td>
 								<td><font color="red">char *</td></font>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-				<header>
-					<h3>What's an item_id ?</h3>
-				</header>
-					<p>An item_id is used to make the difference between every item. If you create an item or want to know how it works. Checkout include/item/item_id.h</p>
-				<pre><code><font color="green">typedef</font> <font color="red">enum</font> {
-	<font color="orange">BASIC_CANON</font>,
-	<font color="orange">LASER_CANON</font>,
-	<font color="orange">PLASMA_CANON</font>,
-	<font color="orange">BASIC_ROCKET</font>,
-	<font color="orange">PLASMA_ROCKET</font>,
-	<font color="orange">REPAIRING_ITEM</font>,
-} <font color="red">item_id</font>;</code></pre>
-				<header>
-					<h3>What's an item_type ?</h3>
-				</header>
-				<p>An item type is used to know whats the use of the item. If it's either a weapon, either an item to repair your ship, either an item gave for a quest.</p>
-				<pre><code><font color="green">typedef</font> <font color="red">enum</font> {
-	<font color="orange">WEAPON_ITEM</font>,
-	<font color="orange">REPAIR_ITEM</font>,
-	<font color="orange">QUEST_ITEM</font>,
-} <font color="red">item_type</font>;</code></pre>
 			</div>
-<!-- Footer -->
+
+		<!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
 					<div class="flex">
