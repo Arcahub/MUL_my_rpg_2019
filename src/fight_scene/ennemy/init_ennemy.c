@@ -51,6 +51,7 @@ static ennemy_t *rpg_ennemy_extend_init(ennemy_t *ennemy)
     ennemy->repair_value = 0;
     ennemy->repair_statue = 0;
     ennemy->hp_text = NULL;
+    ennemy->quest_id = 0;
     ennemy->shield_text = NULL;
     return (ennemy);
 }
@@ -67,6 +68,7 @@ json_object_t *js)
     !get_int_from_conf(js, &ennemy->damage, "damage") ||
     !get_int_from_conf(js, &ennemy->hp, "hp") ||
     !get_int_from_conf(js, &ennemy->action_number, "action_number") ||
+    !get_int_from_conf(js, (int *) &ennemy->quest_id, "quest_id") ||
     !get_int_from_conf(js, &ennemy->repair_value, "repair_value") ||
     !get_int_from_conf(js, &ennemy->shield, "shield") ||
     (ennemy->name = get_str_from_conf(js, "name")) == NULL ||

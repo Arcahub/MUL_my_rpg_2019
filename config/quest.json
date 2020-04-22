@@ -2,7 +2,7 @@
     "quest": {
         "id": 0,
         "name": "Quete d'introduction",
-        "number_of_step": 5,
+        "number_of_step": 2,
         "reward_item": 1,
         "reward_item_number": 1,
         "reward_money": 100,
@@ -10,39 +10,18 @@
             {
                 "type": 0,
                 "validated": 0,
-                "step_number": 5,
-                "description": "Speak back with Dark Vador and show him what you've found on (ENNEMY)",
+                "step_number": 2,
+                "description": "Go back to l'autre pd et rend lui la quete",
+                "scene": 5,
                 "pos": [1000, 3000]
             },
             {
                 "type": 1,
                 "validated": 0,
-                "step_number": 4,
-                "description": "Fight with (ENNNEMY) and see if he has any paper on his body !",
-                "pos": [1000, 2000],
-                "fight_scene": "config/fight_scene.json"
-            },
-            {
-                "type": 2,
-                "validated": 0,
-                "step_number": 3,
-                "description": "Head to 1000, 2000 in the galaxie to reach (ENNEMY)",
-                "scene": 5,
-                "pos": [1000, 2000]
-            },
-            {
-                "type": 0,
-                "validated": 0,
-                "step_number": 2,
-                "description": "Speak with Dark Vador to get more informations about the disappearing of your mate.",
-                "pos": [1000, 3000]
-            },  
-            {
-                "type": 2,
-                "validated": 0,
                 "step_number": 1,
-                "description": "Head to (PLANET) and go at 1000, 3000",
+                "description": "Tue le gros fdp de vaisseau !",
                 "scene": 5,
+                "fight_scene": "config/fight_scene.json",
                 "pos": [1000, 3000]
             }
         ]

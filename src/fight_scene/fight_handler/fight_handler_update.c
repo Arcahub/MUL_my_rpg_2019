@@ -12,7 +12,6 @@
 #include "fight_scene/ship.h"
 #include <stdlib.h>
 
-
 static void rpg_fight_handler_player_lose(game_object_t *object, \
 scene_t *scene)
 {
@@ -22,7 +21,13 @@ scene_t *scene)
 static void rpg_fight_handler_player_win(game_object_t *object, \
 scene_t *scene)
 {
-    scene->display = GALAXIE_SCENE;
+    ennemy_t *ennemy = rpg_ennemy_get_extend(scene);
+
+    if (ennemy == NULL || scene->game->quest == NULL)
+        return;
+    if (ennemy->quest_id == scene->game->quest->id)
+        validate_step(scene->game, scene, scene->game->quest);
+    scene->display = INVENTORY_SCENE;
 }
 
 bool rpg_fight_handler_update(game_object_t *object, scene_t *scene)

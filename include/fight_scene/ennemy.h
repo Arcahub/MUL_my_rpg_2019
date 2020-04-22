@@ -9,6 +9,7 @@
 #ifndef ENNEMY_H_
 #define ENNEMY_H_
 
+#include "components/quest/quest.h"
 #include "my_game.h"
 #include "item/item_id.h"
 #include "fight_scene/fight_handler.h"
@@ -26,6 +27,7 @@ typedef struct ennemy {
     bool in_fight;
     action_id *id;
     int repair_statue;
+    quest_id quest_id;
     sfText *name_text;
     sfText *hp_text;
     sfText *shield_text;

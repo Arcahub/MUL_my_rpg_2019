@@ -8,10 +8,15 @@
             [0, 0],
             [1, 9],
             [5, 5],
-            [6, 5]
+            [6, 5],
+            [7, 5]
         ],
         "background_color": [0, 0, 0, 0],
         "objects_list": [
+            {
+                "type": 16,
+                "texture_path": "templates/Window.png"
+            },
             {
                 "type": 12,
                 "texture_path": "templates/inv.png"
@@ -22,6 +27,7 @@
                 "pos": [1100, 300],
                 "weapon_id": 0,
                 "texture_path": "templates/ship2.png",
+                "quest_id": 0,
                 "hp" : 100,
                 "shield": 100,
                 "repair_value": 10,

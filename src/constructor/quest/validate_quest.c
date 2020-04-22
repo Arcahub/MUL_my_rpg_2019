@@ -9,6 +9,7 @@
 #include "my_json.h"
 #include "components/quest/quest.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include "item/inventory.h"
 
 void validate_quest(game_t *game, scene_t *scene, quest_t *quest)
@@ -22,6 +23,7 @@ void validate_quest(game_t *game, scene_t *scene, quest_t *quest)
         return;
     tmp->extend = (void *) rpg_inventory_add_item((inventory_t *)
     tmp->extend, quest->reward_item_number, quest->reward_item);
+    printf("%d / %d\n", quest->reward_item_number, quest->reward_item);
     for (; board && board->type != QUEST_BOARD; board = board->next);
     if (board->type != QUEST_BOARD)
         return;
@@ -40,7 +42,7 @@ void validate_step(game_t *game, scene_t *scene, quest_t *quest)
 
     for (tmp = quest->step; tmp && tmp->step_number != quest->actual_step; \
     tmp = tmp->next);
-    if (tmp->step_number != quest->actual_step)
+    if (tmp == NULL || tmp->step_number != quest->actual_step)
         return;
     tmp->validated = 1;
     quest->actual_step++;
@@ -49,4 +51,6 @@ void validate_step(game_t *game, scene_t *scene, quest_t *quest)
         return;
     quest_board = (quest_board_t *) board->extend;
     quest_board = rpg_quest_board_update_text(quest_board, scene);
+    if (tmp->step_number == quest->number_of_step - 1)
+        quest->state = ACHIEVED;
 }

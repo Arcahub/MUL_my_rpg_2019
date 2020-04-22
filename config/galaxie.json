@@ -8,10 +8,15 @@
             [0, 0],
             [1, 9],
             [3, 9],
-            [4, 5]
+            [4, 5],
+            [7, 5]
         ],
         "background_color": [0, 0, 0, 0],
         "objects_list": [
+            {
+                "type": 16,
+                "texture_path": "templates/Window.png"
+            },
             {
                 "type": 11,
                 "button": {
