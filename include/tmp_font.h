@@ -9,5 +9,6 @@
 #define TMP_FONT_H_
 
 static const char *FONT_PATH = "templates/font/space.ttf";
+static const char *FONT_PATH_LOG = "templates/font/Roboto-LightItalic.ttf";
 
 #endif /* !TMP_FONT_H_ */

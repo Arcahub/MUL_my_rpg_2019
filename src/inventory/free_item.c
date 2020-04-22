@@ -18,6 +18,11 @@ void rpg_inventory_destroy(void *pt)
         return;
     for (; item; item = tmp) {
         tmp = item->next;
+        if (item != NULL && item->type == WEAPON_ITEM) {
+            sfSprite_destroy(item->equip_button->sprite);
+            sfTexture_destroy(item->equip_button->texture);
+            free(item->equip_button);
+        }
         free_item(item);
     }
 }

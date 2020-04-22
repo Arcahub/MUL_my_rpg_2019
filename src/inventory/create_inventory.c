@@ -9,6 +9,7 @@
 #include "components/get_from_config.h"
 #include "my_game.h"
 #include "item/inventory.h"
+#include <stdio.h>
 
 bool rpg_update_inventory(game_object_t *object, scene_t *scene)
 {
@@ -28,6 +29,9 @@ bool rpg_update_inventory(game_object_t *object, scene_t *scene)
         tmp2 = (sfVector2f) {275 + (x * 60) + pos.x, 190 + (y * 60) + pos.y};
         tmp->box = (sfIntRect) {tmp2.x, tmp2.y, 50, 50};
         sfSprite_setPosition(tmp->sprite, tmp2);
+        sfSprite_setPosition(tmp->equip_button->sprite, (sfVector2f) {1350 + pos.x, 700 + pos.y});
+        tmp->equip_button->box.left = 1350 + pos.x;
+        tmp->equip_button->box.top = 700 + pos.y;
         tmp2.x = 1240 + pos.x;
         sfText_setPosition(tmp->text[0], (sfVector2f) {tmp2.x, 120 + pos.y});
         sfText_setPosition(tmp->text[1], (sfVector2f) {tmp2.x, 300 + pos.y});
@@ -47,6 +51,10 @@ bool rpg_inventory_get_click_on_item(game_object_t *object, void *pt)
     for (tmp = (inventory_t *) object->extend; tmp; tmp = tmp->next) {
         if (sfIntRect_contains(&tmp->box, x, y)) {
             tmp->selected = 1;
+        } else if (tmp->type == WEAPON_ITEM && tmp->selected == 1 && \
+        sfIntRect_contains(&tmp->equip_button->box, x, y)) {
+            rpg_item_equip_weapon(scene, tmp, (inventory_t *) object->extend);
+            tmp->selected = 1;
         } else
             tmp->selected = 0;
     }
@@ -60,15 +68,20 @@ void rpg_inventory_draw(sfRenderWindow *window, game_object_t *object)
     if (object->state == 0)
         return;
     sfRenderWindow_drawSprite(window, object->sprite, NULL);
-    for (tmp = (inventory_t *) object->extend; tmp; tmp = tmp->next)
+    for (tmp = (inventory_t *) object->extend; tmp; tmp = tmp->next) {
+        if (tmp->type == WEAPON_ITEM && tmp->equip_button->texture != NULL && \
+        tmp->equip_button->sprite != NULL && tmp->selected == 1)
+            sfRenderWindow_drawSprite(window, tmp->equip_button->sprite, NULL);
         if (tmp->texture != NULL && tmp->sprite != NULL \
         && tmp->selected == 1) {
             sfRenderWindow_drawSprite(window, tmp->sprite, NULL);
             sfRenderWindow_drawText(window, tmp->text[0], NULL);
             sfRenderWindow_drawText(window, tmp->text[1], NULL);
             sfRenderWindow_drawText(window, tmp->text[2], NULL);
+            sfRenderWindow_drawText(window, tmp->text[3], NULL);
         } else if (tmp->texture != NULL && tmp->sprite != NULL)
             sfRenderWindow_drawSprite(window, tmp->sprite, NULL);
+    }
 }
 
 game_object_t *rpg_inventory_create_from_conf(game_object_t *last, \
@@ -82,7 +95,7 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->draw = &rpg_inventory_draw;
     object->callback = &rpg_inventory_get_click_on_item;
     object->update = &rpg_update_inventory;
-    object->box = (sfIntRect) {600, 600, 250, 215};
+    object->box = (sfIntRect) {0, 0, 1920, 1080};
     object->z_index = 1;
     object->extend = (void *) rpg_inventory_add_item(NULL, 4, 0);
     object->extend = (void *) rpg_inventory_add_item((inventory_t *)

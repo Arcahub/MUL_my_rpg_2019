@@ -3,6 +3,6 @@
     "item_type": 0,
     "damage": 50,
     "name": "Basic Canoon",
-    "description": "A basic but heavy canoon !",
+    "description": "A basic canoon !",
     "path": "templates/item.png"
 }
