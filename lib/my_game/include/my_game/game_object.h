@@ -52,7 +52,7 @@ typedef enum
     DODGE_BUTTON,
     INVENTORY,
     FIGHT_HANDLER,
-    MUSIC
+    MUSIC,
     TILE_MAP
 } object_type;
 
