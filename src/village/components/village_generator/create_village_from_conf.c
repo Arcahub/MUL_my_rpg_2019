@@ -11,15 +11,6 @@
 #include "village/village_decor_constructor.h"
 #include "village/village_tile_constructors.h"
 
-game_object_t *set_hitbox(game_object_t *last, int width, int height)
-{
-    last->box.height = height;
-    last->box.width = width;
-    last->box.left = 0;
-    last->box.top = height - (height / 3);
-    return (last);
-}
-
 game_object_t *generate_tile(game_object_t *last, sfVector2f pos, int id,
 int z_index)
 {
@@ -64,10 +55,10 @@ game_t *game, scene_t *scene)
 
     if (!get_int_from_conf(js, &tile_height, "tile_height") ||
     !get_int_from_conf(js, &tile_width, "tile_width"))
-        return (NULL);
+        return (last);
     value = json_get_element_by_key(js, "map");
     if (!value || value->value_type != ARRAY)
-        return (NULL);
+        return (last);
     arr = value->value;
     for (int i = 0; i < arr->elem_count; i++) {
         if (arr->array[i]->value_type == ARRAY) {
@@ -76,5 +67,5 @@ game_t *game, scene_t *scene)
             last = (tmp) ? tmp : last;
         }
     }
-    return (set_hitbox(last, tile_width, tile_height));
+    return (last);
 }

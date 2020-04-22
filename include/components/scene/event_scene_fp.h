@@ -42,8 +42,8 @@ sfRenderWindow *) = {
     &galaxie_move_event,
     &trigger_in_game_menu,
     &open_inventory,
-    &village_move_event,
     &pause_fight,
+    &village_move_event,
 };
 
 #endif /* !EVENT_SCENE_FP_H_ */
