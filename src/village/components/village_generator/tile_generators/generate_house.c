@@ -15,6 +15,10 @@ int z_index)
 
     tile = create_game_object(last, (char *) TILE_PATH[id],
     pos, TILE_MAP);
+    if (tile == NULL)
+        return (NULL);
     tile->z_index = z_index;
+    tile = create_game_object(tile, (char *) TILE_PATH[0],
+    pos, TILE_MAP);
     return (tile);
 }

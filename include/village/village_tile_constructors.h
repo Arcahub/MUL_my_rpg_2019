@@ -20,6 +20,8 @@ game_object_t *generate_path(game_object_t *last, sfVector2f pos, int id,
 int z_index);
 game_object_t *generate_house(game_object_t *last, sfVector2f pos, int id,
 int z_index);
+game_object_t *generate_waterfall(game_object_t *last, sfVector2f pos, int id,
+int z_index);
 
 static game_object_t *(*TILE_GENERATORS[])(game_object_t *, sfVector2f, int,
 int) = {
@@ -34,7 +36,7 @@ int) = {
     &generate_forest,
     &generate_house,
     &generate_house,
-    &generate_tile,
+    &generate_waterfall,
     &generate_tile,
     &generate_tile,
     &generate_tile

@@ -2,13 +2,13 @@
 ** EPITECH PROJECT, 2020
 ** MUL_my_rpg_2019
 ** File description:
-** generate_forest
+** generate_waterfall
 */
 
 #include "my_game.h"
 #include "village/village_decor_constructor.h"
 
-game_object_t *generate_forest(game_object_t *last, sfVector2f pos, int id,
+game_object_t *generate_waterfall(game_object_t *last, sfVector2f pos, int id,
 int z_index)
 {
     game_object_t *tile = NULL;
