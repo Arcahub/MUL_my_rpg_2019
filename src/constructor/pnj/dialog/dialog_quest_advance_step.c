@@ -9,7 +9,7 @@
 #include "components/pnj/pnj.h"
 #include "components/quest/quest.h"
 
-void rpg_dialog_advance_step(pnj_t *pnj, scene_t *scene, dialog_t *dialog)
+void rpg_quest_dialog_advance_step(pnj_t *pnj, scene_t *scene, dialog_t *dialog)
 {
     for (; dialog && dialog->dialog_step != pnj->dialog_step; \
     dialog = dialog->next);

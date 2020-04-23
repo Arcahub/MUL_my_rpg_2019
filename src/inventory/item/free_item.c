@@ -34,13 +34,8 @@ void free_item(inventory_t *item)
         sfSprite_destroy(item->sprite);
         sfTexture_destroy(item->texture);
     }
-    if (item->text[0] && item->text[1] && item->text[2]) {
-        sfFont_destroy((sfFont *) sfText_getFont(item->text[0]));
-        sfFont_destroy((sfFont *) sfText_getFont(item->text[1]));
-        sfFont_destroy((sfFont *) sfText_getFont(item->text[2]));
-        sfText_destroy(item->text[0]);
-        sfText_destroy(item->text[1]);
-        sfText_destroy(item->text[2]);
-    }
+    free_text(item->text[0]);
+    free_text(item->text[1]);
+    free_text(item->text[2]);
     free(item);
 }

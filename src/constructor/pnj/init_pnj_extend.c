@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 static dialog_t *create_dialog_from_conf(json_object_t *js, dialog_t *next, \
-game_t *game)
+game_t *game, pnj_t *pnj)
 {
     dialog_t *dialog = malloc(sizeof(dialog_t));
 
@@ -23,6 +23,7 @@ game_t *game)
     dialog->dialog_step = 0;
     if (next != NULL)
         dialog->dialog_step = next->dialog_step + 1;
+    pnj->number_of_step = dialog->dialog_step;
     if (!get_int_from_conf(js, (int *) &dialog->dialog_statue, "type") ||
     !get_int_from_conf(js, &dialog->speaker, "speaker"))
         return (NULL);
@@ -47,7 +48,8 @@ game_t *game)
             continue;
         value = json_get_element_by_key(array->array[i]->value, "type");
         if (value && value->value_type == INT) {
-            tmp = create_dialog_from_conf(array->array[i]->value, list, game);
+            tmp = create_dialog_from_conf(array->array[i]->value, list, \
+            game, pnj);
             list = (tmp) ? tmp : list;
         }
     }

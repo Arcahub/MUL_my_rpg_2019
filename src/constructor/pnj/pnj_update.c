@@ -8,17 +8,19 @@
 #include "my_game.h"
 #include "components/pnj/pnj.h"
 
-bool rpg_pnj_update(game_object_t *object, scene_t *scene)
+bool rpg_pnj_button_update(game_object_t *object, scene_t *scene)
 {
-    pnj_t *pnj = (pnj_t *) object->extend;
-    game_object_t *tmp = scene->objects_list;
-    
-    for (; tmp && tmp->type != DIALOG_BUTTON; tmp = tmp->next);
-    if (tmp->type != DIALOG_BUTTON)
-        return (true);
-    if (pnj->draw_text == 0)
-        tmp->draw = NULL;
-    else
-        tmp->draw = &draw_object;
+    game_object_t *tmp_obj = scene->objects_list;
+    pnj_t *pnj = NULL;
+
+    for (; tmp_obj; tmp_obj = tmp_obj->next) {   
+        if (tmp_obj->type == PNJ)
+            pnj = (pnj_t *) tmp_obj->extend;
+        if (pnj->draw_text == 1) {
+            object->draw = &rpg_pnj_button_draw;
+            return (true);
+        }
+    }
+    object->draw = NULL;
     return (true);
 }

@@ -43,5 +43,10 @@ void rpg_inventory_get_click_on_item(game_object_t *object, void *pt);
 void rpg_inventory_draw(sfRenderWindow *window, game_object_t *object);
 void rpg_inventory_destroy(void *pt);
 bool rpg_is_item_in_inventory(game_object_t *object, item_id id, int number);
+inventory_t *rpg_inventory_set_item_type(inventory_t *item, \
+json_object_t *js);
+inventory_t *rpg_item_create_text(inventory_t *item);
+void free_text(sfText *text);
+void rpg_item_update_text(inventory_t *item);
 
 #endif /* !INVENTORY_H_ */

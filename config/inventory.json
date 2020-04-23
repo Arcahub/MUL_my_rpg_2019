@@ -10,7 +10,7 @@
             [5, 5],
             [7, 5]
         ],
-        "background_color": [0, 0, 0, 0],
+        "background_color": [255, 0, 0, 0],
         "objects_list": [
             {
                 "type": 17
@@ -22,6 +22,12 @@
             {
                 "type": 16,
                 "texture_path": "templates/Window.png"
+            },
+            {
+                "type": 18,
+                "json_path": "config/PNJ/pnj2.json",
+                "texture_path": "templates/item.png",
+                "pos": [800, 500]
             },
             {
                 "type": 18,
