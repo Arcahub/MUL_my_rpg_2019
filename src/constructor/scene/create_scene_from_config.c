@@ -38,7 +38,7 @@ scene_t *create_scene_from_file(const char *path, game_t *game)
 {
     json_object_t *js = json_create_from_file((char *) path);
     scene_t *scene = NULL;
-    const sfView *view = sfRenderWindow_getDefaultView(game->window->window);
+    const sfView *view = sfRenderWindow_getView(game->window->window);
 
     if (js == NULL)
         return (NULL);
@@ -46,7 +46,12 @@ scene_t *create_scene_from_file(const char *path, game_t *game)
     json_object_destroy(js);
     if (!scene)
         return (NULL);
-    if (view)
+    if (view) {
+        sfView_setSize(view, (sfVector2f) {game->window->width,
+        game->window->height});
+        sfView_setCenter(view, (sfVector2f) {game->window->width / 2,
+        game->window->height / 2});
         sfRenderWindow_setView(scene->window, view);
+    }
     return (scene);
 }
