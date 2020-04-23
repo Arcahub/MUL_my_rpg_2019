@@ -12,6 +12,8 @@
 #include "my.h"
 #include <stdlib.h>
 
+static const char *background_path = "templates/pnj_button_bg.jpg";
+
 static dialog_t *create_dialog_from_conf(json_object_t *js, dialog_t *next, \
 game_t *game, pnj_t *pnj)
 {
@@ -56,6 +58,18 @@ game_t *game)
     return (list);
 }
 
+static pnj_t *rpg_pnj_init_dialog_background(pnj_t *pnj)
+{
+    sfVector2f pos = {0, 880};
+    
+    pnj->background = create_game_object(NULL, (char *) background_path, \
+    pos, DECOR);
+    if (pnj->background == NULL)
+        return (NULL);
+    pnj->background->draw = NULL;
+    return (pnj);
+}
+
 pnj_t *rpg_pnj_init_extend_from_conf(game_object_t *object,
 json_object_t *js, game_t *game, scene_t *scene)
 {
@@ -64,8 +78,8 @@ json_object_t *js, game_t *game, scene_t *scene)
 
     if (pnj == NULL)
         return(NULL);
-    pnj->dialog_text = NULL;
     pnj->dialog_step = 0;
+    pnj->dialog_text = NULL;
     pnj->draw_text = 0;
     pnj->json_path = my_strdup(get_str_from_conf(js, "json_path"));
     pnj_js = json_create_from_file(pnj->json_path);
@@ -76,7 +90,8 @@ json_object_t *js, game_t *game, scene_t *scene)
     if (pnj->pnj_type == QUEST_PNJ && !get_int_from_conf(pnj_js, (int *) \
     &pnj->quest_id, "quest"))
         return (NULL);
-    if ((pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game)) == NULL)
+    if ((pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game)) == NULL || \
+    (pnj = rpg_pnj_init_dialog_background(pnj)) == NULL)
         return (NULL);
     return (pnj);
 }

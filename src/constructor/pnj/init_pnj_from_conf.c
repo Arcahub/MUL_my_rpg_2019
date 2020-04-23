@@ -10,15 +10,6 @@
 #include "my_json.h"
 #include "components/get_from_config.h"
 
-void rpg_draw_pnj(sfRenderWindow *window, game_object_t *object)
-{
-    pnj_t *pnj = (pnj_t *) object->extend;
-
-    sfRenderWindow_drawSprite(window, object->sprite, NULL);
-    if (pnj->draw_text == 1)
-        sfRenderWindow_drawText(window, pnj->dialog_text, NULL);
-}
-
 static game_object_t *rpg_pnj_init_box_and_pos(game_object_t *object,
 sfVector2f pos)
 {
@@ -52,6 +43,5 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->draw = &rpg_draw_pnj;
     object->callback = &rpg_pnj_callback;
     object = rpg_pnj_init_box_and_pos(object, pos);
-    object = rpg_pnj_init_button(object);
     return (object);
 }

@@ -17,7 +17,7 @@ bool rpg_pnj_button_update(game_object_t *object, scene_t *scene)
         if (tmp_obj->type == PNJ)
             pnj = (pnj_t *) tmp_obj->extend;
         if (pnj->draw_text == 1) {
-            object->draw = &rpg_pnj_button_draw;
+            object->draw = &draw_object;
             return (true);
         }
     }
