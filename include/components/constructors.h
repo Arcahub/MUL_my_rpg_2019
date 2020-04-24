@@ -31,6 +31,7 @@ enum {
     PLAYER_CONSTRUCTOR,
     MUSIC_HANDLER_CONSTRUCTOR,
     VILLAGE_CONSTRUCTOR,
+    CURSOR_CONSTRUCTOR,
     CONSTRUCTORS_MAX_ID
 };
 
@@ -67,6 +68,7 @@ game_object_t *rpg_fight_handler_create_from_conf(game_object_t *, json_object_t
 game_object_t *rpg_create_player_from_conf(game_object_t *last,
 json_object_t *js, game_t *game, scene_t *scene);
 game_object_t *rpg_music_handler_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_cursor_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
 game_object_t *create_village(game_object_t *, json_object_t *,
 game_t *, scene_t *);
 
@@ -90,7 +92,8 @@ game_t *, scene_t *) = {
     &rpg_fight_handler_create_from_conf,
     &rpg_create_player_from_conf,
     &rpg_music_handler_create_from_conf,
-    &create_village
+    &create_village,
+    &rpg_cursor_create_from_conf
 };
 
 #endif /* !CONSTRUCTORS_H_ */

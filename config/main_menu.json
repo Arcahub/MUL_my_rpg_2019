@@ -11,6 +11,10 @@
         "background_color": [0, 0, 0, 0],
         "objects_list": [
             {
+                "type": 19,
+                "texture_path": "templates/menu/cursor.png"
+            },
+            {
                 "type": 17,
                 "volume": 100,
                 "loop": 0,
