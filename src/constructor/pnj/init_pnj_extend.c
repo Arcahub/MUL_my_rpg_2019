@@ -25,8 +25,10 @@ game_t *game, pnj_t *pnj)
         dialog->dialog_step = next->dialog_step + 1;
     pnj->number_of_step = dialog->dialog_step;
     if (!get_int_from_conf(js, (int *) &dialog->dialog_statue, "type") ||
-    !get_int_from_conf(js, &dialog->speaker, "speaker"))
+    !get_int_from_conf(js, &dialog->speaker, "speaker")) {
+        free(dialog);
         return (NULL);
+    }
     dialog->text = my_strdup(get_str_from_conf(js, "message"));
     return (dialog);
 }
@@ -78,5 +80,6 @@ json_object_t *js, game_t *game, scene_t *scene)
         return (NULL);
     if ((pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game)) == NULL)
         return (NULL);
+    json_object_destroy(pnj_js);
     return (pnj);
 }
