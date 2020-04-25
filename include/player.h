@@ -10,9 +10,11 @@
 
 #include "my_json.h"
 #include "my_game.h"
+#include "item/inventory.h"
 
 typedef struct {
     sfVector2f galaxie_dest;
+    inventory_t *item_list;
 } player_t;
 
 player_t *player_create(void);

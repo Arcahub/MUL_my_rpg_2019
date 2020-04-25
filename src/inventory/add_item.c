@@ -68,13 +68,11 @@ json_object_t *js, int number)
     item->equiped = 0;
     item->selected = 0;
     if (item->type == WEAPON_ITEM) {
-        if ((item->equip_button = create_game_object(NULL, "templates/menu/equip.png", \
-        (sfVector2f) {1350, 700}, BUTTON)) == NULL)
+        item->equip_button = create_game_object(NULL, "templates/menu/equip.png", \
+        (sfVector2f) {1350, 700}, BUTTON);
+        if (item->equip_button == NULL)
             return (NULL);
-        item->equip_button->box.height = 121;
-        item->equip_button->box.width = 266;
-        item->equip_button->box.top = 700;
-        item->equip_button->box.left = 1350;
+        item->equip_button->box = (sfIntRect) {1350, 700, 121, 266};
     }
     if (!get_int_from_conf(js, (int *) &item->id, "item_id") || \
     item->equip_button == NULL) {
@@ -103,6 +101,7 @@ char *path, int number)
     if (rpg_inventory_init_item(item, js, number) == NULL)
         return (NULL);
     item = rpg_inventory_create_text(item);
+    item->box = (sfIntRect) {0, 0, 0, 0};
     json_object_destroy(js);
     return (item);
 }

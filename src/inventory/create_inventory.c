@@ -9,6 +9,7 @@
 #include "components/get_from_config.h"
 #include "my_game.h"
 #include "item/inventory.h"
+#include "player.h"
 #include <stdio.h>
 
 bool rpg_update_inventory(game_object_t *object, scene_t *scene)
@@ -89,6 +90,7 @@ json_object_t *js, game_t *game, scene_t *scene)
 {
     game_object_t *object = create_game_object(last, get_str_from_conf(js, \
     "texture_path"), (sfVector2f) {0, -50}, INVENTORY);
+    player_t *player = game->player;
 
     if (object == NULL)
         return (NULL);
@@ -97,14 +99,7 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->update = &rpg_update_inventory;
     object->box = (sfIntRect) {0, 0, 1920, 1080};
     object->z_index = 1;
-    object->extend = (void *) rpg_inventory_add_item(NULL, 4, 0);
-    object->extend = (void *) rpg_inventory_add_item((inventory_t *)
-    object->extend, 4, 1);
+    object->extend = player->item_list;
     object->free_extend = &rpg_inventory_destroy;
-    if (object == NULL || object->extend == NULL) {
-        rpg_inventory_destroy(object->extend);
-        destroy_game_object(scene, object);
-        return (NULL);
-    }
     return (object);
 }

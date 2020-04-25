@@ -32,6 +32,8 @@ typedef struct fight_handler {
 } fight_handler_t;
 
 
+void free_text(sfText *text);
+
 
 // FIGHT LOG
 

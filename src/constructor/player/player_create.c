@@ -15,5 +15,6 @@ player_t *player_create(void)
     if (!player)
         return (NULL);
     player->galaxie_dest = (sfVector2f) {0, 0};
+    player->item_list = NULL;
     return (player);
 }
