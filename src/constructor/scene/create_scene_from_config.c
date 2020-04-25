@@ -17,6 +17,7 @@ game_t *game)
 
     if (scene == NULL)
         return (NULL);
+    sfRenderWindow_setMouseCursorVisible(scene->window, sfTrue);
     scene->z_index_deepth = load_scene_z_index_deepth_from_config(js);
     scene->display = load_scene_id_from_config(js);
     load_scene_draw_from_config(js, scene);

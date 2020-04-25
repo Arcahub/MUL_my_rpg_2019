@@ -53,7 +53,8 @@ typedef enum
     INVENTORY,
     FIGHT_HANDLER,
     MUSIC,
-    TILE_MAP
+    TILE_MAP,
+    CURSOR
 } object_type;
 
 ////////////////////////////////////////////////////////////
