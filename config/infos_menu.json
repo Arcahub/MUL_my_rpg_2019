@@ -15,14 +15,14 @@
                 "type": 7,
                 "string": "How to play",
                 "font": "templates/font/space.ttf",
-                "pos": [400, 100],
+                "pos": [550, 100],
                 "style": 0,
                 "size": 100
             },
             {
                 "type": 2,
                 "texture_path": "templates/menu/return2.png",
-                "pos": [820, 700],
+                "pos": [820, 800],
                 "callback_id": 4,
                 "sound_path": "templates/sounds/ui_change_selection.ogg",
                 "frame_keys": [

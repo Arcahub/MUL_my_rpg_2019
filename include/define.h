@@ -10,12 +10,6 @@
 
 #include <SFML/Graphics.h>
 
-// SPACE
-
-const int SIZE_X_SPACE = 10;
-const int SIZE_Y_SPACE = 10;
-const char *BACKGROUND_SPACE = "templates/env/space_background.jpg";
-
 // ENV
 
 const char *ENV_DISPLAY = "DISPLAY";

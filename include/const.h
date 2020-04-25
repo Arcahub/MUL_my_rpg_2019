@@ -10,12 +10,6 @@
 #ifndef CONST_H
 #define CONST_H
 
-// SPACE
-
-extern const int SIZE_Y_SPACE;
-extern const int SIZE_X_SPACE;
-extern const char *BACKGROUND_SPACE;
-
 // ENV
 
 extern const char *ENV_DISPLAY;
