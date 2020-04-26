@@ -34,7 +34,7 @@ bool rpg_quest_handler_update(game_object_t *object, scene_t *scene)
     tmp->pos.x, tmp->pos.y))
         validate_step(scene->game, scene, &player->quest);
     return (true);
-}
+} // NORM
 
 game_object_t *rpg_quest_handler_init_from_conf(game_object_t *last, \
 json_object_t *js, game_t *game, scene_t *scene)

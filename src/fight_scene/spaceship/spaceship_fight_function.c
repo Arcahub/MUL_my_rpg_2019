@@ -71,4 +71,4 @@ scene_t *scene)
         ship->hp -= damage - ship->shield;
         ship->shield = 0;
     }
-}
+} // NORM

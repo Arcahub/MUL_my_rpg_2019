@@ -53,4 +53,4 @@ bool rpg_fight_handler_update(game_object_t *object, scene_t *scene)
         handler->player_turn = 1;
     }
     return (true);
-}
+} // NORM

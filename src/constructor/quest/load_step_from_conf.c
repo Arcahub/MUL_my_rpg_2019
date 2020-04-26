@@ -34,7 +34,7 @@ game_t *game)
         step->validated = 0;
     step->next = next;
     return (step);
-}
+} // NORM
 
 step_t *rpg_quest_load_step_from_conf(json_object_t *js, game_t *game)
 {

@@ -40,7 +40,7 @@ bool rpg_update_inventory(game_object_t *object, scene_t *scene)
         sfText_setPosition(tmp->text[2], (sfVector2f) {tmp2.x, 550 + pos.y});
     }
     return (true);
-}
+} // NORM
 
 bool rpg_inventory_get_click_on_item(game_object_t *object, void *pt)
 {

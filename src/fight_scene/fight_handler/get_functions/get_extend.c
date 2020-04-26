@@ -26,7 +26,7 @@ ennemy_t *rpg_ennemy_get_extend(scene_t *scene)
     if (ennemy == NULL)
         return (NULL);
     return (ennemy);
-}
+} // NORM
 
 space_ship_t *rpg_spaceship_get_extend(scene_t *scene)
 {
@@ -45,7 +45,7 @@ space_ship_t *rpg_spaceship_get_extend(scene_t *scene)
     if (ship == NULL)
         return (NULL);
     return (ship);
-}
+} // NORM
 
 fight_handler_t *rpg_fight_handler_get_extend(scene_t *scene)
 {
@@ -64,4 +64,4 @@ fight_handler_t *rpg_fight_handler_get_extend(scene_t *scene)
     if (handler == NULL)
         return (NULL);
     return (handler);
-}
+} // NORM
