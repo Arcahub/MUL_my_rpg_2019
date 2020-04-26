@@ -47,7 +47,7 @@ void isolate_in_list(scene_t *scene, game_object_t *object)
         if (tmp)
             tmp->next = object->next;
     }
-}   
+}
 
 void destroy_game_object(scene_t *scene, game_object_t *object)
 {

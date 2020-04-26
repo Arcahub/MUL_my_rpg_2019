@@ -10,7 +10,7 @@
 
 bool rpg_options_sound_bar_update(game_object_t *bar, scene_t *scene)
 {
-    sfVector2i pos = sfMouse_getPositionRenderWindow(scene->window);
+    sfVector2f pos = get_mouse_exact_pos(scene->window);
     rpg_options_sound_bar_t *bar_s = bar->extend;
     int vol = sfListener_getGlobalVolume() / bar_s->volume_unit;
     int bar_width = bar->box.width / bar_s->volume_unit;

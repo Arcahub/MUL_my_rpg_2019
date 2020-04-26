@@ -48,8 +48,8 @@ json_object_t *js, int number)
     item->equiped = 0;
     item->selected = 0;
     if (item->type == WEAPON_ITEM) {
-        item->equip_button = create_game_object(NULL, "templates/menu/equip.png", \
-        (sfVector2f) {1350, 700}, BUTTON);
+        item->equip_button = create_game_object(NULL,
+        "templates/menu/equip.png", (sfVector2f) {1350, 700}, BUTTON);
         if (item->equip_button == NULL)
             return (NULL);
         item->equip_button->box = (sfIntRect) {1350, 700, 121, 266};

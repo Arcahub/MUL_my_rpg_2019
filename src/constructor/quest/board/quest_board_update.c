@@ -31,6 +31,7 @@ scene_t *scene)
     free_text(board->actual_step);
     for (int x = 0; board->steps && x < board->number_of_step; x++)
         free_text(board->steps[x]);
-    board = rpg_quest_board_init_text_step(((player_t *) scene->game->player)->quest.step, board);
+    board = rpg_quest_board_init_text_step(((player_t *)
+    scene->game->player)->quest.step, board);
     return (board);
 }

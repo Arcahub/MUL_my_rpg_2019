@@ -24,4 +24,4 @@ bool rpg_is_item_in_inventory(game_object_t *object, item_id id, int number)
         if (item->id == id && item->item_number >= number)
             return (true);
     return (false);
-} 
+}

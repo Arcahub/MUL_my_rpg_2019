@@ -11,7 +11,7 @@
 
 void rpg_draw_cursor(sfRenderWindow *window, game_object_t *object)
 {
-    sfVector2i pos = sfMouse_getPositionRenderWindow(window);
+    sfVector2f pos = get_mouse_exact_pos(window);
     sfVector2f position;
 
     position.x = pos.x;

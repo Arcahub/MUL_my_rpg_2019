@@ -26,12 +26,14 @@ static pnj_t *rpg_pnj_get_clicked_pnj(game_object_t *object, scene_t *scene)
     return (NULL);
 }
 
-void rpg_pnj_button_callback_quest_npc(pnj_t *pnj, scene_t *scene, dialog_t *tmp)
+void rpg_pnj_button_callback_quest_npc(pnj_t *pnj, scene_t *scene,
+dialog_t *tmp)
 {
     if (pnj->quest_statue == GET_QUEST) {
         rpg_quest_dialog_advance_step(pnj, scene, tmp);
     } else if (pnj->quest_statue == GIVE_BACK_QUEST) {
-        validate_quest(scene->game, scene, &((player_t *) scene->game->player)->quest);
+        validate_quest(scene->game, scene, &((player_t *)
+        scene->game->player)->quest);
         pnj->draw_text = 0;
     } else
         pnj->draw_text = 0;

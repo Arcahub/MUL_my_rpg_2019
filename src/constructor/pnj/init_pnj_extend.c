@@ -58,6 +58,24 @@ game_t *game)
     return (list);
 }
 
+static bool rpg_pnj_init_extend(json_object_t *js, pnj_t *pnj,
+json_object_t **pnj_js)
+{
+    pnj->dialog_text = NULL;
+    pnj->dialog_step = 0;
+    pnj->draw_text = 0;
+    pnj->json_path = my_strdup(get_str_from_conf(js, "json_path"));
+    *pnj_js = json_create_from_file(pnj->json_path);
+    pnj->name = my_strdup(get_str_from_conf(*pnj_js, "name"));
+    if (!get_int_from_conf(*pnj_js, (int *) &pnj->pnj_id, "id") || \
+    !get_int_from_conf(*pnj_js, (int *) &pnj->pnj_type, "type"))
+        return (true);
+    if (pnj->pnj_type == QUEST_PNJ && !get_int_from_conf(*pnj_js, (int *) \
+    &pnj->quest_id, "quest"))
+        return (true);
+    return (false);
+}
+
 pnj_t *rpg_pnj_init_extend_from_conf(game_object_t *object,
 json_object_t *js, game_t *game, scene_t *scene)
 {
@@ -65,20 +83,11 @@ json_object_t *js, game_t *game, scene_t *scene)
     json_object_t *pnj_js = NULL;
 
     if (pnj == NULL)
-        return(NULL);
-    pnj->dialog_text = NULL;
-    pnj->dialog_step = 0;
-    pnj->draw_text = 0;
-    pnj->json_path = my_strdup(get_str_from_conf(js, "json_path"));
-    pnj_js = json_create_from_file(pnj->json_path);
-    pnj->name = my_strdup(get_str_from_conf(pnj_js, "name"));
-    if (!get_int_from_conf(pnj_js, (int *) &pnj->pnj_id, "id") || \
-    !get_int_from_conf(pnj_js, (int *) &pnj->pnj_type, "type")) 
         return (NULL);
-    if (pnj->pnj_type == QUEST_PNJ && !get_int_from_conf(pnj_js, (int *) \
-    &pnj->quest_id, "quest"))
+    if (rpg_pnj_init_extend(js, pnj, &pnj_js))
         return (NULL);
-    if ((pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game)) == NULL)
+    pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game);
+    if (pnj->dialog == NULL)
         return (NULL);
     json_object_destroy(pnj_js);
     return (pnj);

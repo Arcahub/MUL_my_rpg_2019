@@ -13,7 +13,7 @@
 
 void rpg_pnj_quest_callback(game_object_t *object, scene_t *scene, pnj_t *pnj)
 {
-    player_t *player= scene->game->player;
+    player_t *player = scene->game->player;
 
     if (player->quest.state == UNTAKEN ||
     player->quest.state == RESET) {

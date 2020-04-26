@@ -70,6 +70,7 @@ quest_board_t *board);
 quest_t rpg_init_quest(game_t *game);
 quest_board_t *rpg_quest_board_setup(quest_board_t *board, game_t *game);
 void rpg_quest_board_update(scene_t *scene);
-quest_board_t *rpg_quest_board_update_text(quest_board_t *board, scene_t *scene);
+quest_board_t *rpg_quest_board_update_text(quest_board_t *board,
+scene_t *scene);
 
 #endif /* !QUEST_HANDLER_H_ */

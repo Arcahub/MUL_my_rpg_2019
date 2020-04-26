@@ -36,7 +36,8 @@ sfVector2f pos);
 ////////////////////////////////////////////////////////////
 /// \brief Initialize a game_object that is a button
 ///
-/// Create a animated object with a single animation used on appearition and disparition
+/// Create a animated object with a single animation used on appearition and
+/// disparition
 ///
 /// \param struct game_object last object of the list
 /// \param struct char *path for the texture

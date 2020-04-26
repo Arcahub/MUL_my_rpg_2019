@@ -27,7 +27,8 @@ static ennemy_t *rpg_ennemy_create_text(ennemy_t *ennemy)
             free(tmp2);
         return (NULL);
     }
-    ennemy->name_text = init_text(ennemy->name, 900, 750, (char *) FONT_PATH[0]);
+    ennemy->name_text = init_text(ennemy->name, 900, 750,
+    (char *) FONT_PATH[0]);
     ennemy->hp_text = init_text(tmp1, 900, 800, (char *) FONT_PATH[0]);
     ennemy->shield_text = init_text(tmp2, 900, 850, (char *) FONT_PATH[0]);
     free(tmp1);

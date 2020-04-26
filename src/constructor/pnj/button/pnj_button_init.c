@@ -47,7 +47,8 @@ game_object_t *rpg_pnj_init_button(game_object_t *last)
     button->update = &rpg_pnj_button_update;
     button->callback = &rpg_pnj_button_callback;
     button->free_extend = &rpg_pnj_button_free_extend;
-    if ((button->extend = (void *) rpg_pnj_init_button_background()) == NULL)
+    button->extend = (void *) rpg_pnj_init_button_background();
+    if (button->extend == NULL)
         return (NULL);
     created = 1;
     return (button);

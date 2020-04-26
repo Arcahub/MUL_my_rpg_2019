@@ -65,7 +65,8 @@ bool rpg_pnj_update(game_object_t *object, scene_t *scene);
 void rpg_pnj_open_dialog_give_quest(pnj_t *pnj, scene_t *scene);
 void rpg_pnj_open_dialog_quest_over(pnj_t *pnj, scene_t *scene);
 void rpg_pnj_open_dialog_doing_quest(pnj_t *pnj, scene_t *scene);
-void rpg_quest_dialog_advance_step(pnj_t *pnj, scene_t *scene, dialog_t *dialog);
+void rpg_quest_dialog_advance_step(pnj_t *pnj, scene_t *scene,
+dialog_t *dialog);
 void rpg_pnj_quest_callback(game_object_t *object, scene_t *scene, pnj_t *pnj);
 void rpg_pnj_dialog_callback(game_object_t *object, scene_t *scene, pnj_t *pnj);
 game_object_t *rpg_pnj_init_button(game_object_t *last);

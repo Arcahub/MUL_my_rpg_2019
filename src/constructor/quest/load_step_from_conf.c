@@ -11,7 +11,8 @@
 #include <stdlib.h>
 #include "components/get_from_config.h"
 
-static step_t *create_step_from_conf(json_object_t *js, step_t *next, game_t *game)
+static step_t *create_step_from_conf(json_object_t *js, step_t *next,
+game_t *game)
 {
     step_t *step = malloc(sizeof(step_t));
 
@@ -25,7 +26,7 @@ static step_t *create_step_from_conf(json_object_t *js, step_t *next, game_t *ga
     if (step->step_type == FIGHT && (step->fight_scene = \
     get_str_from_conf(js, "fight_scene")) == NULL)
         return (NULL);
-    if (step->step_type == REACH && 
+    if (step->step_type == REACH &&
     !get_int_from_conf(js, (int *) &step->scene, "scene"))
         return (NULL);
     step->validated = 0;

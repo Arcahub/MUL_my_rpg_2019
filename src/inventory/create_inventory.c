@@ -30,7 +30,8 @@ bool rpg_update_inventory(game_object_t *object, scene_t *scene)
         tmp2 = (sfVector2f) {275 + (x * 60) + pos.x, 190 + (y * 60) + pos.y};
         tmp->box = (sfIntRect) {tmp2.x, tmp2.y, 50, 50};
         sfSprite_setPosition(tmp->sprite, tmp2);
-        sfSprite_setPosition(tmp->equip_button->sprite, (sfVector2f) {1350 + pos.x, 700 + pos.y});
+        sfSprite_setPosition(tmp->equip_button->sprite,
+        (sfVector2f) {1350 + pos.x, 700 + pos.y});
         tmp->equip_button->box.left = 1350 + pos.x;
         tmp->equip_button->box.top = 700 + pos.y;
         tmp2.x = 1240 + pos.x;

@@ -44,7 +44,7 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->extend = (void *)
     rpg_pnj_init_extend_from_conf(object, js, game, scene);
     object->free_extend = &rpg_pnj_destroy;
-    if (!get_vector2f_from_conf(js, &pos, "pos") || 
+    if (!get_vector2f_from_conf(js, &pos, "pos") ||
     object->extend == NULL) {
         destroy_game_object(scene, object);
         return (NULL);
