@@ -5,12 +5,12 @@
 ** parallax
 */
 
-#ifndef FIGHT_HANDLER_H_
-#define FIGHT_HANDLER_H_
-
 #include "my_game.h"
 #include "item/item_id.h"
 #include "fight_scene/ship.h"
+
+#ifndef FIGHT_HANDLER_H_
+#define FIGHT_HANDLER_H_
 
 typedef struct ennemy ennemy_t;
 
@@ -34,9 +34,7 @@ typedef struct fight_handler {
 
 void free_text(sfText *text);
 
-
 // FIGHT LOG
-
 
 void rpg_fight_log_destroy(fight_handler_t *handler);
 void rpg_fight_log_push_text(fight_handler_t *handler, char *string, \

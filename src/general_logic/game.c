@@ -11,6 +11,7 @@
 #include "components/window/window_constructor.h"
 #include <stdlib.h>
 #include <SFML/Audio.h>
+#include "components/quest/quest.h"
 
 game_t *init_game(void)
 {
@@ -22,6 +23,7 @@ game_t *init_game(void)
     player = (player) ? player : player_create();
     if (player == NULL)
         return (NULL);
+    player->quest = rpg_init_quest(game);
     game->player = player;
     game->window = create_window_from_conf("./config/window.json");
     if (game->window == NULL)

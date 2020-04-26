@@ -10,7 +10,7 @@
 void free_text(sfText *text)
 {
     if (text != NULL) {
-        sfText_destroy(text);
         sfFont_destroy((sfFont *) sfText_getFont(text));
+        sfText_destroy(text);
     }
 }

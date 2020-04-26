@@ -9,7 +9,7 @@
 #include "components/get_from_config.h"
 #include "fight_scene/ship.h"
 #include "fight_scene/fight_handler.h"
-#include "tmp_font.h"
+#include "font/font.h"
 #include <stdlib.h>
 
 void rpg_space_ship_destroy_tmp_text(char *tmp1, char *tmp2, char *tmp3)
@@ -32,11 +32,11 @@ static space_ship_t *rpg_space_ship_init_text(space_ship_t *ship)
         rpg_space_ship_destroy_tmp_text(tmp1, tmp2, tmp3);
         return (NULL);
     }
-    ship->action_left = init_text(tmp3, 275, 750, (char *) FONT_PATH);
+    ship->action_left = init_text(tmp3, 275, 750, (char *) FONT_PATH[0]);
     ship->repair_turn_left = init_text("Repair statue: Unable", \
-    275, 800, (char *) FONT_PATH);
-    ship->hp_text = init_text(tmp1, 275, 850, (char *) FONT_PATH);
-    ship->shield_text = init_text(tmp2, 275, 900, (char *) FONT_PATH);
+    275, 800, (char *) FONT_PATH[0]);
+    ship->hp_text = init_text(tmp1, 275, 850, (char *) FONT_PATH[0]);
+    ship->shield_text = init_text(tmp2, 275, 900, (char *) FONT_PATH[0]);
     rpg_space_ship_destroy_tmp_text(tmp1, tmp2, tmp3);
     return (ship);
 }

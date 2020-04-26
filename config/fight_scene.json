@@ -8,10 +8,15 @@
             [0, 0],
             [1, 9],
             [5, 5],
-            [6, 5]
+            [6, 5],
+            [8, 5]
         ],
         "background_color": [0, 0, 0, 0],
         "objects_list": [
+            {
+                "type": 16,
+                "texture_path": "templates/Window.png"
+            },
             {
                 "type": 12,
                 "texture_path": "templates/inv.png"

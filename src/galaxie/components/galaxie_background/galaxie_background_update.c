@@ -6,7 +6,7 @@
 */
 
 #include "galaxie/galaxie_background.h"
-#define ABS(X) ((X<0)?(-X):(X))
+#include "my_abs.h"
 
 bool galaxie_background_update(game_object_t *object, scene_t *scene)
 {

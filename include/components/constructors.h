@@ -32,6 +32,9 @@ enum {
     MUSIC_HANDLER_CONSTRUCTOR,
     VILLAGE_CONSTRUCTOR,
     CURSOR_CONSTRUCTOR,
+    QUEST_BOARD_CONSTRUCTOR,
+    QUEST_HANDLER_CONSTRUCTOR,
+    PNJ_CONSTRUCTOR,
     CONSTRUCTORS_MAX_ID
 };
 
@@ -49,6 +52,7 @@ game_object_t *rpg_options_create_sound_bar_from_conf(game_object_t *,
 json_object_t *, game_t *, scene_t *);
 game_object_t *rpg_options_create_check_box_from_conf(game_object_t *,
 json_object_t *, game_t *, scene_t *);
+
 game_object_t *rpg_create_text_handler_from_conf(game_object_t *last,
 json_object_t *js, game_t *game, scene_t *scene);
 game_object_t *create_view_handler_from_conf(game_object_t *last,
@@ -71,6 +75,12 @@ game_object_t *rpg_music_handler_create_from_conf(game_object_t *, json_object_t
 game_object_t *rpg_cursor_create_from_conf(game_object_t *, json_object_t *, game_t *, scene_t *);
 game_object_t *create_village(game_object_t *, json_object_t *,
 game_t *, scene_t *);
+game_object_t *rpg_quest_board_create_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_quest_handler_init_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_pnj_init_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
 
 static game_object_t *(*CONSTRUCTORS[])(game_object_t *, json_object_t *,
 game_t *, scene_t *) = {
@@ -93,7 +103,10 @@ game_t *, scene_t *) = {
     &rpg_create_player_from_conf,
     &rpg_music_handler_create_from_conf,
     &create_village,
-    &rpg_cursor_create_from_conf
+    &rpg_cursor_create_from_conf,
+    &rpg_quest_board_create_from_conf,
+    &rpg_quest_handler_init_from_conf,
+    &rpg_pnj_init_from_conf
 };
 
 #endif /* !CONSTRUCTORS_H_ */

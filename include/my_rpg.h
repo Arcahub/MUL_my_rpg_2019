@@ -8,8 +8,6 @@
 #ifndef MY_RUNNER_H_
 #define MY_RUNNER_H_
 
-#define ABS(x)  x = (x < 0) ? - x : x
-
 #include <SFML/Graphics.h>
 #include <stdbool.h>
 #include "const.h"

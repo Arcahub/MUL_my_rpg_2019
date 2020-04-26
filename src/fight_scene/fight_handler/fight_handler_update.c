@@ -10,8 +10,8 @@
 #include "fight_scene/fight_handler.h"
 #include "fight_scene/ennemy.h"
 #include "fight_scene/ship.h"
+#include "player.h"
 #include <stdlib.h>
-
 
 static void rpg_fight_handler_player_lose(game_object_t *object, \
 scene_t *scene)
@@ -22,6 +22,13 @@ scene_t *scene)
 static void rpg_fight_handler_player_win(game_object_t *object, \
 scene_t *scene)
 {
+    ennemy_t *ennemy = rpg_ennemy_get_extend(scene);
+    player_t *player = scene->game->player;
+
+    if (ennemy == NULL)
+        return;
+    if (ennemy->quest_id == player->quest.id)
+        validate_step(scene->game, scene, &player->quest);
     scene->display = GALAXIE_SCENE;
 }
 

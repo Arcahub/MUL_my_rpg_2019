@@ -47,6 +47,7 @@ typedef enum
     GALAXIE_BACKGROUND,
     PLANET,
     GALAXIE_HUD,
+    QUEST_BOARD,
     ATTACK_BUTTON,
     REPAIR_BUTTON,
     DODGE_BUTTON,
@@ -54,7 +55,8 @@ typedef enum
     FIGHT_HANDLER,
     MUSIC,
     TILE_MAP,
-    CURSOR
+    CURSOR,
+    DIALOG_BUTTON,
 } object_type;
 
 ////////////////////////////////////////////////////////////

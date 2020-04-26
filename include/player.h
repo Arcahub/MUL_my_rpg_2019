@@ -11,10 +11,13 @@
 #include "my_json.h"
 #include "my_game.h"
 #include "item/inventory.h"
+#include "components/quest/quest.h"
 
 typedef struct {
     sfVector2f galaxie_dest;
     inventory_t *item_list;
+    quest_t quest;
+    int money;
 } player_t;
 
 player_t *player_create(void);

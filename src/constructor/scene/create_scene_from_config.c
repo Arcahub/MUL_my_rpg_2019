@@ -48,9 +48,9 @@ scene_t *create_scene_from_file(const char *path, game_t *game)
     if (!scene)
         return (NULL);
     if (view) {
-        sfView_setSize(view, (sfVector2f) {game->window->width,
+        sfView_setSize((sfView *) view, (sfVector2f) {game->window->width,
         game->window->height});
-        sfView_setCenter(view, (sfVector2f) {game->window->width / 2,
+        sfView_setCenter((sfView *) view, (sfVector2f) {game->window->width / 2,
         game->window->height / 2});
         sfRenderWindow_setView(scene->window, view);
     }

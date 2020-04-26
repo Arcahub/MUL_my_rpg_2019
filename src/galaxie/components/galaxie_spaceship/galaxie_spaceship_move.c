@@ -7,7 +7,7 @@
 
 #include "galaxie/galaxie_spaceship.h"
 #include "player.h"
-#define ABS(X) ((X<0)?(-X):(X))
+#include "my_abs.h"
 
 static void galaxie_spaceship_scale_move_vector(game_object_t *object)
 {
