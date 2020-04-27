@@ -15,7 +15,7 @@
 	<tbody>
 		<tr>
 			<td>js</td>
-			<td><a href="json_object.html">Json_object</a> ( contains all the json settings of an object ).</td>
+			<td>Json_object ( contains all the json settings of an object ).</td>
 			<td><font color="red">Json_object_t</font></td>
 		</tr>
 		<tr>
@@ -46,7 +46,7 @@
 	<tbody>
 		<tr>
 			<td>js</td>
-			<td><a href="json_object.html">Json_object</a> ( contains all the json settings of an object ).</td>
+			<td>Json_object ( contains all the json settings of an object ).</td>
 			<td><font color="red">Json_object_t *</font></td>
 		</tr>
 		<tr>
@@ -72,7 +72,7 @@
 	<tbody>
 		<tr>
 			<td>js</td>
-			<td><a href="json_object.html">Json_object</a> ( contains all the json settings of an object ).</td>
+			<td>Json_object ( contains all the json settings of an object ).</td>
 			<td><font color="red">Json_object_t *</font></td>
 		</tr>
 		<tr>
@@ -91,7 +91,7 @@
 <hr>
 <h2>get_intrect_from_conf</h2>
 <p>This function is used to get a <font color="red">sfIntRect *</font> from a json file if you want to get for exemple a box.</p>
-<pre><font color="red">bool</font> get_intrect_from_conf(<font color="red">json_object_t *</font>js, <font color="red">sfIntRect *</font>rect, <font color="red">char *</font>key)</pre>
+<pre><font color="red">bool</font> get_intrect_from_conf(<font color="red">json_object_t *m</font>js, <font color="red">sfIntRect *</font>rect, <font color="red">char *</font>key)</pre>
 <table>
 	<thead>
 		<tr>
@@ -103,7 +103,7 @@
 	<tbody>
 		<tr>
 			<td>js</td>
-			<td><a href="json_object.html">Json_object</a> ( contains all the json settings of an object ).</td>
+			<td>Json_object ( contains all the json settings of an object ).</td>
 			<td><font color="red">Json_object_t *</font></td>
 		</tr>
 		<tr>
@@ -134,7 +134,7 @@
 	<tbody>
 		<tr>
 			<td>js</td>
-			<td><a href="json_object.html">Json_object</a> ( contains all the json settings of an object ).</td>
+			<td>Json_object ( contains all the json settings of an object ).</td>
 			<td><font color="red">Json_object_t *</font></td>
 		</tr>
 		<tr>
@@ -160,7 +160,7 @@
 	<tbody>
 		<tr>
 			<td>js</td>
-			<td><a href="json_object.html">Json_object</a> ( contains all the json settings of an object ).</td>
+			<td>Json_object ( contains all the json settings of an object ).</td>
 			<td><font color="red">Json_object_t *</font></td>
 		</tr>
 		<tr>
