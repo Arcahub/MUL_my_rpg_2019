@@ -47,6 +47,7 @@ typedef struct pnj {
     int number_of_step;
     dialog_statue quest_statue;
     pnj_id pnj_id;
+    game_object_t *background;
     pnj_type pnj_type;
     dialog_t *dialog;
     sfText *dialog_text;
@@ -71,6 +72,6 @@ void rpg_pnj_quest_callback(game_object_t *object, scene_t *scene, pnj_t *pnj);
 void rpg_pnj_dialog_callback(game_object_t *object, scene_t *scene, pnj_t *pnj);
 game_object_t *rpg_pnj_init_button(game_object_t *last);
 void rpg_pnj_button_draw(sfRenderWindow *window, game_object_t *object);
-void rpg_pnj_button_free_extend(void *pt);
+void rpg_draw_pnj(sfRenderWindow *window, game_object_t *object);
 
 #endif /* !PNJ_H_ */

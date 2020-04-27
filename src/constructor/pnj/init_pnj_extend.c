@@ -12,6 +12,8 @@
 #include "my.h"
 #include <stdlib.h>
 
+static const char *background_path = "templates/pnj_button_bg.jpg";
+
 static dialog_t *create_dialog_from_conf(json_object_t *js, dialog_t *next, \
 game_t *game, pnj_t *pnj)
 {
@@ -76,6 +78,18 @@ json_object_t **pnj_js)
     return (false);
 }
 
+static pnj_t *rpg_pnj_init_dialog_background(pnj_t *pnj)
+{
+    sfVector2f pos = {0, 880};
+
+    pnj->background = create_game_object(NULL, (char *) background_path, \
+    pos, DECOR);
+    if (pnj->background == NULL)
+        return (NULL);
+    pnj->background->draw = NULL;
+    return (pnj);
+}
+
 pnj_t *rpg_pnj_init_extend_from_conf(game_object_t *object,
 json_object_t *js, game_t *game, scene_t *scene)
 {
@@ -86,9 +100,9 @@ json_object_t *js, game_t *game, scene_t *scene)
         return (NULL);
     if (rpg_pnj_init_extend(js, pnj, &pnj_js))
         return (NULL);
-    pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game);
-    if (pnj->dialog == NULL)
+    if ((pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game)) == NULL || \
+    (pnj = rpg_pnj_init_dialog_background(pnj)) == NULL)
         return (NULL);
     json_object_destroy(pnj_js);
     return (pnj);
-}
+} // NORM

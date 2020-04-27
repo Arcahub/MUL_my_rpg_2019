@@ -33,8 +33,8 @@ enum {
     VILLAGE_CONSTRUCTOR,
     CURSOR_CONSTRUCTOR,
     QUEST_BOARD_CONSTRUCTOR,
-    QUEST_HANDLER_CONSTRUCTOR,
     PNJ_CONSTRUCTOR,
+    DIALOG_BUTTON_CONSTRUCTOR,
     CONSTRUCTORS_MAX_ID
 };
 
@@ -87,6 +87,8 @@ game_object_t *rpg_quest_handler_init_from_conf(game_object_t *,
 json_object_t *, game_t *, scene_t *);
 game_object_t *rpg_pnj_init_from_conf(game_object_t *,
 json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_pnj_init_button_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
 
 static game_object_t *(*CONSTRUCTORS[])(game_object_t *, json_object_t *,
 game_t *, scene_t *) = {
@@ -111,8 +113,8 @@ game_t *, scene_t *) = {
     &create_village,
     &rpg_cursor_create_from_conf,
     &rpg_quest_board_create_from_conf,
-    &rpg_quest_handler_init_from_conf,
-    &rpg_pnj_init_from_conf
+    &rpg_pnj_init_from_conf,
+    &rpg_pnj_init_button_from_conf
 };
 
 #endif /* !CONSTRUCTORS_H_ */

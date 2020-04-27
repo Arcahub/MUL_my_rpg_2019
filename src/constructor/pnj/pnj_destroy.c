@@ -34,6 +34,11 @@ void rpg_pnj_destroy(void *pt)
     if (pt == NULL)
         return;
     pnj = (pnj_t *) pt;
+    if (pnj->background->sprite != NULL && pnj->background->texture != NULL) {
+        sfSprite_destroy(pnj->background->sprite);
+        sfTexture_destroy(pnj->background->texture);
+    }
+    free(pnj->background);
     free_text(pnj->dialog_text);
     free_dialog(pnj->dialog);
     free_string(pnj->json_path);
