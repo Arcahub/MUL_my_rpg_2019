@@ -27,8 +27,9 @@ quest_t *rpg_quest_get_from_conf(char *path, scene_t *scene)
     (scene->game->quest->name = get_str_from_conf(js, "name")) == NULL) {
         rpg_destroy_quest(scene->game->quest);
         return (scene->game->quest);
-    }   
+    }
     scene->game->quest->step = rpg_quest_load_step_from_conf(js, scene->game);
     rpg_quest_board_update(scene);
+    json_object_destroy(js);
     return (scene->game->quest);
 }

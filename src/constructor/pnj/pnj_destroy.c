@@ -17,13 +17,14 @@ static void free_string(char *string)
 
 void free_dialog(dialog_t *dialog)
 {
-    dialog_t *tmp = NULL;
+    dialog_t *tmp = dialog;
 
     if (dialog == NULL)
         return;
-    for (; dialog; dialog = tmp) {
+    for (; tmp; dialog = tmp) {
         tmp = dialog->next;
         free_string(dialog->text);
+        free(dialog);
     }
 }
 
