@@ -17,7 +17,7 @@ sfVector2f pos)
     object->pos.y = pos.y;
     object->box.left = object->pos.x;
     object->box.top = object->pos.y;
-    object->box.height = 50;
+    object->box.height = 84;
     object->box.width = 50;
     sfSprite_setPosition(object->sprite, object->pos);
     return (object);
@@ -41,6 +41,7 @@ json_object_t *js, game_t *game, scene_t *scene)
         return (NULL);
     }
     object->draw = &rpg_draw_pnj;
+    object->z_index = scene->z_index_deepth;
     object->callback = &rpg_pnj_callback;
     object = rpg_pnj_init_box_and_pos(object, pos);
     return (object);

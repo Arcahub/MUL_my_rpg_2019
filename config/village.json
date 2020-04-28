@@ -8,10 +8,32 @@
             [0, 0],
             [1, 9],
             [3, 9],
-            [7, 5]
+            [7, 5],
+            [8, 5],
+            [5, 5]
         ],
         "background_color": [0, 0, 0, 0],
         "objects_list": [
+            {
+                "type": 12,
+                "texture_path": "templates/inv.png"
+            },
+            {
+                "type": 20,
+                "texture_path": "templates/Window.png"
+            },
+            {
+                "type": 21,
+                "json_path": "config/PNJ/pnj.json",
+                "texture_path": "templates/npc.png",
+                "pos": [1500, 800]
+            },
+            {
+                "type": 21,
+                "json_path": "config/PNJ/pnj2.json",
+                "texture_path": "templates/npc.png",
+                "pos": [1500, 900]
+            },
             {
                 "type": 16,
                 "texture_path": "templates/player_sheet.png",

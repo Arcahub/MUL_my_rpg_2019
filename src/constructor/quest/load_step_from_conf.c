@@ -20,7 +20,7 @@ game_t *game)
         return (NULL);
     if (!get_int_from_conf(js, (int *) &step->step_type, "type") || \
     !get_int_from_conf(js, &step->step_number, "step_number") ||
-    (step->description = get_str_from_conf(js, "description")) == NULL || \
+    ((step->description = get_str_from_conf(js, "description")) == NULL) || \
     !get_vector2f_from_conf(js, &step->pos, "pos"))
         return (NULL);
     if (step->step_type == FIGHT && (step->fight_scene = \
