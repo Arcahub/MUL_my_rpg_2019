@@ -11,7 +11,7 @@ bool play_button_function(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *)pt;
 
-    scene->display = GALAXIE_SCENE;
+    scene->display = INVENTORY_SCENE;
     return (true);
 }
 

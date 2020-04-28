@@ -9,7 +9,9 @@
 #include "components/get_from_config.h"
 #include "components/quest/quest.h"
 #include "player.h"
+#include "my.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 quest_t rpg_quest_get_from_conf(char *path, scene_t *scene)
 {
@@ -26,7 +28,7 @@ quest_t rpg_quest_get_from_conf(char *path, scene_t *scene)
     !get_int_from_conf(js, &player->quest.number_of_step, \
     "number_of_step") || !get_int_from_conf(js, \
     &player->quest.reward_item_number, "reward_item_number") || \
-    (player->quest.name = get_str_from_conf(js, "name")) == NULL)
+    (player->quest.name = my_strdup(get_str_from_conf(js, "name"))) == NULL)
         return (player->quest);
     player->quest.step = rpg_quest_load_step_from_conf(js, scene->game);
     rpg_quest_board_update(scene);

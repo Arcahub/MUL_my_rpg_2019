@@ -21,6 +21,8 @@ typedef enum {
 
 typedef enum {
     INTRODUCTION_PNJ,
+    ONSENFOU,
+    SECOND_QUEST_PNJ,
     MAX_PNJ_ID
 } pnj_id;
 

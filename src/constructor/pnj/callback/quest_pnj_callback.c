@@ -21,6 +21,7 @@ void rpg_pnj_quest_callback(game_object_t *object, scene_t *scene, pnj_t *pnj)
         return;
     } else if (player->quest.state == TAKEN && \
     player->quest.id == pnj->quest_id) {
+        scene->display = FIGHT_SCENE;
         rpg_pnj_open_dialog_doing_quest(pnj, scene);
         return;
     }

@@ -38,9 +38,11 @@ bool rpg_fight_handler_update(game_object_t *object, scene_t *scene)
     ennemy_t *ennemy = rpg_ennemy_get_extend(scene);
     space_ship_t *ship = rpg_spaceship_get_extend(scene);
 
+    if (ennemy == NULL || handler == NULL || ship == NULL)
+        return (true);
     if (ennemy->hp == 0)
         rpg_fight_handler_player_win(object, scene);
-    if (ship->hp == 0)
+    else if (ship->hp == 0)
         rpg_fight_handler_player_lose(object, scene);
     if (handler->in_fight == 0)
         return (true);

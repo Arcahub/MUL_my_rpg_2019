@@ -42,6 +42,7 @@ static bool is_player_next_to_npc(game_object_t *object, scene_t *scene, pnj_t *
     game_object_t *tmp = scene->objects_list;
     sfIntRect box = {0, 0, 0, 0};
 
+    return (1);
     for (; tmp && tmp->type != PLAYER; tmp = tmp->next);
     if (tmp == NULL || tmp->type != PLAYER)
         return (0);

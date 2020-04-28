@@ -25,6 +25,7 @@ typedef enum {
     FIGHT_SCENE,
     FIGHT_PAUSE_SCENE,
     VILLAGE_SCENE,
+    INVENTORY_SCENE,
     NULL_SCENE,
 } scene_index;
 
