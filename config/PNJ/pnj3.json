@@ -1,0 +1,20 @@
+{
+    "pnj": {
+        "id": 2,
+        "type": 0,
+        "name": "Ouai gros",
+        "quest": 1,
+        "dialog": [
+            {
+                "type": 1,
+                "speaker": 1,
+                "message": " : QUEST_OVER, GG BRO"
+            },  
+            {
+                "type": 2,
+                "speaker": 1,
+                "message": " : DOING QUEST"
+            }
+        ]
+    }
+}

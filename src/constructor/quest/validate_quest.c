@@ -8,6 +8,7 @@
 #include "my_game.h"
 #include "my_json.h"
 #include "components/quest/quest.h"
+#include "components/quest/quest_conf.h"
 #include "item/inventory.h"
 #include "player.h"
 #include <stdlib.h>
@@ -29,8 +30,12 @@ void validate_quest(game_t *game, scene_t *scene, quest_t *quest)
         return;
     quest_board = (quest_board_t *) board->extend;
     quest_board->draw_infos = 0;
-    ((player_t *) game->player)->quest = rpg_init_quest(game);
-    ((player_t *) game->player)->quest.state = RESET;
+    ((player_t *) game->player)->quest.state = UNTAKEN;
+    if (quest->id + 1 == MAX_QUEST_ID)
+        return;
+    ((player_t *) game->player)->quest = \
+    rpg_quest_get_from_conf((char *) QUEST_CONF[quest->id + 1], scene);
+    ((player_t *) game->player)->quest.state = TAKEN;
 }
 
 void validate_step(game_t *game, scene_t *scene, quest_t *quest)

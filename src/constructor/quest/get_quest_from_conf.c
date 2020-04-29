@@ -9,7 +9,9 @@
 #include "components/get_from_config.h"
 #include "components/quest/quest.h"
 #include "player.h"
+#include "my.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 quest_t rpg_quest_get_from_conf(char *path, scene_t *scene)
 {

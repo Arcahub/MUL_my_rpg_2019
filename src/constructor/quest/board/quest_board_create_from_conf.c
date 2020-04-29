@@ -40,6 +40,7 @@ json_object_t *js, game_t *game, scene_t *scene)
     if (object == NULL)
         return (NULL);
     object->state = 0;
+    object->z_index = scene->z_index_deepth;
     object->draw = &rpg_quest_board_draw;
     object->extend = (void *) rpg_quest_board_create_extend(last, \
     js, game, scene);

@@ -100,8 +100,8 @@ json_object_t *js, game_t *game, scene_t *scene)
         return (NULL);
     if (rpg_pnj_init_extend(js, pnj, &pnj_js))
         return (NULL);
-    if ((pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game)) == NULL || \
-    (pnj = rpg_pnj_init_dialog_background(pnj)) == NULL)
+    if (((pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game)) == NULL) || \
+    ((pnj = rpg_pnj_init_dialog_background(pnj)) == NULL))
         return (NULL);
     json_object_destroy(pnj_js);
     return (pnj);

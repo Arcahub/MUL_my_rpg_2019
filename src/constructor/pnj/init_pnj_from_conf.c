@@ -17,7 +17,7 @@ sfVector2f pos)
     object->pos.y = pos.y;
     object->box.left = object->pos.x;
     object->box.top = object->pos.y;
-    object->box.height = 50;
+    object->box.height = 84;
     object->box.width = 50;
     sfSprite_setPosition(object->sprite, object->pos);
     return (object);

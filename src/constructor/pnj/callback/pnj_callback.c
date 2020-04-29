@@ -37,12 +37,31 @@ static bool is_dialog_open(game_object_t *object, scene_t *scene)
     return (0);
 }
 
+static bool is_player_next_to_npc(game_object_t *object, scene_t *scene, pnj_t *pnj)
+{
+    game_object_t *tmp = scene->objects_list;
+    sfIntRect box = {0, 0, 0, 0};
+
+    return (1);
+    for (; tmp && tmp->type != PLAYER; tmp = tmp->next);
+    if (tmp == NULL || tmp->type != PLAYER)
+        return (0);
+    box.top = object->pos.y - 100;
+    box.width = 200;
+    box.left = object->pos.x - 100;
+    box.height = 200;
+    if (sfIntRect_contains(&box, tmp->pos.x, tmp->pos.y) == 1)
+        return (1);
+    return (0);
+}
+
 bool rpg_pnj_callback(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *) pt;
     pnj_t *pnj = (pnj_t *) object->extend;
 
-    if (is_dialog_open(object, scene) == 1)
+    if (is_dialog_open(object, scene) == 1 || \
+    is_player_next_to_npc(object, scene, pnj) == 0)
         return (true);
     rpg_dialog_button_set_pnj(object, scene, pnj);
     if (pnj->pnj_type == QUEST_PNJ)

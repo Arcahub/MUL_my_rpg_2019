@@ -99,7 +99,7 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->callback = &rpg_inventory_get_click_on_item;
     object->update = &rpg_update_inventory;
     object->box = (sfIntRect) {0, 0, 1920, 1080};
-    object->z_index = 1;
+    object->z_index = scene->z_index_deepth;
     object->extend = player->item_list;
     object->free_extend = &rpg_inventory_destroy;
     return (object);

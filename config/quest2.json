@@ -1,0 +1,29 @@
+{
+    "quest": {
+        "id": 1,
+        "name": "Seconde quete !",
+        "number_of_step": 2,
+        "reward_item": 1,
+        "reward_item_number": 1,
+        "reward_money": 1000,
+        "step_list": [
+            {
+                "type": 0,
+                "validated": 0,
+                "step_number": 2,
+                "description": "Go back to l'autre pd et rend lui la quete",
+                "scene": 5,
+                "pos": [1000, 3000]
+            },
+            {
+                "type": 1,
+                "validated": 0,
+                "step_number": 1,
+                "description": "Tue le gros gros gros gros fdp de vaisseau !",
+                "scene": 5,
+                "fight_scene": "config/fight_scene.json",
+                "pos": [1000, 3000]
+            }
+        ]
+    }
+}

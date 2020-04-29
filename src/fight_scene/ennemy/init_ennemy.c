@@ -72,7 +72,7 @@ json_object_t *js)
     !get_int_from_conf(js, (int *) &ennemy->quest_id, "quest_id") ||
     !get_int_from_conf(js, &ennemy->repair_value, "repair_value") ||
     !get_int_from_conf(js, &ennemy->shield, "shield") ||
-    (ennemy->name = get_str_from_conf(js, "name")) == NULL ||
+    ((ennemy->name = get_str_from_conf(js, "name")) == NULL) ||
     (ennemy->id = malloc(sizeof(action_id) * ennemy->action_number)) == NULL)
         return (NULL);
     ennemy->max_hp = ennemy->hp;

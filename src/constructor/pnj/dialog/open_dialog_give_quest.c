@@ -18,11 +18,10 @@ void rpg_pnj_open_dialog_give_quest(pnj_t *pnj, scene_t *scene)
     dialog_t *tmp = pnj->dialog;
     char *str_tmp = pnj->name;
 
-    if (tmp == NULL)
+    if (tmp == NULL || pnj->quest_id != 0)
         return;
     ((player_t *) scene->game->player)->quest = rpg_quest_get_from_conf(
     (char *) QUEST_CONF[pnj->quest_id], scene);
-    rpg_quest_board_update(scene);
     pnj->draw_text = 1;
     for (; tmp && tmp->dialog_statue != GET_QUEST; tmp = tmp->next);
     if (tmp->dialog_statue != GET_QUEST)

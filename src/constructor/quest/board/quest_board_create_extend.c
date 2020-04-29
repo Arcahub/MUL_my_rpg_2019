@@ -12,6 +12,7 @@
 #include "player.h"
 #include "font/font.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 static void free_quest_info_on_board(quest_board_t *board, game_t *game)
 {
