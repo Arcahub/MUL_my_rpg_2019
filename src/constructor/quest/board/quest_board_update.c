@@ -14,10 +14,10 @@ void rpg_quest_board_update(scene_t *scene)
 {
     game_object_t *tmp = NULL;
 
-    if (scene->objects_list != NULL)
+    if (scene && scene->objects_list != NULL)
         tmp = scene->objects_list;
     for (; tmp && tmp->type != QUEST_BOARD; tmp = tmp->next);
-    if (tmp->type != QUEST_BOARD)
+    if (!tmp)
         return;
     tmp->extend = (void *) rpg_quest_board_setup((quest_board_t *) \
     tmp->extend, scene->game);

@@ -22,6 +22,8 @@ void rpg_quest_board_destroy(void *pt)
     free_text(board->title);
     free_text(board->name);
     free_text(board->actual_step);
+    free_text(board->item_reward);
+    free_text(board->money_reward);
     for (int x = 0; board->steps && x < board->number_of_step; x++)
         free_text(board->steps[x]);
     if (board->steps != NULL)

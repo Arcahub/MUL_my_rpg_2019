@@ -35,5 +35,4 @@ void rpg_destroy_quest(quest_t *quest)
             free_step(step);
         }
     }
-    free(quest);
 }

@@ -23,7 +23,6 @@ game_t *init_game(void)
     player = (player) ? player : player_create();
     if (player == NULL)
         return (NULL);
-    player->quest = rpg_init_quest(game);
     game->player = player;
     game->window = create_window_from_conf("./config/window.json");
     if (game->window == NULL)
@@ -36,6 +35,6 @@ void destroy_game(game_t *game)
     sfRenderWindow_destroy(game->window->window);
     free(game->window->name);
     free(game->window);
-    free(game->player);
+    player_destroy(game->player);
     free(game);
 }

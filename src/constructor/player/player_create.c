@@ -16,5 +16,6 @@ player_t *player_create(void)
         return (NULL);
     player->galaxie_dest = (sfVector2f) {0, 0};
     player->item_list = NULL;
+    player->quest = rpg_init_quest(NULL);
     return (player);
 }

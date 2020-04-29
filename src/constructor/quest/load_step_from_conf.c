@@ -11,20 +11,20 @@
 #include <stdlib.h>
 #include "components/get_from_config.h"
 
-static step_t *create_step_from_conf(json_object_t *js, step_t *next,
-game_t *game)
+static step_t *create_step_from_conf(json_object_t *js, step_t *next)
 {
     step_t *step = malloc(sizeof(step_t));
 
     if (step == NULL)
         return (NULL);
+    step->fight_scene = NULL;
     if (!get_int_from_conf(js, (int *) &step->step_type, "type") || \
     !get_int_from_conf(js, &step->step_number, "step_number") ||
-    (step->description = get_str_from_conf(js, "description")) == NULL || \
-    !get_vector2f_from_conf(js, &step->pos, "pos"))
+    (step->description = my_strdup(get_str_from_conf(js, "description")))
+    == NULL || !get_vector2f_from_conf(js, &step->pos, "pos"))
         return (NULL);
     if (step->step_type == FIGHT && (step->fight_scene = \
-    get_str_from_conf(js, "fight_scene")) == NULL)
+    my_strdup(get_str_from_conf(js, "fight_scene"))) == NULL)
         return (NULL);
     if (step->step_type == REACH &&
     !get_int_from_conf(js, (int *) &step->scene, "scene"))
@@ -36,7 +36,7 @@ game_t *game)
     return (step);
 } // NORM
 
-step_t *rpg_quest_load_step_from_conf(json_object_t *js, game_t *game)
+step_t *rpg_quest_load_step_from_conf(json_object_t *js)
 {
     json_value_t *value = NULL;
     json_array_t *array = NULL;
@@ -52,7 +52,7 @@ step_t *rpg_quest_load_step_from_conf(json_object_t *js, game_t *game)
             continue;
         value = json_get_element_by_key(array->array[i]->value, "type");
         if (value && value->value_type == INT) {
-            tmp = create_step_from_conf(array->array[i]->value, list, game);
+            tmp = create_step_from_conf(array->array[i]->value, list);
             list = (tmp) ? tmp : list;
         }
     }

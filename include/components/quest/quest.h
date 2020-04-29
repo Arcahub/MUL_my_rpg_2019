@@ -55,7 +55,7 @@ typedef struct quest {
     quest_id id;
 } quest_t;
 
-step_t *rpg_quest_load_step_from_conf(json_object_t *js, game_t *game);
+step_t *rpg_quest_load_step_from_conf(json_object_t *js);
 void validate_step(game_t *game, scene_t *scene, quest_t *quest);
 void validate_quest(game_t *game, scene_t *scene, quest_t *quest);
 void rpg_destroy_quest(quest_t *quest);
@@ -72,5 +72,6 @@ quest_board_t *rpg_quest_board_setup(quest_board_t *board, game_t *game);
 void rpg_quest_board_update(scene_t *scene);
 quest_board_t *rpg_quest_board_update_text(quest_board_t *board,
 scene_t *scene);
+void rpg_quest_load_from_save(quest_t *quest);
 
 #endif /* !QUEST_HANDLER_H_ */

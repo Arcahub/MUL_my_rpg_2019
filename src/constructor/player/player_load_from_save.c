@@ -6,6 +6,7 @@
 */
 
 #include "player.h"
+#include "components/quest/quest.h"
 #include <unistd.h>
 #include <fcntl.h>
 
@@ -25,6 +26,8 @@ player_t *player_load_from_save_fd(int fd)
         player_destroy(player);
         return (NULL);
     }
+    rpg_quest_load_from_save(&player->quest);
+    printf("%p\n", player->quest.step);
     return (player);
 }
 

@@ -22,7 +22,7 @@ static bool galaxie_button_callback(scene_t *scene, sfRenderWindow *window)
     if (!tmp)
         return (false);
     hud = tmp->extend;
-    if (sfIntRect_contains(&hud->button->box, pos.x, pos.y))
+    if (tmp->state && sfIntRect_contains(&hud->button->box, pos.x, pos.y))
         scene->display = VILLAGE_SCENE;
     return (false);
 }
@@ -30,14 +30,17 @@ static bool galaxie_button_callback(scene_t *scene, sfRenderWindow *window)
 void galaxie_move_event(sfEvent event, game_t *game, scene_t *scene,
 sfRenderWindow *window)
 {
-    game_object_t *tmp = scene->objects_list;
     sfVector2f pos = sfRenderWindow_mapPixelToCoords(window,
     sfMouse_getPositionRenderWindow(window), sfRenderWindow_getView(window));
     player_t *player_s = NULL;
+    game_object_t *tmp = scene->objects_list;
+    game_object_t *tmp2 = scene->objects_list;
 
     for (; tmp && tmp->type != INVENTORY; tmp = tmp->next);
-    if (tmp && tmp->state == 1)
+    for (; tmp2 && tmp2->type != QUEST_BOARD; tmp2 = tmp2->next);
+    if (tmp && tmp->state == 1 || tmp2 && tmp2->state == 1)
         return;
+    tmp = scene->objects_list;
     for (tmp = scene->objects_list; tmp && tmp->type != PLAYER;
     tmp = tmp->next);
     if (!tmp)
