@@ -29,3 +29,15 @@ scene_t *scene, sfRenderWindow *window)
     }
     scene->display = display;
 }
+
+void trigger_in_game_menu_village(sfEvent event, game_t *game,
+scene_t *scene, sfRenderWindow *window)
+{
+    int display = scene->display;
+
+    trigger_in_game_menu(event, game, scene, window);
+    display = scene->display;
+    display = (display == GALAXIE_SCENE) ? VILLAGE_SCENE : display;
+    display = (display == MAIN_MENU_SCENE) ? GALAXIE_SCENE : display;
+    scene->display = display;
+}

@@ -28,6 +28,8 @@ json_object_t *js, game_t *game, scene_t *scene)
     if (button == NULL)
         return (NULL);
     button->draw = NULL;
+    scene->z_index_deepth += 1;
+    button->z_index = scene->z_index_deepth;
     rpg_pnj_init_button_box(button, pos);
     button->update = &rpg_pnj_button_update;
     button->callback = &rpg_pnj_button_callback;

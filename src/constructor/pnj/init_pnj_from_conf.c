@@ -40,6 +40,7 @@ json_object_t *js, game_t *game, scene_t *scene)
         destroy_game_object(scene, object);
         return (NULL);
     }
+    object->z_index = scene->z_index_deepth;
     object->draw = &rpg_draw_pnj;
     object->callback = &rpg_pnj_callback;
     object = rpg_pnj_init_box_and_pos(object, pos);

@@ -20,6 +20,7 @@ enum {
     FIGHT_PAUSE_ID,
     VILLAGE_MOVE_EVENT_ID,
     OPEN_QUEST_BOARD_ID,
+    TRIGGER_IN_GAME_MENU_VILLAGE_EVENT_ID,
     MAX_SCENE_EVENT_ID
 };
 
@@ -39,6 +40,8 @@ void open_quest_board(sfEvent event, game_t *game, scene_t *scene,
 sfRenderWindow *window);
 void pause_fight(sfEvent event, game_t *game, scene_t *scene,
 sfRenderWindow *window);
+void trigger_in_game_menu_village(sfEvent event, game_t *game,
+scene_t *scene, sfRenderWindow *window);
 
 static void (*EVENT_SCENE_FP[]) (sfEvent, game_t *, scene_t *,
 sfRenderWindow *) = {
@@ -50,7 +53,8 @@ sfRenderWindow *) = {
     &open_inventory,
     &pause_fight,
     &village_move_event,
-    &open_quest_board
+    &open_quest_board,
+    &trigger_in_game_menu_village
 };
 
 #endif /* !EVENT_SCENE_FP_H_ */
