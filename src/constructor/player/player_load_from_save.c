@@ -21,6 +21,7 @@ player_t *player_load_from_save_fd(int fd)
         player_destroy(player);
         return (NULL);
     }
+    rpg_destroy_quest(&player->quest);
     size = read(fd, player, sizeof(player_t));
     if (size != sizeof(player_t)) {
         player_destroy(player);

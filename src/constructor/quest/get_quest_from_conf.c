@@ -16,7 +16,7 @@
 quest_t rpg_quest_get_from_conf(char *path, scene_t *scene)
 {
     json_object_t *js = json_create_from_file((char *) path);
-    quest_t quest;
+    quest_t quest = {0, NULL, 0, 0, 0, 0, 0, NULL, 0};
 
     if (js == NULL)
         return (quest);

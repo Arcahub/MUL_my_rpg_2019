@@ -20,7 +20,7 @@ static pnj_t *rpg_pnj_get_clicked_pnj(game_object_t *object, scene_t *scene)
     for (; tmp_obj; tmp_obj = tmp_obj->next) {
         if (tmp_obj->type == PNJ)
             pnj = (pnj_t *) tmp_obj->extend;
-        if ((int) pnj->pnj_id == object->state)
+        if (pnj && (int) pnj->pnj_id == object->state)
             return (pnj);
     }
     return (NULL);
@@ -46,11 +46,11 @@ bool rpg_pnj_button_callback(game_object_t *object, void *pt)
     dialog_t *tmp = NULL;
 
     if (pnj == NULL)
-        return (true);
+        return (false);
     tmp = pnj->dialog;
     if (pnj->pnj_type == QUEST_PNJ)
         rpg_pnj_button_callback_quest_npc(pnj, scene, tmp);
     else if (pnj->pnj_type == DIALOG_PNJ)
         rpg_dialog_advance_step(pnj, scene, tmp);
-    return (true);
+    return (false);
 }

@@ -66,10 +66,10 @@ game_object_t *galaxie_hud_create(game_object_t *last, json_object_t *js,
 game_t *game, scene_t *scene);
 game_object_t *rpg_inventory_create_from_conf(game_object_t *, json_object_t *,
 game_t *, scene_t *);
-game_object_t *rpg_ennemy_create_from_conf(game_object_t *, json_object_t *,
-game_t *, scene_t *);
-game_object_t *rpg_space_ship_create_from_conf(game_object_t *,
-json_object_t *, game_t *, scene_t *);
+game_object_t *rpg_ennemy_create(game_object_t *last, \
+json_object_t *js, game_t *game, scene_t *scene);
+game_object_t *rpg_space_ship_create(game_object_t *last, \
+json_object_t *js, game_t *game, scene_t *scene);
 game_object_t *rpg_fight_handler_create_from_conf(game_object_t *,
 json_object_t *, game_t *, scene_t *);
 game_object_t *rpg_create_player_from_conf(game_object_t *last,
@@ -102,8 +102,8 @@ game_t *, scene_t *) = {
     &galaxie_planet_create_from_conf,
     &galaxie_hud_create,
     &rpg_inventory_create_from_conf,
-    &rpg_ennemy_create_from_conf,
-    &rpg_space_ship_create_from_conf,
+    &rpg_ennemy_create,
+    &rpg_space_ship_create,
     &rpg_fight_handler_create_from_conf,
     &rpg_create_player_from_conf,
     &rpg_music_handler_create_from_conf,

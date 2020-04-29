@@ -7,7 +7,22 @@
 
 #include "galaxie/galaxie_spaceship.h"
 #include "galaxie/galaxie_hud.h"
+#include "player.h"
 #include <math.h>
+
+static void galaxie_player_in_zone_fight(game_object_t *object,
+scene_t *scene)
+{
+    player_t *player = scene->game->player;
+    step_t *actual = get_quest_actual_step(&player->quest);
+    sfIntRect fight_zone;
+
+    if (actual == NULL || actual->step_type != FIGHT)
+        return;
+    fight_zone = (sfIntRect) {actual->pos.x - 50, actual->pos.y - 50, 100, 100};
+    if (sfIntRect_contains(&fight_zone, object->pos.x, object->pos.y))
+        scene->display = FIGHT_SCENE;
+}
 
 static void galaxie_planet_test_collide_with_planet(game_object_t *object,
 scene_t *scene)
@@ -33,6 +48,7 @@ bool galaxie_spaceship_update(game_object_t *object, scene_t *scene)
 {
     float angle = 0;
 
+    galaxie_player_in_zone_fight(object, scene);
     galaxie_spaceship_move(object, scene);
     if (object->move.x == 0 && object->move.y == 0)
         return (true);

@@ -38,7 +38,7 @@ sfRenderWindow *window)
 
     for (; tmp && tmp->type != INVENTORY; tmp = tmp->next);
     for (; tmp2 && tmp2->type != QUEST_BOARD; tmp2 = tmp2->next);
-    if (tmp && tmp->state == 1 || tmp2 && tmp2->state == 1)
+    if ((tmp && tmp->state == 1) || (tmp2 && tmp2->state == 1))
         return;
     tmp = scene->objects_list;
     for (tmp = scene->objects_list; tmp && tmp->type != PLAYER;
@@ -46,7 +46,9 @@ sfRenderWindow *window)
     if (!tmp)
         return;
     player_s = tmp->extend;
-    if (player_s != NULL)
+    if (player_s != NULL) {
         player_s->galaxie_dest = pos;
+        printf("%d\n", player_s->quest.id);
+    }
     galaxie_button_callback(scene, window);
 }

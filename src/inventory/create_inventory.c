@@ -60,7 +60,7 @@ bool rpg_inventory_get_click_on_item(game_object_t *object, void *pt)
         } else
             tmp->selected = 0;
     }
-    return (true);
+    return (false);
 }
 
 void rpg_inventory_draw(sfRenderWindow *window, game_object_t *object)

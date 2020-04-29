@@ -59,6 +59,8 @@ json_object_t *js, game_t *game, scene_t *scene)
         return (NULL);
     board->step_to_draw = 0;
     board->actual_step = NULL;
+    board->item_reward = NULL;
+    board->money_reward = NULL;
     board->steps = NULL;
     board->name = NULL;
     board->title = init_text("Quest board", 500, 50, (char *) FONT_PATH[0]);

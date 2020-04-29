@@ -54,6 +54,7 @@ step_t *rpg_quest_load_step_from_conf(json_object_t *js)
         if (value && value->value_type == INT) {
             tmp = create_step_from_conf(array->array[i]->value, list);
             list = (tmp) ? tmp : list;
+            list->validated = (tmp) ? false : list->validated;
         }
     }
     return (list);

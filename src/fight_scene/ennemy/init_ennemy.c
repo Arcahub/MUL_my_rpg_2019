@@ -9,6 +9,7 @@
 #include "fight_scene/ennemy.h"
 #include "components/get_from_config.h"
 #include "font/font.h"
+#include "player.h"
 #include <stdlib.h>
 
 static ennemy_t *rpg_ennemy_create_text(ennemy_t *ennemy)
@@ -107,3 +108,25 @@ json_object_t *js, game_t *game, scene_t *scene)
     }
     return (object);
 }
+
+game_object_t *rpg_ennemy_create(game_object_t *last, \
+json_object_t *js, game_t *game, scene_t *scene)
+{
+    player_t *player = game->player;
+    step_t *step = get_quest_actual_step(&player->quest);
+    json_object_t *config = json_create_from_file(step->fight_scene);
+    json_value_t *value = NULL;
+    game_object_t *object = NULL;
+
+    if (config == NULL)
+        return (NULL);
+    value = json_get_element_by_key(config, "opponent");
+    if (value == NULL || value->value_type != OBJECT) {
+        json_object_destroy(config);
+        return (NULL);
+    }
+    object = rpg_ennemy_create_from_conf(last, value->value, game, scene);
+    json_object_destroy(config);
+    return (object);
+}
+

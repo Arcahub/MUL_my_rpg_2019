@@ -10,6 +10,7 @@
 #include "fight_scene/ship.h"
 #include "fight_scene/fight_handler.h"
 #include "font/font.h"
+#include "player.h"
 #include <stdlib.h>
 
 void rpg_space_ship_destroy_tmp_text(char *tmp1, char *tmp2, char *tmp3)
@@ -84,5 +85,26 @@ json_object_t *js, game_t *game, scene_t *scene)
         destroy_game_object(scene, object);
         return (NULL);
     }
+    return (object);
+}
+
+game_object_t *rpg_space_ship_create(game_object_t *last, \
+json_object_t *js, game_t *game, scene_t *scene)
+{
+    player_t *player = game->player;
+    json_object_t *config = json_create_from_file(
+    player->quest.step->fight_scene);
+    json_value_t *value = NULL;
+    game_object_t *object = NULL;
+
+    if (config == NULL)
+        return (NULL);
+    value = json_get_element_by_key(config, "player");
+    if (value == NULL || value->value_type != OBJECT) {
+        json_object_destroy(config);
+        return (NULL);
+    }
+    object = rpg_space_ship_create_from_conf(last, value->value, game, scene);
+    json_object_destroy(config);
     return (object);
 }

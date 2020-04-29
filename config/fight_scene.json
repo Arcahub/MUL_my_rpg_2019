@@ -22,28 +22,10 @@
                 "texture_path": "templates/inv.png"
             },
             {
-                "type": 13,
-                "name": "Dark Vador",
-                "pos": [1100, 300],
-                "weapon_id": 0,
-                "texture_path": "templates/menu/ship2.png",
-                "hp" : 100,
-                "shield": 100,
-                "quest_id": 0,
-                "repair_value": 10,
-                "action_number": 3,
-                "damage": 10
+                "type": 13
             },
             {
-                "type": 14,
-                "pos": [700, 100],
-                "weapon_id": 0,
-                "texture_path": "templates/menu/ship1.png",
-                "hp" : 100,
-                "shield": 100,
-                "repair_value": 100,
-                "action_number": 3,
-                "damage": 10
+                "type": 14
             },
             {
                 "type": 15

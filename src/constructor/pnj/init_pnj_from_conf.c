@@ -10,7 +10,7 @@
 #include "my_json.h"
 #include "components/get_from_config.h"
 
-static game_object_t *rpg_pnj_init_box_and_pos(game_object_t *object,
+static void rpg_pnj_init_box_and_pos(game_object_t *object,
 sfVector2f pos)
 {
     object->pos.x = pos.x;
@@ -20,7 +20,6 @@ sfVector2f pos)
     object->box.height = 84;
     object->box.width = 50;
     sfSprite_setPosition(object->sprite, object->pos);
-    return (object);
 }
 
 game_object_t *rpg_pnj_init_from_conf(game_object_t *last,
@@ -43,6 +42,6 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->z_index = scene->z_index_deepth;
     object->draw = &rpg_draw_pnj;
     object->callback = &rpg_pnj_callback;
-    object = rpg_pnj_init_box_and_pos(object, pos);
+    rpg_pnj_init_box_and_pos(object, pos);
     return (object);
 }

@@ -62,11 +62,11 @@ bool rpg_pnj_callback(game_object_t *object, void *pt)
 
     if (is_dialog_open(object, scene) == 1 || \
     is_player_next_to_npc(object, scene, pnj) == 0)
-        return (true);
+        return (false);
     rpg_dialog_button_set_pnj(object, scene, pnj);
     if (pnj->pnj_type == QUEST_PNJ)
         rpg_pnj_quest_callback(object, scene, pnj);
     else if (pnj->pnj_type == DIALOG_PNJ)
         rpg_pnj_dialog_callback(object, scene, pnj);
-    return (true);
+    return (false);
 }

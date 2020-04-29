@@ -21,8 +21,8 @@
                 "step_number": 1,
                 "description": "Tue le gros fdp de vaisseau !",
                 "scene": 5,
-                "fight_scene": "config/fight_scene.json",
-                "pos": [1000, 3000]
+                "fight_scene": "config/fight_config/fight_quest1.json",
+                "pos": [0, 0]
             }
         ]
     }

@@ -74,5 +74,6 @@ void rpg_quest_board_update(scene_t *scene);
 quest_board_t *rpg_quest_board_update_text(quest_board_t *board,
 scene_t *scene);
 void rpg_quest_load_from_save(quest_t *quest);
+step_t *get_quest_actual_step(quest_t *quest);
 
 #endif /* !QUEST_HANDLER_H_ */
