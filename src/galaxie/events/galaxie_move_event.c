@@ -46,9 +46,7 @@ sfRenderWindow *window)
     if (!tmp)
         return;
     player_s = tmp->extend;
-    if (player_s != NULL) {
+    if (player_s != NULL)
         player_s->galaxie_dest = pos;
-        printf("%d\n", player_s->quest.id);
-    }
     galaxie_button_callback(scene, window);
 }
