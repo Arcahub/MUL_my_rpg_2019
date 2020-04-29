@@ -29,7 +29,7 @@ scene_t *scene)
         return;
     if (ennemy->quest_id == player->quest.id)
         validate_step(scene->game, scene, &player->quest);
-    scene->display = GALAXIE_SCENE;
+    scene->display = INVENTORY_SCENE;
 }
 
 bool rpg_fight_handler_update(game_object_t *object, scene_t *scene)

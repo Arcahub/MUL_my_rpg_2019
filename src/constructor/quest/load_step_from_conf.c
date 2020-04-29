@@ -20,11 +20,11 @@ game_t *game)
         return (NULL);
     if (!get_int_from_conf(js, (int *) &step->step_type, "type") || \
     !get_int_from_conf(js, &step->step_number, "step_number") ||
-    ((step->description = get_str_from_conf(js, "description")) == NULL) || \
-    !get_vector2f_from_conf(js, &step->pos, "pos"))
+    ((step->description = my_strdup(get_str_from_conf(js, "description"))) \
+    == NULL) || !get_vector2f_from_conf(js, &step->pos, "pos"))
         return (NULL);
     if (step->step_type == FIGHT && (step->fight_scene = \
-    get_str_from_conf(js, "fight_scene")) == NULL)
+    my_strdup(get_str_from_conf(js, "fight_scene"))) == NULL)
         return (NULL);
     if (step->step_type == REACH &&
     !get_int_from_conf(js, (int *) &step->scene, "scene"))
