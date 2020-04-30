@@ -51,7 +51,7 @@ void validate_step(game_t *game, scene_t *scene, quest_t *quest)
     tmp->validated = 1;
     quest->actual_step++;
     for (; board && board->type != QUEST_BOARD; board = board->next);
-    if (board->type != QUEST_BOARD)
+    if (!board || board->type != QUEST_BOARD)
         return;
     quest_board = (quest_board_t *) board->extend;
     quest_board = rpg_quest_board_update_text(quest_board, scene);

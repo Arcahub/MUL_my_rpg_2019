@@ -19,5 +19,6 @@ player_t *player_create(void)
     player->galaxie_dest = (sfVector2f) {0, 0};
     player->item_list = NULL;
     player->quest = rpg_quest_get_from_conf(QUEST_CONF[0], NULL);
+    player->quest.state = TAKEN;
     return (player);
 }
