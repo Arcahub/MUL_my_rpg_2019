@@ -18,6 +18,8 @@ int z_index)
     if (tile == NULL)
         return (NULL);
     tile->z_index = z_index;
+    tile->box = (sfIntRect) {pos.x + 10, pos.y + 3 * 48 , 387, 220};
+    tile->state = 1;
     tile = create_game_object(tile, (char *) TILE_PATH[0],
     pos, TILE_MAP);
     return (tile);

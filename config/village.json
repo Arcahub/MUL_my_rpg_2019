@@ -48,7 +48,7 @@
             {
                 "type": 16,
                 "texture_path": "templates/player_sheet.png",
-                "pos": [400, 500],
+                "pos": [1488, 720],
                 "frame_keys_down": [
                     [0, 0, 52, 76],
                     [0, 0, 52, 76],

@@ -11,19 +11,19 @@
 enum {
     GRASS,
     PATH,
-    TAVERN,
-    ARMOR,
-    FOREST1,
-    FOREST2,
-    FOREST3,
-    SHIP,
-    TREE,
-    WEAPON,
-    HOUSE,
-    CASCADE,
-    ROCK,
-    PNJ1,
-    PNJ2,
+    TAVERN, // HIT
+    ARMOR, // HIT
+    FOREST1, // HIT
+    FOREST2, // HIT
+    FOREST3, // HIT
+    SHIP, // HIT
+    TREE, // HIT
+    WEAPON, // HIT
+    HOUSE, // HIT
+    CASCADE, // HIT
+    ROCK, // HIT
+    PNJ1, // HIT
+    PNJ2, // HIT
     MAX_TILE_ID
 };
 

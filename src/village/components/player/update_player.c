@@ -41,14 +41,31 @@ static void update_state(game_object_t *object)
     }
 }
 
+static bool check_player_move(game_object_t *object, scene_t *scene)
+{
+    sfIntRect next_pos = {object->pos.x + object->move.x,
+    object->pos.y + object->move.y + object->box.height / 2,
+    object->box.width, object->box.height / 2};
+
+    for (game_object_t *tmp = scene->objects_list; tmp; tmp = tmp->next) {
+        if (tmp->type == PLAYER)
+            continue;
+        if (tmp->state && sfIntRect_intersects(&next_pos, &tmp->box, NULL))
+            return (false);
+    }
+    return (true);
+}
+
 bool update_player(game_object_t *object, scene_t *scene)
 {
     sfVector2f reset = {0, 0};
 
     if (object->move.y != 0 || object->move.x != 0) {
-        update_state(object);
-        object->move = reset;
-        object->z_index = object->pos.y / 48;
+        if (check_player_move(object, scene)) {
+            update_state(object);
+            object->move = reset;
+            object->z_index = object->pos.y / 48;
+        }
     }
     return (true);
 }
