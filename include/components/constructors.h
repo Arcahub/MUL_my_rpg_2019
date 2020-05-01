@@ -82,7 +82,7 @@ game_object_t *create_village(game_object_t *, json_object_t *,
 game_t *, scene_t *);
 game_object_t *rpg_quest_board_create_from_conf(game_object_t *,
 json_object_t *, game_t *, scene_t *);
-game_object_t *rpg_pnj_init_from_conf(game_object_t *,
+game_object_t *rpg_pnj_constructor(game_object_t *,
 json_object_t *, game_t *, scene_t *);
 game_object_t *rpg_pnj_init_button_from_conf(game_object_t *,
 json_object_t *, game_t *, scene_t *);
@@ -110,7 +110,7 @@ game_t *, scene_t *) = {
     &create_village,
     &rpg_cursor_create_from_conf,
     &rpg_quest_board_create_from_conf,
-    &rpg_pnj_init_from_conf,
+    &rpg_pnj_constructor,
     &rpg_pnj_init_button_from_conf
 };
 

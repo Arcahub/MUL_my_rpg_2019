@@ -40,7 +40,7 @@ json_object_t *js, game_t *game, scene_t *scene)
         return (NULL);
     }
     object->update = &galaxie_planet_update;
-    object->extend = get_str_from_conf(js, "village_config_path");
+    object->extend = my_strdup(get_str_from_conf(js, "config"));
     object->free_extend = &my_free;
     return (object);
 }

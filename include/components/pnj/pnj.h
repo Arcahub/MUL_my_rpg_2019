@@ -56,6 +56,8 @@ typedef struct pnj {
 } pnj_t;
 
 void free_text(sfText *text);
+game_object_t *rpg_pnj_init_from_conf(game_object_t *,
+json_object_t *, game_t *, scene_t *);
 void rpg_pnj_destroy(void *pt);
 pnj_t *rpg_pnj_init_extend_from_conf(game_object_t *object,
 json_object_t *js, game_t *game, scene_t *scene);

@@ -9,6 +9,7 @@
 #include "my_game.h"
 #include "components/get_from_config.h"
 #include "village/village_player.h"
+#include "player.h"
 #include "stdlib.h"
 
 static void get_anim_from_frames(game_object_t *object, json_object_t *js)
@@ -54,6 +55,8 @@ json_object_t *js, game_t *game, scene_t *scene)
     }
     object->move = (sfVector2f) {0, 0};
     object->state = PLAYER_DOWN;
+    object->extend = game->player;
+    object->free_extend = &player_save;
     object->z_index = object->pos.y / 48;
     update_game_object_frame(object);
     object->update = &update_player;

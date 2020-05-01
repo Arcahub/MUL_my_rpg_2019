@@ -8,6 +8,7 @@
 #include "galaxie/galaxie_spaceship.h"
 #include "galaxie/galaxie_hud.h"
 #include "player.h"
+#include "my.h"
 #include <math.h>
 
 static void galaxie_player_in_zone_fight(game_object_t *object,
@@ -22,6 +23,19 @@ scene_t *scene)
     fight_zone = (sfIntRect) {actual->pos.x - 50, actual->pos.y - 50, 100, 100};
     if (sfIntRect_contains(&fight_zone, object->pos.x, object->pos.y))
         scene->display = FIGHT_SCENE;
+}
+
+static void galaxie_set_galaxie_conf(game_object_t *object,
+game_object_t *planet)
+{
+    player_t *player = object->extend;
+    sfFloatRect box = sfSprite_getGlobalBounds(object->sprite);
+    sfFloatRect planet_box = sfSprite_getGlobalBounds(planet->sprite);
+
+    if (sfFloatRect_intersects(&box, &planet_box, NULL)) {
+        my_free(player->planet_conf);
+        player->planet_conf = my_strdup(planet->extend);
+    }
 }
 
 static void galaxie_planet_test_collide_with_planet(game_object_t *object,
@@ -40,6 +54,7 @@ scene_t *scene)
             planet_box = sfSprite_getGlobalBounds(tmp->sprite);
             hud->state = (sfFloatRect_intersects(&box, &planet_box, NULL)) ?
             galaxie_hud_move(hud, tmp) : hud->state;
+            galaxie_set_galaxie_conf(object, tmp);
         }
     }
 }

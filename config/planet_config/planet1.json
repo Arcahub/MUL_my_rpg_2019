@@ -1,0 +1,14 @@
+{
+    "pnjs": [
+        {
+            "json_path": "config/PNJ/pnj.json",
+            "texture_path": "templates/npc.png",
+            "pos": [1500, 800]
+        },
+        {
+            "json_path": "config/PNJ/pnj2.json",
+            "texture_path": "templates/npc.png",
+            "pos": [1500, 900]
+        }
+    ]
+}

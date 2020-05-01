@@ -18,6 +18,7 @@ typedef struct {
     inventory_t *item_list;
     quest_t quest;
     int money;
+    char *planet_conf;
 } player_t;
 
 player_t *player_create(void);

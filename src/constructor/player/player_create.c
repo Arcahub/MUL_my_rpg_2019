@@ -20,5 +20,6 @@ player_t *player_create(void)
     player->item_list = NULL;
     player->quest = rpg_quest_get_from_conf(QUEST_CONF[0], NULL);
     player->quest.state = TAKEN;
+    player->planet_conf = NULL;
     return (player);
 }
