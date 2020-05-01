@@ -36,6 +36,6 @@
 <li>The first step is adding an index to the enum of constructors.h, create a function taking the same argument as <b>rpg_create_text_handler_from_conf</b> that we've seen before, and adding its prototypes to the .h file.</li>
 <br><li>The second step is moduling your object and your object->extend using the json_get functions to get any informations you need from the json file and put them inside your extend structure or your game_object structure.</li>
 <br><li>The third step is heading to game_object.h and add the game_object_type if it's needed.</li>
-<br><li>The fourth step is creating the callback, update, and draw functions if your game_object need a particular one.</li>
+<br><li>The fourth step is creating the callback, update, and draw functions if your game_object needs a particular one.</li>
 </ul><br>
 <br><a href="../dev_doc.md"><h2>Go back to the heading documentation page</h2></a>

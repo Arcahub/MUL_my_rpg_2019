@@ -34,7 +34,6 @@
 				<li><a href="./Documentation_markdown/player_spaceship.md">Player Spaceship</a></li>
 				<li><a href="./Documentation_markdown/player_village.md">Player_village</a></li>
 				<li><a href="./Documentation_markdown/player_fight.md">Player_fight</a></li>
-				<li><a href="./Documentation_markdown/shop.md">Shop</a></li>
 				<li><a href="./Documentation_markdown/npc.md">NPC</a></li>
 				<li><a href="./Documentation_markdown/item.md">Item</a></li>
 				<li><a href="./Documentation_markdown/quest.md">Quest</a></li>
