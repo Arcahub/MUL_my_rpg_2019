@@ -94,20 +94,42 @@
 				<p>The village is the content of a planet. When you land on it, you arrive on the village. Every planet has a different village.</p>
 				<hr class="major">
 				<header>
-					<h3>What can contain an object inside a scene json_configuration file to create a text ?</h3>
+					<h3>What does a village contain ? How to create it ?</h3>
 				</header>
-				<p>Here is an exemple of a way to draw a text on a scene thanks to a json file. Just add the proper infos inside the scene's objects_list and it will draw it on its own. </p>
+				<p>Here is an exemple of a way to create a village on a scene thanks to a json file. Just add the proper infos inside the scene's objects_list and it will create and draw it on its own. To create the village, we use the tile mapping.</p>
 				<pre><code>"<font color="orange">objects_list</font>": [
 	{
-		"<font color="purple">type</font>": 6,
-		"<font color="purple">string</font>": "Space My RPG !",
-		"<font color="purple">font</font>": "templates/font/space.ttf",
-		"<font color="purple">pos</font>": [400, 100],
-		"<font color="purple">style</font>": 1,
-		"<font color="purple">size</font>": 100,
-		"<font color="purple">color</font>": [0, 0, 0, 0]
-	},</code></pre>
-				<p>On this table, you can see the value's name in the json file, its usage, and the type of the value. Those are the values you can put inside your json file to create a text.</p>
+		"<font color="purple">type</font>": 18,
+		"<font color="purple">map</font>": [
+			[6, 0, 6, 0, 6, 0, 6, 0, 0, 12, 0, 11, 0, 0, 0, 12, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 6, 0, 6, 0, 6],
+			[5, 5, 0, 5, 0, 5, 0, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0],
+			[5, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0],
+			[0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, 0, 0, 0],
+			[5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0],
+			[0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0],
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0],
+			[0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 2, 0, 0, 0, 0, 0, 8, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0],
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+			[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 5, 0, 0],
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0],
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 1, 1, 0, 0, 0, 0],
+			[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 5, 0, 0],
+			[0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 5, 0, 0, 0],
+			[0, 5, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0],
+			[0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0],
+			[5, 0, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 0, 0, 5, 0, 0],
+			[5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			[0, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0]
+		],
+		"<font color="purple">tile_width</font>": 48,
+		"<font color="purple">tile_height</font>": 48
+	},
+]</code></pre>
+				<p>On this table, you can see the value's name in the json file, its usage, and the type of the value. Those are the values you can put inside your json file to create a village.</p>
 				<div class="table-wrapper">	
 					<table>
 						<thead>
@@ -120,43 +142,85 @@
 						<tbody>
 							<tr>
 								<td>type</td>
-								<td>Always put 6 for a text.</td>
+								<td>Always put 18 for a file.</td>
 								<td><font color="red">int</td></font>
 							</tr>
 							<tr>
-								<td>string</td>
-								<td>The characters of your text.</td>
-								<td><font color="red">char *</td></font>
+								<td>map</td>
+								<td>Contains every tile of the village.</td>
+								<td><font color="red">int **</td></font>
 							</tr>
 							<tr>
-								<td>font</td>
-								<td>Filepath to the font style of your text.</td>
-								<td><font color="red">char *</td></font>
-							</tr>
-							<tr>
-								<td>pos</td>
-								<td>Position of your text on your window.</td>
-								<td><font color="red">sfVector2f</td></font>
-							</tr>
-							<tr>
-								<td>style</td>
-								<td>0 for regular, 1 for bold, 2 for italic, 3 for underlined, 4 for StrikeTrough.</td>
+								<td>tile_width</td>
+								<td>width of a tile.</td>
 								<td><font color="red">int</td></font>
 							</tr>
 							<tr>
-								<td>size</td>
-								<td>Drawing size of your text's character.</td>
+								<td>tile_height</td>
+								<td>height of a tile.</td>
 								<td><font color="red">int</td></font>
-							</tr>
-							<tr>
-								<td>color</td>
-								<td>Drawing color of your text in with RGBA values.</td>
-								<td><font color="red">sfColor ( RGBA )</td></font>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-			</div>
+					<hr class="major">
+					<header>
+						<h3>How does a tile work ?</h3>
+					</header>
+					<p>The number inside the tile mapping we get, is link to an enum to know what the program has to generate. Then thanks to the number, we get the good sprite_sheet using a static const char *. And finally, using a function's table pointer, we call the proper function.</p>
+					<pre><code><font color="red">enum</font> {
+	<font color="orange">GRASS</font>,
+	<font color="orange">PATH</font>,
+	<font color="orange">TAVERN</font>,
+	<font color="orange">ARMOR</font>,
+	<font color="orange">FOREST1</font>,
+	<font color="orange">FOREST2</font>,
+	<font color="orange">FOREST3</font>,
+	<font color="orange">SHIP</font>,
+	<font color="orange">TREE</font>,
+	<font color="orange">WEAPON</font>,
+	<font color="orange">HOUSE</font>,
+	<font color="orange">CASCADE</font>,
+	<font color="orange">ROCK</font>,
+	<font color="orange">PNJ1</font>,
+	<font color="orange">PNJ2</font>,
+	<font color="orange">MAX_TILE_ID</font>
+};
+
+<font color="purple">static</font> <font color="red">const char *</font>TILE_PATH[] = {
+	./sprites_village/grass-tile.png",
+	./sprites_village/path.png",
+	./sprites_village/tavern.png",
+	./sprites_village/armor.png",
+	./sprites_village/forest2.png",
+	./sprites_village/forest.png",
+	./sprites_village/forest3.png",
+	./sprites_village/ship.png",
+	./sprites_village/tree.png",
+	./sprites_village/weapon.png",
+	./sprites_village/house.png",
+	./sprites_village/cascade.png",
+	./sprites_village/rock.png"
+};
+
+<font color="purple">static</font> <font color="red">game_object_t *</font>(*TILE_GENERATORS[])(<font color="red">game_object_t *</font>,<font color="red"> sfVector2f</font>, <font color="red">int</font>, <font color="red">int</font>) = {
+    &<font color="blue">generate_grass,</font> 
+    &<font color="blue">generate_path</font>,
+    &<font color="blue">generate_house</font>,
+    &<font color="blue">generate_house</font>,
+    &<font color="blue">generate_forest</font>,
+    &<font color="blue">generate_forest</font>,
+    &<font color="blue">generate_forest</font>,
+    &<font color="blue">generate_tile</font>,
+    &<font color="blue">generate_forest</font>,
+    &<font color="blue">generate_house</font>,
+    &<font color="blue">generate_house</font>,
+    &<font color="blue">generate_waterfall</font>,
+    &<font color="blue">generate_tile</font>,
+    &<font color="blue">generate_tile</font>,
+    &<font color="blue">generate_tile</font>
+};</code></pre>
+				</div>
 
 		<!-- Footer -->
 			<footer id="footer">
