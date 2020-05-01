@@ -91,7 +91,7 @@
 					<header>
 						<h3>What is an ennemy concretely ?</h3>
 					</header>
-					<p>An ennemy is an entity ( a <a href="game_object.html">game_object</a> ) that you will fight during a <a href="fight_scene.html">fight_scene</a>. The ennemy is initailized in the json_file of the fight scene and the path of the json file is inside the json file of a quest.<br>I suggest you to go read <a href="json_constructors.html">constructor's documentation</a> if you want really want to understand how the ennemy is being initialized thanks to the json file.</p>
+					<p>An ennemy is an entity ( a <a href="game_object.html">game_object</a> ) that you will fight during a <a href="player_fight.html">fight_scene</a>. The ennemy is initailized in the json_file of the fight scene and the path of the json file is inside the json file of a quest.<br>I suggest you to go read <a href="json_constructors.html">constructor's documentation</a> if you want really want to understand how the ennemy is being initialized thanks to the json file.</p>
 					<hr class="major">
 					<header>
 						<h3>Ennemy structure</h3>
@@ -210,20 +210,20 @@
                     <h3>Exemple of creating an ennemy.</h3>
                 </header>
                 <p>Let's imagine you've gone to the <a href="quest.html">quest's documentation</a> and you've created a whole quest. Now you want to create the ennemy of a <a href="fight_scene.html">fight_scene</a>. So you will create the json file of the <a href="fight_scene.html">fight_scene</a> and you will want to init an ennemy. Don't forget to checkout the documentation of the <a href="fight_scene.html">fight_scene</a> and the <a href="quest.html">quest</a> to be sure you dont forget anything on your scene.</p>
-                <pre><code><font color="orange">"objects_list"</font>: [
-    {
-        <font color="purple">"type"</font>: 13,
-        <font color="purple">"name"</font>: "Dark Vador",
-        <font color="purple">"pos"</font>: [1100, 300],
-        <font color="purple">"weapon_id"</font>: 0,
-        <font color="purple">"texture_path"</font>: "templates/ship2.png",
-        <font color="purple">"hp"</font>: 100,
-        <font color="purple">"shield"</font>: 100,
-        <font color="purple">"repair_value"</font>: 10,
-        <font color="purple">"action_number"</font>: 3,
-        <font color="purple">"damage"</font>: 10
-    }
-]</code></pre>
+                <pre><code>{
+    "<font color="purple">opponent</font>": {
+        "<font color="orange">name</font>": "Dark Vador",
+        "<font color="orange">pos</font>": [1100, 300],
+        "<font color="orange">weapon_id</font>": 0,
+        "<font color="orange">texture_path</font>": "templates/menu/ship2.png",
+        "<font color="orange">hp</font>" : 100,
+        "<font color="orange">shield</font>": 100,
+        "<font color="orange">quest_id</font>": 0,
+        "<font color="orange">repair_value</font>": 10,
+        "<font color="orange">action_number</font>": 3,
+        "<font color="orange">damage</font>": 10
+    },
+}</code></pre>
             <div class="table-wrapper">	
                 <table>
                     <thead>
@@ -234,11 +234,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>type</td>
-                            <td>Always leave 13.</td>
-                            <td><font color="red">constructors_id</td></font>
-                        </tr>
                         <tr>
                             <td>name</td>
                             <td>Contains the ennemy's name.</td>

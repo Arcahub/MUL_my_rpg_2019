@@ -114,20 +114,20 @@
 <p>Okay now let's imagine you want to create a fight. You will first need to initialize a quest and to put the json configuration file of your fight_scene containing the ennemy inside one of the quest step.</p>
  <h2>Exemple of creating an ennemy.</h2>
 <p>Let's imagine you've gone to the >quest's documentation and you've created a whole quest. Now you want to create the ennemy of a fight_scene. So you will create the json file of the fight_scene and you will want to init an ennemy. Don't forget to checkout the documentation of the fight_scene and the quest to be sure you dont forget anything on your scene.</p>
-<pre><font color="orange">"objects_list"</font>: [
-    {
-        <font color="purple">"type"</font>: 13,
-        <font color="purple">"name"</font>: "Dark Vador",
-        <font color="purple">"pos"</font>: [1100, 300],
-        <font color="purple">"weapon_id"</font>: 0,
-        <font color="purple">"texture_path"</font>: "templates/ship2.png",
-        <font color="purple">"hp"</font>: 100,
-        <font color="purple">"shield"</font>: 100,
-        <font color="purple">"repair_value"</font>: 10,
-        <font color="purple">"action_number"</font>: 3,
-        <font color="purple">"damage"</font>: 10
-    }
-]</pre>
+<pre>{
+    "<font color="purple">opponent</font>": {
+        "<font color="orange">name</font>": "Dark Vador",
+        "<font color="orange">pos</font>": [1100, 300],
+        "<font color="orange">weapon_id</font>": 0,
+        "<font color="orange">texture_path</font>": "templates/menu/ship2.png",
+        "<font color="orange">hp</font>" : 100,
+        "<font color="orange">shield</font>": 100,
+        "<font color="orange">quest_id</font>": 0,
+        "<font color="orange">repair_value</font>": 10,
+        "<font color="orange">action_number</font>": 3,
+        "<font color="orange">damage</font>": 10
+    },
+}</pre>
 <table>
     <thead>
         <tr>
@@ -137,11 +137,6 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>type</td>
-            <td>Always leave 13.</td>
-            <td><font color="red">constructors_id</td></font>
-        </tr>
         <tr>
             <td>name</td>
             <td>Contains the ennemy's name.</td>

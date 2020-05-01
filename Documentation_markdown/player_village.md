@@ -125,4 +125,4 @@
     &<font color="blue">generate_tile</font>,
     &<font color="blue">generate_tile</font>
 };</pre>
-<br><a href="../dev_doc.md"><h1>Go back to the heading documentation page</h1></a>
+<br><a href="../dev_doc.md"><h2>Go back to the heading documentation page</h2></a>
