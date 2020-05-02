@@ -9,6 +9,7 @@
 #include "my_game.h"
 #include "components/get_from_config.h"
 #include "village/village_player.h"
+#include "player.h"
 
 static int get_state_by_move(game_object_t *object)
 {
@@ -67,5 +68,6 @@ bool update_player(game_object_t *object, scene_t *scene)
             object->z_index = object->pos.y / 48;
         }
     }
+    player_check_end(object, scene);
     return (true);
 }

@@ -65,6 +65,7 @@ bool galaxie_spaceship_update(game_object_t *object, scene_t *scene)
 
     galaxie_player_in_zone_fight(object, scene);
     galaxie_spaceship_move(object, scene);
+    player_check_end(object, scene);
     if (object->move.x == 0 && object->move.y == 0)
         return (true);
     angle = atan2(object->move.y, object->move.x) * (180.0 / M_PI) + 90;

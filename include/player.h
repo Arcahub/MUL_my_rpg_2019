@@ -26,5 +26,6 @@ player_t *player_load_from_save_path(char *path);
 player_t *player_load_from_save_fd(int fd);
 void player_save(void *pt);
 void player_destroy(player_t *player);
+void player_check_end(game_object_t *object, scene_t *scene);
 
 #endif /* !PLAYER_H_ */

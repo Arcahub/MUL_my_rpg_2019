@@ -14,7 +14,7 @@
 
 bool rpg_update_inventory(game_object_t *object, scene_t *scene)
 {
-    inventory_t *tmp = (inventory_t *) object->extend;
+    inventory_t *tmp = *((inventory_t **) object->extend);
     sfVector2f tmp2 = {275, 250};
     sfVector2f pos = sfView_getCenter(sfRenderWindow_getView(scene->window));
 
@@ -55,7 +55,8 @@ bool rpg_inventory_get_click_on_item(game_object_t *object, void *pt)
             tmp->selected = 1;
         } else if (tmp->type == WEAPON_ITEM && tmp->selected == 1 && \
         sfIntRect_contains(&tmp->equip_button->box, x, y)) {
-            rpg_item_equip_weapon(scene, tmp, (inventory_t *) object->extend);
+            rpg_item_equip_weapon(scene, tmp, *((inventory_t **)
+            object->extend));
             tmp->selected = 1;
         } else
             tmp->selected = 0;
@@ -70,7 +71,7 @@ void rpg_inventory_draw(sfRenderWindow *window, game_object_t *object)
     if (object->state == 0)
         return;
     sfRenderWindow_drawSprite(window, object->sprite, NULL);
-    for (tmp = (inventory_t *) object->extend; tmp; tmp = tmp->next) {
+    for (tmp = *((inventory_t **) object->extend); tmp; tmp = tmp->next) {
         if (tmp->type == WEAPON_ITEM && tmp->equip_button->texture != NULL && \
         tmp->equip_button->sprite != NULL && tmp->selected == 1)
             sfRenderWindow_drawSprite(window, tmp->equip_button->sprite, NULL);
@@ -100,7 +101,7 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->update = &rpg_update_inventory;
     object->box = (sfIntRect) {0, 0, 1920, 1080};
     object->z_index = scene->z_index_deepth;
-    object->extend = player->item_list;
+    object->extend = &player->item_list;
     object->free_extend = &rpg_inventory_destroy;
     return (object);
 }
