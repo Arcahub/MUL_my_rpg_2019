@@ -50,7 +50,7 @@ bool rpg_inventory_get_click_on_item(game_object_t *object, void *pt)
     int x = pos.x;
     int y = pos.y;
 
-    for (tmp = (inventory_t *) object->extend; tmp; tmp = tmp->next) {
+    for (tmp = *((inventory_t **) object->extend); tmp; tmp = tmp->next) {
         if (sfIntRect_contains(&tmp->box, x, y)) {
             tmp->selected = 1;
         } else if (tmp->type == WEAPON_ITEM && tmp->selected == 1 && \

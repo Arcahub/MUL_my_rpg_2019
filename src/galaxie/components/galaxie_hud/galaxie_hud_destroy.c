@@ -14,5 +14,6 @@ void galaxie_hud_destroy(void *pt)
 
     destroy_game_object(hud->scene, hud->button);
     destroy_game_object(hud->scene, hud->planet_name);
+    destroy_game_object(hud->scene, hud->player_pos);
     free(hud);
 }

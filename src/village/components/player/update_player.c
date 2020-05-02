@@ -51,7 +51,12 @@ static bool check_player_move(game_object_t *object, scene_t *scene)
     for (game_object_t *tmp = scene->objects_list; tmp; tmp = tmp->next) {
         if (tmp->type == PLAYER)
             continue;
-        if (tmp->state && sfIntRect_intersects(&next_pos, &tmp->box, NULL))
+        if (tmp->state == 2 && sfIntRect_intersects(&next_pos, &tmp->box,
+        NULL)) {
+            scene->display = GALAXIE_SCENE;
+            return (false);
+        }
+        if (tmp->state == 1 && sfIntRect_intersects(&next_pos, &tmp->box, NULL))
             return (false);
     }
     return (true);

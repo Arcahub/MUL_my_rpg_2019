@@ -23,7 +23,7 @@ json_object_t *js, game_t *game)
 {
     json_value_t *value = NULL;
 
-    *hud = (galaxie_hud_t) {NULL, NULL, NULL, scene};
+    *hud = (galaxie_hud_t) {NULL, NULL, NULL, NULL, scene};
     value = json_get_element_by_key(js, "button");
     hud->button = (value && value->value_type == OBJECT) ?
     rpg_create_animated_button_from_conf(NULL, value->value, game, scene) :
@@ -33,6 +33,9 @@ json_object_t *js, game_t *game)
     rpg_create_text_handler_from_conf(NULL, value->value, game, scene) : NULL;
     hud->village_conf_path = NULL;
     hud->scene = scene;
+    value = json_get_element_by_key(js, "player_pos");
+    hud->player_pos = (value && value->value_type == OBJECT) ?
+    rpg_create_text_handler_from_conf(NULL, value->value, game, scene) : NULL;
 }
 
 game_object_t *galaxie_hud_create(game_object_t *last, json_object_t *js,

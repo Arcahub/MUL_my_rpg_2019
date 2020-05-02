@@ -15,4 +15,6 @@ void galaxie_hud_draw(sfRenderWindow *window, game_object_t *object)
         if (hud->button)
             hud->button->draw(window, hud->button);
     }
+    if (hud->player_pos)
+        hud->player_pos->draw(window, hud->player_pos);
 }

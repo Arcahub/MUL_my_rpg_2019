@@ -12,8 +12,12 @@
 void rpg_quest_load_from_save(quest_t *quest)
 {
     int step_id = quest->actual_step;
+    step_t *tmp = NULL;
 
-    *quest = rpg_quest_get_from_conf(QUEST_CONF[quest->id], NULL);
+    *quest = rpg_quest_get_from_conf((char *) QUEST_CONF[quest->id], NULL);
     quest->actual_step = step_id;
     quest->state = TAKEN;
+    tmp = quest->step;
+    for (; tmp && tmp->step_number < step_id; tmp = tmp->next)
+        tmp->validated = true;
 }

@@ -23,13 +23,12 @@ json_object_t *js, game_t *game, scene_t *scene)
     if (js2 == NULL)
         return (NULL);
     value = json_get_element_by_key(js2, "pnjs");
-    if (value == NULL || value->value_type != ARRAY)
-        return (NULL);
-    array = value->value;
-    for (int i = 0; i < array->elem_count; i++) {
+    array = (value == NULL || value->value_type != ARRAY) ? NULL : value->value;
+    for (int i = 0; array && i < array->elem_count; i++) {
         if (array->array[i]->value_type == OBJECT)
         tmp = rpg_pnj_init_from_conf(last, array->array[i]->value, game, scene);
         last = (tmp) ? tmp : last;
     }
+    json_object_destroy(js2);
     return (last);
 }

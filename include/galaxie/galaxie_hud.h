@@ -14,6 +14,7 @@
 typedef struct {
     game_object_t *button;
     game_object_t *planet_name;
+    game_object_t *player_pos;
     char *village_conf_path;
     scene_t *scene;
 } galaxie_hud_t;

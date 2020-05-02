@@ -16,7 +16,7 @@ void draw_mini_map(sfRenderWindow *window, game_object_t *object)
 
     for (; tmp && tmp->type != INVENTORY; tmp = tmp->next);
     for (; tmp2 && tmp2->type != QUEST_BOARD; tmp2 = tmp2->next);
-    if ((tmp && tmp->state == 1) || tmp2 && tmp2->state == 1) {
+    if ((tmp && tmp->state == 1) || (tmp2 && tmp2->state == 1)) {
         sfView_destroy((sfView *) tmp_view);
         return;
     }

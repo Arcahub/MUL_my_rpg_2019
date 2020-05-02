@@ -45,6 +45,7 @@ json_object_t *js, game_t *game, scene_t *scene)
     object->extend = (void *) rpg_quest_board_create_extend(last, \
     js, game, scene);
     object->free_extend = &rpg_quest_board_destroy;
+    object->update = &rpg_quest_board_update_pos;
     if (object->extend == NULL)
         return (NULL);
     return (object);

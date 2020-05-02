@@ -39,6 +39,14 @@
                     "pos": [400, 100],
                     "style": 0,
                     "size": 100
+                },
+                "player_pos": {
+                    "type": 7,
+                    "string": "",
+                    "font": "templates/font/space.ttf",
+                    "pos": [0, 0],
+                    "style": 0,
+                    "size": 24
                 }
             },
             {

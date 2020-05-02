@@ -32,6 +32,8 @@ game_object_t *generate_rocks(game_object_t *last, sfVector2f pos, int id,
 int z_index);
 game_object_t *generate_weapon(game_object_t *last, sfVector2f pos, int id,
 int z_index);
+game_object_t *generate_ship(game_object_t *last, sfVector2f pos, int id,
+int z_index);
 
 static game_object_t *(*TILE_GENERATORS[])(game_object_t *, sfVector2f, int,
 int) = {
@@ -42,7 +44,7 @@ int) = {
     &generate_forest,
     &generate_forest,
     &generate_forest,
-    &generate_tile,
+    &generate_ship,
     &generate_tree,
     &generate_weapon,
     &generate_house,

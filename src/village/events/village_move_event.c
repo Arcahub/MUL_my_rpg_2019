@@ -38,7 +38,7 @@ sfRenderWindow *window)
     game_object_t *tmp = scene->objects_list;
 
     for (; tmp && tmp->type != PLAYER; tmp = tmp->next);
-    if (tmp->type != PLAYER)
+    if (!tmp || tmp->type != PLAYER)
         return;
     new_move = get_move_from_key(event.key.code);
     tmp->move = new_move;
