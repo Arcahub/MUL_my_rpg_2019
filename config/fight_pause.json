@@ -13,7 +13,7 @@
         "objects_list": [
             {
                 "type": 7,
-                "string": "Fight in pause !",
+                "string": "Fight in pause",
                 "font": "templates/font/space.ttf",
                 "pos": [400, 100],
                 "style": 0,
