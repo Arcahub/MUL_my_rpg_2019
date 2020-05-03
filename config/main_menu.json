@@ -15,12 +15,6 @@
                 "texture_path": "templates/menu/cursor.png"
             },
             {
-                "type": 17,
-                "volume": 100,
-                "loop": 0,
-                "sound_path": "templates/sounds/background_menu.ogg"
-            },
-            {
                 "type": 7,
                 "string": "Space My RPG !",
                 "font": "templates/font/space.ttf",
@@ -85,6 +79,12 @@
                 "type": 3,
                 "texture_path": "templates/menu/menu_bg_test_with_text.jpg",
                 "pos": [0, 0]
+            },
+            {
+                "type": 17,
+                "volume": 100,
+                "loop": true,
+                "sound_path": "templates/sounds/background_menu.ogg"
             }
         ]
     }
