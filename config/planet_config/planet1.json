@@ -2,17 +2,17 @@
     "pnjs": [
         {
             "json_path": "config/pnj/pnj_quest1.json",
-            "texture_path": "templates/npc.png",
+            "texture_path": "templates/pnj.png",
             "pos": [1500, 800]
         },
         {
             "json_path": "config/pnj/pnj2.json",
-            "texture_path": "templates/npc.png",
+            "texture_path": "templates/pnj.png",
             "pos": [1500, 900]
         },
         {
             "json_path": "config/pnj/pnj5.json",
-            "texture_path": "templates/npc.png",
+            "texture_path": "templates/pnj.png",
             "pos": [1300, 900]
         }
     ]
