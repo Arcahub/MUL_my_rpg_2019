@@ -1,7 +1,7 @@
 {
     "quest": {
         "id": 1,
-        "name": "Direction Celestia [PLANET 2]",
+        "name": "Go to Celestia (2330, 730)",
         "number_of_step": 2,
         "reward_item": 1,
         "reward_item_number": 1,
@@ -11,7 +11,7 @@
                 "type": 0,
                 "validated": 0,
                 "step_number": 2,
-                "description": "Retourne voir Oswald [PNJ 1] pour en découvrir plus",
+                "description": "Go back to Oswald to learn more",
                 "scene": 5,
                 "pos": [1000, 3000]
             },
@@ -19,7 +19,7 @@
                 "type": 1,
                 "validated": 0,
                 "step_number": 1,
-                "description": "Libère Andor [NEBULEUSE 2] des vaisseaux pirates",
+                "description": "Free Andor [NEBULEUSE 2] of the enemys",
                 "scene": 5,
                 "fight_scene": "config/fight_scene.json",
                 "pos": [1000, 3000]

@@ -1,7 +1,7 @@
 {
     "quest": {
         "id": 0,
-        "name": "Quete d'introduction",
+        "name": "Introduction Quest",
         "number_of_step": 2,
         "reward_item": 1,
         "reward_item_number": 1,
@@ -11,7 +11,7 @@
                 "type": 0,
                 "validated": 0,
                 "step_number": 2,
-                "description": "Retourne voir Asgar [PNJ 0] sur Adoryon [PLANET 1]",
+                "description": "Go back to Asgar on Adoryon (-330, -330)",
                 "scene": 5,
                 "pos": [1000, 3000]
             },
@@ -19,7 +19,7 @@
                 "type": 1,
                 "validated": 0,
                 "step_number": 1,
-                "description": "Apprends les bases du combat et détruis le vaisseau ennemi !",
+                "description": "Learn the fight's basics and destroy your opponent ship !",
                 "scene": 5,
                 "fight_scene": "config/fight_config/fight_quest1.json",
                 "pos": [0, 0]
