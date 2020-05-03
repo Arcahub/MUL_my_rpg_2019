@@ -28,7 +28,7 @@ quest_t rpg_quest_get_from_conf(char *path, scene_t *scene)
     !get_int_from_conf(js, &quest.number_of_step, \
     "number_of_step") || !get_int_from_conf(js, \
     &quest.reward_item_number, "reward_item_number") || \
-    (quest.name = my_strdup(get_str_from_conf(js, "name"))) == NULL)
+    ((quest.name = my_strdup(get_str_from_conf(js, "name"))) == NULL))
         return (quest);
     quest.step = rpg_quest_load_step_from_conf(js);
     rpg_quest_board_update(scene);

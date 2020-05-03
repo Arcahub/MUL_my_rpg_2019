@@ -11,6 +11,17 @@
 #include <stdlib.h>
 #include "components/get_from_config.h"
 
+static step_t *setup_step_infos(step_t *step, json_object_t *js)
+{
+    if (step->step_type == FIGHT && (step->fight_scene = \
+    my_strdup(get_str_from_conf(js, "fight_scene"))) == NULL)
+        return (NULL);
+    if (step->step_type == REACH &&
+    !get_int_from_conf(js, (int *) &step->scene, "scene"))
+        return (NULL);
+    return (step);
+}
+
 static step_t *create_step_from_conf(json_object_t *js, step_t *next)
 {
     step_t *step = malloc(sizeof(step_t));
@@ -20,21 +31,16 @@ static step_t *create_step_from_conf(json_object_t *js, step_t *next)
     step->fight_scene = NULL;
     if (!get_int_from_conf(js, (int *) &step->step_type, "type") || \
     !get_int_from_conf(js, &step->step_number, "step_number") ||
-    (step->description = my_strdup(get_str_from_conf(js, "description")))
-    == NULL || !get_vector2f_from_conf(js, &step->pos, "pos"))
+    ((step->description = my_strdup(get_str_from_conf(js, "description")))
+    == NULL) || !get_vector2f_from_conf(js, &step->pos, "pos"))
         return (NULL);
-    if (step->step_type == FIGHT && (step->fight_scene = \
-    my_strdup(get_str_from_conf(js, "fight_scene"))) == NULL)
-        return (NULL);
-    if (step->step_type == REACH &&
-    !get_int_from_conf(js, (int *) &step->scene, "scene"))
+    step = setup_step_infos(step, js);
+    if (step == NULL)
         return (NULL);
     step->validated = 0;
-    if (step->step_number == 5)
-        step->validated = 0;
     step->next = next;
     return (step);
-} // NORM
+}
 
 step_t *rpg_quest_load_step_from_conf(json_object_t *js)
 {
