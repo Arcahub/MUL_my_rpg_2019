@@ -15,9 +15,10 @@
 #define QUEST_HANDLER_H_
 
 typedef enum {
-    INTRODUCTION_QUEST,
-    SECOND_QUEST,
-    FAKE_QUEST,
+    QUEST1,
+    QUEST2,
+    QUEST3,
+    QUEST4,
     MAX_QUEST_ID
 } quest_id;
 

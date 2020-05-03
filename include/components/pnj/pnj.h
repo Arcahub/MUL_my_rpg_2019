@@ -20,8 +20,10 @@ typedef enum {
 } dialog_statue;
 
 typedef enum {
-    INTRODUCTION_PNJ,
-    ONSENFOU,
+    PNJ_QUEST1,
+    PNJ_QUEST2,
+    PNJ_QUEST3,
+    PNJ_QUEST4,
     SECOND_QUEST_PNJ,
     MAX_PNJ_ID
 } pnj_id;
