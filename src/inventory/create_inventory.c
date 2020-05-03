@@ -12,18 +12,9 @@
 #include "player.h"
 #include <stdio.h>
 
-bool rpg_update_inventory(game_object_t *object, scene_t *scene)
+static void rpg_inventory_set_item_pos(inventory_t *tmp, sfVector2f pos, \
+sfVector2f tmp2)
 {
-    inventory_t *tmp = *((inventory_t **) object->extend);
-    sfVector2f tmp2 = {275, 250};
-    sfVector2f pos = sfView_getCenter(sfRenderWindow_getView(scene->window));
-
-    pos = (sfVector2f) {pos.x - 1920 / 2, pos.y - 1080 / 2};
-    sfSprite_setPosition(object->sprite, (sfVector2f) {pos.x, pos.y});
-    object->box.left = pos.x + 250;
-    object->box.top = pos.y + 215;
-    if (object->state == 0)
-        return (true);
     for (int x = 0, y = 0; tmp; tmp = tmp->next, x++) {
         x = (x == 11) ? 0 : x;
         y = (x == 0) ? y + 1 : y;
@@ -39,8 +30,23 @@ bool rpg_update_inventory(game_object_t *object, scene_t *scene)
         sfText_setPosition(tmp->text[1], (sfVector2f) {tmp2.x, 300 + pos.y});
         sfText_setPosition(tmp->text[2], (sfVector2f) {tmp2.x, 550 + pos.y});
     }
+}
+
+bool rpg_update_inventory(game_object_t *object, scene_t *scene)
+{
+    inventory_t *tmp = *((inventory_t **) object->extend);
+    sfVector2f tmp2 = {275, 250};
+    sfVector2f pos = sfView_getCenter(sfRenderWindow_getView(scene->window));
+
+    pos = (sfVector2f) {pos.x - 1920 / 2, pos.y - 1080 / 2};
+    sfSprite_setPosition(object->sprite, (sfVector2f) {pos.x, pos.y});
+    object->box.left = pos.x + 250;
+    object->box.top = pos.y + 215;
+    if (object->state == 0)
+        return (true);
+    rpg_inventory_set_item_pos(tmp, pos, tmp2);
     return (true);
-} // NORM
+}
 
 bool rpg_inventory_get_click_on_item(game_object_t *object, void *pt)
 {

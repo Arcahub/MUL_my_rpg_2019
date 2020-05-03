@@ -37,7 +37,8 @@ static bool is_dialog_open(game_object_t *object, scene_t *scene)
     return (0);
 }
 
-static bool is_player_next_to_npc(game_object_t *object, scene_t *scene, pnj_t *pnj)
+static bool is_player_next_to_npc(game_object_t *object, scene_t *scene, \
+pnj_t *pnj)
 {
     game_object_t *tmp = scene->objects_list;
     sfIntRect box = {0, 0, 0, 0};

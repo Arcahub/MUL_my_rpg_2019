@@ -48,6 +48,21 @@ int rpg_fight_handler_spaceship_get_repair_statue(scene_t *scene)
     return (ship->repair_statue);
 }
 
+static void rpg_spaceship_remove_hp(space_ship_t *ship, int damage)
+{
+    if (ship->shield + ship->hp <= damage) {
+        ship->hp = 0;
+        return;
+    } else if (ship->shield >= damage) {
+        ship->shield -= damage;
+        return;
+    }
+    if (ship->hp > damage - ship->shield) {
+        ship->hp -= damage - ship->shield;
+        ship->shield = 0;
+    }
+}
+
 void rpg_fight_handler_remove_spaceship_life(game_object_t *object, \
 scene_t *scene)
 {
@@ -60,15 +75,5 @@ scene_t *scene)
         return;
     rpg_fight_log_push_text(rpg_fight_handler_get_extend(scene), \
     "Your ennemy attacked you for ", damage);
-    if (ship->shield + ship->hp <= damage) {
-        ship->hp = 0;
-        return;
-    } else if (ship->shield >= damage) {
-        ship->shield -= damage;
-        return;
-    }
-    if (ship->hp > damage - ship->shield) {
-        ship->hp -= damage - ship->shield;
-        ship->shield = 0;
-    }
-} // NORM
+    rpg_spaceship_remove_hp(ship, damage);
+}

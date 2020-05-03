@@ -7,6 +7,14 @@
 
 #include "fight_scene/fight_handler.h"
 
+static bool rpg_fight_handler_empty_check(fight_handler_t *handler)
+{
+    if (handler->id[handler->done] == EMPTY)
+        return (false);
+    handler->done++;
+    return (false);
+}
+
 bool rpg_fight_handler_callback(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *) pt;
@@ -26,8 +34,5 @@ bool rpg_fight_handler_callback(game_object_t *object, void *pt)
         handler->id[handler->done] = (sfIntRect_contains(&tmp->box, pos.x, pos.y
         ) && tmp->type == DODGE_BUTTON) ? DODGE : handler->id[handler->done];
     }
-    if (handler->id[handler->done] == EMPTY)
-        return (false);
-    handler->done++;
-    return (false);
+    return (rpg_fight_handler_empty_check(handler));
 }
