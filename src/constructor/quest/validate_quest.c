@@ -36,6 +36,7 @@ void validate_quest(game_t *game, scene_t *scene, quest_t *quest)
     ((player_t *) game->player)->quest = \
     rpg_quest_get_from_conf((char *) QUEST_CONF[quest->id + 1], scene);
     ((player_t *) game->player)->quest.state = TAKEN;
+    quest_board = rpg_quest_board_update_text(quest_board, scene);
 }
 
 void validate_step(game_t *game, scene_t *scene, quest_t *quest)
