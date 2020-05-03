@@ -2,8 +2,14 @@
 
 *****
 
-Welcome to my my_rpg,
-Welcome to my my_rpg, you can can head to the doc.md file to see different informations about what the game contains.
+
+## My_RPG website
+
+We created a my_rpg website where you can head to our github projet, there's also a how to play page, a download page, and a developper documentation where you can see every component of the game if you want to understand how we made it or if you want to add anything.
+
+## Developper documentation markdonwn
+
+You can click <a href="dev_doc.md">here</a> to head to the my_rpg markdown documentation see developper documentation with every game's component if you want to understand how we made it or if you want to add anything. The html version on the RPG website is more visual. Check it out !
 
 ### Linux Installer
 
@@ -61,12 +67,7 @@ SOFTWARE.
 
 Dev :
 
-Guillaume Mailhol
-
-Ulysse-queritet-diop
-
-Nolann Holvoet
-
-Thomas Marches
+Guillaume Mailhol  
+Nolann Holvoet  
+Thomas Marches  
 Uylsse queritet diop
-Nolann Holvoet
