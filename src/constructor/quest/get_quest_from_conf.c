@@ -34,4 +34,4 @@ quest_t rpg_quest_get_from_conf(char *path, scene_t *scene)
     rpg_quest_board_update(scene);
     json_object_destroy(js);
     return (quest);
-} // NORM
+}

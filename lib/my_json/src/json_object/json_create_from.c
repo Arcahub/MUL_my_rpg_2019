@@ -47,10 +47,8 @@ json_object_t *json_create_from_file(char *path)
     int fd = open(path, O_RDONLY);
     json_object_t *js = NULL;
 
-    if (fd < 0) {
-        close(fd);
+    if (fd < 0)
         return (NULL);
-    }
     js = json_create_from_fd(fd);
     close(fd);
     return (js);
