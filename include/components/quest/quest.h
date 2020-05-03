@@ -17,6 +17,7 @@
 typedef enum {
     INTRODUCTION_QUEST,
     SECOND_QUEST,
+    FAKE_QUEST,
     MAX_QUEST_ID
 } quest_id;
 

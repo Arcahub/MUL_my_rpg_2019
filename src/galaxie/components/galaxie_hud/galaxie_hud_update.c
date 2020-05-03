@@ -27,7 +27,7 @@ scene_t *scene)
     str1 = my_strcat_nbr("", tmp->pos.x);
     str2 = my_strcat(str1, " / ");
     free(str1);
-    str1 = my_strcat_nbr(str2, tmp->pos.x);
+    str1 = my_strcat_nbr(str2, tmp->pos.y);
     free(str2);
     if (text)
         sfText_setString(text->text, str1);

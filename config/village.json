@@ -93,15 +93,15 @@
                 "type": 22
             },
             {
+                "type": 20,
+                "texture_path": "templates/Window.png"
+            },
+            {
                 "type": 21
             },
             {
                 "type": 12,
                 "texture_path": "templates/inv.png"
-            },
-            {
-                "type": 20,
-                "texture_path": "templates/Window.png"
             }
         ]
     }

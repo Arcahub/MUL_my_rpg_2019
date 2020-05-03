@@ -20,7 +20,8 @@ scene_t *scene)
 
     if (actual == NULL || actual->step_type != FIGHT)
         return;
-    fight_zone = (sfIntRect) {actual->pos.x - 50, actual->pos.y - 50, 100, 100};
+    fight_zone = (sfIntRect) {actual->pos.x - 100, actual->pos.y - 100,
+    200, 200};
     if (sfIntRect_contains(&fight_zone, object->pos.x, object->pos.y))
         scene->display = FIGHT_SCENE;
 }
