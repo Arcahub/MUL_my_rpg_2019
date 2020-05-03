@@ -1,6 +1,6 @@
 {
     "quest": {
-        "id": 1,
+        "id": 2,
         "name": "Money buys everything",
         "number_of_step": 2,
         "reward_item": 1,
