@@ -24,6 +24,10 @@ typedef enum {
     PNJ_QUEST2,
     PNJ_QUEST3,
     PNJ_QUEST4,
+    PNJ_DIALOG1,
+    PNJ_DIALOG2,
+    PNJ_DIALOG3,
+    PNJ_DIALOG4,
     SECOND_QUEST_PNJ,
     MAX_PNJ_ID
 } pnj_id;

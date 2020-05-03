@@ -1,8 +1,8 @@
 {
     "pnj": {
-        "id": 1,
+        "id": 4,
         "type": 1,
-        "name": "Lira",
+        "name": "John",
         "dialog": [
             {
                 "type": 0,
@@ -12,22 +12,22 @@
             {
                 "type": 0,
                 "speaker": 0,
-                "message": " : I'm just there taking the sun, well have a good day !"
+                "message": " : Okay, good luck and have a good day !"
             },
             {
                 "type": 0,
                 "speaker": 1,
-                "message": " : I'm just going there and there. What about  you ?"
+                "message": " : I'm just gonna pass my day cutting wood and taking the sun !"
             },
             {
                 "type": 0,
                 "speaker": 0,
-                "message": " : I'm fine, thank you. What are you doing in here?"
+                "message": " : I'm just going here and there, how about you?"
             },
             {
                 "type": 0,
                 "speaker": 1,
-                "message": " : On se fume un petit joint?"
+                "message": " : Hey, what you doing ?"
             }
         ]
     }
