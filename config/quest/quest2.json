@@ -21,7 +21,7 @@
                 "step_number": 1,
                 "description": "Free Andor (1000, 3000) of the enemys",
                 "scene": 5,
-                "fight_scene": "config/fight_scene.json",
+                "fight_scene": "config/fight_config/fight_quest2.json",
                 "pos": [1000, 3000]
             }
         ]
