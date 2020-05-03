@@ -8,6 +8,7 @@
 #include "galaxie/galaxie_hud.h"
 #include "components/text_handler/text_handler.h"
 #include "my.h"
+#include <stdlib.h>
 
 static void galaxie_hud_update_player_pos(galaxie_hud_t *hud,
 scene_t *scene)

@@ -38,8 +38,11 @@ void free_sprite_and_texture(game_object_t *object)
 
 void isolate_in_list(scene_t *scene, game_object_t *object)
 {
-    game_object_t *tmp = scene->objects_list;
+    game_object_t *tmp = NULL;
 
+    if (scene == NULL)
+        return;
+    tmp = scene->objects_list;
     if (scene->objects_list == object)
         scene->objects_list = object->next;
     else {

@@ -75,18 +75,18 @@ char *path, int number)
     item->texture = sfTexture_createFromFile(get_str_from_conf(js, \
     "path"), NULL);
     if (item->sprite == NULL || item->texture == NULL)
-        return (NULL);
+        return;
     sfSprite_setTexture(item->sprite, item->texture, sfTrue);
     item = rpg_inventory_set_item_type(item, js);
     if (rpg_inventory_init_item(item, js, number) == NULL)
-        return (NULL);
+        return;
     item = rpg_inventory_create_text(item);
     item->box = (sfIntRect) {0, 0, 0, 0};
     json_object_destroy(js);
     *list = item;
 }
 
-inventory_t *rpg_inventory_add_item(inventory_t **list, int number, item_id id)
+void rpg_inventory_add_item(inventory_t **list, int number, item_id id)
 {
     inventory_t *tmp = NULL;
     char *path = NULL;
