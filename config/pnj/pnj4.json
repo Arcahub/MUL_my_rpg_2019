@@ -1,33 +1,18 @@
 {
     "pnj": {
-        "id": 1,
+        "id": 6,
         "type": 1,
-        "name": "Marchestufumepas",
+        "name": "Jhin",
         "dialog": [
             {
                 "type": 0,
-                "speaker": 1,
-                "message": " : Have a good day !"
-            },
-            {
-                "type": 0,
                 "speaker": 0,
-                "message": " : I'm just there taking the sun, well have a good day !"
+                "message": " : I'm Batman !"
             },
             {
                 "type": 0,
                 "speaker": 1,
-                "message": " : I'm just going there and there. What about  you ?"
-            },
-            {
-                "type": 0,
-                "speaker": 0,
-                "message": " : I'm fine, thank you. What are you doing in here?"
-            },
-            {
-                "type": 0,
-                "speaker": 1,
-                "message": " : On se fume un petit joint?"
+                "message": " : Hey, who are you ?"
             }
         ]
     }

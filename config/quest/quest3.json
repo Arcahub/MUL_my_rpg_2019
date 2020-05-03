@@ -19,10 +19,10 @@
                 "type": 1,
                 "validated": 0,
                 "step_number": 1,
-                "description": "Get 100000$ on Olda [NEBULEUSE 5]",
+                "description": "Get 100000$ on Olda (-500, 2000)",
                 "scene": 5,
-                "fight_scene": "config/fight_scene.json",
-                "pos": [1000, 3000]
+                "fight_scene": "config/fight_config/fight_quest3.json",
+                "pos": [-500, 2000]
             }
         ]
     }

@@ -1,19 +1,33 @@
 {
     "pnj": {
-        "id": 2,
-        "type": 0,
-        "name": "Ouai gros",
-        "quest": 1,
+        "id": 5,
+        "type": 1,
+        "name": "Kato",
         "dialog": [
             {
-                "type": 1,
+                "type": 0,
                 "speaker": 1,
-                "message": " : QUEST_OVER, GG BRO"
+                "message": " : Have a good day !"
             },
             {
-                "type": 2,
+                "type": 0,
+                "speaker": 0,
+                "message": " : Okay, good luck and have a good day !"
+            },
+            {
+                "type": 0,
                 "speaker": 1,
-                "message": " : DOING QUEST"
+                "message": " : Yes, exaclty, I need him to solve my SIGSEV on the my_rpg project !"
+            },
+            {
+                "type": 0,
+                "speaker": 0,
+                "message": " : I saw him in China, around Tsinghua ! Isn't he the guy with 4.0 GPA?"
+            },
+            {
+                "type": 0,
+                "speaker": 1,
+                "message": " : Hey, i'm looking for Florent Poinsard, have you seen him ?"
             }
         ]
     }
