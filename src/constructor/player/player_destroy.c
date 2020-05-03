@@ -13,6 +13,7 @@
 void player_destroy(player_t *player)
 {
     rpg_destroy_quest(&player->quest);
+    rpg_inventory_destroy(&player->item_list);
     my_free(player->planet_conf);
     free(player);
 }

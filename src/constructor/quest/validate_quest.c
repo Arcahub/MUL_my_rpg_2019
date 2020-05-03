@@ -23,8 +23,8 @@ void validate_quest(game_t *game, scene_t *scene, quest_t *quest)
     for (; tmp && tmp->type != INVENTORY; tmp = tmp->next);
     if (tmp->type != INVENTORY)
         return;
-    tmp->extend = (void *) rpg_inventory_add_item((inventory_t *)
-    tmp->extend, quest->reward_item_number, quest->reward_item);
+    rpg_inventory_add_item(tmp->extend, quest->reward_item_number,
+    quest->reward_item);
     for (; board && board->type != QUEST_BOARD; board = board->next);
     if (board->type != QUEST_BOARD)
         return;

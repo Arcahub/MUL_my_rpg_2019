@@ -29,6 +29,7 @@ player_t *player_load_from_save_fd(int fd)
     }
     rpg_quest_load_from_save(&player->quest);
     player->planet_conf = NULL;
+    player->item_list = NULL;
     return (player);
 }
 

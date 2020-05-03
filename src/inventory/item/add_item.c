@@ -62,15 +62,15 @@ json_object_t *js, int number)
     return (item);
 }
 
-static inventory_t *rpg_inventory_add_new_item_from_conf(inventory_t *last, \
+static void rpg_inventory_add_new_item_from_conf(inventory_t **list, \
 char *path, int number)
 {
     json_object_t *js = json_create_from_file(path);
     inventory_t *item = malloc(sizeof(inventory_t));
 
     if (js == NULL || item == NULL)
-        return (NULL);
-    item->next = last;
+        return;
+    item->next = *list;
     item->sprite = sfSprite_create();
     item->texture = sfTexture_createFromFile(get_str_from_conf(js, \
     "path"), NULL);
@@ -83,23 +83,22 @@ char *path, int number)
     item = rpg_inventory_create_text(item);
     item->box = (sfIntRect) {0, 0, 0, 0};
     json_object_destroy(js);
-    return (item);
+    *list = item;
 }
 
-inventory_t *rpg_inventory_add_item(inventory_t *last, int number, item_id id)
+inventory_t *rpg_inventory_add_item(inventory_t **list, int number, item_id id)
 {
     inventory_t *tmp = NULL;
     char *path = NULL;
 
     if (ITEM_PATHS[id] != NULL)
         path = (char *) ITEM_PATHS[id];
-    for (tmp = last; tmp; tmp = tmp->next) {
+    for (tmp = *list; tmp; tmp = tmp->next) {
         if (tmp->id == id) {
             tmp->item_number += number;
             rpg_item_update_text(tmp);
-            return (last);
         }
     }
-    return (rpg_inventory_add_new_item_from_conf(last, \
-    path, number));
+    rpg_inventory_add_new_item_from_conf(list, \
+    path, number);
 }

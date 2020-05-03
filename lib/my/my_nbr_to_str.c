@@ -47,6 +47,7 @@ char *my_nbr_to_str(long long int n)
     long long int digits = 0;
     char sign = '+';
     char *str = NULL;
+    char *tmp = NULL;
 
     if (n < 0) {
         sign = '-';
@@ -54,7 +55,10 @@ char *my_nbr_to_str(long long int n)
     }
     digits = get_int_length(n);
     str = (display_nbr(n, digits));
-    if (sign == '-')
-        return (my_strcat("-", str));
+    if (sign == '-') {
+        tmp = my_strcat("-", str);
+        free(str);
+        return (tmp);
+    }
     return (str);
 }

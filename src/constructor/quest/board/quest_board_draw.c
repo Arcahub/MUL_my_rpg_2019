@@ -24,8 +24,6 @@ void rpg_quest_board_draw(sfRenderWindow *window, game_object_t *object)
     sfRenderWindow_drawText(window, board->item_reward, NULL);
     if (board->actual_step != NULL)
         sfRenderWindow_drawText(window, board->actual_step, NULL);
-    for (int x = 0; x < board->step_to_draw; x++) {
-        printf("saea\n");
+    for (int x = 0; x < board->step_to_draw; x++)
         sfRenderWindow_drawText(window, board->steps[x], NULL);
-    }
 }
