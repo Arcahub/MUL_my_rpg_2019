@@ -17,8 +17,6 @@ static ennemy_t *rpg_ennemy_create_text(ennemy_t *ennemy)
     char *tmp1 = NULL;
     char *tmp2 = NULL;
 
-    if (ennemy == NULL)
-        return (NULL);
     tmp1 = my_strcat_nbr("Ennemy's life: ", ennemy->hp);
     tmp2 = my_strcat_nbr("Ennemy's shield: ", ennemy->shield);
     if (tmp1 == NULL || tmp2 == NULL) {
@@ -86,15 +84,13 @@ json_object_t *js)
 game_object_t *rpg_ennemy_create_from_conf(game_object_t *last, \
 json_object_t *js, game_t *game, scene_t *scene)
 {
-    sfVector2f pos = {0, 0};
     game_object_t *object = create_game_object(last, get_str_from_conf(js, \
-    "texture_path"), pos, ENNEMY);
+    "texture_path"), (sfVector2f) {0, 0}, ENNEMY);
 
     if (object == NULL)
         return (NULL);
-    if (!get_vector2f_from_conf(js, &pos, "pos"))
+    if (!get_vector2f_from_conf(js, &object->pos, "pos"))
         return (NULL);
-    object->pos = pos;
     sfSprite_setPosition(object->sprite, object->pos);
     sfSprite_setRotation(object->sprite, 270);
     object->draw = &rpg_ennemy_draw;

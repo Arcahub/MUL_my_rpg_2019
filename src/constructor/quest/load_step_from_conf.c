@@ -13,8 +13,8 @@
 
 static step_t *setup_step_infos(step_t *step, json_object_t *js)
 {
-    if (step->step_type == FIGHT && (step->fight_scene = \
-    my_strdup(get_str_from_conf(js, "fight_scene"))) == NULL)
+    step->fight_scene = my_strdup(get_str_from_conf(js, "fight_scene"));
+    if (step->step_type == FIGHT && (step->fight_scene == NULL))
         return (NULL);
     if (step->step_type == REACH &&
     !get_int_from_conf(js, (int *) &step->scene, "scene"))

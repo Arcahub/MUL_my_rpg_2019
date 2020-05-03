@@ -82,6 +82,8 @@ static pnj_t *rpg_pnj_init_dialog_background(pnj_t *pnj)
 {
     sfVector2f pos = {0, 880};
 
+    if (pnj == NULL)
+        return (NULL);
     pnj->background = create_game_object(NULL, (char *) background_path, \
     pos, DECOR);
     if (pnj->background == NULL)
@@ -100,9 +102,10 @@ json_object_t *js, game_t *game, scene_t *scene)
         return (NULL);
     if (rpg_pnj_init_extend(js, pnj, &pnj_js))
         return (NULL);
-    if (((pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game)) == NULL) || \
-    ((pnj = rpg_pnj_init_dialog_background(pnj)) == NULL))
+    pnj->dialog = rpg_pnj_init_dialog(pnj, pnj_js, game);
+    pnj = rpg_pnj_init_dialog_background(pnj);
+    if (pnj == NULL || pnj->dialog == NULL)
         return (NULL);
     json_object_destroy(pnj_js);
     return (pnj);
-} // NORM
+}

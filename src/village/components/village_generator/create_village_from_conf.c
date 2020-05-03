@@ -60,12 +60,11 @@ game_t *game, scene_t *scene)
     if (!value || value->value_type != ARRAY)
         return (last);
     arr = value->value;
-    for (int i = 0; i < arr->elem_count; i++) {
+    for (int i = 0; i < arr->elem_count; i++)
         if (arr->array[i]->value_type == ARRAY) {
             tmp = generate_map_line(last, arr->array[i]->value,
             (sfVector2f) {tile_width, tile_height * i}, scene);
             last = (tmp) ? tmp : last;
         }
-    }
     return (last);
 }

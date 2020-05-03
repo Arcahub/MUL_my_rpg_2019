@@ -12,7 +12,8 @@
 #include "player.h"
 #include <stdio.h>
 
-static void rpg_inventory_set_item_pos(inventory_t *tmp, sfVector2f pos, sfVector2f tmp2)
+static void rpg_inventory_set_item_pos(inventory_t *tmp, sfVector2f pos, \
+sfVector2f tmp2)
 {
     for (int x = 0, y = 0; tmp; tmp = tmp->next, x++) {
         x = (x == 11) ? 0 : x;
